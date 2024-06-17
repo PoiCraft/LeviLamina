@@ -10,6 +10,12 @@ namespace SynchedActorDataAccess {
 // symbol: ?getActorFlag@SynchedActorDataAccess@@YA_NAEBVEntityContext@@W4ActorFlags@@@Z
 MCAPI bool getActorFlag(class EntityContext const&, ::ActorFlags);
 
+// symbol: ?getBoundingBoxScale@SynchedActorDataAccess@@YAMAEBVEntityContext@@@Z
+MCAPI float getBoundingBoxScale(class EntityContext const&);
+
+// symbol: ?getBoundingBoxSize@SynchedActorDataAccess@@YA?AVVec2@@AEBVEntityContext@@@Z
+MCAPI class Vec2 getBoundingBoxSize(class EntityContext const&);
+
 // symbol: ?getControllingSeatIndex@SynchedActorDataAccess@@YAHAEBVEntityContext@@@Z
 MCAPI int getControllingSeatIndex(class EntityContext const&);
 
@@ -39,8 +45,20 @@ MCAPI void setActorFlag(class EntityContext&, ::ActorFlags, bool);
 MCAPI void setActorFlag(struct ActorDataFlagComponent&, struct ActorDataDirtyFlagsComponent&, ::ActorFlags, bool);
 
 // symbol:
-// ?setActorFlags@SynchedActorDataAccess@@YAXAEAUActorDataFlagComponent@@AEAUActorDataDirtyFlagsComponent@@AEBV?$bitset@$0HG@@std@@@Z
-MCAPI void setActorFlags(struct ActorDataFlagComponent&, struct ActorDataDirtyFlagsComponent&, std::bitset<118> const&);
+// ?setActorFlags@SynchedActorDataAccess@@YAXAEAUActorDataFlagComponent@@AEAUActorDataDirtyFlagsComponent@@AEBV?$bitset@$0HH@@std@@@Z
+MCAPI void setActorFlags(struct ActorDataFlagComponent&, struct ActorDataDirtyFlagsComponent&, std::bitset<119> const&);
+
+// symbol: ?setBoundingBoxScale@SynchedActorDataAccess@@YAXAEAVEntityContext@@M@Z
+MCAPI void setBoundingBoxScale(class EntityContext&, float);
+
+// symbol:
+// ?setBoundingBoxScale@SynchedActorDataAccess@@YAXAEAUActorDataBoundingBoxComponent@@AEAUActorDataDirtyFlagsComponent@@M@Z
+MCAPI void setBoundingBoxScale(struct ActorDataBoundingBoxComponent&, struct ActorDataDirtyFlagsComponent&, float);
+
+// symbol:
+// ?setBoundingBoxSize@SynchedActorDataAccess@@YAXAEAUActorDataBoundingBoxComponent@@AEAUActorDataDirtyFlagsComponent@@MM@Z
+MCAPI void
+setBoundingBoxSize(struct ActorDataBoundingBoxComponent&, struct ActorDataDirtyFlagsComponent&, float, float);
 
 // symbol: ?setControllingSeatIndex@SynchedActorDataAccess@@YAXAEAVEntityContext@@C@Z
 MCAPI void setControllingSeatIndex(class EntityContext&, schar);
@@ -59,6 +77,19 @@ MCAPI void setJumpDuration(struct ActorDataJumpDurationComponent&, struct ActorD
 // symbol:
 // ?setSeatOffset@SynchedActorDataAccess@@YAXAEAUActorDataSeatOffsetComponent@@AEAUActorDataDirtyFlagsComponent@@AEBVVec3@@@Z
 MCAPI void setSeatOffset(struct ActorDataSeatOffsetComponent&, struct ActorDataDirtyFlagsComponent&, class Vec3 const&);
+
+// symbol:
+// ?setValue@SynchedActorDataAccess@@YAXAEAUActorDataBoundingBoxComponent@@AEAUActorDataDirtyFlagsComponent@@AEBV?$array@M$02@std@@@Z
+MCAPI void
+setValue(struct ActorDataBoundingBoxComponent&, struct ActorDataDirtyFlagsComponent&, std::array<float, 3> const&);
+
+// symbol:
+// ?setValue@SynchedActorDataAccess@@YAXAEAUActorDataJumpDurationComponent@@AEAUActorDataDirtyFlagsComponent@@C@Z
+MCAPI void setValue(struct ActorDataJumpDurationComponent&, struct ActorDataDirtyFlagsComponent&, schar);
+
+// symbol:
+// ?setValue@SynchedActorDataAccess@@YAXAEAUActorDataSeatOffsetComponent@@AEAUActorDataDirtyFlagsComponent@@AEBVVec3@@@Z
+MCAPI void setValue(struct ActorDataSeatOffsetComponent&, struct ActorDataDirtyFlagsComponent&, class Vec3 const&);
 // NOLINTEND
 
 }; // namespace SynchedActorDataAccess

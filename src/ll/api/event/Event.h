@@ -1,9 +1,8 @@
 #pragma once
 
 #include <concepts>
-#include <memory>
 
-#include "ll/api/event/EmitterBase.h"
+#include "ll/api/base/Macro.h"
 #include "ll/api/event/EventId.h"
 
 class CompoundTag;
@@ -32,6 +31,8 @@ public:
     LLAPI virtual void serialize(CompoundTag&) const;
     LLAPI virtual void deserialize(CompoundTag const&);
 
-    static constexpr ll::event::EventId CustomEventId{EmptyEventId};
+    LLAPI virtual EventId getId() const;
+
+    static constexpr EventId CustomEventId{EmptyEventId};
 };
 } // namespace ll::event

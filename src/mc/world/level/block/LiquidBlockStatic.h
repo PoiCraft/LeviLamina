@@ -30,14 +30,14 @@ public:
     // vIndex: 0, symbol: __gen_??1LiquidBlockStatic@@UEAA@XZ
     virtual ~LiquidBlockStatic() = default;
 
-    // vIndex: 92, symbol: ?neighborChanged@LiquidBlockStatic@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@LiquidBlockStatic@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
-    // vIndex: 151, symbol: ?randomTick@LiquidBlockStatic@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 149, symbol: ?randomTick@LiquidBlockStatic@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void randomTick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 167, symbol: ?entityInside@LiquidBlockStatic@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
+    // vIndex: 162, symbol: ?entityInside@LiquidBlockStatic@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
     virtual void entityInside(class BlockSource&, class BlockPos const&, class Actor& entity) const;
 
     // symbol:

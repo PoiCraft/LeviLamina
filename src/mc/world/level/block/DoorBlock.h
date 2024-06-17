@@ -55,34 +55,34 @@ public:
     // vIndex: 13, symbol: ?getLiquidClipVolume@DoorBlock@@UEBA_NAEBVBlock@@AEAVBlockSource@@AEBVBlockPos@@AEAVAABB@@@Z
     virtual bool getLiquidClipVolume(class Block const&, class BlockSource&, class BlockPos const&, class AABB&) const;
 
-    // vIndex: 40, symbol: ?isDoorBlock@DoorBlock@@UEBA_NXZ
+    // vIndex: 41, symbol: ?isDoorBlock@DoorBlock@@UEBA_NXZ
     virtual bool isDoorBlock() const;
 
-    // vIndex: 50, symbol: ?canFillAtPos@DoorBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 51, symbol: ?canFillAtPos@DoorBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool canFillAtPos(class BlockSource& region, class BlockPos const& pos, class Block const&) const;
 
-    // vIndex: 52, symbol: ?onFillBlock@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 53, symbol: ?onFillBlock@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual void onFillBlock(class BlockSource& region, class BlockPos const& pos, class Block const& block) const;
 
-    // vIndex: 61, symbol: ?checkIsPathable@DoorBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
+    // vIndex: 62, symbol: ?checkIsPathable@DoorBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
     virtual bool
     checkIsPathable(class Actor& entity, class BlockPos const& lastPathPos, class BlockPos const& pathPos) const;
 
-    // vIndex: 65, symbol: ?onRedstoneUpdate@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
+    // vIndex: 66, symbol: ?onRedstoneUpdate@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
     virtual void
     onRedstoneUpdate(class BlockSource& region, class BlockPos const& pos, int strength, bool isFirstTime) const;
 
-    // vIndex: 71, symbol: ?setupRedstoneComponent@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 72, symbol: ?setupRedstoneComponent@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void setupRedstoneComponent(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 85, symbol: ?mayPlace@DoorBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 86, symbol: ?mayPlace@DoorBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
-    // vIndex: 93, symbol: ?getSecondPart@DoorBlock@@UEBA_NAEBVIConstBlockSource@@AEBVBlockPos@@AEAV3@@Z
+    // vIndex: 94, symbol: ?getSecondPart@DoorBlock@@UEBA_NAEBVIConstBlockSource@@AEBVBlockPos@@AEAV3@@Z
     virtual bool
     getSecondPart(class IConstBlockSource const& region, class BlockPos const& pos, class BlockPos& out) const;
 
@@ -92,37 +92,25 @@ public:
     // vIndex: 129, symbol: ?getVariant@DoorBlock@@UEBAHAEBVBlock@@@Z
     virtual int getVariant(class Block const& block) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@DoorBlock@@MEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 147, symbol: ?onPlace@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random&) const;
 
-    // vIndex: 152, symbol: ?isInteractiveBlock@DoorBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@DoorBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@DoorBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@DoorBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 156, symbol: ?canSurvive@DoorBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 154, symbol: ?canSurvive@DoorBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool canSurvive(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 163, symbol: ?getResourceItem@DoorBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const& block, int) const;
+    // vIndex: 161, symbol: ?_onHitByActivatingAttack@DoorBlock@@EEBAXAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@@Z
+    virtual void _onHitByActivatingAttack(class BlockSource&, class BlockPos const&, class Actor*) const;
 
-    // vIndex: 164, symbol: ?getResourceCount@DoorBlock@@UEBAHAEAVRandomize@@AEBVBlock@@H@Z
-    virtual int getResourceCount(class Randomize&, class Block const& block, int) const;
-
-    // vIndex: 165, symbol: ?getSilkTouchItemInstance@DoorBlock@@UEBA?AVItemInstance@@AEBVBlock@@@Z
-    virtual class ItemInstance getSilkTouchItemInstance(class Block const& block) const;
-
-    // vIndex: 166, symbol: ?_onHitByActivatingAttack@DoorBlock@@EEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
-    virtual void _onHitByActivatingAttack(class BlockSource&, class BlockPos const&) const;
-
-    // vIndex: 167, symbol: ?entityInside@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
+    // vIndex: 162, symbol: ?entityInside@DoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
     virtual void entityInside(class BlockSource& region, class BlockPos const& pos, class Actor& entity) const;
 
     // symbol:

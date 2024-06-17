@@ -28,6 +28,10 @@ public:
     // symbol: ?setAssertMessage@CrashDumpLog@@SAXPEBDH00@Z
     MCAPI static void setAssertMessage(char const*, int, char const*, char const*);
 
+    // symbol:
+    // ?setBehaviorPackIds@CrashDumpLog@@SAXAEBV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@@Z
+    MCAPI static void setBehaviorPackIds(std::vector<std::string> const&);
+
     // symbol: ?setDeviceSessionID@CrashDumpLog@@SA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
     MCAPI static bool setDeviceSessionID(std::string const&);
 
@@ -55,14 +59,14 @@ public:
 
     // NOLINTEND
 
-protected:
+    // protected:
     // NOLINTBEGIN
     // symbol: ?mAllData@CrashDumpLog@@1PEAUCrashDump_AllData@@EA
     MCAPI static struct CrashDump_AllData* mAllData;
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?mAssertDataMutex@CrashDumpLog@@0VMutex@Threading@Bedrock@@A
     MCAPI static class Bedrock::Threading::Mutex mAssertDataMutex;
@@ -100,37 +104,6 @@ private:
 
     // symbol: ?mRenderDataMutex@CrashDumpLog@@0VMutex@Threading@Bedrock@@A
     MCAPI static class Bedrock::Threading::Mutex mRenderDataMutex;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $mAssertDataMutex() { return mAssertDataMutex; }
-
-    static auto& $mCrashDumpLog_logThread() { return mCrashDumpLog_logThread; }
-
-    static auto& $mCrashDumpThreadMutex() { return mCrashDumpThreadMutex; }
-
-    static auto& $mCrashDumpThreadMutexCV() { return mCrashDumpThreadMutexCV; }
-
-    static auto& $mEventDataMutex() { return mEventDataMutex; }
-
-    static auto& $mFrameDataMutex() { return mFrameDataMutex; }
-
-    static auto& $mGameplayDataMutex() { return mGameplayDataMutex; }
-
-    static auto& $mGlobalDataMutex() { return mGlobalDataMutex; }
-
-    static auto& $mIsThreadRunning() { return mIsThreadRunning; }
-
-    static auto& $mKeyValueDataMutex() { return mKeyValueDataMutex; }
-
-    static auto& $mPlayerDataMutex() { return mPlayerDataMutex; }
-
-    static auto& $mRenderDataMutex() { return mRenderDataMutex; }
-
-    static auto& $mAllData() { return mAllData; }
 
     // NOLINTEND
 };

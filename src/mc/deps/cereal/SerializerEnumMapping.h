@@ -8,14 +8,16 @@ class SerializerEnumMapping {
 public:
     // prevent constructor by default
     SerializerEnumMapping& operator=(SerializerEnumMapping const&);
-    SerializerEnumMapping(SerializerEnumMapping const&);
     SerializerEnumMapping();
 
 public:
     // NOLINTBEGIN
+    // symbol: ??0SerializerEnumMapping@cereal@@QEAA@AEBV01@@Z
+    MCAPI SerializerEnumMapping(class cereal::SerializerEnumMapping const&);
+
     // symbol:
-    // ?lookup@SerializerEnumMapping@cereal@@QEBA?AV?$optional@_J@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@4@@Z
-    MCAPI std::optional<int64> lookup(std::string const&) const;
+    // ?lookup@SerializerEnumMapping@cereal@@QEBA?AV?$optional@_J@std@@V?$basic_string_view@DU?$char_traits@D@std@@@4@@Z
+    MCAPI std::optional<int64> lookup(std::string_view) const;
 
     // symbol:
     // ?lookup@SerializerEnumMapping@cereal@@QEBA?AV?$optional@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@std@@_J@Z
@@ -27,10 +29,6 @@ public:
         std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::pair<std::string, int64>>>>,
         std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<std::pair<std::string, int64>>>>>
     mapping() const;
-
-    // symbol:
-    // ?toString@SerializerEnumMapping@cereal@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
-    MCAPI std::string toString() const;
 
     // symbol: ??1SerializerEnumMapping@cereal@@QEAA@XZ
     MCAPI ~SerializerEnumMapping();

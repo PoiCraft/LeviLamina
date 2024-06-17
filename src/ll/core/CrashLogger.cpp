@@ -14,10 +14,8 @@
 
 #include <windows.h>
 
-#if _HAS_CXX23
 #include "DbgHelp.h"
 #pragma comment(lib, "DbgHelp.lib")
-#endif
 
 namespace ll {
 using namespace i18n_literals;
@@ -44,7 +42,7 @@ void CrashLogger::initCrashLogger() {
 
     std::wstring cmd = string_utils::str2wstr(fmt::format(
         "{} {} \"{}\"",
-        R"(.\plugins\LeviLamina\data\CrashLogger.exe)",
+        globalConfig.modules.crashLogger.externalPath,
         GetCurrentProcessId(),
         ll::getBdsVersion().to_string()
     ));
@@ -61,8 +59,6 @@ void CrashLogger::initCrashLogger() {
     return;
 }
 
-#if _HAS_CXX23
-
 static struct CrashInfo {
     HANDLE                                         process{};
     HANDLE                                         thread{};
@@ -76,7 +72,7 @@ static struct CrashInfo {
 
 static void dumpSystemInfo() {
     crashInfo.logger.info("System Info:");
-    crashInfo.logger.info("  |OS Version: {}", []() -> std::string {
+    crashInfo.logger.info("  |OS Version: {} {}", win_utils::getSystemName(), []() -> std::string {
         RTL_OSVERSIONINFOW osVersionInfoW = [] {
             RTL_OSVERSIONINFOW osVersionInfoW{};
             typedef uint(WINAPI * RtlGetVersionPtr)(PRTL_OSVERSIONINFOW);
@@ -183,7 +179,8 @@ static BOOL CALLBACK dumpModules(
 
 static bool genMiniDumpFile(PEXCEPTION_POINTERS e) {
 
-    auto dumpFilePath = crashInfo.path / (crashInfo.settings.dumpPrefix + crashInfo.date + ".dmp");
+    auto dumpFilePath =
+        crashInfo.path / string_utils::str2u8str(crashInfo.settings.dumpPrefix + crashInfo.date + ".dmp");
 
     auto hDumpFile =
         CreateFileW(dumpFilePath.c_str(), GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
@@ -295,15 +292,30 @@ static LONG unhandledExceptionFilter(_In_ struct _EXCEPTION_POINTERS* e) {
     std::exit((int)e->ExceptionRecord->ExceptionCode);
 }
 
+static LONG uncatchableExceptionHandler(_In_ struct _EXCEPTION_POINTERS* e) {
+    static std::atomic_bool onceFlag{false};
+    auto const&             code = e->ExceptionRecord->ExceptionCode;
+    if (code == STATUS_HEAP_CORRUPTION || code == STATUS_STACK_BUFFER_OVERRUN
+        // need to add all can't catch status code
+    ) {
+        if (!onceFlag) {
+            onceFlag = true;
+            unhandledExceptionFilter(e);
+        }
+    }
+    return EXCEPTION_CONTINUE_SEARCH;
+}
+
 CrashLoggerNew::CrashLoggerNew() {
     if (IsDebuggerPresent()) {
         crashLogger.warn("Debugger detected, CrashLogger will not be enabled"_tr());
     } else {
+        AddVectoredExceptionHandler(0, uncatchableExceptionHandler);
+
         previous = SetUnhandledExceptionFilter(unhandledExceptionFilter);
         crashLogger.info("CrashLogger enabled successfully"_tr());
     }
 }
 
 CrashLoggerNew::~CrashLoggerNew() { SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)previous); }
-#endif
 } // namespace ll

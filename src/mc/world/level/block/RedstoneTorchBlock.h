@@ -30,21 +30,21 @@ public:
     // vIndex: 0, symbol: __gen_??1RedstoneTorchBlock@@UEAA@XZ
     virtual ~RedstoneTorchBlock() = default;
 
-    // vIndex: 46, symbol: ?isSignalSource@RedstoneTorchBlock@@UEBA_NXZ
+    // vIndex: 47, symbol: ?isSignalSource@RedstoneTorchBlock@@UEBA_NXZ
     virtual bool isSignalSource() const;
 
-    // vIndex: 58, symbol:
+    // vIndex: 59, symbol:
     // ?shouldConnectToRedstone@RedstoneTorchBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@W4Type@Direction@@@Z
     virtual bool shouldConnectToRedstone(class BlockSource&, class BlockPos const&, ::Direction::Type) const;
 
-    // vIndex: 65, symbol: ?onRedstoneUpdate@RedstoneTorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
+    // vIndex: 66, symbol: ?onRedstoneUpdate@RedstoneTorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
     virtual void
     onRedstoneUpdate(class BlockSource& region, class BlockPos const& pos, int strength, bool isFirstTime) const;
 
-    // vIndex: 71, symbol: ?setupRedstoneComponent@RedstoneTorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 72, symbol: ?setupRedstoneComponent@RedstoneTorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void setupRedstoneComponent(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@RedstoneTorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@RedstoneTorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -58,19 +58,13 @@ public:
     // ?animateTickBedrockLegacy@RedstoneTorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 143, symbol: ?_addHardCodedBlockComponents@RedstoneTorchBlock@@UEAAXAEBVExperiments@@@Z
+    // vIndex: 142, symbol: ?_addHardCodedBlockComponents@RedstoneTorchBlock@@UEAAXAEBVExperiments@@@Z
     virtual void _addHardCodedBlockComponents(class Experiments const&);
 
-    // vIndex: 147, symbol: ?onPlace@RedstoneTorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@RedstoneTorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 163, symbol: ?getResourceItem@RedstoneTorchBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const&, int) const;
-
-    // vIndex: 165, symbol: ?getSilkTouchItemInstance@RedstoneTorchBlock@@UEBA?AVItemInstance@@AEBVBlock@@@Z
-    virtual class ItemInstance getSilkTouchItemInstance(class Block const& block) const;
-
-    // vIndex: 168, symbol: ?getTickDelay@RedstoneTorchBlock@@UEAAHXZ
+    // vIndex: 163, symbol: ?getTickDelay@RedstoneTorchBlock@@UEAAHXZ
     virtual int getTickDelay();
 
     // symbol: ??0RedstoneTorchBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H_N@Z

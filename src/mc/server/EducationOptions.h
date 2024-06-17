@@ -26,9 +26,6 @@ public:
     // symbol: ?init@EducationOptions@@QEAAXAEBVLevelData@@@Z
     MCAPI void init(class LevelData const& levelData);
 
-    // symbol: ?getPackCapability@EducationOptions@@SA?AVPackCapability@@XZ
-    MCAPI static class PackCapability getPackCapability();
-
     // symbol: ?isBaseCodeBuilderEnabled@EducationOptions@@SA_NXZ
     MCAPI static bool isBaseCodeBuilderEnabled();
 
@@ -47,17 +44,10 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?DEFAULT_OPTION@EducationOptions@@0V1@A
     MCAPI static class EducationOptions DEFAULT_OPTION;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $DEFAULT_OPTION() { return DEFAULT_OPTION; }
 
     // NOLINTEND
 };

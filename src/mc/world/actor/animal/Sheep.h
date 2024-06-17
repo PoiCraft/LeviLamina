@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -39,7 +38,7 @@ public:
     // vIndex: 10, symbol: __gen_??1Sheep@@UEAA@XZ
     virtual ~Sheep() = default;
 
-    // vIndex: 80, symbol: ?handleEntityEvent@Sheep@@UEAAXW4ActorEvent@@H@Z
+    // vIndex: 74, symbol: ?handleEntityEvent@Sheep@@UEAAXW4ActorEvent@@H@Z
     virtual void handleEntityEvent(::ActorEvent id, int data);
 
     // symbol: ??0Sheep@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
@@ -57,17 +56,10 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?EAT_ANIMATION_TICKS@Sheep@@0HB
     MCAPI static int const EAT_ANIMATION_TICKS;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $EAT_ANIMATION_TICKS() { return EAT_ANIMATION_TICKS; }
 
     // NOLINTEND
 };

@@ -30,15 +30,9 @@ public:
     // vIndex: 0, symbol: __gen_??1GlowstoneBlock@@UEAA@XZ
     virtual ~GlowstoneBlock() = default;
 
-    // vIndex: 63, symbol: ?dispense@GlowstoneBlock@@UEBA_NAEAVBlockSource@@AEAVContainer@@HAEBVVec3@@E@Z
+    // vIndex: 64, symbol: ?dispense@GlowstoneBlock@@UEBA_NAEAVBlockSource@@AEAVContainer@@HAEBVVec3@@E@Z
     virtual bool
     dispense(class BlockSource& region, class Container& container, int slot, class Vec3 const& pos, uchar face) const;
-
-    // vIndex: 163, symbol: ?getResourceItem@GlowstoneBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const&, int) const;
-
-    // vIndex: 164, symbol: ?getResourceCount@GlowstoneBlock@@UEBAHAEAVRandomize@@AEBVBlock@@H@Z
-    virtual int getResourceCount(class Randomize& randomize, class Block const&, int bonusLootLevel) const;
 
     // symbol:
     // ??0GlowstoneBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVMaterial@@@Z

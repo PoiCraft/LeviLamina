@@ -32,18 +32,18 @@ public:
     // vIndex: 5, symbol: ?getMaxUseDuration@CrossbowItem@@UEBAHPEBVItemStack@@@Z
     virtual int getMaxUseDuration(class ItemStack const* instance) const;
 
-    // vIndex: 49, symbol: ?getEnchantSlot@CrossbowItem@@UEBAHXZ
+    // vIndex: 50, symbol: ?getEnchantSlot@CrossbowItem@@UEBAHXZ
     virtual int getEnchantSlot() const;
 
-    // vIndex: 71, symbol: ?use@CrossbowItem@@UEBAAEAVItemStack@@AEAV2@AEAVPlayer@@@Z
+    // vIndex: 72, symbol: ?use@CrossbowItem@@UEBAAEAVItemStack@@AEAV2@AEAVPlayer@@@Z
     virtual class ItemStack& use(class ItemStack& instance, class Player& player) const;
 
-    // vIndex: 73, symbol:
+    // vIndex: 75, symbol:
     // ?useTimeDepleted@CrossbowItem@@UEBA?AW4ItemUseMethod@@AEAVItemStack@@PEAVLevel@@PEAVPlayer@@@Z
     virtual ::ItemUseMethod
     useTimeDepleted(class ItemStack& inoutInstance, class Level* level, class Player* player) const;
 
-    // vIndex: 74, symbol: ?releaseUsing@CrossbowItem@@UEBAXAEAVItemStack@@PEAVPlayer@@H@Z
+    // vIndex: 76, symbol: ?releaseUsing@CrossbowItem@@UEBAXAEAVItemStack@@PEAVPlayer@@H@Z
     virtual void releaseUsing(class ItemStack& item, class Player* player, int durationLeft) const;
 
     // vIndex: 96, symbol: ?enchantProjectile@CrossbowItem@@UEBAXAEBVItemStackBase@@AEAVActor@@@Z
@@ -56,7 +56,7 @@ public:
     // vIndex: 104, symbol: ?getIconInfo@CrossbowItem@@UEBA?AUResolvedItemIconInfo@@AEBVItemStackBase@@H_N@Z
     virtual struct ResolvedItemIconInfo getIconInfo(class ItemStackBase const& item, int, bool inInventoryPane) const;
 
-    // vIndex: 106, symbol: ?getAnimationFrameFor@CrossbowItem@@UEBAHPEAVMob@@_NPEBVItemStack@@_N@Z
+    // vIndex: 106, symbol: ?getAnimationFrameFor@CrossbowItem@@UEBAHPEAVMob@@_NPEBVItemStack@@1@Z
     virtual int
     getAnimationFrameFor(class Mob* holder, bool asItemEntity, class ItemStack const* item, bool shouldAnimate) const;
 
@@ -89,17 +89,10 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?DEFAULT_USE_DURATION@CrossbowItem@@0HB
     MCAPI static int const DEFAULT_USE_DURATION;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $DEFAULT_USE_DURATION() { return DEFAULT_USE_DURATION; }
 
     // NOLINTEND
 };

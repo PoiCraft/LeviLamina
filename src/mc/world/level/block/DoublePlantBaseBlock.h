@@ -53,47 +53,44 @@ public:
     // vIndex: 16, symbol: ?randomlyModifyPosition@DoublePlantBaseBlock@@UEBA?AVVec3@@AEBVBlockPos@@@Z
     virtual class Vec3 randomlyModifyPosition(class BlockPos const& pos) const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@DoublePlantBaseBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@DoublePlantBaseBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 79, symbol:
+    // vIndex: 80, symbol:
     // ?onFertilized@DoublePlantBaseBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool
     onFertilized(class BlockSource& region, class BlockPos const& pos, class Actor*, ::FertilizerType) const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@DoublePlantBaseBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@DoublePlantBaseBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool canBeFertilized(class BlockSource&, class BlockPos const&, class Block const&) const;
 
-    // vIndex: 84, symbol: ?mayPlace@DoublePlantBaseBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@E@Z
+    // vIndex: 85, symbol: ?mayPlace@DoublePlantBaseBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@E@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos, uchar) const;
 
-    // vIndex: 85, symbol: ?mayPlace@DoublePlantBaseBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 86, symbol: ?mayPlace@DoublePlantBaseBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 93, symbol: ?getSecondPart@DoublePlantBaseBlock@@UEBA_NAEBVIConstBlockSource@@AEBVBlockPos@@AEAV3@@Z
+    // vIndex: 94, symbol: ?getSecondPart@DoublePlantBaseBlock@@UEBA_NAEBVIConstBlockSource@@AEBVBlockPos@@AEAV3@@Z
     virtual bool
     getSecondPart(class IConstBlockSource const& region, class BlockPos const& pos, class BlockPos& out) const;
 
-    // vIndex: 94, symbol: ?playerWillDestroy@DoublePlantBaseBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
+    // vIndex: 95, symbol: ?playerWillDestroy@DoublePlantBaseBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
     virtual class Block const*
     playerWillDestroy(class Player& player, class BlockPos const& pos, class Block const& block) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@DoublePlantBaseBlock@@MEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 147, symbol: ?onPlace@DoublePlantBaseBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@DoublePlantBaseBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@DoublePlantBaseBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@DoublePlantBaseBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random&) const;
 
-    // vIndex: 156, symbol: ?canSurvive@DoublePlantBaseBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 154, symbol: ?canSurvive@DoublePlantBaseBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool canSurvive(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 168, symbol: ?checkAlive@DoublePlantBaseBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 163, symbol: ?checkAlive@DoublePlantBaseBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void checkAlive(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 170, symbol: ?_keepRelevantStateForDropping@DoublePlantBaseBlock@@MEBAAEBVBlock@@AEBV2@@Z
+    // vIndex: 165, symbol: ?_keepRelevantStateForDropping@DoublePlantBaseBlock@@MEBAAEBVBlock@@AEBV2@@Z
     virtual class Block const& _keepRelevantStateForDropping(class Block const& block) const;
 
     // symbol: ??0DoublePlantBaseBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

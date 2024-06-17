@@ -42,26 +42,26 @@ public:
     getCollisionShape(class Block const&, class IConstBlockSource const&, class BlockPos const&, class optional_ref<class GetCollisionShapeInterface const>)
         const;
 
-    // vIndex: 32, symbol: ?isWaterBlocking@ScaffoldingBlock@@UEBA_NXZ
+    // vIndex: 33, symbol: ?isWaterBlocking@ScaffoldingBlock@@UEBA_NXZ
     virtual bool isWaterBlocking() const;
 
-    // vIndex: 55, symbol: ?waterSpreadCausesSpawn@ScaffoldingBlock@@UEBA_NXZ
+    // vIndex: 56, symbol: ?waterSpreadCausesSpawn@ScaffoldingBlock@@UEBA_NXZ
     virtual bool waterSpreadCausesSpawn() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@ScaffoldingBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@ScaffoldingBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 61, symbol: ?checkIsPathable@ScaffoldingBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
+    // vIndex: 62, symbol: ?checkIsPathable@ScaffoldingBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
     virtual bool
     checkIsPathable(class Actor& entity, class BlockPos const& lastPathPos, class BlockPos const& pathPos) const;
 
-    // vIndex: 85, symbol: ?mayPlace@ScaffoldingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 86, symbol: ?mayPlace@ScaffoldingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 89, symbol: ?breaksFallingBlocks@ScaffoldingBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
+    // vIndex: 90, symbol: ?breaksFallingBlocks@ScaffoldingBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
     virtual bool breaksFallingBlocks(class Block const& block, class BaseGameVersion version) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@ScaffoldingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@ScaffoldingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -81,16 +81,16 @@ public:
     // ?animateTickBedrockLegacy@ScaffoldingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 147, symbol: ?onPlace@ScaffoldingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@ScaffoldingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@ScaffoldingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@ScaffoldingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 168, symbol: ?getDustColor@ScaffoldingBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
+    // vIndex: 163, symbol: ?getDustColor@ScaffoldingBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
     virtual class mce::Color getDustColor(class Block const& block) const;
 
-    // vIndex: 169, symbol:
+    // vIndex: 164, symbol:
     // ?getDustParticleName@ScaffoldingBlock@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVBlock@@@Z
     virtual std::string getDustParticleName(class Block const&) const;
 

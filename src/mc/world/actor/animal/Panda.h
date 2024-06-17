@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -39,13 +38,13 @@ public:
     // vIndex: 10, symbol: __gen_??1Panda@@UEAA@XZ
     virtual ~Panda() = default;
 
-    // vIndex: 74, symbol: ?getAmbientSound@Panda@@UEBA?AW4LevelSoundEvent@Legacy@Puv@@XZ
+    // vIndex: 68, symbol: ?getAmbientSound@Panda@@UEBA?AW4LevelSoundEvent@Legacy@Puv@@XZ
     virtual ::Puv::Legacy::LevelSoundEvent getAmbientSound() const;
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@Panda@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@Panda@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 196, symbol: ?setTransitioningSitting@Panda@@UEAAX_N@Z
+    // vIndex: 183, symbol: ?setTransitioningSitting@Panda@@UEAAX_N@Z
     virtual void setTransitioningSitting(bool value);
 
     // symbol: ??0Panda@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
@@ -61,17 +60,14 @@ public:
     // symbol: ?getSitAmount@Panda@@QEBAMM@Z
     MCAPI float getSitAmount(float a) const;
 
-    // symbol: ?getSneezeCounter@Panda@@QEBAHXZ
-    MCAPI int getSneezeCounter() const;
-
-    // symbol: ?getUnhappyCounter@Panda@@QEBAHXZ
-    MCAPI int getUnhappyCounter() const;
-
     // symbol: ?postNormalTick@Panda@@QEAAXXZ
     MCAPI void postNormalTick();
 
     // symbol: ?updateLaying@Panda@@QEAAXXZ
     MCAPI void updateLaying();
+
+    // symbol: ?updateRollAmount@Panda@@QEAAXXZ
+    MCAPI void updateRollAmount();
 
     // symbol: ?updateSitting@Panda@@QEAAXXZ
     MCAPI void updateSitting();

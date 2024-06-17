@@ -4,10 +4,12 @@
 
 // auto generated inclusion list
 #include "mc/common/wrapper/WeakPtr.h"
+#include "mc/deps/core/common/bedrock/pubsub/Connector.h"
 
 // auto generated forward declare list
 // clang-format off
 namespace Bedrock::Threading { class Mutex; }
+namespace cereal { struct ReflectionCtx; }
 // clang-format on
 
 class ItemRegistryRef {
@@ -97,9 +99,11 @@ public:
     // symbol: ?getWorldBaseGameVersion@ItemRegistryRef@@QEBA?AVBaseGameVersion@@XZ
     MCAPI class BaseGameVersion getWorldBaseGameVersion() const;
 
-    // symbol: ?init@ItemRegistryRef@@QEBAXAEBVExperiments@@AEBVBaseGameVersion@@PEAVResourcePackManager@@@Z
+    // symbol:
+    // ?init@ItemRegistryRef@@QEBAXAEAUReflectionCtx@cereal@@AEBVExperiments@@AEBVBaseGameVersion@@PEAVResourcePackManager@@@Z
     MCAPI void
-    init(class Experiments const&, class BaseGameVersion const& baseGameVersion, class ResourcePackManager* rpm) const;
+    init(struct cereal::ReflectionCtx&, class Experiments const&, class BaseGameVersion const&, class ResourcePackManager*)
+        const;
 
     // symbol:
     // ?initCreativeItemsServer@ItemRegistryRef@@QEBAXPEAVActorInfoRegistry@@PEAVBlockDefinitionGroup@@_NAEBVExperiments@@V?$function@$$A6AXVItemRegistryRef@@PEAVActorInfoRegistry@@PEAVBlockDefinitionGroup@@PEAVCreativeItemRegistry@@_NAEBVBaseGameVersion@@AEBVExperiments@@@Z@std@@@Z
@@ -107,7 +111,7 @@ public:
         class ActorInfoRegistry*    actorInfoRegistry,
         class BlockDefinitionGroup* blockDefinitionGroup,
         bool                        isClient,
-        class Experiments const&,
+        class Experiments const&    experiment,
         std::function<
             void(class ItemRegistryRef, class ActorInfoRegistry*, class BlockDefinitionGroup*, class CreativeItemRegistry*, bool, class BaseGameVersion const&, class Experiments const&)>
             registerCallback
@@ -147,7 +151,7 @@ public:
     MCAPI class WeakPtr<class Item> lookupByNameNoAlias(std::string_view inString) const;
 
     // symbol: ?lookupByNameNoParsing@ItemRegistryRef@@QEBA?AV?$WeakPtr@VItem@@@@AEAHAEBVHashedString@@@Z
-    MCAPI class WeakPtr<class Item> lookupByNameNoParsing(int&, class HashedString const& fullName) const;
+    MCAPI class WeakPtr<class Item> lookupByNameNoParsing(int& inOutItemAux, class HashedString const& fullName) const;
 
     // symbol:
     // ?lookupByTag@ItemRegistryRef@@QEBA?AV?$unordered_set@PEBVItem@@U?$hash@PEBVItem@@@std@@U?$equal_to@PEBVItem@@@3@V?$allocator@PEBVItem@@@3@@std@@AEBUItemTag@@@Z
@@ -156,9 +160,15 @@ public:
     // symbol: ?lookupByVanillaName@ItemRegistryRef@@QEBA?AV?$WeakPtr@VItem@@@@AEBVHashedString@@@Z
     MCAPI class WeakPtr<class Item> lookupByVanillaName(class HashedString const& inString) const;
 
+    // symbol: ?onFinishedInit@ItemRegistryRef@@QEBAPEAV?$Connector@$$A6AXXZ@PubSub@Bedrock@@XZ
+    MCAPI class Bedrock::PubSub::Connector<void()>* onFinishedInit() const;
+
     // symbol: ?registerAlias@ItemRegistryRef@@QEBAXAEBVHashedString@@0AEBVBaseGameVersion@@@Z
-    MCAPI void
-    registerAlias(class HashedString const& alias, class HashedString const& name, class BaseGameVersion const&) const;
+    MCAPI void registerAlias(
+        class HashedString const&    alias,
+        class HashedString const&    name,
+        class BaseGameVersion const& fromVersion
+    ) const;
 
     // symbol:
     // ?registerComplexAlias@ItemRegistryRef@@QEBA?AV?$WeakPtr@VItem@@@@AEBVHashedString@@AEBUItemRegistryComplexAlias@@@Z
@@ -172,21 +182,20 @@ public:
     MCAPI void registerLegacyID(class HashedString const& name, short id) const;
 
     // symbol: ?registerLegacyMapping@ItemRegistryRef@@QEBAXAEBVHashedString@@0AEBVBaseGameVersion@@@Z
-    MCAPI void
-    registerLegacyMapping(class HashedString const& alias, class HashedString const& name, class BaseGameVersion const&)
-        const;
+    MCAPI void registerLegacyMapping(
+        class HashedString const&    alias,
+        class HashedString const&    name,
+        class BaseGameVersion const& fromVersion
+    ) const;
 
     // symbol: ?remapToFullLegacyNameByHash@ItemRegistryRef@@QEBA_K_K@Z
-    MCAPI uint64 remapToFullLegacyNameByHash(uint64) const;
+    MCAPI uint64 remapToFullLegacyNameByHash(uint64 newHash) const;
 
     // symbol: ?remapToLegacyNameByHash@ItemRegistryRef@@QEBA_K_K@Z
-    MCAPI uint64 remapToLegacyNameByHash(uint64) const;
+    MCAPI uint64 remapToLegacyNameByHash(uint64 newHash) const;
 
     // symbol: ?setCheckForItemWorldCompatibility@ItemRegistryRef@@QEBAX_N@Z
     MCAPI void setCheckForItemWorldCompatibility(bool value) const;
-
-    // symbol: ?setOwningThreadId@ItemRegistryRef@@QEBAXVid@thread@std@@@Z
-    MCAPI void setOwningThreadId(std::thread::id threadId) const;
 
     // symbol: ?setServerInitializingCreativeItems@ItemRegistryRef@@QEBAX_N@Z
     MCAPI void setServerInitializingCreativeItems(bool value) const;
@@ -208,32 +217,12 @@ public:
     // symbol: ??1ItemRegistryRef@@QEAA@XZ
     MCAPI ~ItemRegistryRef();
 
-    // symbol: ?isUsingCombinedItemRegistry@ItemRegistryRef@@SA_NXZ
-    MCAPI static bool isUsingCombinedItemRegistry();
-
-    // symbol: ?setUseCombinedItemRegistryToggle@ItemRegistryRef@@SAX_N@Z
-    MCAPI static void setUseCombinedItemRegistryToggle(bool);
-
     // NOLINTEND
 
     // private:
     // NOLINTBEGIN
     // symbol: ?_lockRegistry@ItemRegistryRef@@AEBA?AV?$shared_ptr@VItemRegistry@@@std@@XZ
     MCAPI std::shared_ptr<class ItemRegistry> _lockRegistry() const;
-
-    // NOLINTEND
-
-private:
-    // NOLINTBEGIN
-    // symbol: ?mCombinedItemRegistryInstance@ItemRegistryRef@@0V?$shared_ptr@VItemRegistry@@@std@@A
-    MCAPI static std::shared_ptr<class ItemRegistry> mCombinedItemRegistryInstance;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $mCombinedItemRegistryInstance() { return mCombinedItemRegistryInstance; }
 
     // NOLINTEND
 };

@@ -39,37 +39,37 @@ public:
     // vIndex: 11, symbol: ?getVisualShape@ItemFrameBlock@@UEBAAEBVAABB@@AEBVBlock@@AEAV2@@Z
     virtual class AABB const& getVisualShape(class Block const&, class AABB&) const;
 
-    // vIndex: 32, symbol: ?isWaterBlocking@ItemFrameBlock@@UEBA_NXZ
+    // vIndex: 33, symbol: ?isWaterBlocking@ItemFrameBlock@@UEBA_NXZ
     virtual bool isWaterBlocking() const;
 
-    // vIndex: 55, symbol: ?waterSpreadCausesSpawn@ItemFrameBlock@@UEBA_NXZ
+    // vIndex: 56, symbol: ?waterSpreadCausesSpawn@ItemFrameBlock@@UEBA_NXZ
     virtual bool waterSpreadCausesSpawn() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@ItemFrameBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@ItemFrameBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 84, symbol: ?mayPlace@ItemFrameBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@E@Z
+    // vIndex: 85, symbol: ?mayPlace@ItemFrameBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@E@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 91, symbol: ?getIgnoresDestroyPermissions@ItemFrameBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@@Z
+    // vIndex: 92, symbol: ?getIgnoresDestroyPermissions@ItemFrameBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@@Z
     virtual bool getIgnoresDestroyPermissions(class Actor& entity, class BlockPos const& pos) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@ItemFrameBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@ItemFrameBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
-    // vIndex: 94, symbol: ?playerWillDestroy@ItemFrameBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
+    // vIndex: 95, symbol: ?playerWillDestroy@ItemFrameBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
     virtual class Block const*
     playerWillDestroy(class Player& player, class BlockPos const& pos, class Block const& block) const;
 
-    // vIndex: 95, symbol:
-    // ?spawnResources@ItemFrameBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@AEAVRandomize@@AEBUResourceDropsContext@@@Z
-    virtual void
-    spawnResources(class BlockSource& region, class BlockPos const& pos, class Block const& block, class Randomize& randomize, struct ResourceDropsContext const&)
-        const;
-
     // vIndex: 96, symbol: ?asItemInstance@ItemFrameBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
     virtual class ItemInstance asItemInstance(class Block const&, class BlockActor const* blockActor) const;
+
+    // vIndex: 97, symbol:
+    // ?spawnAfterBreak@ItemFrameBlock@@EEBAXAEAVBlockSource@@AEBVBlock@@AEBVBlockPos@@AEBUResourceDropsContext@@@Z
+    virtual void
+    spawnAfterBreak(class BlockSource&, class Block const&, class BlockPos const&, struct ResourceDropsContext const&)
+        const;
 
     // vIndex: 98, symbol: ?getPlacementBlock@ItemFrameBlock@@UEBAAEBVBlock@@AEBVActor@@AEBVBlockPos@@EAEBVVec3@@H@Z
     virtual class Block const& getPlacementBlock(
@@ -91,25 +91,25 @@ public:
     getComparatorSignal(class BlockSource& region, class BlockPos const& pos, class Block const& block, uchar dir)
         const;
 
-    // vIndex: 144, symbol: ?onRemove@ItemFrameBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 143, symbol: ?onRemove@ItemFrameBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onRemove(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 147, symbol: ?onPlace@ItemFrameBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@ItemFrameBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@ItemFrameBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@ItemFrameBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random&) const;
 
-    // vIndex: 152, symbol: ?isInteractiveBlock@ItemFrameBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@ItemFrameBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@ItemFrameBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@ItemFrameBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 156, symbol: ?canSurvive@ItemFrameBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 154, symbol: ?canSurvive@ItemFrameBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool canSurvive(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 168, symbol: ?getSpawnedItemName@ItemFrameBlock@@UEBA?AVHashedString@@XZ
+    // vIndex: 163, symbol: ?getSpawnedItemName@ItemFrameBlock@@UEBA?AVHashedString@@XZ
     virtual class HashedString getSpawnedItemName() const;
 
     // symbol: ??0ItemFrameBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

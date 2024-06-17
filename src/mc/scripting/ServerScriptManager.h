@@ -25,20 +25,9 @@ namespace Scripting { struct ModuleDescriptor; }
 
 class ServerScriptManager {
 public:
-    Bedrock::NonOwnerPointer<Scheduler>           mServerScheduler;
-    ScriptSettings                                mScriptSettings;
-    std::unique_ptr<ScriptPrintLogger>            mPrintLogger;
-    std::unique_ptr<ScriptFormPromiseTracker>     mFormPromiseTracker;
-    std::unique_ptr<Scripting::DependencyLocator> mDependencyLocator;
-    std::unique_ptr<Scripting::ScriptEngine>      mScriptEngine;
-    std::unique_ptr<ScriptDebuggerWatchdog>       mScriptDebuggerWatchdog;
-    std::unique_ptr<ScriptPluginManager>          mScriptPluginManager;
-    std::unique_ptr<ScriptDebugger>               mScriptDebugger;
-    std::unique_ptr<ScriptTickListener>           mScriptTickListener;
-    std::vector<std::function<
-        bool(const PackManifest&, const Scripting::ModuleDescriptor&, const Scripting::ModuleDescriptor&, ScriptPluginResult&)>>
-         mModuleFilters;
-    bool mInitializeEditorModules;
+    uchar                                     filler[640];
+    std::unique_ptr<ScriptFormPromiseTracker> mFormPromiseTracker;
+    uchar                                     filler1[96];
 
 public:
     // prevent constructor by default
@@ -51,6 +40,21 @@ public:
     // vIndex: 0, symbol: ??1ServerScriptManager@@UEAA@XZ
     virtual ~ServerScriptManager();
 
+    // vIndex: 1, symbol:
+    // ?onServerInitializeStart@ServerInstanceEventListener@@UEAA?AW4EventResult@@AEAVServerInstance@@@Z
+    virtual ::EventResult onServerInitializeStart(class ServerInstance& instance);
+
+    // vIndex: 2, symbol:
+    // ?onServerInitializeEnd@ServerInstanceEventListener@@UEAA?AW4EventResult@@AEAVServerInstance@@@Z
+    virtual ::EventResult onServerInitializeEnd(class ServerInstance& instance);
+
+    // vIndex: 3, symbol:
+    // ?onServerMinecraftInitialized@ServerInstanceEventListener@@UEAA?AW4EventResult@@AEAVServerInstance@@AEBV?$not_null@V?$NonOwnerPointer@VMinecraft@@@Bedrock@@@gsl@@@Z
+    virtual ::EventResult onServerMinecraftInitialized(
+        class ServerInstance&                               instance,
+        Bedrock::NotNullNonOwnerPtr<class Minecraft> const& minecraft
+    );
+
     // vIndex: 4, symbol:
     // ?onServerLevelInitialized@ServerScriptManager@@UEAA?AW4EventResult@@AEAVServerInstance@@AEAVLevel@@@Z
     virtual ::EventResult onServerLevelInitialized(class ServerInstance&, class Level&);
@@ -58,11 +62,23 @@ public:
     // vIndex: 5, symbol: ?onServerUpdateStart@ServerScriptManager@@UEAA?AW4EventResult@@AEAVServerInstance@@@Z
     virtual ::EventResult onServerUpdateStart(class ServerInstance&);
 
+    // vIndex: 6, symbol: ?onServerUpdateEnd@ServerInstanceEventListener@@UEAA?AW4EventResult@@AEAVServerInstance@@@Z
+    virtual ::EventResult onServerUpdateEnd(class ServerInstance& instance);
+
+    // vIndex: 7, symbol: ?onServerSuspend@ServerInstanceEventListener@@UEAA?AW4EventResult@@AEAVServerInstance@@@Z
+    virtual ::EventResult onServerSuspend(class ServerInstance& instance);
+
+    // vIndex: 8, symbol: ?onServerResume@ServerInstanceEventListener@@UEAA?AW4EventResult@@AEAVServerInstance@@@Z
+    virtual ::EventResult onServerResume(class ServerInstance& instance);
+
     // vIndex: 9, symbol: ?onServerThreadStarted@ServerScriptManager@@UEAA?AW4EventResult@@AEAVServerInstance@@@Z
     virtual ::EventResult onServerThreadStarted(class ServerInstance& instance);
 
     // vIndex: 10, symbol: ?onServerThreadStopped@ServerScriptManager@@UEAA?AW4EventResult@@AEAVServerInstance@@@Z
     virtual ::EventResult onServerThreadStopped(class ServerInstance& serverInstance);
+
+    // vIndex: 11, symbol: ?onStartLeaveGame@ServerInstanceEventListener@@UEAA?AW4EventResult@@AEAVServerInstance@@@Z
+    virtual ::EventResult onStartLeaveGame(class ServerInstance& instance);
 
     // vIndex: 12, symbol:
     // ?onEvent@ServerScriptManager@@UEAA?AW4EventResult@@AEBUServerInstanceRequestResourceReload@@@Z
@@ -73,12 +89,12 @@ public:
     virtual ::EventResult onEvent(struct ServerInstanceNotificationEvent const& event);
 
     // symbol:
-    // ??0ServerScriptManager@@QEAA@UScriptSettings@@V?$NonOwnerPointer@VScheduler@@@Bedrock@@AEAVIMinecraftEventing@@_N@Z
+    // ??0ServerScriptManager@@QEAA@UScriptSettings@@V?$NonOwnerPointer@VScheduler@@@Bedrock@@AEAVIMinecraftEventing@@VItemRegistryRef@@@Z
     MCAPI ServerScriptManager(
         struct ScriptSettings,
         class Bedrock::NonOwnerPointer<class Scheduler>,
         class IMinecraftEventing&,
-        bool
+        class ItemRegistryRef
     );
 
     // symbol:
@@ -86,6 +102,9 @@ public:
     MCAPI void
     addModuleFilter(std::function<
                     bool(class PackManifest const&, struct Scripting::ModuleDescriptor const&, struct Scripting::ModuleDescriptor const&, class ScriptPluginResult&)> const&);
+
+    // symbol: ?getBlockCustomComponentRegistry@ServerScriptManager@@QEBAAEAVScriptBlockCustomComponentsRegistry@@XZ
+    MCAPI class ScriptBlockCustomComponentsRegistry& getBlockCustomComponentRegistry() const;
 
     // symbol: ?getScriptEngine@ServerScriptManager@@QEAAAEAVScriptEngine@Scripting@@XZ
     MCAPI class Scripting::ScriptEngine& getScriptEngine();
@@ -95,6 +114,9 @@ public:
 
     // symbol: ?onMainThreadStartLeaveGame@ServerScriptManager@@QEAAXXZ
     MCAPI void onMainThreadStartLeaveGame();
+
+    // symbol: ?shouldInitializeEditorModules@ServerScriptManager@@QEAAX_N@Z
+    MCAPI void shouldInitializeEditorModules(bool);
 
     // NOLINTEND
 

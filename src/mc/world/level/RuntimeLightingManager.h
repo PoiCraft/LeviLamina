@@ -33,6 +33,9 @@ public:
 
 public:
     // NOLINTBEGIN
+    // vIndex: 0, symbol: __gen_??1RuntimeLightingManager@@UEAA@XZ
+    virtual ~RuntimeLightingManager() = default;
+
     // symbol: ??0RuntimeLightingManager@@QEAA@AEAVDimension@@@Z
     MCAPI explicit RuntimeLightingManager(class Dimension& dimension);
 
@@ -49,22 +52,19 @@ public:
         bool                  isSkyLight
     );
 
-    // symbol: ??1RuntimeLightingManager@@QEAA@XZ
-    MCAPI ~RuntimeLightingManager();
-
     // NOLINTEND
 
     // private:
     // NOLINTBEGIN
     // symbol:
     // ?_checkForRelightingTask@RuntimeLightingManager@@AEAAXV?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@@Z
-    MCAPI void _checkForRelightingTask(std::chrono::nanoseconds);
+    MCAPI void _checkForRelightingTask(std::chrono::nanoseconds timeLimit);
 
     // symbol: ?_getListOfChunksWithPlayerDistance@RuntimeLightingManager@@AEAAXXZ
     MCAPI void _getListOfChunksWithPlayerDistance();
 
     // symbol: ?_relightChunks@RuntimeLightingManager@@AEAAXV?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@@Z
-    MCAPI void _relightChunks(std::chrono::nanoseconds);
+    MCAPI void _relightChunks(std::chrono::nanoseconds timeLimit);
 
     // symbol: ?_removeProcessedSubchunks@RuntimeLightingManager@@AEAAXXZ
     MCAPI void _removeProcessedSubchunks();

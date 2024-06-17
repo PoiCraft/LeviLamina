@@ -39,7 +39,7 @@ public:
     // vIndex: 11, symbol: ?getVisualShape@TripWireBlock@@UEBAAEBVAABB@@AEBVBlock@@AEAV2@@Z
     virtual class AABB const& getVisualShape(class Block const&, class AABB&) const;
 
-    // vIndex: 94, symbol: ?playerWillDestroy@TripWireBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
+    // vIndex: 95, symbol: ?playerWillDestroy@TripWireBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
     virtual class Block const*
     playerWillDestroy(class Player& player, class BlockPos const& pos, class Block const& block) const;
 
@@ -50,16 +50,16 @@ public:
     virtual bool
     shouldTriggerEntityInside(class BlockSource& region, class BlockPos const& pos, class Actor& entity) const;
 
-    // vIndex: 144, symbol: ?onRemove@TripWireBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 143, symbol: ?onRemove@TripWireBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onRemove(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 147, symbol: ?onPlace@TripWireBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@TripWireBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@TripWireBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@TripWireBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 167, symbol: ?entityInside@TripWireBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
+    // vIndex: 162, symbol: ?entityInside@TripWireBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
     virtual void entityInside(class BlockSource& region, class BlockPos const& pos, class Actor& entity) const;
 
     // symbol: ??0TripWireBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

@@ -34,10 +34,6 @@ public:
     MCAPI std::unordered_map<::SkeletalHierarchyIndex, std::vector<class BoneOrientation>>& getAllBoneOrientations();
 
     // symbol:
-    // ?getAnimationComponentInitFunction@AnimationComponent@@QEBAAEBV?$function@$$A6AXAEAVActorAnimationPlayer@@@Z@std@@XZ
-    MCAPI std::function<void(class ActorAnimationPlayer&)> const& getAnimationComponentInitFunction() const;
-
-    // symbol:
     // ?getBoneOrientations@AnimationComponent@@QEAAPEAV?$vector@VBoneOrientation@@V?$allocator@VBoneOrientation@@@std@@@std@@W4SkeletalHierarchyIndex@@_N@Z
     MCAPI std::vector<class BoneOrientation>*
           getBoneOrientations(::SkeletalHierarchyIndex skeletalHierarchyIndex, bool missingIsOkay);
@@ -82,7 +78,7 @@ public:
     MCAPI void setDirty();
 
     // symbol: ?setLastReloadInitTimeStampClient@AnimationComponent@@QEAAX_K@Z
-    MCAPI void setLastReloadInitTimeStampClient(uint64);
+    MCAPI void setLastReloadInitTimeStampClient(uint64 lastReloadInitTimeStamp);
 
     // symbol: ?setupDeltaTimeAndLifeTimeParams@AnimationComponent@@QEAAX_N@Z
     MCAPI void setupDeltaTimeAndLifeTimeParams(bool incrementLifetime);
@@ -104,7 +100,7 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?mClientFrameIndex@AnimationComponent@@0U?$atomic@_J@std@@A
     MCAPI static std::atomic<int64> mClientFrameIndex;
@@ -114,17 +110,6 @@ private:
 
     // symbol: ?mServerFrameIndex@AnimationComponent@@0U?$atomic@_J@std@@A
     MCAPI static std::atomic<int64> mServerFrameIndex;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $mClientFrameIndex() { return mClientFrameIndex; }
-
-    static auto& $mReloadTimeStampClient() { return mReloadTimeStampClient; }
-
-    static auto& $mServerFrameIndex() { return mServerFrameIndex; }
 
     // NOLINTEND
 };

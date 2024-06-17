@@ -59,7 +59,11 @@ inline void forEachPacket(
                 }
 
                 if (!className.starts_with(enumName)) {
-                    ll::logger.error("intresting, different enum name, get: {}, typeid: {}", enumName, className);
+                    if (className.ends_with("V1") || className.ends_with("V2")) {
+                        ll::logger.error("intresting, different enum name, get: {}, typeid: {}", enumName, className);
+                    } else {
+                        ll::logger.fatal("intresting, different enum name, get: {}, typeid: {}", enumName, className);
+                    }
                 }
             }
             callback(*packet, className, size);
@@ -184,7 +188,6 @@ LL_AUTO_STATIC_HOOK(GeneratePacketHook, HookPriority::Normal, "main", int, int a
 #include "mc/network/packet/EmoteListPacket.h"
 #include "mc/network/packet/EmotePacket.h"
 #include "mc/network/packet/FeatureRegistryPacket.h"
-#include "mc/network/packet/FilterTextPacket.h"
 #include "mc/network/packet/GameRulesChangedPacket.h"
 #include "mc/network/packet/GameTestRequestPacket.h"
 #include "mc/network/packet/GameTestResultsPacket.h"
@@ -195,7 +198,6 @@ LL_AUTO_STATIC_HOOK(GeneratePacketHook, HookPriority::Normal, "main", int, int a
 #include "mc/network/packet/InventorySlotPacket.h"
 #include "mc/network/packet/InventoryTransactionPacket.h"
 #include "mc/network/packet/ItemComponentPacket.h"
-#include "mc/network/packet/ItemFrameDropItemPacket.h"
 #include "mc/network/packet/ItemStackRequestPacket.h"
 #include "mc/network/packet/ItemStackResponsePacket.h"
 #include "mc/network/packet/LabTablePacket.h"
@@ -334,11 +336,11 @@ PACKET_SIZE_ASSERT(ServerToClientHandshakePacket, 0x50);
 PACKET_SIZE_ASSERT(ClientToServerHandshakePacket, 0x30);
 PACKET_SIZE_ASSERT(DisconnectPacket, 0x60);
 PACKET_SIZE_ASSERT(ResourcePacksInfoPacket, 0x80);
-PACKET_SIZE_ASSERT(ResourcePackStackPacket, 0x128);
+PACKET_SIZE_ASSERT(ResourcePackStackPacket, 0x130);
 PACKET_SIZE_ASSERT(ResourcePackClientResponsePacket, 0x48);
 PACKET_SIZE_ASSERT(TextPacket, 0xD8);
 PACKET_SIZE_ASSERT(SetTimePacket, 0x38);
-PACKET_SIZE_ASSERT(StartGamePacket, 0x5C0);
+PACKET_SIZE_ASSERT(StartGamePacket, 0x660);
 PACKET_SIZE_ASSERT(AddPlayerPacket, 0x620);
 PACKET_SIZE_ASSERT(AddActorPacket, 0x1B0);
 PACKET_SIZE_ASSERT(RemoveActorPacket, 0x38);
@@ -349,12 +351,11 @@ PACKET_SIZE_ASSERT(MovePlayerPacket, 0x70);
 PACKET_SIZE_ASSERT(PassengerJumpPacket, 0x38);
 PACKET_SIZE_ASSERT(UpdateBlockPacket, 0x48);
 PACKET_SIZE_ASSERT(AddPaintingPacket, 0x70);
-PACKET_SIZE_ASSERT(TickSyncPacket, 0x40);
 PACKET_SIZE_ASSERT(LevelSoundEventPacketV1, 0x50);
 PACKET_SIZE_ASSERT(LevelEventPacket, 0x48);
 PACKET_SIZE_ASSERT(BlockEventPacket, 0x48);
 PACKET_SIZE_ASSERT(ActorEventPacket, 0x40);
-PACKET_SIZE_ASSERT(MobEffectPacket, 0x50);
+PACKET_SIZE_ASSERT(MobEffectPacket, 0x58);
 PACKET_SIZE_ASSERT(UpdateAttributesPacket, 0x58);
 PACKET_SIZE_ASSERT(InventoryTransactionPacket, 0x68);
 PACKET_SIZE_ASSERT(MobEquipmentPacket, 0xA8);
@@ -365,7 +366,7 @@ PACKET_SIZE_ASSERT(ActorPickRequestPacket, 0x40);
 PACKET_SIZE_ASSERT(PlayerActionPacket, 0x60);
 PACKET_SIZE_ASSERT(HurtArmorPacket, 0x40);
 PACKET_SIZE_ASSERT(SetActorDataPacket, 0x88);
-PACKET_SIZE_ASSERT(SetActorMotionPacket, 0x48);
+PACKET_SIZE_ASSERT(SetActorMotionPacket, 0x50);
 PACKET_SIZE_ASSERT(SetActorLinkPacket, 0x50);
 PACKET_SIZE_ASSERT(SetHealthPacket, 0x38);
 PACKET_SIZE_ASSERT(SetSpawnPositionPacket, 0x50);
@@ -394,7 +395,6 @@ PACKET_SIZE_ASSERT(ClientboundMapItemDataPacket, 0xC8);
 PACKET_SIZE_ASSERT(MapInfoRequestPacket, 0x50);
 PACKET_SIZE_ASSERT(RequestChunkRadiusPacket, 0x38);
 PACKET_SIZE_ASSERT(ChunkRadiusUpdatedPacket, 0x38);
-PACKET_SIZE_ASSERT(ItemFrameDropItemPacket, 0x40);
 PACKET_SIZE_ASSERT(GameRulesChangedPacket, 0x48);
 PACKET_SIZE_ASSERT(CameraPacket, 0x40);
 PACKET_SIZE_ASSERT(BossEventPacket, 0x80);
@@ -461,14 +461,14 @@ PACKET_SIZE_ASSERT(SettingsCommandPacket, 0x58);
 PACKET_SIZE_ASSERT(AnvilDamagePacket, 0x40);
 PACKET_SIZE_ASSERT(CompletedUsingItemPacket, 0x38);
 PACKET_SIZE_ASSERT(NetworkSettingsPacket, 0x48);
-PACKET_SIZE_ASSERT(PlayerAuthInputPacket, 0xC0);
+PACKET_SIZE_ASSERT(PlayerAuthInputPacket, 0xC8);
 PACKET_SIZE_ASSERT(CreativeContentPacket, 0x50);
 PACKET_SIZE_ASSERT(PlayerEnchantOptionsPacket, 0x48);
 PACKET_SIZE_ASSERT(ItemStackRequestPacket, 0x38);
 PACKET_SIZE_ASSERT(ItemStackResponsePacket, 0x48);
 PACKET_SIZE_ASSERT(PlayerArmorDamagePacket, 0x40);
 PACKET_SIZE_ASSERT(CodeBuilderPacket, 0x58);
-PACKET_SIZE_ASSERT(UpdatePlayerGameTypePacket, 0x40);
+PACKET_SIZE_ASSERT(UpdatePlayerGameTypePacket, 0x48);
 PACKET_SIZE_ASSERT(EmoteListPacket, 0x50);
 PACKET_SIZE_ASSERT(PositionTrackingDBServerBroadcastPacket, 0x50);
 PACKET_SIZE_ASSERT(PositionTrackingDBClientRequestPacket, 0x38);
@@ -478,9 +478,8 @@ PACKET_SIZE_ASSERT(MotionPredictionHintsPacket, 0x48);
 PACKET_SIZE_ASSERT(AnimateEntityPacket, 0xD8);
 PACKET_SIZE_ASSERT(CameraShakePacket, 0x40);
 PACKET_SIZE_ASSERT(PlayerFogPacket, 0x48);
-PACKET_SIZE_ASSERT(CorrectPlayerMovePredictionPacket, 0x58);
+PACKET_SIZE_ASSERT(CorrectPlayerMovePredictionPacket, 0x60);
 PACKET_SIZE_ASSERT(ItemComponentPacket, 0x48);
-PACKET_SIZE_ASSERT(FilterTextPacket, 0x58);
 PACKET_SIZE_ASSERT(ClientboundDebugRendererPacket, 0x88);
 PACKET_SIZE_ASSERT(SyncActorPropertyPacket, 0x48);
 PACKET_SIZE_ASSERT(AddVolumeEntityPacket, 0x120);

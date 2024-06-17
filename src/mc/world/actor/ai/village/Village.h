@@ -82,17 +82,8 @@ public:
     // symbol: ?addVillager@Village@@QEAAXAEBUActorUniqueID@@@Z
     MCAPI void addVillager(struct ActorUniqueID const&);
 
-    // symbol: ?alwaysTickRaid@Village@@QEBA_NXZ
-    MCAPI bool alwaysTickRaid() const;
-
-    // symbol: ?canRemove@Village@@QEBA_NXZ
-    MCAPI bool canRemove() const;
-
     // symbol: ?checkNeedMoreVillagers@Village@@QEBA_NXZ
     MCAPI bool checkNeedMoreVillagers() const;
-
-    // symbol: ?clearOwnedPOIs@Village@@QEAAXXZ
-    MCAPI void clearOwnedPOIs();
 
     // symbol: ?debugDraw@Village@@QEAAXXZ
     MCAPI void debugDraw();
@@ -136,10 +127,6 @@ public:
     // symbol: ?getStanding@Village@@QEAAHAEBUActorUniqueID@@@Z
     MCAPI int getStanding(struct ActorUniqueID const& playerID);
 
-    // symbol:
-    // ?getUnclaimedPOIs@Village@@QEBAAEBV?$array@V?$vector@V?$weak_ptr@VPOIInstance@@@std@@V?$allocator@V?$weak_ptr@VPOIInstance@@@std@@@2@@std@@$02@std@@XZ
-    MCAPI std::array<std::vector<std::weak_ptr<class POIInstance>>, 3> const& getUnclaimedPOIs() const;
-
     // symbol: ?getUniqueID@Village@@QEBA?AVUUID@mce@@XZ
     MCAPI class mce::UUID getUniqueID() const;
 
@@ -180,9 +167,6 @@ public:
     // symbol: ?rewardAllPlayers@Village@@QEAAXH@Z
     MCAPI void rewardAllPlayers(int deltaAmount);
 
-    // symbol: ?saveEntireVillage@Village@@QEAAXAEAVLevelStorage@@@Z
-    MCAPI void saveEntireVillage(class LevelStorage&);
-
     // symbol: ?setSavedDwellerPosition@Village@@QEAAXW4DwellerRole@@AEBUActorUniqueID@@VBlockPos@@@Z
     MCAPI void setSavedDwellerPosition(::DwellerRole role, struct ActorUniqueID const& id, class BlockPos pos);
 
@@ -206,9 +190,6 @@ public:
 
     // symbol: ?withinVillageBounds@Village@@QEBA_NAEBVVec3@@M@Z
     MCAPI bool withinVillageBounds(class Vec3 const& pos, float tolerance) const;
-
-    // symbol: ??1Village@@QEAA@XZ
-    MCAPI ~Village();
 
     // symbol: ?isValidRegisteredPOI@Village@@SA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     MCAPI static bool isValidRegisteredPOI(class BlockSource& region, class BlockPos const& position);
@@ -340,13 +321,13 @@ public:
     MCAPI void _tryAddPoiToVillage(struct ActorUniqueID const&, std::weak_ptr<class POIInstance>);
 
     // symbol: ?_tryShiftStandingsTowardNeutral@Village@@AEAAXAEAUTick@@_K_N@Z
-    MCAPI void _tryShiftStandingsTowardNeutral(struct Tick&, uint64 updateInterval, bool);
+    MCAPI void _tryShiftStandingsTowardNeutral(struct Tick& updateTick, uint64 updateInterval, bool positiveShift);
 
     // symbol: ?_trySpawnDefenderDwellers@Village@@AEAAXAEAVBlockSource@@_K@Z
     MCAPI void _trySpawnDefenderDwellers(class BlockSource& region, uint64 bedCount);
 
     // symbol: ?_updateAndRemoveInactiveDwellers@Village@@AEAAX_KM@Z
-    MCAPI void _updateAndRemoveInactiveDwellers(uint64, float);
+    MCAPI void _updateAndRemoveInactiveDwellers(uint64 villagerPurgeTime, float villageBorderTolerance);
 
     // symbol: ?_updateClaimedPOIs@Village@@AEAAXAEAVBlockSource@@@Z
     MCAPI void _updateClaimedPOIs(class BlockSource& region);
@@ -356,7 +337,7 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?ACHIEVEMENT_SOUND_THE_ALARM_TOLERANCE@Village@@0MB
     MCAPI static float const ACHIEVEMENT_SOUND_THE_ALARM_TOLERANCE;
@@ -438,65 +419,6 @@ private:
 
     // symbol: ?VILLAGE_VERSION_CURRENT@Village@@0EB
     MCAPI static uchar const VILLAGE_VERSION_CURRENT;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $ACHIEVEMENT_SOUND_THE_ALARM_TOLERANCE() { return ACHIEVEMENT_SOUND_THE_ALARM_TOLERANCE; }
-
-    static auto& $CELEBRATION_EVENT() { return CELEBRATION_EVENT; }
-
-    static auto& $RAID_BOUNDS_PADDING() { return RAID_BOUNDS_PADDING; }
-
-    static auto& $RAID_EXPIRY_EVENT() { return RAID_EXPIRY_EVENT; }
-
-    static auto& $RAID_FINISHED_DELAY_IN_TICKS() { return RAID_FINISHED_DELAY_IN_TICKS; }
-
-    static auto& $RAID_GROUP_COMPLETE_DELAY_IN_TICKS() { return RAID_GROUP_COMPLETE_DELAY_IN_TICKS; }
-
-    static auto& $RAID_LOCATION_HELP_DELAY_IN_TICKS() { return RAID_LOCATION_HELP_DELAY_IN_TICKS; }
-
-    static auto& $RAID_MAX_SPAWN_FAILURES() { return RAID_MAX_SPAWN_FAILURES; }
-
-    static auto& $RAID_PREP_TIME_IN_TICKS() { return RAID_PREP_TIME_IN_TICKS; }
-
-    static auto& $RAID_TIMEOUT_IN_TICKS() { return RAID_TIMEOUT_IN_TICKS; }
-
-    static auto& $STANDING_DECAY_INTERVAL_BAD() { return STANDING_DECAY_INTERVAL_BAD; }
-
-    static auto& $STANDING_DECAY_INTERVAL_GOOD() { return STANDING_DECAY_INTERVAL_GOOD; }
-
-    static auto& $STORAGE_KEY_DWELLERS() { return STORAGE_KEY_DWELLERS; }
-
-    static auto& $STORAGE_KEY_PLAYERS() { return STORAGE_KEY_PLAYERS; }
-
-    static auto& $STORAGE_KEY_POI() { return STORAGE_KEY_POI; }
-
-    static auto& $STORAGE_KEY_RAID() { return STORAGE_KEY_RAID; }
-
-    static auto& $STORAGE_KEY_VILLAGE() { return STORAGE_KEY_VILLAGE; }
-
-    static auto& $UNINITIALIZED_VILLAGE_LIFETIME_MAX_TICKS() { return UNINITIALIZED_VILLAGE_LIFETIME_MAX_TICKS; }
-
-    static auto& $VILLAGER_EXPECTED_WORK_INTERVAL() { return VILLAGER_EXPECTED_WORK_INTERVAL; }
-
-    static auto& $VILLAGE_HERO_BESTOW_TIME() { return VILLAGE_HERO_BESTOW_TIME; }
-
-    static auto& $VILLAGE_POI_PURGE_TIME() { return VILLAGE_POI_PURGE_TIME; }
-
-    static auto& $VILLAGE_RADIUS_APPROX_SCALAR() { return VILLAGE_RADIUS_APPROX_SCALAR; }
-
-    static auto& $VILLAGE_SAVE_TICK_DELAY() { return VILLAGE_SAVE_TICK_DELAY; }
-
-    static auto& $VILLAGE_START_HEIGHT() { return VILLAGE_START_HEIGHT; }
-
-    static auto& $VILLAGE_UNCLAIMED_POI_CAP() { return VILLAGE_UNCLAIMED_POI_CAP; }
-
-    static auto& $VILLAGE_UPDATE_TICK_DELAY() { return VILLAGE_UPDATE_TICK_DELAY; }
-
-    static auto& $VILLAGE_VERSION_CURRENT() { return VILLAGE_VERSION_CURRENT; }
 
     // NOLINTEND
 };

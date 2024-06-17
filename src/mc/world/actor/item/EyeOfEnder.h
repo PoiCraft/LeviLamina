@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -42,13 +41,13 @@ public:
     // vIndex: 10, symbol: __gen_??1EyeOfEnder@@UEAA@XZ
     virtual ~EyeOfEnder() = default;
 
-    // vIndex: 27, symbol: ?lerpMotion@EyeOfEnder@@UEAAXAEBVVec3@@@Z
+    // vIndex: 24, symbol: ?lerpMotion@EyeOfEnder@@UEAAXAEBVVec3@@@Z
     virtual void lerpMotion(class Vec3 const& delta);
 
-    // vIndex: 29, symbol: ?normalTick@EyeOfEnder@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@EyeOfEnder@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 41, symbol: ?getShadowRadius@EyeOfEnder@@UEBAMXZ
+    // vIndex: 38, symbol: ?getShadowRadius@EyeOfEnder@@UEBAMXZ
     virtual float getShadowRadius() const;
 
     // symbol: ??0EyeOfEnder@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

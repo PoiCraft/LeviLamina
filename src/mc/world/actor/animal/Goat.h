@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -42,25 +41,22 @@ public:
     // vIndex: 10, symbol: __gen_??1Goat@@UEAA@XZ
     virtual ~Goat() = default;
 
-    // vIndex: 74, symbol: ?getAmbientSound@Goat@@UEBA?AW4LevelSoundEvent@Legacy@Puv@@XZ
+    // vIndex: 68, symbol: ?getAmbientSound@Goat@@UEBA?AW4LevelSoundEvent@Legacy@Puv@@XZ
     virtual ::Puv::Legacy::LevelSoundEvent getAmbientSound() const;
 
-    // vIndex: 80, symbol: ?handleEntityEvent@Goat@@UEAAXW4ActorEvent@@H@Z
+    // vIndex: 74, symbol: ?handleEntityEvent@Goat@@UEAAXW4ActorEvent@@H@Z
     virtual void handleEntityEvent(::ActorEvent id, int data);
 
-    // vIndex: 156, symbol: ?updateEntitySpecificMolangVariables@Goat@@UEAAXAEAVRenderParams@@@Z
+    // vIndex: 144, symbol: ?updateEntitySpecificMolangVariables@Goat@@UEAAXAEAVRenderParams@@@Z
     virtual void updateEntitySpecificMolangVariables(class RenderParams& renderParams);
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@Goat@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@Goat@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@Goat@@UEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@Goat@@UEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag& tag) const;
 
-    // vIndex: 166, symbol: ?getHurtSound@Goat@@UEAA?AW4LevelSoundEvent@Legacy@Puv@@XZ
-    virtual ::Puv::Legacy::LevelSoundEvent getHurtSound();
-
-    // vIndex: 167, symbol: ?getDeathSound@Goat@@UEAA?AW4LevelSoundEvent@Legacy@Puv@@XZ
+    // vIndex: 154, symbol: ?getDeathSound@Goat@@UEAA?AW4LevelSoundEvent@Legacy@Puv@@XZ
     virtual ::Puv::Legacy::LevelSoundEvent getDeathSound();
 
     // symbol: ??0Goat@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
@@ -79,24 +75,18 @@ public:
     // symbol: ?reduceHornCount@Goat@@QEAAXXZ
     MCAPI void reduceHornCount();
 
+    // symbol: ?getCustomHurtSound@Goat@@SA?AV?$optional@W4LevelSoundEvent@Legacy@Puv@@@std@@AEAVMob@@@Z
+    MCAPI static std::optional<::Puv::Legacy::LevelSoundEvent> getCustomHurtSound(class Mob&);
+
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?DEFAULT_HORN_COUNT@Goat@@0HA
     MCAPI static int DEFAULT_HORN_COUNT;
 
     // symbol: ?SCREAMING_GOAT_VARIANT@Goat@@0HA
     MCAPI static int SCREAMING_GOAT_VARIANT;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $DEFAULT_HORN_COUNT() { return DEFAULT_HORN_COUNT; }
-
-    static auto& $SCREAMING_GOAT_VARIANT() { return SCREAMING_GOAT_VARIANT; }
 
     // NOLINTEND
 };

@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -46,40 +45,37 @@ public:
     // vIndex: 10, symbol: ??1HangingActor@@UEAA@XZ
     virtual ~HangingActor();
 
-    // vIndex: 29, symbol: ?normalTick@HangingActor@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@HangingActor@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 44, symbol: ?getBrightness@HangingActor@@UEBAMMAEBVIConstBlockSource@@@Z
+    // vIndex: 41, symbol: ?getBrightness@HangingActor@@UEBAMMAEBVIConstBlockSource@@@Z
     virtual float getBrightness(float, class IConstBlockSource const& region) const;
 
-    // vIndex: 48, symbol: ?isPickable@HangingActor@@UEAA_NXZ
-    virtual bool isPickable();
-
-    // vIndex: 75, symbol: ?isInvulnerableTo@HangingActor@@UEBA_NAEBVActorDamageSource@@@Z
+    // vIndex: 69, symbol: ?isInvulnerableTo@HangingActor@@UEBA_NAEBVActorDamageSource@@@Z
     virtual bool isInvulnerableTo(class ActorDamageSource const& source) const;
 
-    // vIndex: 158, symbol: ?_hurt@HangingActor@@MEAA_NAEBVActorDamageSource@@M_N1@Z
+    // vIndex: 146, symbol: ?_hurt@HangingActor@@MEAA_NAEBVActorDamageSource@@M_N1@Z
     virtual bool _hurt(class ActorDamageSource const& source, float damage, bool knock, bool ignite);
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@HangingActor@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@HangingActor@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@HangingActor@@MEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@HangingActor@@MEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag& tag) const;
 
-    // vIndex: 163, symbol: ?getWidth@Painting@@UEBAHXZ
+    // vIndex: 151, symbol: ?getWidth@Painting@@UEBAHXZ
     virtual int getWidth() const = 0;
 
-    // vIndex: 164, symbol: ?getHeight@Painting@@UEBAHXZ
+    // vIndex: 152, symbol: ?getHeight@Painting@@UEBAHXZ
     virtual int getHeight() const = 0;
 
-    // vIndex: 165, symbol: ?dropItem@Painting@@UEAAXXZ
+    // vIndex: 153, symbol: ?dropItem@Painting@@UEAAXXZ
     virtual void dropItem() = 0;
 
-    // vIndex: 166, symbol: ?placeHangingEntity@HangingActor@@UEAA_NAEAVBlockSource@@H@Z
+    // vIndex: 154, symbol: ?placeHangingEntity@HangingActor@@UEAA_NAEAVBlockSource@@H@Z
     virtual bool placeHangingEntity(class BlockSource& region, int direction);
 
-    // vIndex: 167, symbol: ?wouldSurvive@HangingActor@@UEAA_NAEAVBlockSource@@@Z
+    // vIndex: 155, symbol: ?wouldSurvive@HangingActor@@UEAA_NAEAVBlockSource@@@Z
     virtual bool wouldSurvive(class BlockSource& region);
 
     // symbol: ??0HangingActor@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
@@ -103,7 +99,7 @@ public:
     MCAPI void _calculateActorPositionFromPlacementPosition(class BlockPos const& blockPos);
 
     // symbol: ?_wouldSurvive@HangingActor@@IEAA_NAEAVBlockSource@@AEBVBlockPos@@_N@Z
-    MCAPI bool _wouldSurvive(class BlockSource& region, class BlockPos const& blockPos, bool);
+    MCAPI bool _wouldSurvive(class BlockSource& region, class BlockPos const& blockPos, bool beingPlaced);
 
     // NOLINTEND
 
@@ -116,21 +112,15 @@ public:
     MCAPI bool _blockIsObstruction(class BlockSource const& region, class BlockPos const& blockPos) const;
 
     // symbol: ?_canSurviveOnBlock@HangingActor@@AEBA_NAEBVBlockSource@@AEBVBlockPos@@_N@Z
-    MCAPI bool _canSurviveOnBlock(class BlockSource const& region, class BlockPos const& blockPos, bool) const;
+    MCAPI bool
+    _canSurviveOnBlock(class BlockSource const& region, class BlockPos const& blockPos, bool beingPlaced) const;
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?HANGING_OFFSET@HangingActor@@0MB
     MCAPI static float const HANGING_OFFSET;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $HANGING_OFFSET() { return HANGING_OFFSET; }
 
     // NOLINTEND
 };

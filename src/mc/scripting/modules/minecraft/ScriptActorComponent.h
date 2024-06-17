@@ -30,9 +30,6 @@ public:
     // vIndex: 0, symbol: ??1ScriptActorComponent@ScriptModuleMinecraft@@UEAA@XZ
     virtual ~ScriptActorComponent();
 
-    // vIndex: 1, symbol: ?_isValid@ScriptActorComponent@ScriptModuleMinecraft@@MEBA_NXZ
-    virtual bool _isValid() const;
-
     // symbol: ??0ScriptActorComponent@ScriptModuleMinecraft@@QEAA@AEBV01@@Z
     MCAPI ScriptActorComponent(class ScriptModuleMinecraft::ScriptActorComponent const&);
 
@@ -45,9 +42,8 @@ public:
     );
 
     // symbol:
-    // ?getEntity@ScriptActorComponent@ScriptModuleMinecraft@@QEBA?AV?$optional@V?$StrongTypedObjectHandle@VScriptActor@ScriptModuleMinecraft@@@Scripting@@@std@@XZ
-    MCAPI std::optional<class Scripting::StrongTypedObjectHandle<class ScriptModuleMinecraft::ScriptActor>>
-          getEntity() const;
+    // ?getEntity@ScriptActorComponent@ScriptModuleMinecraft@@QEBA?AV?$StrongTypedObjectHandle@VScriptActor@ScriptModuleMinecraft@@@Scripting@@XZ
+    MCAPI class Scripting::StrongTypedObjectHandle<class ScriptModuleMinecraft::ScriptActor> getEntity() const;
 
     // symbol:
     // ?bind@ScriptActorComponent@ScriptModuleMinecraft@@SA?AV?$ClassBindingBuilder@VScriptActorComponent@ScriptModuleMinecraft@@@Scripting@@XZ
@@ -64,14 +60,6 @@ public:
     // symbol:
     // ?_functionError@ScriptActorComponent@ScriptModuleMinecraft@@IEBA?AUError@Scripting@@V?$basic_string_view@DU?$char_traits@D@std@@@std@@@Z
     MCAPI struct Scripting::Error _functionError(std::string_view) const;
-
-    // symbol:
-    // ?_getPropertyError@ScriptActorComponent@ScriptModuleMinecraft@@IEBA?AUError@Scripting@@V?$basic_string_view@DU?$char_traits@D@std@@@std@@@Z
-    MCAPI struct Scripting::Error _getPropertyError(std::string_view) const;
-
-    // symbol:
-    // ?_setPropertyError@ScriptActorComponent@ScriptModuleMinecraft@@IEBA?AUError@Scripting@@V?$basic_string_view@DU?$char_traits@D@std@@@std@@@Z
-    MCAPI struct Scripting::Error _setPropertyError(std::string_view) const;
 
     // symbol: ?_tryGetOwner@ScriptActorComponent@ScriptModuleMinecraft@@IEBAPEAVActor@@XZ
     MCAPI class Actor* _tryGetOwner() const;

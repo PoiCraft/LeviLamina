@@ -56,7 +56,7 @@ MCAPI std::map<class HashedString, std::map<class SemVersion, std::shared_ptr<cl
 MCAPI class Bedrock::Threading::Mutex& getSchemaMapLock();
 
 // symbol: ?parseBannerBlockType@JsonUtil@@YA_NAEAW4BannerBlockType@@AEBVValue@Json@@@Z
-MCAPI bool parseBannerBlockType(::BannerBlockType&, class Json::Value const& root);
+MCAPI bool parseBannerBlockType(::BannerBlockType& outType, class Json::Value const& root);
 
 // symbol:
 // ?parseItem@JsonUtil@@YA_NAEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0AEAHV?$basic_string_view@DU?$char_traits@D@std@@@3@@Z
@@ -64,10 +64,13 @@ MCAPI bool
 parseItem(std::string& outItemName, std::string& outItemNamespace, int& inoutItemAux, std::string_view inString);
 
 // symbol: ?parseItemColor@JsonUtil@@YA_NAEAW4ItemColor@@AEBVValue@Json@@@Z
-MCAPI bool parseItemColor(::ItemColor&, class Json::Value const& root);
+MCAPI bool parseItemColor(::ItemColor& outColor, class Json::Value const& root);
 
 // symbol: ?parseRange@JsonUtil@@YA_NAEBVValue@Json@@AEAH1@Z
 MCAPI bool parseRange(class Json::Value const& root, int& outMin, int& outMax);
+
+// symbol: ?parseVec2@JsonUtil@@YA_NAEAVVec2@@AEBVValue@Json@@@Z
+MCAPI bool parseVec2(class Vec2&, class Json::Value const&);
 
 // symbol: ?parseVec3@JsonUtil@@YA_NAEAVVec3@@AEBVValue@Json@@@Z
 MCAPI bool parseVec3(class Vec3& outVec, class Json::Value const& root);
@@ -82,8 +85,8 @@ MCAPI void printJsonSchema_childNode(
     bool                      isRequired,
     uint64                    minChildren,
     uint64                    maxChildren,
-    std::string const&,
-    std::string const& documentation
+    std::string const&        validValuesDocumentation,
+    std::string const&        documentation
 );
 
 // symbol:

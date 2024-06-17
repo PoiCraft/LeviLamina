@@ -29,7 +29,7 @@ public:
     // vIndex: 0, symbol: __gen_??1PumpkinBlockItem@@UEAA@XZ
     virtual ~PumpkinBlockItem() = default;
 
-    // vIndex: 49, symbol: ?getEnchantSlot@PumpkinBlockItem@@UEBAHXZ
+    // vIndex: 50, symbol: ?getEnchantSlot@PumpkinBlockItem@@UEBAHXZ
     virtual int getEnchantSlot() const;
 
     // vIndex: 97, symbol: ?getEquipLocation@PumpkinBlockItem@@UEBA?AW4ActorLocation@@XZ

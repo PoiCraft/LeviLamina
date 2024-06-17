@@ -46,20 +46,20 @@ public:
     // vIndex: 25, symbol: ?canConnect@LightningRodBlock@@UEBA_NAEBVBlock@@E0@Z
     virtual bool canConnect(class Block const&, uchar, class Block const&) const;
 
-    // vIndex: 46, symbol: ?isSignalSource@LightningRodBlock@@UEBA_NXZ
+    // vIndex: 47, symbol: ?isSignalSource@LightningRodBlock@@UEBA_NXZ
     virtual bool isSignalSource() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@LightningRodBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@LightningRodBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 58, symbol:
+    // vIndex: 59, symbol:
     // ?shouldConnectToRedstone@LightningRodBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@W4Type@Direction@@@Z
     virtual bool shouldConnectToRedstone(class BlockSource&, class BlockPos const&, ::Direction::Type) const;
 
-    // vIndex: 71, symbol: ?setupRedstoneComponent@LightningRodBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 72, symbol: ?setupRedstoneComponent@LightningRodBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void setupRedstoneComponent(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 89, symbol: ?breaksFallingBlocks@LightningRodBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
+    // vIndex: 90, symbol: ?breaksFallingBlocks@LightningRodBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
     virtual bool breaksFallingBlocks(class Block const& block, class BaseGameVersion version) const;
 
     // vIndex: 98, symbol: ?getPlacementBlock@LightningRodBlock@@UEBAAEBVBlock@@AEBVActor@@AEBVBlockPos@@EAEBVVec3@@H@Z
@@ -75,10 +75,10 @@ public:
     // ?animateTickBedrockLegacy@LightningRodBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 147, symbol: ?onPlace@LightningRodBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@LightningRodBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@LightningRodBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@LightningRodBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
     // symbol:

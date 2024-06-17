@@ -48,6 +48,12 @@ public:
     // symbol: ?setFire@Explosion@@QEAAX_N@Z
     MCAPI void setFire(bool val);
 
+    // symbol: ?setIgnoreBlockResistance@Explosion@@QEAAX_N@Z
+    MCAPI void setIgnoreBlockResistance(bool);
+
+    // symbol: ?setKnockbackScaling@Explosion@@QEAAXM@Z
+    MCAPI void setKnockbackScaling(float);
+
     // symbol: ?setMaxResistance@Explosion@@QEAAXM@Z
     MCAPI void setMaxResistance(float resistance);
 
@@ -64,6 +70,19 @@ public:
     // symbol:
     // ?_getActorsInRange@Explosion@@AEBA?AV?$vector@V?$not_null@PEAVActor@@@gsl@@V?$allocator@V?$not_null@PEAVActor@@@gsl@@@std@@@std@@PEAVActor@@M@Z
     MCAPI std::vector<gsl::not_null<class Actor*>> _getActorsInRange(class Actor* optSource, float range) const;
+
+    // symbol: ?getEyePos@Explosion@@AEBA?AVVec3@@AEAVActor@@@Z
+    MCAPI class Vec3 getEyePos(class Actor&) const;
+
+    // symbol:
+    // ?_addOrMergeItemStack@Explosion@@CAXAEBVItemStack@@VBlockPos@@AEAV?$vector@U?$pair@VItemStack@@VBlockPos@@@std@@V?$allocator@U?$pair@VItemStack@@VBlockPos@@@std@@@2@@std@@@Z
+    MCAPI static void
+    _addOrMergeItemStack(class ItemStack const&, class BlockPos, std::vector<std::pair<class ItemStack, class BlockPos>>&);
+
+    // symbol:
+    // ?_spawnExtraResourcesAndMergeItemDropsForBlock@Explosion@@CAXAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@AEAVRandomize@@AEBUResourceDropsContext@@AEAV?$vector@U?$pair@VItemStack@@VBlockPos@@@std@@V?$allocator@U?$pair@VItemStack@@VBlockPos@@@std@@@2@@std@@@Z
+    MCAPI static void
+    _spawnExtraResourcesAndMergeItemDropsForBlock(class BlockSource&, class BlockPos const&, class Block const&, class Randomize&, struct ResourceDropsContext const&, std::vector<std::pair<class ItemStack, class BlockPos>>&);
 
     // NOLINTEND
 };

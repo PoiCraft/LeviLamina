@@ -26,8 +26,14 @@ public:
     // ?getName@BlockGeometryDescription@@UEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string const& getName() const;
 
+    // vIndex: 2, symbol: ?initializeComponent@BlockComponentDescription@@UEBAXAEAVEntityContext@@@Z
+    virtual void initializeComponent(class EntityContext& entity) const;
+
     // vIndex: 3, symbol: ?initializeComponent@BlockGeometryDescription@@UEBAXAEAVBlockComponentStorage@@@Z
     virtual void initializeComponent(class BlockComponentStorage&) const;
+
+    // vIndex: 4, symbol: ?initializeComponentFromCode@BlockComponentDescription@@UEBAXAEAVEntityContext@@@Z
+    virtual void initializeComponentFromCode(class EntityContext&) const;
 
     // vIndex: 5, symbol: ?initializeComponentFromCode@BlockGeometryDescription@@UEBAXAEAVBlockComponentStorage@@@Z
     virtual void initializeComponentFromCode(class BlockComponentStorage&) const;
@@ -58,22 +64,17 @@ public:
     // symbol: ??0BlockGeometryDescription@@QEAA@XZ
     MCAPI BlockGeometryDescription();
 
-    // symbol: ??0BlockGeometryDescription@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
-    MCAPI explicit BlockGeometryDescription(std::string const& geometryName);
+    // symbol: ??0BlockGeometryDescription@@QEAA@AEBVHashedString@@@Z
+    MCAPI explicit BlockGeometryDescription(class HashedString const&);
 
     // symbol: ?bindType@BlockGeometryDescription@@SAXAEAUReflectionCtx@cereal@@@Z
     MCAPI static void bindType(struct cereal::ReflectionCtx&);
 
-    // symbol: ?registerVersionUpgrades@BlockGeometryDescription@@SAXAEAVCerealSchemaUpgradeSet@@@Z
-    MCAPI static void registerVersionUpgrades(class CerealSchemaUpgradeSet&);
+    // symbol: ?CROSS_GEO_NAME@BlockGeometryDescription@@2VHashedString@@B
+    MCAPI static class HashedString const CROSS_GEO_NAME;
 
-    // symbol:
-    // ?CROSS_GEO_NAME@BlockGeometryDescription@@2V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B
-    MCAPI static std::string const CROSS_GEO_NAME;
-
-    // symbol:
-    // ?FULL_BLOCK_GEO_NAME@BlockGeometryDescription@@2V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B
-    MCAPI static std::string const FULL_BLOCK_GEO_NAME;
+    // symbol: ?FULL_BLOCK_GEO_NAME@BlockGeometryDescription@@2VHashedString@@B
+    MCAPI static class HashedString const FULL_BLOCK_GEO_NAME;
 
     // symbol:
     // ?GEO_NAME_CONSTRAINT@BlockGeometryDescription@@2V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B

@@ -29,10 +29,10 @@ public:
     // vIndex: 0, symbol: __gen_??1EndCrystalItem@@UEAA@XZ
     virtual ~EndCrystalItem() = default;
 
-    // vIndex: 37, symbol: ?isGlint@EndCrystalItem@@UEBA_NAEBVItemStackBase@@@Z
+    // vIndex: 38, symbol: ?isGlint@EndCrystalItem@@UEBA_NAEBVItemStackBase@@@Z
     virtual bool isGlint(class ItemStackBase const& stack) const;
 
-    // vIndex: 43, symbol: ?isDestructive@EndCrystalItem@@UEBA_NH@Z
+    // vIndex: 44, symbol: ?isDestructive@EndCrystalItem@@UEBA_NH@Z
     virtual bool isDestructive(int auxValue) const;
 
     // vIndex: 118, symbol:

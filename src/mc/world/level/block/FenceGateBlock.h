@@ -49,23 +49,23 @@ public:
     // vIndex: 25, symbol: ?canConnect@FenceGateBlock@@UEBA_NAEBVBlock@@E0@Z
     virtual bool canConnect(class Block const& otherBlock, uchar toOther, class Block const& thisBlock) const;
 
-    // vIndex: 34, symbol: ?isFenceGateBlock@FenceGateBlock@@UEBA_NXZ
+    // vIndex: 35, symbol: ?isFenceGateBlock@FenceGateBlock@@UEBA_NXZ
     virtual bool isFenceGateBlock() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@FenceGateBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@FenceGateBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 65, symbol: ?onRedstoneUpdate@FenceGateBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
+    // vIndex: 66, symbol: ?onRedstoneUpdate@FenceGateBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
     virtual void
     onRedstoneUpdate(class BlockSource& region, class BlockPos const& pos, int strength, bool isFirstTime) const;
 
-    // vIndex: 71, symbol: ?setupRedstoneComponent@FenceGateBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 72, symbol: ?setupRedstoneComponent@FenceGateBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void setupRedstoneComponent(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 78, symbol: ?ignoreEntitiesOnPistonMove@FenceGateBlock@@UEBA_NAEBVBlock@@@Z
+    // vIndex: 79, symbol: ?ignoreEntitiesOnPistonMove@FenceGateBlock@@UEBA_NAEBVBlock@@@Z
     virtual bool ignoreEntitiesOnPistonMove(class Block const& block) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@FenceGateBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@FenceGateBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -78,20 +78,20 @@ public:
         int                   itemValue
     ) const;
 
-    // vIndex: 147, symbol: ?onPlace@FenceGateBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@FenceGateBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@FenceGateBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@FenceGateBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random&) const;
 
-    // vIndex: 152, symbol: ?isInteractiveBlock@FenceGateBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@FenceGateBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@FenceGateBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@FenceGateBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 166, symbol: ?_onHitByActivatingAttack@FenceGateBlock@@EEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
-    virtual void _onHitByActivatingAttack(class BlockSource&, class BlockPos const&) const;
+    // vIndex: 161, symbol: ?_onHitByActivatingAttack@FenceGateBlock@@EEBAXAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@@Z
+    virtual void _onHitByActivatingAttack(class BlockSource&, class BlockPos const&, class Actor*) const;
 
     // symbol: ??0FenceGateBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HW4WoodType@@@Z
     MCAPI FenceGateBlock(std::string const& nameId, int id, ::WoodType woodType);

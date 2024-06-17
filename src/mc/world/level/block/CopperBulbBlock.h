@@ -34,17 +34,17 @@ public:
     // vIndex: 18, symbol: ?onLightningHit@CopperBulbBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onLightningHit(class BlockSource&, class BlockPos const&) const;
 
-    // vIndex: 26, symbol: ?tryGetCopperBehavior@CopperBulbBlock@@UEBAPEBVCopperBehavior@@XZ
+    // vIndex: 27, symbol: ?tryGetCopperBehavior@CopperBulbBlock@@UEBAPEBVCopperBehavior@@XZ
     virtual class CopperBehavior const* tryGetCopperBehavior() const;
 
-    // vIndex: 58, symbol:
+    // vIndex: 59, symbol:
     // ?shouldConnectToRedstone@CopperBulbBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@W4Type@Direction@@@Z
     virtual bool shouldConnectToRedstone(class BlockSource&, class BlockPos const&, ::Direction::Type) const;
 
-    // vIndex: 65, symbol: ?onRedstoneUpdate@CopperBulbBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
+    // vIndex: 66, symbol: ?onRedstoneUpdate@CopperBulbBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
     virtual void onRedstoneUpdate(class BlockSource&, class BlockPos const&, int, bool) const;
 
-    // vIndex: 71, symbol: ?setupRedstoneComponent@CopperBulbBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 72, symbol: ?setupRedstoneComponent@CopperBulbBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void setupRedstoneComponent(class BlockSource&, class BlockPos const&) const;
 
     // vIndex: 111, symbol: ?hasComparatorSignal@CopperBulbBlock@@UEBA_NXZ
@@ -56,16 +56,16 @@ public:
     // vIndex: 137, symbol: ?getLightEmission@CopperBulbBlock@@UEBA?AUBrightness@@AEBVBlock@@@Z
     virtual struct Brightness getLightEmission(class Block const&) const;
 
-    // vIndex: 147, symbol: ?onPlace@CopperBulbBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@CopperBulbBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource&, class BlockPos const&) const;
 
-    // vIndex: 150, symbol: ?tick@CopperBulbBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@CopperBulbBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 151, symbol: ?randomTick@CopperBulbBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 149, symbol: ?randomTick@CopperBulbBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void randomTick(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 154, symbol: ?use@CopperBulbBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@CopperBulbBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player&, class BlockPos const&, uchar) const;
 
     // symbol:

@@ -23,6 +23,9 @@ public:
     // vIndex: 1, symbol: ?checkComponentDataForContentErrors@ShooterItemComponent@@UEBA_NXZ
     virtual bool checkComponentDataForContentErrors() const;
 
+    // vIndex: 2, symbol: ?writeSettings@ItemComponent@@UEAAXXZ
+    virtual void writeSettings();
+
     // vIndex: 3, symbol: ?isNetworkComponent@ItemComponent@@UEBA_NXZ
     virtual bool isNetworkComponent() const;
 
@@ -51,7 +54,8 @@ public:
 
     // symbol:
     // ?appendFormattedHovertext@DyeableComponent@@QEBAXAEBVItemStackBase@@AEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z
-    MCAPI void appendFormattedHovertext(class ItemStackBase const& item, std::string& hovertext, bool) const;
+    MCAPI void
+    appendFormattedHovertext(class ItemStackBase const& item, std::string& hovertext, bool advancedToolTops) const;
 
     // symbol: ?clearColor@DyeableComponent@@QEBAXAEAVItemStackBase@@@Z
     MCAPI void clearColor(class ItemStackBase& instance) const;
@@ -61,6 +65,9 @@ public:
 
     // symbol: ?setColor@DyeableComponent@@QEBAXAEAVItemStackBase@@AEBVColor@mce@@@Z
     MCAPI void setColor(class ItemStackBase& instance, class mce::Color const& color) const;
+
+    // symbol: ?ResetDefaultLeatherColor@DyeableComponent@@SAXXZ
+    MCAPI static void ResetDefaultLeatherColor();
 
     // symbol: ?getIdentifier@DyeableComponent@@SAAEBVHashedString@@XZ
     MCAPI static class HashedString const& getIdentifier();

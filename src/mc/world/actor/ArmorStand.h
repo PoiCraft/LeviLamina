@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -54,40 +53,37 @@ public:
     // vIndex: 10, symbol: __gen_??1ArmorStand@@UEAA@XZ
     virtual ~ArmorStand() = default;
 
-    // vIndex: 29, symbol: ?normalTick@ArmorStand@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@ArmorStand@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 41, symbol: ?getShadowRadius@ArmorStand@@UEBAMXZ
+    // vIndex: 38, symbol: ?getShadowRadius@ArmorStand@@UEBAMXZ
     virtual float getShadowRadius() const;
 
-    // vIndex: 48, symbol: ?isPickable@ArmorStand@@UEAA_NXZ
-    virtual bool isPickable();
-
-    // vIndex: 75, symbol: ?isInvulnerableTo@ArmorStand@@UEBA_NAEBVActorDamageSource@@@Z
+    // vIndex: 69, symbol: ?isInvulnerableTo@ArmorStand@@UEBA_NAEBVActorDamageSource@@@Z
     virtual bool isInvulnerableTo(class ActorDamageSource const& source) const;
 
-    // vIndex: 136, symbol: ?getInteraction@ArmorStand@@UEAA_NAEAVPlayer@@AEAVActorInteraction@@AEBVVec3@@@Z
+    // vIndex: 124, symbol: ?getInteraction@ArmorStand@@UEAA_NAEAVPlayer@@AEAVActorInteraction@@AEBVVec3@@@Z
     virtual bool getInteraction(class Player& player, class ActorInteraction& interaction, class Vec3 const& location);
 
-    // vIndex: 142, symbol: ?kill@ArmorStand@@UEAAXXZ
+    // vIndex: 130, symbol: ?kill@ArmorStand@@UEAAXXZ
     virtual void kill();
 
-    // vIndex: 143, symbol: ?die@ArmorStand@@UEAAXAEBVActorDamageSource@@@Z
+    // vIndex: 131, symbol: ?die@ArmorStand@@UEAAXAEBVActorDamageSource@@@Z
     virtual void die(class ActorDamageSource const& source);
 
-    // vIndex: 156, symbol: ?updateEntitySpecificMolangVariables@ArmorStand@@UEAAXAEAVRenderParams@@@Z
+    // vIndex: 144, symbol: ?updateEntitySpecificMolangVariables@ArmorStand@@UEAAXAEAVRenderParams@@@Z
     virtual void updateEntitySpecificMolangVariables(class RenderParams&);
 
-    // vIndex: 158, symbol: ?_hurt@ArmorStand@@UEAA_NAEBVActorDamageSource@@M_N1@Z
+    // vIndex: 146, symbol: ?_hurt@ArmorStand@@UEAA_NAEBVActorDamageSource@@M_N1@Z
     virtual bool _hurt(class ActorDamageSource const& source, float, bool, bool);
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@ArmorStand@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@ArmorStand@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@ArmorStand@@UEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@ArmorStand@@UEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag& tag) const;
 
-    // vIndex: 172, symbol: ?pushActors@ArmorStand@@UEAAXXZ
+    // vIndex: 159, symbol: ?pushActors@ArmorStand@@UEAAXXZ
     virtual void pushActors();
 
     // symbol: ??0ArmorStand@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
@@ -124,7 +120,7 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?POSE_ATHENA@ArmorStand@@0UPose@1@B
     MCAPI static struct ArmorStand::Pose const POSE_ATHENA;
@@ -167,39 +163,6 @@ private:
 
     // symbol: ?STAND_POSES@ArmorStand@@0PAPEBUPose@1@A
     MCAPI static struct ArmorStand::Pose const* STAND_POSES[];
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $POSE_ATHENA() { return POSE_ATHENA; }
-
-    static auto& $POSE_BRANDISH() { return POSE_BRANDISH; }
-
-    static auto& $POSE_CANCAN_A() { return POSE_CANCAN_A; }
-
-    static auto& $POSE_CANCAN_B() { return POSE_CANCAN_B; }
-
-    static auto& $POSE_DEFAULT() { return POSE_DEFAULT; }
-
-    static auto& $POSE_ENTERTAIN() { return POSE_ENTERTAIN; }
-
-    static auto& $POSE_HERO() { return POSE_HERO; }
-
-    static auto& $POSE_HONOR() { return POSE_HONOR; }
-
-    static auto& $POSE_RIPOSTE() { return POSE_RIPOSTE; }
-
-    static auto& $POSE_SALUTE() { return POSE_SALUTE; }
-
-    static auto& $POSE_SOLEMN() { return POSE_SOLEMN; }
-
-    static auto& $POSE_ZERO_ROTATION() { return POSE_ZERO_ROTATION; }
-
-    static auto& $POSE_ZOMBIE() { return POSE_ZOMBIE; }
-
-    static auto& $STAND_POSES() { return STAND_POSES; }
 
     // NOLINTEND
 };

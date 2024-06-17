@@ -9,43 +9,54 @@
 #include "ll/api/reflection/Dispatcher.h"
 #include "ll/core/tweak/ForceEnableCheatCommands.h"
 #include "ll/core/tweak/SimpleServerLogger.h"
+#include "ll/core/tweak/Statistics.h"
+#include "ll/api/utils/WinUtils.h"
 
+#include "mc/server/commands/CommandPermissionLevel.h"
 
 namespace ll {
 
 struct LeviConfig {
 
-    int version = 14;
+    int version = 23;
 
     std::string language = "system";
     struct {
-        bool colorLog = true;
+        bool colorLog = win_utils::isStdoutSupportAnsi();
         int  logLevel = 4;
     } logger{};
 
     struct {
         struct {
-            bool        enabled    = true;
-            bool        builtin    = false;
-            std::string logPath    = R"(.\logs\crash)";
-            std::string dumpPrefix = "minidump_";
-            std::string logPrefix  = "trace_";
+            bool        enabled      = true;
+            bool        useBuiltin   = false;
+            std::string externalPath = R"(.\plugins\LeviLamina\CrashLogger.exe)";
+            std::string logPath      = R"(.\logs\crash)";
+            std::string dumpPrefix   = "minidump_";
+            std::string logPrefix    = "trace_";
         } crashLogger{};
 
         struct {
             bool                                                       disableAutoCompactionLog = true;
             ll::reflection::Dispatcher<bool, ForceEnableCheatCommands> forceEnableCheatCommands = true;
+            ll::reflection::Dispatcher<bool, Statistics>               enableStatitics          = true;
         } tweak{};
 
         reflection::Dispatcher<SimpleServerLoggerConfig, SimpleServerLogger> simpleServerLogger{};
 
+        struct CmdSetting {
+            bool                   enabled    = true;
+            CommandPermissionLevel permission = CommandPermissionLevel::GameDirectors;
+        };
         struct {
-            bool enabled             = true;
-            bool tpdimCommand        = true;
-            bool versionCommand      = true;
-            bool memstatusCommand    = true;
-            bool pluginManageCommand = true;
-        } commands{};
+            struct {
+                bool enabled = true;
+            } tpdimOverload{};
+            CmdSetting crashCommand{false};
+            CmdSetting versionCommand{};
+            CmdSetting memstatsCommand{true, CommandPermissionLevel::Host};
+            CmdSetting pluginManageCommand{true, CommandPermissionLevel::Admin};
+        } command{};
 
         bool checkRunningBDS = true;
 
@@ -53,15 +64,10 @@ struct LeviConfig {
             bool alwaysLaunch = false;
         } playerInfo{};
 
-
-        std::unordered_map<std::string, std::string> resourcePackEncryptionMap = {
-            {"<UUID>", "<KEY>"}
-        };
-
     } modules{};
 };
 
-LLETAPI LeviConfig globalConfig;
+extern LeviConfig globalConfig;
 
 bool loadLeviConfig();
 

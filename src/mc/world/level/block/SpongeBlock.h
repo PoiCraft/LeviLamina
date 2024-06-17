@@ -30,10 +30,10 @@ public:
     // vIndex: 0, symbol: __gen_??1SpongeBlock@@UEAA@XZ
     virtual ~SpongeBlock() = default;
 
-    // vIndex: 49, symbol: ?isValidAuxValue@SpongeBlock@@UEBA_NH@Z
+    // vIndex: 50, symbol: ?isValidAuxValue@SpongeBlock@@UEBA_NH@Z
     virtual bool isValidAuxValue(int value) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@SpongeBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@SpongeBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -50,10 +50,10 @@ public:
     // vIndex: 134, symbol: ?animateTickBedrockLegacy@SpongeBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 147, symbol: ?onPlace@SpongeBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@SpongeBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@SpongeBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@SpongeBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
     // symbol: ??0SpongeBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVMaterial@@@Z

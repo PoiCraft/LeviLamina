@@ -29,7 +29,7 @@ public:
     // vIndex: 0, symbol: __gen_??1BowItem@@UEAA@XZ
     virtual ~BowItem() = default;
 
-    // vIndex: 49, symbol: ?getEnchantSlot@BowItem@@UEBAHXZ
+    // vIndex: 50, symbol: ?getEnchantSlot@BowItem@@UEBAHXZ
     virtual int getEnchantSlot() const;
 
     // vIndex: 96, symbol: ?enchantProjectile@BowItem@@UEBAXAEBVItemStackBase@@AEAVActor@@@Z

@@ -6,7 +6,6 @@
 #include "mc/common/wrapper/optional_ref.h"
 #include "mc/enums/FertilizerType.h"
 #include "mc/enums/Flip.h"
-#include "mc/enums/MushroomOuterType.h"
 #include "mc/enums/ShapeType.h"
 #include "mc/world/Direction.h"
 #include "mc/world/level/block/BlockLegacy.h"
@@ -45,19 +44,10 @@ public:
     // vIndex: 120, symbol: ?isAuxValueRelevantForPicking@HugeMushroomBlock@@UEBA_NXZ
     virtual bool isAuxValueRelevantForPicking() const;
 
-    // vIndex: 162, symbol:
+    // vIndex: 160, symbol:
     // ?getMapColor@HugeMushroomBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual class mce::Color
     getMapColor(class BlockSource& source, class BlockPos const& pos, class Block const& block) const;
-
-    // vIndex: 163, symbol: ?getResourceItem@HugeMushroomBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const&, int) const;
-
-    // vIndex: 164, symbol: ?getResourceCount@HugeMushroomBlock@@UEBAHAEAVRandomize@@AEBVBlock@@H@Z
-    virtual int getResourceCount(class Randomize& randomize, class Block const&, int) const;
-
-    // vIndex: 165, symbol: ?getSilkTouchItemInstance@HugeMushroomBlock@@UEBA?AVItemInstance@@AEBVBlock@@@Z
-    virtual class ItemInstance getSilkTouchItemInstance(class Block const& block) const;
 
     // symbol:
     // ??0HugeMushroomBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVMaterial@@W4Type@0@@Z
@@ -67,13 +57,6 @@ public:
         class Material const&     material,
         ::HugeMushroomBlock::Type type
     );
-
-    // NOLINTEND
-
-    // private:
-    // NOLINTBEGIN
-    // symbol: ?_getBlockItemWithState@HugeMushroomBlock@@AEBA?AVItemInstance@@AEBVBlock@@W4MushroomOuterType@@@Z
-    MCAPI class ItemInstance _getBlockItemWithState(class Block const& block, ::MushroomOuterType state) const;
 
     // NOLINTEND
 };

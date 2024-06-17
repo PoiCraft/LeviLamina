@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -39,25 +38,25 @@ public:
     // vIndex: 10, symbol: ??1Monster@@UEAA@XZ
     virtual ~Monster();
 
-    // vIndex: 29, symbol: ?normalTick@Monster@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@Monster@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 158, symbol: ?_hurt@Monster@@MEAA_NAEBVActorDamageSource@@M_N1@Z
+    // vIndex: 146, symbol: ?_hurt@Monster@@MEAA_NAEBVActorDamageSource@@M_N1@Z
     virtual bool _hurt(class ActorDamageSource const& source, float damage, bool knock, bool ignite);
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@Monster@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@Monster@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@Monster@@MEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@Monster@@MEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag& tag) const;
 
-    // vIndex: 173, symbol: ?checkSpawnRules@Monster@@UEAA_N_N@Z
+    // vIndex: 160, symbol: ?checkSpawnRules@Monster@@UEAA_N_N@Z
     virtual bool checkSpawnRules(bool fromSpawner);
 
-    // vIndex: 198, symbol: ?_getWalkTargetValue@Monster@@UEAAMAEBVBlockPos@@@Z
+    // vIndex: 184, symbol: ?_getWalkTargetValue@Monster@@UEAAMAEBVBlockPos@@@Z
     virtual float _getWalkTargetValue(class BlockPos const& pos);
 
-    // vIndex: 204, symbol: ?isDarkEnoughToSpawn@Monster@@UEBA_NXZ
+    // vIndex: 190, symbol: ?isDarkEnoughToSpawn@Monster@@UEBA_NXZ
     virtual bool isDarkEnoughToSpawn() const;
 
     // symbol: ??0Monster@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

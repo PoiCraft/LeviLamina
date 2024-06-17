@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -50,28 +49,19 @@ public:
     // vIndex: 13, symbol: ?remove@WindChargeProjectile@@UEAAXXZ
     virtual void remove();
 
-    // vIndex: 48, symbol: ?isPickable@WindChargeProjectile@@UEAA_NXZ
-    virtual bool isPickable();
-
-    // vIndex: 81, symbol: ?getPickRadius@WindChargeProjectile@@UEAAMXZ
-    virtual float getPickRadius();
-
-    // vIndex: 97, symbol: ?getSourceUniqueID@WindChargeProjectile@@UEBA?AUActorUniqueID@@XZ
+    // vIndex: 90, symbol: ?getSourceUniqueID@WindChargeProjectile@@UEBA?AUActorUniqueID@@XZ
     virtual struct ActorUniqueID getSourceUniqueID() const;
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@WindChargeProjectile@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@WindChargeProjectile@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const&, class DataLoadHelper&);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@WindChargeProjectile@@UEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@WindChargeProjectile@@UEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag&) const;
 
     // symbol:
     // ??0WindChargeProjectile@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
     MCAPI
     WindChargeProjectile(class ActorDefinitionGroup*, struct ActorDefinitionIdentifier const&, class EntityContext&);
-
-    // symbol: ?calculateKnockback@WindChargeProjectile@@SA?AVVec3@@AEBVExplosion@@AEBVActor@@M@Z
-    MCAPI static class Vec3 calculateKnockback(class Explosion const&, class Actor const&, float);
 
     // NOLINTEND
 };

@@ -41,7 +41,7 @@ public:
 
         // NOLINTEND
     };
-    char unk[2800];
+    char mUnknow[2800];
 
 public:
     // prevent constructor by default
@@ -71,10 +71,13 @@ public:
     virtual class ChunkLocalNoiseCache createNoiseCache(class ChunkPos chunkPos) const;
 
     // symbol:
-    // ?decorateWorldGenPostProcess@OverworldGeneratorMultinoise@@EEBAXAEAVBiome@@AEAVLevelChunk@@AEAVBlockSource@@AEAVRandom@@@Z
-    virtual void
-    decorateWorldGenPostProcess(class Biome&, class LevelChunk& lc, class BlockSource& source, class Random& random)
-        const;
+    // ?decorateWorldGenPostProcess@OverworldGeneratorMultinoise@@EEBAXAEBVBiome@@AEAVLevelChunk@@AEAVBlockSource@@AEAVRandom@@@Z
+    virtual void decorateWorldGenPostProcess(
+        class Biome const&,
+        class LevelChunk&  lc,
+        class BlockSource& source,
+        class Random&      random
+    ) const;
 
     // symbol: ?findSpawnPosition@OverworldGeneratorMultinoise@@UEBA?AVBlockPos@@XZ
     virtual class BlockPos findSpawnPosition() const;
@@ -122,7 +125,7 @@ public:
     MCAPI OverworldGeneratorMultinoise(class Dimension&, class LevelSeed64, class Biome const*);
 
     // symbol: ?_applySlides@OverworldGeneratorMultinoise@@SAMAEBVDimensionHeightRange@@ME@Z
-    MCAPI static float _applySlides(class DimensionHeightRange const&, float, uchar);
+    MCAPI static float _applySlides(class DimensionHeightRange const& heightRange, float, uchar);
 
     // NOLINTEND
 
@@ -141,12 +144,6 @@ public:
     // ?_makeBiomeSource@OverworldGeneratorMultinoise@@AEAA?AV?$unique_ptr@VBiomeSource@@U?$default_delete@VBiomeSource@@@std@@@std@@AEBVXoroshiroPositionalRandomFactory@@AEBVBiomeRegistry@@PEBVBiome@@@Z
     MCAPI std::unique_ptr<class BiomeSource>
     _makeBiomeSource(class XoroshiroPositionalRandomFactory const&, class BiomeRegistry const& biomeRegistry, class Biome const*);
-
-    // symbol:
-    // ?_updateNoiseAndGenerateBaseBlock@OverworldGeneratorMultinoise@@AEBA?BUBlockGenerationResult@1@MAEBVBlockPos@@FPEAVAquifer@@_NPEBVChunkBlender@@AEBVBlock@@PEAVOreVeinifier@@@Z
-    MCAPI struct OverworldGeneratorMultinoise::BlockGenerationResult const
-    _updateNoiseAndGenerateBaseBlock(float, class BlockPos const&, short, class Aquifer*, bool, class ChunkBlender const*, class Block const&, class OreVeinifier*)
-        const;
 
     // NOLINTEND
 };

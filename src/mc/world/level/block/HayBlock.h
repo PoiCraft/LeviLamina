@@ -15,6 +15,7 @@
 
 // auto generated forward declare list
 // clang-format off
+namespace BlockEvents { struct BlockFallOnEvent; }
 namespace mce { class Color; }
 // clang-format on
 
@@ -36,12 +37,14 @@ public:
     // vIndex: 129, symbol: ?getVariant@HayBlock@@UEBAHAEBVBlock@@@Z
     virtual int getVariant(class Block const& block) const;
 
-    // vIndex: 148, symbol: ?onFallOn@HayBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@M@Z
-    virtual void
-    onFallOn(class BlockSource& region, class BlockPos const& pos, class Actor& entity, float fallDistance) const;
+    // vIndex: 142, symbol: ?_addHardCodedBlockComponents@HayBlock@@MEAAXAEBVExperiments@@@Z
+    virtual void _addHardCodedBlockComponents(class Experiments const&);
 
     // symbol: ??0HayBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI HayBlock(std::string const& nameId, int id);
+
+    // symbol: ?onFallOn@HayBlock@@QEBAXAEAUBlockFallOnEvent@BlockEvents@@@Z
+    MCAPI void onFallOn(struct BlockEvents::BlockFallOnEvent&) const;
 
     // NOLINTEND
 };

@@ -37,7 +37,7 @@ public:
     virtual gsl::final_action<std::function<void()>> _tryBeginClientLegacyTransactionRequest();
 
     // vIndex: 6, symbol: ?onContainerScreenOpen@ItemStackNetManagerBase@@UEAAXAEBVContainerScreenContext@@@Z
-    virtual void onContainerScreenOpen(class ContainerScreenContext const&);
+    virtual void onContainerScreenOpen(class ContainerScreenContext const& screenContext);
 
     // vIndex: 7, symbol: ?onContainerScreenClose@ItemStackNetManagerBase@@UEAAXXZ
     virtual void onContainerScreenClose();
@@ -88,6 +88,13 @@ public:
     // NOLINTBEGIN
     // symbol: ?_isRequestActionAllowed@ItemStackNetManagerBase@@IEAA_NAEBVItemStackRequestAction@@@Z
     MCAPI bool _isRequestActionAllowed(class ItemStackRequestAction const& requestAction);
+
+    // NOLINTEND
+
+    // private:
+    // NOLINTBEGIN
+    // symbol: ?_pushScreen@ItemStackNetManagerBase@@AEAAXVContainerScreenContext@@@Z
+    MCAPI void _pushScreen(class ContainerScreenContext screenContext);
 
     // NOLINTEND
 };

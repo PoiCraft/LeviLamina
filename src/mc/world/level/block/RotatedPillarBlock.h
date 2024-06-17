@@ -45,31 +45,19 @@ public:
     // vIndex: 132, symbol: ?getMappedFace@RotatedPillarBlock@@UEBAEEAEBVBlock@@@Z
     virtual uchar getMappedFace(uchar face, class Block const& block) const;
 
-    // vIndex: 163, symbol: ?getResourceItem@RotatedPillarBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const& block, int) const;
-
     // symbol:
     // ??0RotatedPillarBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVMaterial@@@Z
     MCAPI RotatedPillarBlock(std::string const& nameId, int id, class Material const& material);
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?mRotatedX@RotatedPillarBlock@@0QBHB
     MCAPI static int const mRotatedX[];
 
     // symbol: ?mRotatedZ@RotatedPillarBlock@@0QBHB
     MCAPI static int const mRotatedZ[];
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $mRotatedX() { return mRotatedX; }
-
-    static auto& $mRotatedZ() { return mRotatedZ; }
 
     // NOLINTEND
 };

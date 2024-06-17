@@ -28,6 +28,11 @@ public:
     );
 
     // symbol:
+    // ?singleTickSystem@InLavaSensingSystem@@SAXAEAVStrictEntityContext@@V?$ViewT@VStrictEntityContext@@$$CBUUpdateWaterStateRequestComponent@@@@V?$EntityModifier@V?$FlagComponent@UInLavaFlag@@@@@@@Z
+    MCAPI static void
+    singleTickSystem(class StrictEntityContext&, class ViewT<class StrictEntityContext, struct UpdateWaterStateRequestComponent const>, class EntityModifier<class FlagComponent<struct InLavaFlag>>);
+
+    // symbol:
     // ?tickSystem@InLavaSensingSystem@@SAXV?$ViewT@VStrictEntityContext@@$$CBUUpdateWaterStateRequestComponent@@@@V?$EntityModifier@V?$FlagComponent@UInLavaFlag@@@@@@@Z
     MCAPI static void
         tickSystem(class ViewT<class StrictEntityContext, struct UpdateWaterStateRequestComponent const>, class EntityModifier<class FlagComponent<struct InLavaFlag>>);

@@ -10,10 +10,12 @@
 // auto generated forward declare list
 // clang-format off
 namespace Bedrock { class EnableNonOwnerReferences; }
+namespace Bedrock::PubSub { class Subscription; }
 // clang-format on
 
 class GameRules : public ::Bedrock::EnableNonOwnerReferences {
 public:
+    // GameRules inner types define
     enum class GameRulesIndex : int {
         InvalidGameRule         = -1,
         CommandBlockOutput      = 0x0,
@@ -81,6 +83,9 @@ public:
     // symbol: ?getBool@GameRules@@QEBA_NUGameRuleId@@_N@Z
     MCAPI bool getBool(struct GameRuleId ruleType, bool defaultValue) const;
 
+    // symbol: ?getFloat@GameRules@@QEBAMUGameRuleId@@@Z
+    MCAPI float getFloat(struct GameRuleId ruleType) const;
+
     // symbol: ?getInt@GameRules@@QEBAHUGameRuleId@@@Z
     MCAPI int getInt(struct GameRuleId ruleType) const;
 
@@ -90,8 +95,8 @@ public:
     // symbol: ?getRules@GameRules@@QEBAAEBV?$vector@VGameRule@@V?$allocator@VGameRule@@@std@@@std@@XZ
     MCAPI GameRuleList const& getRules() const;
 
-    // symbol: ?getTagData@GameRules@@QEAAXAEBVCompoundTag@@@Z
-    MCAPI void getTagData(class CompoundTag const& tag);
+    // symbol: ?getTagData@GameRules@@QEAAXAEBVCompoundTag@@AEBVBaseGameVersion@@@Z
+    MCAPI void getTagData(class CompoundTag const&, class BaseGameVersion const&);
 
     // symbol: ?hasRule@GameRules@@QEBA_NUGameRuleId@@@Z
     MCAPI bool hasRule(struct GameRuleId ruleType) const;
@@ -99,6 +104,14 @@ public:
     // symbol:
     // ?nameToGameRuleIndex@GameRules@@QEBA?AUGameRuleId@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
     MCAPI struct GameRuleId nameToGameRuleIndex(std::string const& name) const;
+
+    // symbol: ??4GameRules@@QEAAAEAV0@AEBV0@@Z
+    MCAPI class GameRules& operator=(class GameRules const&);
+
+    // symbol:
+    // ?registerOnGameRuleChangeCallback@GameRules@@QEAA?AVSubscription@PubSub@Bedrock@@V?$function@$$A6AXAEBVGameRules@@AEBUGameRuleId@@@Z@std@@@Z
+    MCAPI class Bedrock::PubSub::Subscription
+        registerOnGameRuleChangeCallback(std::function<void(class GameRules const&, struct GameRuleId const&)>);
 
     // symbol: ?setMarketplaceOverrides@GameRules@@QEAAXXZ
     MCAPI void setMarketplaceOverrides();

@@ -29,7 +29,7 @@ public:
     // vIndex: 0, symbol: ??1ComplexItem@@UEAA@XZ
     virtual ~ComplexItem();
 
-    // vIndex: 53, symbol: ?isComplex@ComplexItem@@UEBA_NXZ
+    // vIndex: 55, symbol: ?isComplex@ComplexItem@@UEBA_NXZ
     virtual bool isComplex() const;
 
     // vIndex: 119, symbol:

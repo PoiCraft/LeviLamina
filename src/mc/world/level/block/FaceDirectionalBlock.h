@@ -30,7 +30,7 @@ public:
     // vIndex: 0, symbol: ??1FaceDirectionalBlock@@UEAA@XZ
     virtual ~FaceDirectionalBlock();
 
-    // vIndex: 49, symbol: ?isValidAuxValue@FaceDirectionalBlock@@UEBA_NH@Z
+    // vIndex: 50, symbol: ?isValidAuxValue@FaceDirectionalBlock@@UEBA_NH@Z
     virtual bool isValidAuxValue(int auxValue) const;
 
     // vIndex: 98, symbol:

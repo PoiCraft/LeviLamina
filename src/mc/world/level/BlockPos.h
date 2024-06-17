@@ -34,7 +34,7 @@ public:
     MCAPI BlockPos(class ChunkPos const& cp, int y);
 
     // symbol: ??0BlockPos@@QEAA@AEBVChunkPos@@AEBVChunkBlockPos@@F@Z
-    MCAPI BlockPos(class ChunkPos const& cp, class ChunkBlockPos const& offset, short);
+    MCAPI BlockPos(class ChunkPos const& cp, class ChunkBlockPos const& offset, short minDimensionHeight);
 
     // symbol: ??0BlockPos@@QEAA@MMM@Z
     MCAPI BlockPos(float x, float y, float z);
@@ -46,13 +46,25 @@ public:
     MCAPI class BlockPos neighbor(uchar direction) const;
 
     // symbol: ??BBlockPos@@QEBA?AVVec3@@XZ
-    MCAPI operator class Vec3() const;
+    MCAPI explicit operator class Vec3() const;
+
+    // symbol: ??9BlockPos@@QEBA_NAEBV0@@Z
+    MCAPI bool operator!=(class BlockPos const&) const;
+
+    // symbol: ??8BlockPos@@QEBA_NAEBV0@@Z
+    MCAPI bool operator==(class BlockPos const& rhs) const;
 
     // symbol: ?randomSeed@BlockPos@@QEBAHXZ
     MCAPI int randomSeed() const;
 
     // symbol: ?relative@BlockPos@@QEBA?AV1@EH@Z
     MCAPI class BlockPos relative(uchar facing, int steps) const;
+
+    // symbol: ?toCommandString@BlockPos@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+    MCAPI std::string toCommandString() const;
+
+    // symbol: ?toString@BlockPos@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+    MCAPI std::string toString() const;
 
     // symbol: ?transform@BlockPos@@QEBA?AV1@W4Rotation@@W4Mirror@@AEBVVec3@@@Z
     MCAPI class BlockPos transform(::Rotation rotation, ::Mirror mirror, class Vec3 const& pivot) const;

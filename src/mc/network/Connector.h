@@ -2,6 +2,9 @@
 
 #include "mc/_HeaderOutputPredefine.h"
 
+// auto generated inclusion list
+#include "mc/enums/TransportLayer.h"
+
 // auto generated forward declare list
 // clang-format off
 namespace RakNet { struct SystemAddress; }
@@ -60,8 +63,18 @@ public:
     // vIndex: 2, symbol: ?getLocalIp@Connector@@UEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getLocalIp();
 
+    // vIndex: 3, symbol: ?getPort@LocalConnector@@UEBAGXZ
+    virtual ushort getPort() const;
+
+    // vIndex: 4, symbol:
+    // ?getRefinedLocalIps@LocalConnector@@UEBA?AV?$vector@USystemAddress@RakNet@@V?$allocator@USystemAddress@RakNet@@@std@@@std@@XZ
+    virtual std::vector<struct RakNet::SystemAddress> getRefinedLocalIps() const;
+
     // vIndex: 5, symbol: ?getConnectedGameInfo@Connector@@UEBAAEBVGameConnectionInfo@Social@@XZ
     virtual class Social::GameConnectionInfo const& getConnectedGameInfo() const;
+
+    // vIndex: 6, symbol: ?setupNatPunch@LocalConnector@@UEAAX_N@Z
+    virtual void setupNatPunch(bool connectToClient);
 
     // vIndex: 7, symbol: ?getNatPunchInfo@Connector@@UEBA?AUNatPunchInfo@1@XZ
     virtual struct Connector::NatPunchInfo getNatPunchInfo() const;
@@ -72,6 +85,9 @@ public:
 
     // vIndex: 9, symbol: ?addConnectionStateListener@Connector@@UEAAXPEAVConnectionStateListener@1@@Z
     virtual void addConnectionStateListener(class Connector::ConnectionStateListener*);
+
+    // vIndex: 10, symbol: ?removeConnectionStateListener@LocalConnector@@UEAAXPEAVConnectionStateListener@Connector@@@Z
+    virtual void removeConnectionStateListener(class Connector::ConnectionStateListener* listener);
 
     // vIndex: 11, symbol: ?isIPv4Supported@Connector@@UEBA_NXZ
     virtual bool isIPv4Supported() const;
@@ -84,6 +100,9 @@ public:
 
     // vIndex: 14, symbol: ?getIPv6Port@Connector@@UEBAGXZ
     virtual ushort getIPv6Port() const;
+
+    // vIndex: 15, symbol: ?getNetworkType@Connector@@UEBA?AW4TransportLayer@@XZ
+    virtual ::TransportLayer getNetworkType() const;
 
     // symbol: ??0Connector@@QEAA@AEAUConnectionCallbacks@0@@Z
     MCAPI explicit Connector(struct Connector::ConnectionCallbacks& callbacks);

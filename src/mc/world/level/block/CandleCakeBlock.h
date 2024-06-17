@@ -33,17 +33,17 @@ public:
     // vIndex: 11, symbol: ?getVisualShape@CandleCakeBlock@@UEBAAEBVAABB@@AEBVBlock@@AEAV2@@Z
     virtual class AABB const& getVisualShape(class Block const&, class AABB&) const;
 
-    // vIndex: 44, symbol: ?isCandleCakeBlock@CandleCakeBlock@@UEBA_NXZ
+    // vIndex: 45, symbol: ?isCandleCakeBlock@CandleCakeBlock@@UEBA_NXZ
     virtual bool isCandleCakeBlock() const;
 
-    // vIndex: 61, symbol: ?checkIsPathable@CandleCakeBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
+    // vIndex: 62, symbol: ?checkIsPathable@CandleCakeBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
     virtual bool
     checkIsPathable(class Actor& entity, class BlockPos const& lastPathPos, class BlockPos const& pathPos) const;
 
-    // vIndex: 84, symbol: ?mayPlace@CandleCakeBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@E@Z
+    // vIndex: 85, symbol: ?mayPlace@CandleCakeBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@E@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@CandleCakeBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@CandleCakeBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -58,22 +58,16 @@ public:
     getComparatorSignal(class BlockSource& region, class BlockPos const& pos, class Block const& block, uchar dir)
         const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@CandleCakeBlock@@EEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 154, symbol: ?use@CandleCakeBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@CandleCakeBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 156, symbol: ?canSurvive@CandleCakeBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 154, symbol: ?canSurvive@CandleCakeBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool canSurvive(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 163, symbol: ?getResourceItem@CandleCakeBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const&, int) const;
-
-    // vIndex: 168, symbol: ?_getNumCandles@CandleCakeBlock@@MEBAHAEBVBlock@@@Z
+    // vIndex: 163, symbol: ?_getNumCandles@CandleCakeBlock@@MEBAHAEBVBlock@@@Z
     virtual int _getNumCandles(class Block const&) const;
 
-    // vIndex: 169, symbol:
+    // vIndex: 164, symbol:
     // ?_iterateCandles@CandleCakeBlock@@MEBAXAEBVBlock@@AEBVBlockPos@@V?$function@$$A6AXAEBVVec3@@H@Z@std@@@Z
     virtual void _iterateCandles(
         class Block const&                          block,
@@ -81,7 +75,7 @@ public:
         std::function<void(class Vec3 const&, int)> callback
     ) const;
 
-    // vIndex: 170, symbol: ?_tryLightOnFire@CandleCakeBlock@@MEBAXAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@@Z
+    // vIndex: 165, symbol: ?_tryLightOnFire@CandleCakeBlock@@MEBAXAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@@Z
     virtual void _tryLightOnFire(class BlockSource& region, class BlockPos const& pos, class Actor* sourceActor) const;
 
     // symbol: ??0CandleCakeBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

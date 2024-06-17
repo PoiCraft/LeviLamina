@@ -30,15 +30,15 @@ public:
     // vIndex: 0, symbol: __gen_??1WitherRoseBlock@@UEAA@XZ
     virtual ~WitherRoseBlock() = default;
 
-    // vIndex: 79, symbol:
+    // vIndex: 80, symbol:
     // ?onFertilized@WitherRoseBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool onFertilized(class BlockSource&, class BlockPos const&, class Actor*, ::FertilizerType) const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@WitherRoseBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@WitherRoseBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool
     canBeFertilized(class BlockSource& region, class BlockPos const& pos, class Block const& aboveBlock) const;
 
-    // vIndex: 86, symbol: ?mayPlaceOn@WitherRoseBlock@@MEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 87, symbol: ?mayPlaceOn@WitherRoseBlock@@MEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlaceOn(class BlockSource& region, class BlockPos const& pos) const;
 
     // vIndex: 119, symbol:
@@ -55,7 +55,7 @@ public:
     // ?animateTickBedrockLegacy@WitherRoseBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 167, symbol: ?entityInside@WitherRoseBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
+    // vIndex: 162, symbol: ?entityInside@WitherRoseBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
     virtual void entityInside(class BlockSource& region, class BlockPos const&, class Actor& entity) const;
 
     // symbol: ??0WitherRoseBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

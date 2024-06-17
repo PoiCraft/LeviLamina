@@ -45,7 +45,7 @@ public:
      *
      * @param player The server player to send the packet to.
      */
-    LLAPI void sendTo(Player const& player);
+    LLAPI void sendTo(Player const& player) const;
 
     /**
      * Send the packet to all relevant players in a 2D plane at a position in a given dimension.
@@ -53,7 +53,7 @@ public:
      * @param dimId The type of dimension to send the packet in.
      * @param except exclude this player.
      */
-    LLAPI void sendTo(BlockPos const& pos, DimensionType dimId, optional_ref<Player const> except) const;
+    LLAPI void sendTo(BlockPos const& pos, DimensionType dimId, optional_ref<Player const> except = std::nullopt) const;
 
     /**
      * Send the packet to all relevant players within a specific actor.
@@ -61,7 +61,7 @@ public:
      * @param actor The actor to send the packet to.
      * @param except exclude this player.
      */
-    LLAPI void sendTo(Actor const& actor, optional_ref<Player const> except) const;
+    LLAPI void sendTo(Actor const& actor, optional_ref<Player const> except = std::nullopt) const;
 
     /**
      * Send the packet to a specific client identified by network identifier and sub-client ID.
@@ -76,7 +76,9 @@ public:
     /**
      * Send the packet to all clients connected to the server.
      */
-    LLAPI void sendToClients();
+    LLAPI void sendToClients() const;
+
+    LLAPI void sendToClients(NetworkIdentifier const& exceptId, ::SubClientId exceptSubid) const;
 
 public:
     // NOLINTBEGIN
@@ -90,19 +92,22 @@ public:
     // ?getName@ActorEventPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const = 0;
 
-    // vIndex: 3, symbol: ?write@ActorEventPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 3, symbol: ?checkSize@Packet@@UEBA?AV?$Result@XVerror_code@std@@@Bedrock@@_K_N@Z
+    virtual class Bedrock::Result<void> checkSize(uint64, bool) const;
+
+    // vIndex: 4, symbol: ?write@ActorEventPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const = 0;
 
-    // vIndex: 4, symbol: ?read@Packet@@UEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
+    // vIndex: 5, symbol: ?read@Packet@@UEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> read(class ReadOnlyBinaryStream& bitStream);
 
-    // vIndex: 5, symbol: ?disallowBatching@Packet@@UEBA_NXZ
+    // vIndex: 6, symbol: ?disallowBatching@Packet@@UEBA_NXZ
     virtual bool disallowBatching() const;
 
-    // vIndex: 6, symbol: ?isValid@Packet@@UEBA_NXZ
+    // vIndex: 7, symbol: ?isValid@Packet@@UEBA_NXZ
     virtual bool isValid() const;
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@ActorEventPacket@@EEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream) = 0;
 

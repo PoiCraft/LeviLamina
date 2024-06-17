@@ -1,8 +1,14 @@
 #pragma once
 
+#include <memory>
+#include <string>
+#include <string_view>
+#include <vector>
+
+#include "ll/api/Expected.h"
 #include "ll/api/plugin/PluginManagerRegistry.h"
 
-namespace ll::plugin { // TODO : store graph, add functions...
+namespace ll::plugin {
 
 class PluginRegistrar {
     struct Impl;
@@ -21,13 +27,13 @@ public:
 
     void loadAllPlugins();
 
-    bool loadPlugin(std::string_view name);
+    Expected<> loadPlugin(std::string_view name) noexcept;
 
-    bool unloadPlugin(std::string_view name);
+    Expected<> unloadPlugin(std::string_view name) noexcept;
 
-    bool enablePlugin(std::string_view name);
+    Expected<> enablePlugin(std::string_view name) noexcept;
 
-    bool disablePlugin(std::string_view name);
+    Expected<> disablePlugin(std::string_view name) noexcept;
 };
 
 } // namespace ll::plugin

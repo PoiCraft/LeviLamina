@@ -15,6 +15,7 @@
 
 // auto generated forward declare list
 // clang-format off
+namespace BlockEvents { struct BlockFallOnEvent; }
 namespace mce { class Color; }
 // clang-format on
 
@@ -33,36 +34,36 @@ public:
     // vIndex: 2, symbol: ?getNextBlockPermutation@BedBlock@@UEBAPEBVBlock@@AEBV2@@Z
     virtual class Block const* getNextBlockPermutation(class Block const&) const;
 
-    // vIndex: 50, symbol: ?canFillAtPos@BedBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 51, symbol: ?canFillAtPos@BedBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool canFillAtPos(class BlockSource& region, class BlockPos const& pos, class Block const& block) const;
 
-    // vIndex: 51, symbol: ?sanitizeFillBlock@BedBlock@@UEBAAEBVBlock@@AEBV2@@Z
+    // vIndex: 52, symbol: ?sanitizeFillBlock@BedBlock@@UEBAAEBVBlock@@AEBV2@@Z
     virtual class Block const& sanitizeFillBlock(class Block const&) const;
 
-    // vIndex: 52, symbol: ?onFillBlock@BedBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 53, symbol: ?onFillBlock@BedBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual void onFillBlock(class BlockSource& region, class BlockPos const& pos, class Block const& block) const;
 
-    // vIndex: 61, symbol: ?checkIsPathable@BedBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
+    // vIndex: 62, symbol: ?checkIsPathable@BedBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
     virtual bool
     checkIsPathable(class Actor& entity, class BlockPos const& lastPathPos, class BlockPos const& pathPos) const;
 
-    // vIndex: 73, symbol:
+    // vIndex: 74, symbol:
     // ?updateEntityAfterFallOn@BedBlock@@UEBAXAEBVBlockPos@@AEAUUpdateEntityAfterFallOnInterface@@@Z
     virtual void
     updateEntityAfterFallOn(class BlockPos const& pos, struct UpdateEntityAfterFallOnInterface& entity) const;
 
-    // vIndex: 74, symbol: ?isBounceBlock@BedBlock@@UEBA_NXZ
+    // vIndex: 75, symbol: ?isBounceBlock@BedBlock@@UEBA_NXZ
     virtual bool isBounceBlock() const;
 
-    // vIndex: 92, symbol: ?neighborChanged@BedBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@BedBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
-    // vIndex: 93, symbol: ?getSecondPart@BedBlock@@UEBA_NAEBVIConstBlockSource@@AEBVBlockPos@@AEAV3@@Z
+    // vIndex: 94, symbol: ?getSecondPart@BedBlock@@UEBA_NAEBVIConstBlockSource@@AEBVBlockPos@@AEAV3@@Z
     virtual bool
     getSecondPart(class IConstBlockSource const& region, class BlockPos const& pos, class BlockPos& out) const;
 
-    // vIndex: 94, symbol: ?playerWillDestroy@BedBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
+    // vIndex: 95, symbol: ?playerWillDestroy@BedBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
     virtual class Block const*
     playerWillDestroy(class Player& player, class BlockPos const& pos, class Block const& block) const;
 
@@ -81,28 +82,27 @@ public:
     // vIndex: 132, symbol: ?getMappedFace@BedBlock@@UEBAEEAEBVBlock@@@Z
     virtual uchar getMappedFace(uchar face, class Block const& block) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@BedBlock@@MEBA_NXZ
-    virtual bool canBeSilkTouched() const;
+    // vIndex: 142, symbol: ?_addHardCodedBlockComponents@BedBlock@@MEAAXAEBVExperiments@@@Z
+    virtual void _addHardCodedBlockComponents(class Experiments const&);
 
-    // vIndex: 147, symbol: ?onPlace@BedBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@BedBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 148, symbol: ?onFallOn@BedBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@M@Z
-    virtual void
-    onFallOn(class BlockSource& region, class BlockPos const& pos, class Actor& entity, float fallDistance) const;
-
-    // vIndex: 152, symbol: ?isInteractiveBlock@BedBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@BedBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@BedBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@BedBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 162, symbol: ?getMapColor@BedBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 160, symbol: ?getMapColor@BedBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual class mce::Color
     getMapColor(class BlockSource& source, class BlockPos const& pos, class Block const& block) const;
 
     // symbol: ??0BedBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI BedBlock(std::string const& nameId, int id);
+
+    // symbol: ?onFallOn@BedBlock@@QEBAXAEAUBlockFallOnEvent@BlockEvents@@@Z
+    MCAPI void onFallOn(struct BlockEvents::BlockFallOnEvent&) const;
 
     // symbol:
     // ?findWakeupPosition@BedBlock@@SA?AV?$optional@VBlockPos@@@std@@AEAVBlockSource@@AEBVBlockPos@@AEBV?$optional@VVec3@@@3@@Z

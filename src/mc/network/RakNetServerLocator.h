@@ -174,7 +174,7 @@ public:
     MCAPI bool _addCustomServerV6(class AsynchronousIPResolver const& futureIP, int port);
 
     // symbol: ?_announceServer@RakNetServerLocator@@AEAAXAEBUAnnounceServerData@1@@Z
-    MCAPI void _announceServer(struct RakNetServerLocator::AnnounceServerData const&);
+    MCAPI void _announceServer(struct RakNetServerLocator::AnnounceServerData const& serverData);
 
     // symbol:
     // ?_enqueueStateChangeRequest@RakNetServerLocator@@AEAAXW4LocatorStateChangeRequest@@UAnnounceServerData@1@UPortPair@@@Z
@@ -212,8 +212,12 @@ public:
     // ?_pingServerV4@RakNetServerLocator@@AEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI bool _pingServerV4(std::string const& address, int port);
 
+    // symbol:
+    // ?_pingServerV6@RakNetServerLocator@@AEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
+    MCAPI bool _pingServerV6(std::string const& address, int port);
+
     // symbol: ?_setPingResponder@RakNetServerLocator@@AEAAXAEBUAnnounceServerData@1@@Z
-    MCAPI void _setPingResponder(struct RakNetServerLocator::AnnounceServerData const&);
+    MCAPI void _setPingResponder(struct RakNetServerLocator::AnnounceServerData const& serverData);
 
     // symbol: ?_startAnnouncingServer@RakNetServerLocator@@AEAAXAEBUAnnounceServerData@1@@Z
     MCAPI void _startAnnouncingServer(struct RakNetServerLocator::AnnounceServerData const&);

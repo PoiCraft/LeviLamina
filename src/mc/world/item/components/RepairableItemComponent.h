@@ -7,6 +7,7 @@
 
 // auto generated forward declare list
 // clang-format off
+namespace Puv::v1_20_50 { struct RepairableItemComponent; }
 namespace cereal { struct ReflectionCtx; }
 // clang-format on
 
@@ -24,7 +25,10 @@ public:
     // vIndex: 1, symbol: ?checkComponentDataForContentErrors@ItemComponent@@UEBA_NXZ
     virtual bool checkComponentDataForContentErrors() const;
 
-    // vIndex: 3, symbol: ?isNetworkComponent@InteractButtonItemComponent@@UEBA_NXZ
+    // vIndex: 2, symbol: ?writeSettings@ItemComponent@@UEAAXXZ
+    virtual void writeSettings();
+
+    // vIndex: 3, symbol: ?isNetworkComponent@ItemComponent@@UEBA_NXZ
     virtual bool isNetworkComponent() const;
 
     // vIndex: 4, symbol:
@@ -47,11 +51,11 @@ public:
     // vIndex: 9, symbol: ?_initializeComponent@ItemComponent@@MEAAXXZ
     virtual void _initializeComponent();
 
-    // symbol: ?handleItemRepair@RepairableItemComponent@@QEBA?AURepairItemResult@@AEAVItemStack@@0_N@Z
-    MCAPI struct RepairItemResult handleItemRepair(class ItemStack&, class ItemStack&, bool) const;
+    // symbol: ??0RepairableItemComponent@@QEAA@U0v1_20_50@Puv@@@Z
+    MCAPI explicit RepairableItemComponent(struct Puv::v1_20_50::RepairableItemComponent);
 
-    // symbol: ?isValidRepairItem@RepairableItemComponent@@QEBA_NAEBVItemStackBase@@@Z
-    MCAPI bool isValidRepairItem(class ItemStackBase const& repairItem) const;
+    // symbol: ?handleItemRepair@RepairableItemComponent@@QEBA?AURepairItemResult@@AEAVItemStack@@0_N@Z
+    MCAPI struct RepairItemResult handleItemRepair(class ItemStack&, class ItemStack& materialItem, bool) const;
 
     // symbol: ??4RepairableItemComponent@@QEAAAEAV0@$$QEAV0@@Z
     MCAPI class RepairableItemComponent& operator=(class RepairableItemComponent&&);
@@ -67,9 +71,6 @@ public:
     // symbol: ?getIdentifier@RepairableItemComponent@@SAAEBVHashedString@@XZ
     MCAPI static class HashedString const& getIdentifier();
 
-    // symbol: ?registerVersionUpgrades@RepairableItemComponent@@SAXAEAVCerealSchemaUpgradeSet@@@Z
-    MCAPI static void registerVersionUpgrades(class CerealSchemaUpgradeSet&);
-
     // NOLINTEND
 
     // private:
@@ -78,7 +79,11 @@ public:
     MCAPI struct RepairItemEntry const* _getRepairItemEntry(class ItemStackBase const& item) const;
 
     // symbol: ?_repairItem@RepairableItemComponent@@AEBAHAEAVItemStackBase@@0VExpressionNode@@@Z
-    MCAPI int _repairItem(class ItemStackBase&, class ItemStackBase& resultItem, class ExpressionNode) const;
+    MCAPI int _repairItem(
+        class ItemStackBase& materialItem,
+        class ItemStackBase& resultItem,
+        class ExpressionNode repairAmountExpression
+    ) const;
 
     // NOLINTEND
 };

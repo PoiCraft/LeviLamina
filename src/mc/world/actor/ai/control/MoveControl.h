@@ -13,8 +13,8 @@ public:
 
 public:
     // NOLINTBEGIN
-    // vIndex: 0, symbol: __gen_??1MoveControl@@UEAA@XZ
-    virtual ~MoveControl() = default;
+    // vIndex: 0, symbol: ??1MoveControl@@UEAA@XZ
+    virtual ~MoveControl();
 
     // vIndex: 1, symbol: ?initializeInternal@MoveControl@@UEAAXAEAVMob@@PEAUMoveControlDescription@@@Z
     virtual void initializeInternal(class Mob& mob, struct MoveControlDescription* description);
@@ -52,11 +52,20 @@ public:
     // protected:
     // NOLINTBEGIN
     // symbol: ?calculateMoveSpeed@MoveControl@@IEAAMAEBVMoveControlComponent@@AEAVMob@@AEBVVec3@@M@Z
-    MCAPI float calculateMoveSpeed(class MoveControlComponent const& parent, class Mob& mob, class Vec3 const&, float);
+    MCAPI float calculateMoveSpeed(
+        class MoveControlComponent const& parent,
+        class Mob&                        mob,
+        class Vec3 const&                 endPosition,
+        float                             maxMoveSpeed
+    );
 
     // symbol: ?calculateYRotation@MoveControl@@IEAAMAEBVMoveControlComponent@@AEBVMob@@AEBVVec3@@M@Z
-    MCAPI float
-    calculateYRotation(class MoveControlComponent const& parent, class Mob const& mob, class Vec3 const&, float);
+    MCAPI float calculateYRotation(
+        class MoveControlComponent const& parent,
+        class Mob const&                  mob,
+        class Vec3 const&                 positionDifference,
+        float                             maxMoveSpeed
+    );
 
     // NOLINTEND
 };

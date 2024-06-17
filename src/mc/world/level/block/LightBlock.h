@@ -50,16 +50,16 @@ public:
     // vIndex: 23, symbol: ?canProvideSupport@LightBlock@@UEBA_NAEBVBlock@@EW4BlockSupportType@@@Z
     virtual bool canProvideSupport(class Block const& block, uchar face, ::BlockSupportType type) const;
 
-    // vIndex: 76, symbol: ?isFilteredOut@LightBlock@@UEBA_NW4BlockRenderLayer@@@Z
+    // vIndex: 77, symbol: ?isFilteredOut@LightBlock@@UEBA_NW4BlockRenderLayer@@@Z
     virtual bool isFilteredOut(::BlockRenderLayer) const;
 
-    // vIndex: 84, symbol: ?mayPlace@LightBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@E@Z
+    // vIndex: 85, symbol: ?mayPlace@LightBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@E@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 85, symbol: ?mayPlace@LightBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 86, symbol: ?mayPlace@LightBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 87, symbol:
+    // vIndex: 88, symbol:
     // ?tryToPlace@LightBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@PEBUActorBlockSyncMessage@@@Z
     virtual bool tryToPlace(
         class BlockSource&                  region,
@@ -88,7 +88,7 @@ public:
     // vIndex: 137, symbol: ?getLightEmission@LightBlock@@UEBA?AUBrightness@@AEBVBlock@@@Z
     virtual struct Brightness getLightEmission(class Block const& block) const;
 
-    // vIndex: 154, symbol: ?use@LightBlock@@MEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@LightBlock@@MEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar) const;
 
     // symbol: ??0LightBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVMaterial@@@Z

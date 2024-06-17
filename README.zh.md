@@ -1,6 +1,31 @@
+# 再见，基岩版创作者！
+
+由于Mojang计划在未来发布的二进制文件中移除符号文件，这个仓库将被归档。
+
+尽管[社区请求提供完整的PDB文件](https://feedback.minecraft.net/hc/en-us/community/posts/23093086772109-Request-for-Complete-PDB-for-Minecraft-Bedrock-Dedicated-Server)，Mojang拒绝了这个请求，并且现在打算在未来的发布中移除符号文件。
+
+这将使调试服务器和开发插件变得不可能，从而导致LeviLamina和其他插件的开发终止。
+
+因此，未来将无法开发重要的插件，如**关键漏洞修复**、**反作弊插件**以及社区需要的其他功能插件。然而，那些开发作弊程序的人仍然可以这样做，这使得社区难以开发保护服务器的反作弊插件。
+
+Mojang在服务器开发方面表现不佳，现在他们的决定更是让社区无法开发插件。这是一个非常糟糕的决定。
+
+Mojang这种对社区的态度让我们感到**非常失望**。我们呼吁社区采取行动，让我们的声音被听到。通过在社交媒体上表达我们的关切并向Mojang施加压力，我们希望他们能够重新考虑这个决定。社区的团结和共同努力或许能促使Mojang改变他们的做法。
+
+如果您对本公告有任何疑问或意见，请联系 `liteldev@liteldev.com`。
+
 # LeviLamina
 
 ![LeviLamina](https://socialify.git.ci/LiteLDev/LeviLamina/image?description=1&font=Raleway&forks=1&issues=1&logo=https%3A%2F%2Fraw.githubusercontent.com%2FLiteLDev%2FLeviLamina%2FHEAD%2Fdocs%2Fimg%2Flogo.svg&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Auto)
+
+[![Discord](https://img.shields.io/discord/849252980430864384?style=for-the-badge&logo=discord)
+](https://discord.gg/v5R5P4vRZk)
+[![Telegram](https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram)
+](https://t.me/LiteLoader)  
+[![656669024](https://img.shields.io/badge/656669024-red?style=for-the-badge&logo=tencent%20qq)
+](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=ndxRXO1HARA8ing7OunMClOz3cQTogL0&authKey=D7QTcqnzhBzuh3zc%2F70FjgklsVvkCImTjSRqHMwYGCLwIFpxzp%2FflC97Y7AUG%2Fpy&noverify=0&group_code=656669024) 
+[![850517473](https://img.shields.io/badge/850517473-red?style=for-the-badge&logo=tencent%20qq)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=YFHRYvpO6mjqE5QeZxcMIlahGzWR3JLA&authKey=M8p8hkdctNSyXJo7Ux%2FzdNu4VL2jLiqMGakM3eHlA4ZLvjdwtL%2F1SIKE51s%2FKcp6&noverify=0&group_code=850517473) 
+[![1evilamina](https://img.shields.io/badge/1evilamina-red?style=for-the-badge&logo=tencent%20qq)](https://pd.qq.com/s/a13gu04rv)  
 
 [![English](https://img.shields.io/badge/English-inactive?style=for-the-badge)](README.md)
 ![中文](https://img.shields.io/badge/简体中文-informational?style=for-the-badge)
@@ -11,21 +36,12 @@ LeviLamina是一个非官方的插件加载器，旨在为Minecraft Bedrock Serv
 
 开发者可以轻松地用C++，JavaScript，Lua，Python，C#等语言编写插件。这种无缝集成赋予了他们轻松扩展和个性化BDS功能的能力，促进了直观的学习体验和无与伦比的灵活性。
 
-有关更多信息，请参阅[文档](https://levilamina.liteldev.com).
-
-## 目录
-
-- [安全](#安全)
-- [安装](#安装)
-  - [更新](#更新)
-- [使用方法](#使用方法)
-- [星星历史](#星星历史)
-- [感谢](#感谢)
-- [贡献](#贡献)
-  - [贡献者](#贡献者)
-- [许可证](#许可证)
+有关更多信息，请参阅[文档](https://levilamina.liteldev.com/zh/).
 
 ## 安全
+
+!!! warning
+    在安装和使用LeviLamina前，请务必阅读并理解以下免责声明。
 
 LeviLamina（以下简称“本软件”）由LiteLDev（以下简称“开发者”）开发和提供。本软件的设计目的是使用户能够通过加载插件来扩展Minecraft Bedrock Server BDS（以下简称“BDS”）的功能。本软件与Mojang Studios（以下简称“Mojang”）或Microsoft Corporation（以下简称“Microsoft”）没有任何关联。开发者对本软件加载的任何插件的内容、质量、功能、安全性或合法性不承担任何责任。用户应自行判断并承担所有相关风险。
 
@@ -35,32 +51,7 @@ LeviLamina（以下简称“本软件”）由LiteLDev（以下简称“开发�
 
 ## 安装
 
-该项目使用 [lip](https://github.com/lippkg/lip)。如果您尚未在本地安装，请前往查看。
-
-首先，创建一个新的目录用于您的Minecraft服务器，并进入该目录：
-
-```sh
-mkdir myserver
-cd myserver
-```
-
-接下来，使用lip安装捆绑了Minecraft Bedrock Server的LeviLamina：
-
-```sh
-lip install github.com/LiteLDev/LeviLamina
-```
-
-如需更多信息，请参阅[文档](https://levilamina.liteldev.com)。
-
-### 更新
-
-在涉及数据安全时，我们建议不要在当前位置更新LeviLamina。相反，我们建议创建一个新目录，在新目录中安装新版本的LeviLamina，并将旧位置的`worlds`目录复制到新目录中。然后，按照插件开发者提供的说明，将您使用的插件的配置文件和数据文件迁移到新目录中。
-
-然而，如果您坚持要在相同位置更新，您可以使用以下命令来更新LeviLamina：
-
-```sh
-lip install --upgrade github.com/LiteLDev/LeviLamina
-```
+请参考 [快速入门](https://levilamina.liteldev.com/zh/quickstart/)
 
 ## 使用方法
 
@@ -70,15 +61,18 @@ lip install --upgrade github.com/LiteLDev/LeviLamina
 ./bedrock_server_mod.exe
 ```
 
-如需更多信息，请参阅[文档](https://levilamina.liteldev.com)。
+## 星标历史
 
-## 星星历史
-
-![星星历史图](https://api.star-history.com/svg?repos=LiteLDev/LeviLamina&type=Date)
+![星标历史图](https://api.star-history.com/svg?repos=LiteLDev/LeviLamina&type=Date)
 
 ## 感谢
 
-我们衷心感谢[所有捐赠者](https://5g8svn.sharepoint.com/:x:/s/LiteLDev/EXx2ndbuC-9Bj5SR-FlJ-HUBZWy0wODjQCDb8OkzuKTFJg?e=QBF6nQ)！
+我们衷心感谢[所有捐赠者](https://5g8svn.sharepoint.com/:x:/s/LiteLDev/EXx2ndbuC-9Bj5SR-FlJ-HUBZWy0wODjQCDb8OkzuKTFJg?e=QBF6nQ)和所有的开发者！
+
+**感谢 [JetBrains](https://www.jetbrains.com/)
+给开源开发者分配免费的IDE许可证，例如 [CLion](https://www.jetbrains.com/clion/)** 。
+
+[<img src="https://upload.cc/i1/2021/12/29/XNohu5.png" width="200"/>](https://www.jetbrains.com/)
 
 ## 贡献
 
@@ -94,4 +88,6 @@ LeviLamina遵循[Code of Conduct](https://www.contributor-covenant.org/version/2
 
 ## 许可证
 
-LGPL-3.0-only © LiteLDev
+版权所有 © 2023-2024 LiteLDev, 保留所有权利.
+
+本项目采用 LGPL-3.0 许可证发行 - 阅读 [COPYING](COPYING) 和 [COPYING.LESSER](COPYING.LESSER) 文件获取更多信息。

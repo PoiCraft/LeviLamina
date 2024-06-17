@@ -45,10 +45,12 @@ public:
     // prevent constructor by default
     SerializedAbilitiesData& operator=(SerializedAbilitiesData const&);
     SerializedAbilitiesData(SerializedAbilitiesData const&);
-    SerializedAbilitiesData();
 
 public:
     // NOLINTBEGIN
+    // symbol: ??0SerializedAbilitiesData@@QEAA@XZ
+    MCAPI SerializedAbilitiesData();
+
     // symbol: ??0SerializedAbilitiesData@@QEAA@UActorUniqueID@@AEBVLayeredAbilities@@@Z
     MCAPI SerializedAbilitiesData(struct ActorUniqueID, class LayeredAbilities const&);
 
@@ -63,18 +65,11 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol:
     // ?ABILITIES_LAYER_MAP@SerializedAbilitiesData@@0V?$array@W4SerializedAbilitiesLayer@SerializedAbilitiesData@@$04@std@@B
     MCAPI static std::array<::SerializedAbilitiesData::SerializedAbilitiesLayer, 5> const ABILITIES_LAYER_MAP;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $ABILITIES_LAYER_MAP() { return ABILITIES_LAYER_MAP; }
 
     // NOLINTEND
 };

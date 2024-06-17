@@ -34,9 +34,6 @@ public:
     // ?animateTickBedrockLegacy@EnderChestBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@EnderChestBlock@@MEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
     // symbol: ??0EnderChestBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI EnderChestBlock(std::string const& nameId, int id);
 

@@ -7,6 +7,7 @@
 #include "mc/common/wrapper/optional_ref.h"
 #include "mc/enums/FertilizerType.h"
 #include "mc/enums/Flip.h"
+#include "mc/enums/SaplingType.h"
 #include "mc/enums/ShapeType.h"
 #include "mc/world/Direction.h"
 #include "mc/world/level/block/BushBlock.h"
@@ -31,48 +32,38 @@ public:
     // vIndex: 0, symbol: ??1SaplingBlock@@UEAA@XZ
     virtual ~SaplingBlock();
 
-    // vIndex: 56, symbol: ?canContainLiquid@SaplingBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@SaplingBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 79, symbol:
+    // vIndex: 80, symbol:
     // ?onFertilized@SaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool
     onFertilized(class BlockSource& region, class BlockPos const& pos, class Actor* actor, ::FertilizerType fType)
         const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@SaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@SaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool
     canBeFertilized(class BlockSource& region, class BlockPos const& pos, class Block const& aboveBlock) const;
 
-    // vIndex: 85, symbol: ?mayPlace@SaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 86, symbol: ?mayPlace@SaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 96, symbol: ?asItemInstance@SaplingBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
-    virtual class ItemInstance asItemInstance(class Block const& block, class BlockActor const*) const;
-
-    // vIndex: 119, symbol:
-    // ?buildDescriptionId@SaplingBlock@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVBlock@@@Z
-    virtual std::string buildDescriptionId(class Block const&) const;
-
-    // vIndex: 120, symbol: ?isAuxValueRelevantForPicking@SaplingBlock@@UEBA_NXZ
-    virtual bool isAuxValueRelevantForPicking() const;
-
-    // vIndex: 129, symbol: ?getVariant@SaplingBlock@@UEBAHAEBVBlock@@@Z
-    virtual int getVariant(class Block const& block) const;
-
-    // vIndex: 151, symbol: ?randomTick@SaplingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 149, symbol: ?randomTick@SaplingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void randomTick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 157, symbol: ?getRenderLayer@SaplingBlock@@UEBA?AW4BlockRenderLayer@@XZ
+    // vIndex: 155, symbol: ?getRenderLayer@SaplingBlock@@UEBA?AW4BlockRenderLayer@@XZ
     virtual ::BlockRenderLayer getRenderLayer() const;
 
-    // vIndex: 158, symbol:
+    // vIndex: 156, symbol:
     // ?getRenderLayer@SaplingBlock@@UEBA?AW4BlockRenderLayer@@AEBVBlock@@AEAVBlockSource@@AEBVBlockPos@@@Z
     virtual ::BlockRenderLayer
     getRenderLayer(class Block const& block, class BlockSource&, class BlockPos const& pos) const;
 
     // symbol: ??0SaplingBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI SaplingBlock(std::string const& nameId, int id);
+
+    // symbol: ?setSaplingType@SaplingBlock@@QEAAAEAV1@W4SaplingType@@@Z
+    MCAPI class SaplingBlock& setSaplingType(::SaplingType);
 
     // NOLINTEND
 
@@ -104,7 +95,7 @@ public:
         class BlockPos const&        pos,
         class BlockSource&           region,
         class Random&                random,
-        bool
+        bool                         useRandom
     ) const;
 
     // symbol:
@@ -130,7 +121,8 @@ public:
     ) const;
 
     // symbol: ?_growTree@SaplingBlock@@AEBA_NAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@_N@Z
-    MCAPI bool _growTree(class BlockSource& region, class BlockPos const& pos, class Random& random, bool) const;
+    MCAPI bool
+    _growTree(class BlockSource& region, class BlockPos const& pos, class Random& random, bool useRandom) const;
 
     // NOLINTEND
 };

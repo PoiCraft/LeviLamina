@@ -29,22 +29,15 @@ public:
     // ?getName@GameTestRequestPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@GameTestRequestPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@GameTestRequestPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@GameTestRequestPacket@@EEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream);
 
     // symbol: ??0GameTestRequestPacket@@QEAA@XZ
     MCAPI GameTestRequestPacket();
-
-    // symbol: ?getParams@GameTestRequestPacket@@QEBAAEBUTestParameters@gametest@@XZ
-    MCAPI struct gametest::TestParameters const& getParams() const;
-
-    // symbol:
-    // ?getTestName@GameTestRequestPacket@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
-    MCAPI std::string getTestName() const;
 
     // NOLINTEND
 };

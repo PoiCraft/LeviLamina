@@ -6,6 +6,7 @@
 // auto generated inclusion list
 #include "mc/deps/core/PathBuffer.h"
 #include "mc/deps/core/common/bedrock/NonOwnerPointer.h"
+#include "mc/resources/PackType.h"
 
 class ResourcePackStack {
 public:
@@ -46,6 +47,13 @@ public:
     // ?add@ResourcePackStack@@QEAAXVPackInstance@@AEBV?$not_null@V?$NonOwnerPointer@$$CBVIResourcePackRepository@@@Bedrock@@@gsl@@_N@Z
     MCAPI void add(class PackInstance, Bedrock::NotNullNonOwnerPtr<class IResourcePackRepository const> const&, bool);
 
+    // symbol: ?generateAssetSet@ResourcePackStack@@QEAAXXZ
+    MCAPI void generateAssetSet();
+
+    // symbol:
+    // ?getPackTelemetryNamesWithVersion@ResourcePackStack@@QEBA?AV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@W4PackType@@@Z
+    MCAPI std::vector<std::string> getPackTelemetryNamesWithVersion(::PackType) const;
+
     // symbol: ?getSplitStacks@ResourcePackStack@@QEBAXAEAV1@0@Z
     MCAPI void getSplitStacks(class ResourcePackStack& clientStack, class ResourcePackStack& serverStack) const;
 
@@ -54,6 +62,9 @@ public:
 
     // symbol: ?hasPlatformLockedContent@ResourcePackStack@@QEBA_NXZ
     MCAPI bool hasPlatformLockedContent() const;
+
+    // symbol: ?iteratePacks@ResourcePackStack@@QEBAXAEBV?$function@$$A6AXAEBVPackInstance@@@Z@std@@@Z
+    MCAPI void iteratePacks(std::function<void(class PackInstance const&)> const& callback) const;
 
     // symbol: ?removeDuplicates@ResourcePackStack@@QEAAXXZ
     MCAPI void removeDuplicates();
@@ -84,18 +95,11 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol:
     // ?mUpgradePathMap@ResourcePackStack@@0V?$map@V?$PathBuffer@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Core@@V12@U?$less@V?$PathBuffer@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Core@@@std@@V?$allocator@U?$pair@$$CBV?$PathBuffer@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Core@@V12@@std@@@4@@std@@A
     MCAPI static std::map<class Core::PathBuffer<std::string>, class Core::PathBuffer<std::string>> mUpgradePathMap;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $mUpgradePathMap() { return mUpgradePathMap; }
 
     // NOLINTEND
 };

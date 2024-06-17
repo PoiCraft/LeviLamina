@@ -38,15 +38,15 @@ public:
     // vIndex: 129, symbol: ?getVariant@CarrotBlock@@UEBAHAEBVBlock@@@Z
     virtual int getVariant(class Block const& block) const;
 
-    // vIndex: 157, symbol: ?getRenderLayer@CarrotBlock@@UEBA?AW4BlockRenderLayer@@XZ
+    // vIndex: 155, symbol: ?getRenderLayer@CarrotBlock@@UEBA?AW4BlockRenderLayer@@XZ
     virtual ::BlockRenderLayer getRenderLayer() const;
 
-    // vIndex: 158, symbol:
+    // vIndex: 156, symbol:
     // ?getRenderLayer@CarrotBlock@@UEBA?AW4BlockRenderLayer@@AEBVBlock@@AEAVBlockSource@@AEBVBlockPos@@@Z
     virtual ::BlockRenderLayer
     getRenderLayer(class Block const& block, class BlockSource&, class BlockPos const& pos) const;
 
-    // vIndex: 170, symbol: ?getBaseSeed@CarrotBlock@@UEBA?BVItemInstance@@XZ
+    // vIndex: 165, symbol: ?getBaseSeed@CarrotBlock@@UEBA?BVItemInstance@@XZ
     virtual class ItemInstance const getBaseSeed() const;
 
     // symbol: ??0CarrotBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

@@ -32,9 +32,6 @@ public:
     // symbol: ?getCurrentNearbyCuredDiscount@EconomyTradeableComponent@@QEBAHXZ
     MCAPI int getCurrentNearbyCuredDiscount() const;
 
-    // symbol: ?getCurrentTradeExp@EconomyTradeableComponent@@QEBAIXZ
-    MCAPI uint getCurrentTradeExp() const;
-
     // symbol:
     // ?getDisplayName@EconomyTradeableComponent@@QEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     MCAPI std::string const& getDisplayName() const;
@@ -83,7 +80,7 @@ public:
     MCAPI void resupplyTrades();
 
     // symbol: ?setNearbyCuredDiscount@EconomyTradeableComponent@@QEAAXH@Z
-    MCAPI void setNearbyCuredDiscount(int);
+    MCAPI void setNearbyCuredDiscount(int discount);
 
     // symbol: ?setOffers@EconomyTradeableComponent@@QEAAXAEAVMerchantRecipeList@@@Z
     MCAPI void setOffers(class MerchantRecipeList& offers);

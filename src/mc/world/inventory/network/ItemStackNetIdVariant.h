@@ -35,10 +35,10 @@ public:
     MCAPI bool isValid() const;
 
     // symbol: ??4ItemStackNetIdVariant@@QEAAAEAU0@AEBV?$TypedClientNetId@UItemStackLegacyRequestIdTag@@H$0A@@@@Z
-    MCAPI struct ItemStackNetIdVariant& operator=(ItemStackLegacyRequestId const&);
+    MCAPI struct ItemStackNetIdVariant& operator=(ItemStackLegacyRequestId const& legacyClientRequestId);
 
     // symbol: ??4ItemStackNetIdVariant@@QEAAAEAU0@AEBV?$TypedServerNetId@UItemStackNetIdTag@@H$0A@@@@Z
-    MCAPI struct ItemStackNetIdVariant& operator=(ItemStackNetId const&);
+    MCAPI struct ItemStackNetIdVariant& operator=(ItemStackNetId const& serverNetId);
 
     // symbol: ??4ItemStackNetIdVariant@@QEAAAEAU0@$$QEAU0@@Z
     MCAPI struct ItemStackNetIdVariant& operator=(struct ItemStackNetIdVariant&&);
@@ -54,13 +54,6 @@ public:
 
     // symbol: ?toString@ItemStackNetIdVariant@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     MCAPI std::string toString() const;
-
-    // symbol:
-    // ?tryGetLegacyRequestId@ItemStackNetIdVariant@@QEBAPEBV?$TypedClientNetId@UItemStackLegacyRequestIdTag@@H$0A@@@XZ
-    MCAPI ItemStackLegacyRequestId const* tryGetLegacyRequestId() const;
-
-    // symbol: ?tryGetRequestId@ItemStackNetIdVariant@@QEBAPEBV?$TypedClientNetId@UItemStackRequestIdTag@@H$0A@@@XZ
-    MCAPI ItemStackRequestId const* tryGetRequestId() const;
 
     // symbol: ?tryGetServerNetId@ItemStackNetIdVariant@@QEBAPEBV?$TypedServerNetId@UItemStackNetIdTag@@H$0A@@@XZ
     MCAPI ItemStackNetId const* tryGetServerNetId() const;

@@ -86,8 +86,9 @@ public:
     // ?getPieceTintColors@ConnectionRequest@@QEBA?AV?$unordered_map@W4PieceType@persona@@VTintMapColor@@U?$hash@W4PieceType@persona@@@std@@U?$equal_to@W4PieceType@persona@@@5@V?$allocator@U?$pair@$$CBW4PieceType@persona@@VTintMapColor@@@std@@@5@@std@@XZ
     MCAPI std::unordered_map<::persona::PieceType, class TintMapColor> getPieceTintColors() const;
 
-    // symbol: ?getPlayFabId@ConnectionRequest@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
-    MCAPI std::string getPlayFabId() const;
+    // symbol:
+    // ?getPlayFabIdUnverified@ConnectionRequest@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+    MCAPI std::string getPlayFabIdUnverified() const;
 
     // symbol:
     // ?getSelfSignedId@ConnectionRequest@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
@@ -149,6 +150,9 @@ public:
 
     // symbol: ?isTrustedSkin@ConnectionRequest@@QEBA_NXZ
     MCAPI bool isTrustedSkin() const;
+
+    // symbol: ?isValid@ConnectionRequest@@QEBA_NXZ
+    MCAPI bool isValid() const;
 
     // symbol: ?toString@ConnectionRequest@@QEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     MCAPI std::string toString();

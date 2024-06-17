@@ -42,29 +42,29 @@ public:
     // vIndex: 23, symbol: ?canProvideSupport@SeaPickleBlock@@UEBA_NAEBVBlock@@EW4BlockSupportType@@@Z
     virtual bool canProvideSupport(class Block const& block, uchar face, ::BlockSupportType type) const;
 
-    // vIndex: 55, symbol: ?waterSpreadCausesSpawn@SeaPickleBlock@@UEBA_NXZ
+    // vIndex: 56, symbol: ?waterSpreadCausesSpawn@SeaPickleBlock@@UEBA_NXZ
     virtual bool waterSpreadCausesSpawn() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@SeaPickleBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@SeaPickleBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 79, symbol:
+    // vIndex: 80, symbol:
     // ?onFertilized@SeaPickleBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool
     onFertilized(class BlockSource& region, class BlockPos const& pos, class Actor* entity, ::FertilizerType fType)
         const;
 
-    // vIndex: 80, symbol: ?mayConsumeFertilizer@SeaPickleBlock@@UEBA_NAEAVBlockSource@@@Z
+    // vIndex: 81, symbol: ?mayConsumeFertilizer@SeaPickleBlock@@UEBA_NAEAVBlockSource@@@Z
     virtual bool mayConsumeFertilizer(class BlockSource& region) const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@SeaPickleBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@SeaPickleBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool
     canBeFertilized(class BlockSource& region, class BlockPos const& pos, class Block const& aboveBlock) const;
 
-    // vIndex: 86, symbol: ?mayPlaceOn@SeaPickleBlock@@MEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 87, symbol: ?mayPlaceOn@SeaPickleBlock@@MEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlaceOn(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@SeaPickleBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@SeaPickleBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -81,25 +81,19 @@ public:
     // vIndex: 137, symbol: ?getLightEmission@SeaPickleBlock@@UEBA?AUBrightness@@AEBVBlock@@@Z
     virtual struct Brightness getLightEmission(class Block const& block) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@SeaPickleBlock@@MEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 147, symbol: ?onPlace@SeaPickleBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@SeaPickleBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@SeaPickleBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@SeaPickleBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 151, symbol: ?randomTick@SeaPickleBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 149, symbol: ?randomTick@SeaPickleBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void randomTick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 156, symbol: ?canSurvive@SeaPickleBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 154, symbol: ?canSurvive@SeaPickleBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool canSurvive(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 163, symbol: ?getResourceItem@SeaPickleBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const& block, int) const;
-
-    // vIndex: 168, symbol: ?checkAlive@SeaPickleBlock@@MEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 163, symbol: ?checkAlive@SeaPickleBlock@@MEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void checkAlive(class BlockSource& region, class BlockPos const& pos) const;
 
     // symbol: ??0SeaPickleBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

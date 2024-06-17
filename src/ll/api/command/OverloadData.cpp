@@ -9,6 +9,7 @@
 #include "ll/api/base/StdInt.h"
 #include "ll/api/command/CommandHandle.h"
 #include "ll/api/command/CommandRegistrar.h"
+#include "ll/api/memory/Closure.h"
 
 #include "mc/deps/core/common/bedrock/typeid_t.h"
 #include "mc/server/commands/CommandParameterData.h"
@@ -19,33 +20,30 @@
 namespace ll::command {
 
 struct OverloadData::Impl {
-    gsl::not_null<CommandHandle*>     handle;
-    CommandRegistry::FactoryFn        factory{};
-    std::vector<CommandParameterData> params;
-    std::recursive_mutex              mutex;
+    CommandHandle&                                                       handle;
+    std::weak_ptr<plugin::Plugin>                                        plugin;
+    std::optional<memory::FunctionalClosure<CommandRegistry::FactoryFn>> factoryClosure{}; // for delay emplace
+    std::vector<CommandParameterData>                                    params;
+    std::recursive_mutex                                                 mutex;
 };
 
-OverloadData::OverloadData(CommandHandle& handle) : impl(std::make_unique<Impl>(&handle)) {}
+OverloadData::OverloadData(CommandHandle& handle, std::weak_ptr<plugin::Plugin> plugin)
+: impl(std::make_unique<Impl>(handle, std::move(plugin))) {}
 
-OverloadData::~OverloadData() = default;
+OverloadData& OverloadData::operator=(OverloadData&&) = default;
+OverloadData::OverloadData(OverloadData&&)            = default;
+OverloadData::~OverloadData()                         = default;
 
-CommandRegistry::FactoryFn OverloadData::getFactory() {
-    std::lock_guard lock{impl->mutex};
-    return impl->factory;
-}
-std::vector<CommandParameterData> OverloadData::moveParams() {
-    std::lock_guard lock{impl->mutex};
-    return std::move(impl->params);
-}
+CommandRegistry::FactoryFn*        OverloadData::getFactory() { return impl->factoryClosure.value().get(); }
+std::vector<CommandParameterData>& OverloadData::getParams() { return impl->params; }
+CommandHandle&                     OverloadData::getHandle() { return impl->handle; }
+std::weak_ptr<plugin::Plugin>&     OverloadData::getPlugin() { return impl->plugin; }
 
-CommandParameterData& OverloadData::back() {
-    std::lock_guard lock{impl->mutex};
-    if (!impl->params.empty()) {
-        return impl->params.back();
-    } else {
-        throw std::runtime_error("empty overload");
-    }
-}
+char const* OverloadData::storeStr(std::string_view str) { return impl->handle.storeStr(str); }
+
+std::lock_guard<std::recursive_mutex> OverloadData::lock() { return std::lock_guard{impl->mutex}; }
+
+CommandParameterData& OverloadData::back() { return impl->params.back(); }
 
 CommandParameterData& OverloadData::addParamImpl(
     Bedrock::typeid_t<CommandRegistry> id,
@@ -76,16 +74,15 @@ CommandParameterData& OverloadData::addTextImpl(std::string_view text, int offse
         &CommandRegistry::parse<Placeholder>,
         text,
         CommandParameterDataType::Enum,
-        impl->handle->addText(text),
+        impl->handle.addText(text),
         offset,
         -1,
         false
     );
 }
-
-void OverloadData::setFactory(CommandRegistry::FactoryFn fn) {
+void OverloadData::setFactory(std::function<std::unique_ptr<::Command>()>&& fn) {
     std::lock_guard lock{impl->mutex};
-    impl->factory = fn;
-    impl->handle->registerOverload(std::move(*this));
+    impl->factoryClosure.emplace(std::move(fn));
+    impl->handle.registerOverload(*this);
 }
 } // namespace ll::command

@@ -14,11 +14,11 @@ public:
     // UpdateSubChunkBlocksPacket inner types declare
     // clang-format off
     struct BlocksChangedInfo;
-    struct NetworkBlockInfo;
+    struct UpdateSubChunkNetworkBlockInfo;
     // clang-format on
 
     // UpdateSubChunkBlocksPacket inner types define
-    struct NetworkBlockInfo {
+    struct UpdateSubChunkNetworkBlockInfo {
 
     public:
         NetworkBlockPosition  mPos;         // this+0x0
@@ -26,26 +26,17 @@ public:
         uchar                 mUpdateFlags; // this+0x10
         ActorBlockSyncMessage mSyncMessage; // this+0x18
 
-        // prevent constructor by default
-        NetworkBlockInfo& operator=(NetworkBlockInfo const&) = delete;
-        NetworkBlockInfo(NetworkBlockInfo const&)            = delete;
-        NetworkBlockInfo()                                   = delete;
-
     public:
         // NOLINTBEGIN
         // symbol: ??1NetworkBlockInfo@UpdateSubChunkBlocksPacket@@QEAA@XZ
-        MCAPI ~NetworkBlockInfo();
+        MCAPI ~UpdateSubChunkNetworkBlockInfo();
         // NOLINTEND
     };
 
     struct BlocksChangedInfo {
     public:
-        std::vector<NetworkBlockInfo> mStandards; // this+0x0
-        std::vector<NetworkBlockInfo> mExtras;    // this+0x18
-
-        // prevent constructor by default
-        BlocksChangedInfo& operator=(BlocksChangedInfo const&);
-        BlocksChangedInfo(BlocksChangedInfo const&);
+        std::vector<UpdateSubChunkNetworkBlockInfo> mStandards; // this+0x0
+        std::vector<UpdateSubChunkNetworkBlockInfo> mExtras;    // this+0x18
 
     public:
         // NOLINTBEGIN
@@ -71,10 +62,6 @@ public:
     BlocksChangedInfo    mBlocksChanged;         // this+0x30
     NetworkBlockPosition mSubChunkBlockPosition; // this+0x60
 
-    // prevent constructor by default
-    UpdateSubChunkBlocksPacket& operator=(UpdateSubChunkBlocksPacket const&);
-    UpdateSubChunkBlocksPacket(UpdateSubChunkBlocksPacket const&);
-
 public:
     // NOLINTBEGIN
     // vIndex: 0, symbol: ??1UpdateSubChunkBlocksPacket@@UEAA@XZ
@@ -87,10 +74,10 @@ public:
     // ?getName@UpdateSubChunkBlocksPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@UpdateSubChunkBlocksPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@UpdateSubChunkBlocksPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@UpdateSubChunkBlocksPacket@@MEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream);
 
@@ -98,9 +85,9 @@ public:
     MCAPI UpdateSubChunkBlocksPacket();
 
     // symbol:
-    // ??0UpdateSubChunkBlocksPacket@@QEAA@AEBV?$vector@UNetworkBlockInfo@UpdateSubChunkBlocksPacket@@V?$allocator@UNetworkBlockInfo@UpdateSubChunkBlocksPacket@@@std@@@std@@0@Z
+    // ??0UpdateSubChunkBlocksPacket@@QEAA@AEBV?$vector@UUpdateSubChunkNetworkBlockInfo@@V?$allocator@UUpdateSubChunkNetworkBlockInfo@@@std@@@std@@0@Z
     MCAPI
-    UpdateSubChunkBlocksPacket(std::vector<struct UpdateSubChunkBlocksPacket::NetworkBlockInfo> const&, std::vector<struct UpdateSubChunkBlocksPacket::NetworkBlockInfo> const&);
+    UpdateSubChunkBlocksPacket(std::vector<struct UpdateSubChunkNetworkBlockInfo> const&, std::vector<struct UpdateSubChunkNetworkBlockInfo> const&);
 
     // symbol: ?setSubChunkPosition@UpdateSubChunkBlocksPacket@@QEAAXAEBVSubChunkPos@@@Z
     MCAPI void setSubChunkPosition(class SubChunkPos const& subChunkPos);

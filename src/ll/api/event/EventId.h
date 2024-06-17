@@ -11,7 +11,7 @@ public:
 
     [[nodiscard]] constexpr explicit EventId(std::string_view name) noexcept
     : name(name),
-      hash(ll::hash_utils::do_hash(name)) {}
+      hash(ll::hash_utils::doHash(name)) {}
 
     [[nodiscard]] constexpr bool operator==(EventId other) const noexcept {
         return hash == other.hash && name == other.name;
@@ -25,7 +25,7 @@ public:
     }
 };
 
-static constexpr EventId EmptyEventId{""};
+static inline constexpr EventId EmptyEventId{{}};
 
 template <class T>
 constexpr EventId getEventId = []() -> EventId {
@@ -33,7 +33,8 @@ constexpr EventId getEventId = []() -> EventId {
     if constexpr (self::CustomEventId != EmptyEventId) {
         return self::CustomEventId;
     } else {
-        return EventId{ll::reflection::type_raw_name_v<self>};
+        static_assert(std::is_final_v<self>, "Only final classes can use getEventId");
+        return EventId{ll::reflection::type_unprefix_name_v<self>};
     }
 }();
 } // namespace ll::event

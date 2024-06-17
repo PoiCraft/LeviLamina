@@ -4,6 +4,7 @@
 
 // auto generated inclusion list
 #include "mc/deps/core/PathBuffer.h"
+#include "mc/deps/core/common/bedrock/UniqueLock.h"
 
 // auto generated forward declare list
 // clang-format off
@@ -58,14 +59,17 @@ public:
     // vIndex: 10, symbol: ?_setPosition@FlatFile@Core@@UEAA?AVResult@2@_K@Z
     virtual class Core::Result _setPosition(uint64 position) = 0;
 
+    // vIndex: 11, symbol: ?_write@FlatFile@Core@@UEAA?AVResult@2@PEBX_K@Z
+    virtual class Core::Result _write(void const* pBuf, uint64 numBytes) = 0;
+
+    // vIndex: 12, symbol: ?_flush@FlatFile@Core@@UEAA?AVResult@2@XZ
+    virtual class Core::Result _flush() = 0;
+
     // vIndex: 13, symbol: ?_getSize@FlatFile@Core@@UEAA?AVResult@2@PEA_K@Z
     virtual class Core::Result _getSize(uint64* pSize) = 0;
 
     // vIndex: 14, symbol: ?_getRemainingSize@FlatFile@Core@@UEAA?AVResult@2@PEA_K@Z
     virtual class Core::Result _getRemainingSize(uint64* pFileSize) = 0;
-
-    // vIndex: 15, symbol: ?_setInitialFileSize@FileImpl@Core@@MEAA?AVResult@2@_K@Z
-    virtual class Core::Result _setInitialFileSize(uint64 size);
 
     // symbol: ??0FileImpl@Core@@QEAA@PEAVFileSystemImpl@1@VFileOpenMode@1@@Z
     MCAPI FileImpl(class Core::FileSystemImpl* pTransaction, class Core::FileOpenMode openMode);
@@ -126,27 +130,21 @@ public:
 
     // private:
     // NOLINTBEGIN
+    // symbol: ?_lockIfWriteBuffered@FileImpl@Core@@AEAA?AV?$UniqueLock@Vrecursive_mutex@std@@@Threading@Bedrock@@_N@Z
+    MCAPI class Bedrock::Threading::UniqueLock<std::recursive_mutex> _lockIfWriteBuffered(bool);
+
     // symbol: ?_writeOperation@FileImpl@Core@@AEAA?AVResult@2@$$QEAV32@_K@Z
     MCAPI class Core::Result _writeOperation(class Core::Result&& result, uint64 numBytesWritten);
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?sAllFiles@FileImpl@Core@@0V?$vector@PEAVFileImpl@Core@@V?$allocator@PEAVFileImpl@Core@@@std@@@std@@A
     MCAPI static std::vector<class Core::FileImpl*> sAllFiles;
 
     // symbol: ?sAllFilesLock@FileImpl@Core@@0VMutex@Threading@Bedrock@@A
     MCAPI static class Bedrock::Threading::Mutex sAllFilesLock;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $sAllFiles() { return sAllFiles; }
-
-    static auto& $sAllFilesLock() { return sAllFilesLock; }
 
     // NOLINTEND
 };

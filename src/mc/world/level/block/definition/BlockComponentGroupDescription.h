@@ -4,16 +4,49 @@
 
 struct BlockComponentGroupDescription {
 public:
-    // prevent constructor by default
-    BlockComponentGroupDescription();
+    // BlockComponentGroupDescription inner types declare
+    // clang-format off
+    struct Components;
+    // clang-format on
+
+    // BlockComponentGroupDescription inner types define
+    struct Components {
+    public:
+        // NOLINTBEGIN
+        // symbol: ??0Components@BlockComponentGroupDescription@@QEAA@XZ
+        MCAPI Components();
+
+        // symbol: ??0Components@BlockComponentGroupDescription@@QEAA@AEBU01@@Z
+        MCAPI Components(struct BlockComponentGroupDescription::Components const&);
+
+        // symbol: ??4Components@BlockComponentGroupDescription@@QEAAAEAU01@$$QEAU01@@Z
+        MCAPI struct BlockComponentGroupDescription::Components&
+        operator=(struct BlockComponentGroupDescription::Components&&);
+
+        // symbol: ??4Components@BlockComponentGroupDescription@@QEAAAEAU01@AEBU01@@Z
+        MCAPI struct BlockComponentGroupDescription::Components&
+        operator=(struct BlockComponentGroupDescription::Components const&);
+
+        // symbol: ??1Components@BlockComponentGroupDescription@@QEAA@XZ
+        MCAPI ~Components();
+
+        // NOLINTEND
+    };
 
 public:
     // NOLINTBEGIN
+    // symbol: ??0BlockComponentGroupDescription@@QEAA@XZ
+    MCAPI BlockComponentGroupDescription();
+
     // symbol: ??0BlockComponentGroupDescription@@QEAA@$$QEAU0@@Z
     MCAPI BlockComponentGroupDescription(struct BlockComponentGroupDescription&&);
 
     // symbol: ??0BlockComponentGroupDescription@@QEAA@AEBU0@@Z
     MCAPI BlockComponentGroupDescription(struct BlockComponentGroupDescription const&);
+
+    // symbol:
+    // ?addComponentDescription@BlockComponentGroupDescription@@QEAAXV?$shared_ptr@UBlockComponentDescription@@@std@@@Z
+    MCAPI void addComponentDescription(std::shared_ptr<struct BlockComponentDescription>);
 
     // symbol:
     // ?foreachDescription@BlockComponentGroupDescription@@QEBAXV?$function@$$A6AXAEBUBlockComponentDescription@@@Z@std@@@Z

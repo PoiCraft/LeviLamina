@@ -1,5 +1,10 @@
 #pragma once
 
+#include <memory>
+#include <string_view>
+#include <unordered_map>
+
+#include "ll/api/plugin/Manifest.h"
 #include "ll/api/plugin/NativePlugin.h"
 #include "ll/api/plugin/PluginManager.h"
 
@@ -11,17 +16,12 @@ public:
     NativePluginManager();
     ~NativePluginManager() override;
 
-    std::shared_ptr<NativePlugin> getPluginByHandle(Handle handle) {
-        if (handleMap.contains(handle)) {
-            return handleMap.at(handle);
-        }
-        return {};
-    }
+    std::shared_ptr<NativePlugin> getPluginByHandle(Handle handle);
 
 protected:
-    bool load(Manifest manifest) override;
+    Expected<> load(Manifest manifest) override;
 
-    bool unload(std::string_view name) override;
+    Expected<> unload(std::string_view name) override;
 
 private:
     std::unordered_map<Handle, std::shared_ptr<NativePlugin>> handleMap;

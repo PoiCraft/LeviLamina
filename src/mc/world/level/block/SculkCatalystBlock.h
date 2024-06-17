@@ -33,10 +33,7 @@ public:
     // vIndex: 129, symbol: ?getVariant@SculkCatalystBlock@@UEBAHAEBVBlock@@@Z
     virtual int getVariant(class Block const& block) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@SculkCatalystBlock@@UEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 150, symbol: ?tick@SculkCatalystBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@SculkCatalystBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
     // symbol:

@@ -11,7 +11,6 @@
 
 // auto generated forward declare list
 // clang-format off
-namespace Json { class Value; }
 namespace mce { class UUID; }
 // clang-format on
 
@@ -91,7 +90,7 @@ public:
     virtual void updateValues();
 
     // vIndex: 28, symbol: ?getExecutePosition@VirtualCommandOrigin@@UEBA?BVVec3@@HAEBVCommandPositionFloat@@@Z
-    virtual class Vec3 const getExecutePosition(int version, class CommandPositionFloat const&) const;
+    virtual class Vec3 const getExecutePosition(int version, class CommandPositionFloat const& commandPosition) const;
 
     // vIndex: 29, symbol: ?serialize@VirtualCommandOrigin@@UEBA?AVCompoundTag@@XZ
     virtual class CompoundTag serialize() const;
@@ -101,18 +100,18 @@ public:
 
     // symbol: ??0VirtualCommandOrigin@@QEAA@AEBVCommandOrigin@@AEAVActor@@AEBVCommandPositionFloat@@H@Z
     MCAPI VirtualCommandOrigin(
-        class CommandOrigin const& outputReceiver,
-        class Actor&               entity,
-        class CommandPositionFloat const&,
-        int version
+        class CommandOrigin const&        outputReceiver,
+        class Actor&                      entity,
+        class CommandPositionFloat const& commandPosition,
+        int                               version
     );
 
     // symbol: ??0VirtualCommandOrigin@@QEAA@AEBVCommandOrigin@@0AEBVCommandPositionFloat@@H@Z
     MCAPI VirtualCommandOrigin(
-        class CommandOrigin const& outputReceiver,
-        class CommandOrigin const& source,
-        class CommandPositionFloat const&,
-        int version
+        class CommandOrigin const&        outputReceiver,
+        class CommandOrigin const&        source,
+        class CommandPositionFloat const& commandPosition,
+        int                               version
     );
 
     // symbol:
@@ -120,8 +119,8 @@ public:
     MCAPI VirtualCommandOrigin(
         std::unique_ptr<class CommandOrigin> outputReceiver,
         std::unique_ptr<class CommandOrigin> source,
-        class CommandPositionFloat const&,
-        int version
+        class CommandPositionFloat const&    commandPosition,
+        int                                  version
     );
 
     // symbol: ?getOrigin@VirtualCommandOrigin@@QEBAPEAVCommandOrigin@@XZ

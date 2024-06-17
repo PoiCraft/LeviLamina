@@ -36,17 +36,17 @@ public:
     getCollisionShape(class Block const&, class IConstBlockSource const&, class BlockPos const&, class optional_ref<class GetCollisionShapeInterface const>)
         const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@LiquidBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@LiquidBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 61, symbol: ?checkIsPathable@LiquidBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
+    // vIndex: 62, symbol: ?checkIsPathable@LiquidBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
     virtual bool
     checkIsPathable(class Actor& entity, class BlockPos const& lastPathPos, class BlockPos const& pathPos) const;
 
-    // vIndex: 83, symbol: ?mayPick@LiquidBlock@@UEBA_NAEBVBlockSource@@AEBVBlock@@_N@Z
+    // vIndex: 84, symbol: ?mayPick@LiquidBlock@@UEBA_NAEBVBlockSource@@AEBVBlock@@_N@Z
     virtual bool mayPick(class BlockSource const& region, class Block const& block, bool liquid) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@LiquidBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@LiquidBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -62,18 +62,12 @@ public:
     // vIndex: 134, symbol: ?animateTickBedrockLegacy@LiquidBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@LiquidBlock@@UEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 147, symbol: ?onPlace@LiquidBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@LiquidBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 162, symbol: ?getMapColor@LiquidBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 160, symbol: ?getMapColor@LiquidBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual class mce::Color
     getMapColor(class BlockSource& region, class BlockPos const& pos, class Block const& block) const;
-
-    // vIndex: 164, symbol: ?getResourceCount@LiquidBlock@@UEBAHAEAVRandomize@@AEBVBlock@@H@Z
-    virtual int getResourceCount(class Randomize&, class Block const&, int) const;
 
     // symbol: ??0LiquidBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVMaterial@@@Z
     MCAPI LiquidBlock(std::string const& nameId, int id, class Material const& material);

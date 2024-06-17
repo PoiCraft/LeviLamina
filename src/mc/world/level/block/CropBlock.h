@@ -46,22 +46,22 @@ public:
     virtual class AABB const&
     getOutline(class Block const&, class IConstBlockSource const&, class BlockPos const&, class AABB&) const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@CropBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@CropBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 79, symbol: ?onFertilized@CropBlock@@MEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
+    // vIndex: 80, symbol: ?onFertilized@CropBlock@@MEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool
     onFertilized(class BlockSource& region, class BlockPos const& pos, class Actor* actor, ::FertilizerType fType)
         const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@CropBlock@@MEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@CropBlock@@MEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool
     canBeFertilized(class BlockSource& region, class BlockPos const& pos, class Block const& aboveBlock) const;
 
-    // vIndex: 86, symbol: ?mayPlaceOn@CropBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 87, symbol: ?mayPlaceOn@CropBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlaceOn(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@CropBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@CropBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -81,16 +81,13 @@ public:
     // vIndex: 129, symbol: ?getVariant@CropBlock@@UEBAHAEBVBlock@@@Z
     virtual int getVariant(class Block const& block) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@CropBlock@@MEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 151, symbol: ?randomTick@CropBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 149, symbol: ?randomTick@CropBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void randomTick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 156, symbol: ?canSurvive@CropBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 154, symbol: ?canSurvive@CropBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool canSurvive(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 170, symbol: ?getBaseSeed@CropBlock@@MEBA?BVItemInstance@@XZ
+    // vIndex: 165, symbol: ?getBaseSeed@CropBlock@@MEBA?BVItemInstance@@XZ
     virtual class ItemInstance const getBaseSeed() const;
 
     // symbol: ??0CropBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

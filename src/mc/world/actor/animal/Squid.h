@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -42,22 +41,22 @@ public:
     // vIndex: 10, symbol: ??1Squid@@UEAA@XZ
     virtual ~Squid();
 
-    // vIndex: 80, symbol: ?handleEntityEvent@Squid@@UEAAXW4ActorEvent@@H@Z
+    // vIndex: 74, symbol: ?handleEntityEvent@Squid@@UEAAXW4ActorEvent@@H@Z
     virtual void handleEntityEvent(::ActorEvent id, int data);
 
-    // vIndex: 156, symbol: ?updateEntitySpecificMolangVariables@Squid@@UEAAXAEAVRenderParams@@@Z
+    // vIndex: 144, symbol: ?updateEntitySpecificMolangVariables@Squid@@UEAAXAEAVRenderParams@@@Z
     virtual void updateEntitySpecificMolangVariables(class RenderParams& renderParams);
 
-    // vIndex: 158, symbol: ?_hurt@Squid@@MEAA_NAEBVActorDamageSource@@M_N1@Z
+    // vIndex: 146, symbol: ?_hurt@Squid@@MEAA_NAEBVActorDamageSource@@M_N1@Z
     virtual bool _hurt(class ActorDamageSource const& source, float damage, bool knock, bool ignite);
 
-    // vIndex: 173, symbol: ?checkSpawnRules@Squid@@UEAA_N_N@Z
+    // vIndex: 160, symbol: ?checkSpawnRules@Squid@@UEAA_N_N@Z
     virtual bool checkSpawnRules(bool fromSpawner);
 
-    // vIndex: 174, symbol: ?checkSpawnObstruction@Squid@@UEBA_NXZ
+    // vIndex: 161, symbol: ?checkSpawnObstruction@Squid@@UEBA_NXZ
     virtual bool checkSpawnObstruction() const;
 
-    // vIndex: 204, symbol: ?_getInkSquirtSoundEvent@Squid@@MEBA?AW4LevelSoundEvent@Legacy@Puv@@XZ
+    // vIndex: 190, symbol: ?_getInkSquirtSoundEvent@Squid@@MEBA?AW4LevelSoundEvent@Legacy@Puv@@XZ
     virtual ::Puv::Legacy::LevelSoundEvent _getInkSquirtSoundEvent() const;
 
     // symbol:

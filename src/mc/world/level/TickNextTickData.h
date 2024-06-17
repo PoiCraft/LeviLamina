@@ -1,13 +1,16 @@
 #pragma once
 
 #include "mc/_HeaderOutputPredefine.h"
+#include "mc/world/level/BlockPos.h"
+#include "mc/world/level/Tick.h"
+#include "mc/world/level/block/Block.h"
 
 class TickNextTickData {
 public:
-    // prevent constructor by default
-    TickNextTickData& operator=(TickNextTickData const&);
-    TickNextTickData(TickNextTickData const&);
-    TickNextTickData();
+    BlockPos     mPos;            // this+0x0
+    Block const* mBlock;          // this+0x10
+    Tick         mTick;           // this+0x18
+    int          mPriorityOffset; // this+0x20
 
 public:
     // NOLINTBEGIN

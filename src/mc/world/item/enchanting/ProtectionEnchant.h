@@ -29,18 +29,29 @@ public:
     // vIndex: 6, symbol: ?getDamageProtection@ProtectionEnchant@@UEBAHHAEBVActorDamageSource@@@Z
     virtual int getDamageProtection(int level, class ActorDamageSource const& source) const;
 
-    // vIndex: 9, symbol: ?doPostHurt@ProtectionEnchant@@UEBAXAEAVItemInstance@@AEAVActor@@1H@Z
+    // vIndex: 11, symbol: ?doPostHurt@ProtectionEnchant@@UEBAXAEAVItemInstance@@AEAVActor@@1H@Z
     virtual void doPostHurt(class ItemInstance& item, class Actor& victim, class Actor& attacker, int level) const;
 
-    // vIndex: 11, symbol: ?isProtectionEnchant@ProtectionEnchant@@UEBA_NXZ
+    // vIndex: 13, symbol: ?isProtectionEnchant@ProtectionEnchant@@UEBA_NXZ
     virtual bool isProtectionEnchant() const;
 
-    // vIndex: 14, symbol: ?_isValidEnchantmentTypeForCategory@ProtectionEnchant@@EEBA_NW4Type@Enchant@@@Z
+    // vIndex: 16, symbol: ?_isValidEnchantmentTypeForCategory@ProtectionEnchant@@EEBA_NW4Type@Enchant@@@Z
     virtual bool _isValidEnchantmentTypeForCategory(::Enchant::Type type) const;
+
+    // symbol:
+    // ??0ProtectionEnchant@@QEAA@W4Type@Enchant@@W4Frequency@2@V?$basic_string_view@DU?$char_traits@D@std@@@std@@2HH@Z
+    MCAPI ProtectionEnchant(
+        ::Enchant::Type      type,
+        ::Enchant::Frequency frequency,
+        std::string_view     stringId,
+        std::string_view     description,
+        int                  primarySlots,
+        int                  secondarySlots
+    );
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?THORNS_CHANCE_PER_LEVEL@ProtectionEnchant@@0MB
     MCAPI static float const THORNS_CHANCE_PER_LEVEL;
@@ -48,15 +59,6 @@ private:
     // symbol:
     // ?VALID_ENCHANTMENTS@ProtectionEnchant@@0V?$vector@W4Type@Enchant@@V?$allocator@W4Type@Enchant@@@std@@@std@@B
     MCAPI static std::vector<::Enchant::Type> const VALID_ENCHANTMENTS;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $THORNS_CHANCE_PER_LEVEL() { return THORNS_CHANCE_PER_LEVEL; }
-
-    static auto& $VALID_ENCHANTMENTS() { return VALID_ENCHANTMENTS; }
 
     // NOLINTEND
 };

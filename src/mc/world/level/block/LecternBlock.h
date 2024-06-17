@@ -33,23 +33,23 @@ public:
     // vIndex: 23, symbol: ?canProvideSupport@LecternBlock@@UEBA_NAEBVBlock@@EW4BlockSupportType@@@Z
     virtual bool canProvideSupport(class Block const&, uchar face, ::BlockSupportType) const;
 
-    // vIndex: 46, symbol: ?isSignalSource@LecternBlock@@UEBA_NXZ
+    // vIndex: 47, symbol: ?isSignalSource@LecternBlock@@UEBA_NXZ
     virtual bool isSignalSource() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@LecternBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@LecternBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 58, symbol:
+    // vIndex: 59, symbol:
     // ?shouldConnectToRedstone@LecternBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@W4Type@Direction@@@Z
     virtual bool shouldConnectToRedstone(class BlockSource&, class BlockPos const&, ::Direction::Type) const;
 
-    // vIndex: 61, symbol: ?checkIsPathable@LecternBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
+    // vIndex: 62, symbol: ?checkIsPathable@LecternBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
     virtual bool checkIsPathable(class Actor&, class BlockPos const&, class BlockPos const&) const;
 
-    // vIndex: 71, symbol: ?setupRedstoneComponent@LecternBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 72, symbol: ?setupRedstoneComponent@LecternBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void setupRedstoneComponent(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 94, symbol: ?playerWillDestroy@LecternBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
+    // vIndex: 95, symbol: ?playerWillDestroy@LecternBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
     virtual class Block const*
     playerWillDestroy(class Player& player, class BlockPos const& pos, class Block const& block) const;
 
@@ -67,16 +67,16 @@ public:
     virtual int
     getComparatorSignal(class BlockSource& region, class BlockPos const& pos, class Block const&, uchar) const;
 
-    // vIndex: 147, symbol: ?onPlace@LecternBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@LecternBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@LecternBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@LecternBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random&) const;
 
-    // vIndex: 152, symbol: ?isInteractiveBlock@LecternBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@LecternBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@LecternBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@LecternBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
     // symbol: ??0LecternBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

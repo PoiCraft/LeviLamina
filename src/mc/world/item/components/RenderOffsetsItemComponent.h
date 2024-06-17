@@ -53,6 +53,7 @@ public:
     // prevent constructor by default
     RenderOffsetsItemComponent& operator=(RenderOffsetsItemComponent const&);
     RenderOffsetsItemComponent(RenderOffsetsItemComponent const&);
+    RenderOffsetsItemComponent();
 
 public:
     // NOLINTBEGIN
@@ -62,7 +63,10 @@ public:
     // vIndex: 1, symbol: ?checkComponentDataForContentErrors@ItemComponent@@UEBA_NXZ
     virtual bool checkComponentDataForContentErrors() const;
 
-    // vIndex: 3, symbol: ?isNetworkComponent@InteractButtonItemComponent@@UEBA_NXZ
+    // vIndex: 2, symbol: ?writeSettings@ItemComponent@@UEAAXXZ
+    virtual void writeSettings();
+
+    // vIndex: 3, symbol: ?isNetworkComponent@ItemComponent@@UEBA_NXZ
     virtual bool isNetworkComponent() const;
 
     // vIndex: 4, symbol:
@@ -85,9 +89,6 @@ public:
     // vIndex: 9, symbol: ?_initializeComponent@ItemComponent@@MEAAXXZ
     virtual void _initializeComponent();
 
-    // symbol: ??0RenderOffsetsItemComponent@@QEAA@XZ
-    MCAPI RenderOffsetsItemComponent();
-
     // symbol:
     // ?bindType@RenderOffsetsItemComponent@@SAXAEAUReflectionCtx@cereal@@AEBV?$vector@W4AllExperiments@@V?$allocator@W4AllExperiments@@@std@@@std@@V?$optional@VSemVersion@@@5@@Z
     MCAPI static void
@@ -100,28 +101,11 @@ public:
 
     // private:
     // NOLINTBEGIN
-    // symbol:
-    // ?_fromString@RenderOffsetsItemComponent@@CAXAEAV1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
-    MCAPI static void _fromString(class RenderOffsetsItemComponent&, std::string const&);
-
-    // NOLINTEND
-
-private:
-    // NOLINTBEGIN
     // symbol: ?Main_Hand_Defaults@RenderOffsetsItemComponent@@0UItemTransforms@1@A
     MCAPI static struct RenderOffsetsItemComponent::ItemTransforms Main_Hand_Defaults;
 
     // symbol: ?Off_Hand_Defaults@RenderOffsetsItemComponent@@0UItemTransforms@1@A
     MCAPI static struct RenderOffsetsItemComponent::ItemTransforms Off_Hand_Defaults;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $Main_Hand_Defaults() { return Main_Hand_Defaults; }
-
-    static auto& $Off_Hand_Defaults() { return Off_Hand_Defaults; }
 
     // NOLINTEND
 };

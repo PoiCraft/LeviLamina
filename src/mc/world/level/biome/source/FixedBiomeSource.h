@@ -25,18 +25,18 @@ public:
     // vIndex: 1, symbol: ?fillBiomes@FixedBiomeSource@@UEBAXAEAVLevelChunk@@AEBVChunkLocalNoiseCache@@@Z
     virtual void fillBiomes(class LevelChunk& levelChunk, class ChunkLocalNoiseCache const&) const;
 
-    // vIndex: 2, symbol: ?getBiomeArea@FixedBiomeSource@@UEBA?AVBiomeArea@@AEBVBoundingBox@@I@Z
-    virtual class BiomeArea getBiomeArea(class BoundingBox const& area, uint scale) const;
-
-    // vIndex: 3, symbol: ?getBiomeArea@FixedBiomeSource@@UEBA?AVBiomeArea@@AEBVBoundingBox@@IAEBUGetBiomeOptions@@@Z
+    // vIndex: 2, symbol: ?getBiomeArea@FixedBiomeSource@@UEBA?AVBiomeArea@@AEBVBoundingBox@@IAEBUGetBiomeOptions@@@Z
     virtual class BiomeArea
     getBiomeArea(class BoundingBox const& area, uint scale, struct GetBiomeOptions const&) const;
+
+    // vIndex: 3, symbol: ?getBiomeArea@FixedBiomeSource@@UEBA?AVBiomeArea@@AEBVBoundingBox@@I@Z
+    virtual class BiomeArea getBiomeArea(class BoundingBox const& area, uint scale) const;
 
     // vIndex: 4, symbol: ?containsOnly@FixedBiomeSource@@UEBA_NHHHHV?$span@$$CB_K$0?0@gsl@@@Z
     virtual bool containsOnly(int, int, int, int, gsl::span<uint64 const> allowed) const;
 
     // vIndex: 5, symbol: ?getBiome@FixedBiomeSource@@UEBAPEBVBiome@@HHH@Z
-    virtual class Biome const* getBiome(int blockX, int blockY, int blockZ) const;
+    virtual class Biome const* getBiome(int blockX, int, int blockZ) const;
 
     // vIndex: 6, symbol: ?getBiome@FixedBiomeSource@@UEBAPEBVBiome@@AEBUGetBiomeOptions@@@Z
     virtual class Biome const* getBiome(struct GetBiomeOptions const&) const;

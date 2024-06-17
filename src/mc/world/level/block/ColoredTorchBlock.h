@@ -31,7 +31,7 @@ public:
     // vIndex: 0, symbol: __gen_??1ColoredTorchBlock@@UEAA@XZ
     virtual ~ColoredTorchBlock() = default;
 
-    // vIndex: 60, symbol: ?canBeUsedInCommands@ColoredTorchBlock@@UEBA_NAEBVBaseGameVersion@@@Z
+    // vIndex: 61, symbol: ?canBeUsedInCommands@ColoredTorchBlock@@UEBA_NAEBVBaseGameVersion@@@Z
     virtual bool canBeUsedInCommands(class BaseGameVersion const& requiredBaseGameVersion) const;
 
     // vIndex: 96, symbol: ?asItemInstance@ColoredTorchBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
@@ -59,9 +59,6 @@ public:
     // vIndex: 134, symbol:
     // ?animateTickBedrockLegacy@ColoredTorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
-
-    // vIndex: 163, symbol: ?getResourceItem@ColoredTorchBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const& block, int) const;
 
     // symbol:
     // ??0ColoredTorchBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HW4ColoredTorchColor@@@Z

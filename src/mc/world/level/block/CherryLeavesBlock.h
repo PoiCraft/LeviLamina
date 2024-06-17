@@ -45,12 +45,12 @@ public:
     // vIndex: 135, symbol: ?animateTick@CherryLeavesBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 158, symbol:
+    // vIndex: 156, symbol:
     // ?getRenderLayer@CherryLeavesBlock@@UEBA?AW4BlockRenderLayer@@AEBVBlock@@AEAVBlockSource@@AEBVBlockPos@@@Z
     virtual ::BlockRenderLayer
     getRenderLayer(class Block const&, class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 162, symbol:
+    // vIndex: 160, symbol:
     // ?getMapColor@CherryLeavesBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual class mce::Color
     getMapColor(class BlockSource& region, class BlockPos const& pos, class Block const& block) const;

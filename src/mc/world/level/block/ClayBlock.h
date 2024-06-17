@@ -30,26 +30,20 @@ public:
     // vIndex: 0, symbol: __gen_??1ClayBlock@@UEAA@XZ
     virtual ~ClayBlock() = default;
 
-    // vIndex: 47, symbol: ?canBeOriginalSurface@ClayBlock@@UEBA_NXZ
+    // vIndex: 48, symbol: ?canBeOriginalSurface@ClayBlock@@UEBA_NXZ
     virtual bool canBeOriginalSurface() const;
 
-    // vIndex: 79, symbol: ?onFertilized@ClayBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
+    // vIndex: 80, symbol: ?onFertilized@ClayBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool
     onFertilized(class BlockSource& region, class BlockPos const& pos, class Actor* entity, ::FertilizerType fType)
         const;
 
-    // vIndex: 80, symbol: ?mayConsumeFertilizer@ClayBlock@@UEBA_NAEAVBlockSource@@@Z
+    // vIndex: 81, symbol: ?mayConsumeFertilizer@ClayBlock@@UEBA_NAEAVBlockSource@@@Z
     virtual bool mayConsumeFertilizer(class BlockSource& region) const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@ClayBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@ClayBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool
     canBeFertilized(class BlockSource& region, class BlockPos const& pos, class Block const& aboveBlock) const;
-
-    // vIndex: 163, symbol: ?getResourceItem@ClayBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const&, int) const;
-
-    // vIndex: 164, symbol: ?getResourceCount@ClayBlock@@UEBAHAEAVRandomize@@AEBVBlock@@H@Z
-    virtual int getResourceCount(class Randomize&, class Block const&, int) const;
 
     // symbol: ??0ClayBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI ClayBlock(std::string const& nameId, int id);

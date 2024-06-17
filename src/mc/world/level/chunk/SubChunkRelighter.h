@@ -2,9 +2,6 @@
 
 #include "mc/_HeaderOutputPredefine.h"
 
-// auto generated inclusion list
-#include "mc/world/level/chunk/SubChunkBrightnessStorage.h"
-
 class SubChunkRelighter {
 public:
     // prevent constructor by default
@@ -14,14 +11,20 @@ public:
 
 public:
     // NOLINTBEGIN
-    // symbol: ??0SubChunkRelighter@@QEAA@AEAVBlockSource@@_KAEBVChunkPos@@_N3@Z
+    // symbol: ??0SubChunkRelighter@@QEAA@AEAVIBlockSource@@_KAEBVChunkPos@@_N3@Z
     MCAPI SubChunkRelighter(
-        class BlockSource&    source,
+        class IBlockSource&   source,
         uint64                centerSubChunkIndex,
         class ChunkPos const& centerChunkPos,
         bool                  originalLighting,
         bool                  useFullyDarkSubchunk
     );
+
+    // symbol: ?_checkEdgeForSubtractiveBlockLightProcessing@SubChunkRelighter@@QEAAXAEBUSubChunkLightIndex@@@Z
+    MCAPI void _checkEdgeForSubtractiveBlockLightProcessing(struct SubChunkLightIndex const&);
+
+    // symbol: ?_checkEdgeForSubtractiveSkyLightProcessing@SubChunkRelighter@@QEAAXAEBUSubChunkLightIndex@@@Z
+    MCAPI void _checkEdgeForSubtractiveSkyLightProcessing(struct SubChunkLightIndex const&);
 
     // symbol: ?_getAbsorption@SubChunkRelighter@@QEBAPEAUSubChunk@@USubChunkLightIndex@@AEAE@Z
     MCAPI struct SubChunk* _getAbsorption(struct SubChunkLightIndex coordIndex, uchar& absorption) const;
@@ -57,8 +60,8 @@ public:
         struct Brightness         newBrightness,
         struct Brightness         oldAbsorption,
         struct Brightness         newAbsorption,
-        uint,
-        uint subChunkIndex
+        uint                      lightType,
+        uint                      subChunkIndex
     );
 
     // symbol: ?_setPropagatedBlockLightValue@SubChunkRelighter@@QEAAXUSubChunkLightIndex@@E@Z
@@ -76,22 +79,10 @@ public:
         struct Brightness         newAbsorption
     );
 
-    // symbol: ?getBlock@SubChunkRelighter@@QEAAXAEBVPos@@AEAPEBVBlock@@1@Z
-    MCAPI void getBlock(class Pos const& pos, class Block const*& block, class Block const*& extraBlock);
-
-    // symbol: ?getCentralSubchunkOrigin@SubChunkRelighter@@QEAA?AVPos@@XZ
-    MCAPI class Pos getCentralSubchunkOrigin();
-
-    // symbol: ?getLightPair@SubChunkRelighter@@QEBA?AULightPair@SubChunkBrightnessStorage@@AEBVPos@@@Z
-    MCAPI struct SubChunkBrightnessStorage::LightPair getLightPair(class Pos const& coord) const;
-
     // symbol:
-    // ?getLightPairWithPlaceholderCheck@SubChunkRelighter@@QEBA?AULightPair@SubChunkBrightnessStorage@@AEBVPos@@AEBU23@@Z
-    MCAPI struct SubChunkBrightnessStorage::LightPair
-    getLightPairWithPlaceholderCheck(class Pos const& coord, struct SubChunkBrightnessStorage::LightPair const&) const;
-
-    // symbol: ?getTouchedSubChunks@SubChunkRelighter@@QEAAXAEAV?$vector@VPos@@V?$allocator@VPos@@@std@@@std@@@Z
-    MCAPI void getTouchedSubChunks(std::vector<class Pos>& subChunkPosList);
+    // ?relightSubChunk@SubChunkRelighter@@QEAAXAEBVLevelChunk@@AEBV?$vector@USubChunkLightUpdate@@V?$allocator@USubChunkLightUpdate@@@std@@@std@@AEAV?$vector@VBlockPos@@V?$allocator@VBlockPos@@@std@@@4@@Z
+    MCAPI void
+    relightSubChunk(class LevelChunk const&, std::vector<struct SubChunkLightUpdate> const&, std::vector<class BlockPos>&);
 
     // symbol: ?setBlockLight@SubChunkRelighter@@QEAAXAEBVPos@@UBrightness@@111@Z
     MCAPI void setBlockLight(
@@ -110,9 +101,6 @@ public:
         struct Brightness oldAbsorption,
         struct Brightness newAbsorption
     );
-
-    // symbol: ?update@SubChunkRelighter@@QEAAXAEBVBlockPos@@_K@Z
-    MCAPI void update(class BlockPos const&, uint64);
 
     // symbol: ??1SubChunkRelighter@@QEAA@XZ
     MCAPI ~SubChunkRelighter();
@@ -144,12 +132,9 @@ public:
     // symbol: ?_getLight@SubChunkRelighter@@AEAAEUSubChunkLightIndex@@@Z
     MCAPI uchar _getLight(struct SubChunkLightIndex index);
 
-    // symbol: ?_getLightPair@SubChunkRelighter@@AEBA?AULightPair@SubChunkBrightnessStorage@@USubChunkLightIndex@@@Z
-    MCAPI struct SubChunkBrightnessStorage::LightPair _getLightPair(struct SubChunkLightIndex coordIndex) const;
-
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?mAllSubChunkBorderBitsExceptTheOuterEdgeOfComputationBits@SubChunkRelighter@@0V?$bitset@$0DAAAA@@std@@A
     MCAPI static std::bitset<196608> mAllSubChunkBorderBitsExceptTheOuterEdgeOfComputationBits;
@@ -170,25 +155,6 @@ private:
 
     // symbol: ?sLitSpinLock@SubChunkRelighter@@0VSpinLock@@A
     MCAPI static class SpinLock sLitSpinLock;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $mAllSubChunkBorderBitsExceptTheOuterEdgeOfComputationBits() {
-        return mAllSubChunkBorderBitsExceptTheOuterEdgeOfComputationBits;
-    }
-
-    static auto& $mOuterEdgeOfComputationBits() { return mOuterEdgeOfComputationBits; }
-
-    static auto& $sDarkSpinLock() { return sDarkSpinLock; }
-
-    static auto& $sFullyDarkSubChunk() { return sFullyDarkSubChunk; }
-
-    static auto& $sFullyLitSubChunk() { return sFullyLitSubChunk; }
-
-    static auto& $sLitSpinLock() { return sLitSpinLock; }
 
     // NOLINTEND
 };

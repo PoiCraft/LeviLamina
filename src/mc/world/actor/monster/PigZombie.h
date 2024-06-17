@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -40,23 +39,20 @@ public:
     // vIndex: 10, symbol: __gen_??1PigZombie@@UEAA@XZ
     virtual ~PigZombie() = default;
 
-    // vIndex: 29, symbol: ?normalTick@PigZombie@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@PigZombie@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 158, symbol: ?_hurt@PigZombie@@MEAA_NAEBVActorDamageSource@@M_N1@Z
+    // vIndex: 146, symbol: ?_hurt@PigZombie@@MEAA_NAEBVActorDamageSource@@M_N1@Z
     virtual bool _hurt(class ActorDamageSource const& source, float damage, bool knock, bool ignite);
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@PigZombie@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@PigZombie@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@PigZombie@@MEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@PigZombie@@MEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag& entityTag) const;
 
-    // vIndex: 173, symbol: ?checkSpawnRules@PigZombie@@UEAA_N_N@Z
+    // vIndex: 160, symbol: ?checkSpawnRules@PigZombie@@UEAA_N_N@Z
     virtual bool checkSpawnRules(bool fromSpawner);
-
-    // vIndex: 197, symbol: ?getAttackTime@PigZombie@@UEAAHXZ
-    virtual int getAttackTime();
 
     // symbol: ??0PigZombie@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
     MCAPI PigZombie(
@@ -67,17 +63,10 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?SPEED_MODIFIER_ATTACK_UUID@PigZombie@@0VUUID@mce@@B
     MCAPI static class mce::UUID const SPEED_MODIFIER_ATTACK_UUID;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $SPEED_MODIFIER_ATTACK_UUID() { return SPEED_MODIFIER_ATTACK_UUID; }
 
     // NOLINTEND
 };

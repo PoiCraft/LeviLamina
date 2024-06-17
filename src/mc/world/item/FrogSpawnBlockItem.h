@@ -29,7 +29,7 @@ public:
     // vIndex: 0, symbol: __gen_??1FrogSpawnBlockItem@@UEAA@XZ
     virtual ~FrogSpawnBlockItem() = default;
 
-    // vIndex: 44, symbol: ?isLiquidClipItem@FrogSpawnBlockItem@@UEBA_NXZ
+    // vIndex: 45, symbol: ?isLiquidClipItem@FrogSpawnBlockItem@@UEBA_NXZ
     virtual bool isLiquidClipItem() const;
 
     // vIndex: 116, symbol:

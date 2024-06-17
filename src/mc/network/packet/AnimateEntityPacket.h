@@ -36,10 +36,10 @@ public:
     // ?getName@AnimateEntityPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@AnimateEntityPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@AnimateEntityPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& s) const;
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@AnimateEntityPacket@@EEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& s);
 
@@ -48,8 +48,15 @@ public:
 
     // symbol:
     // ??0AnimateEntityPacket@@QEAA@AEBV?$vector@VActorRuntimeID@@V?$allocator@VActorRuntimeID@@@std@@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@1M1W4MolangVersion@@1@Z
-    MCAPI
-    AnimateEntityPacket(std::vector<class ActorRuntimeID> const&, std::string const& animation, std::string const&, float blendOutTime, std::string const& stopExpression, ::MolangVersion, std::string const&);
+    MCAPI AnimateEntityPacket(
+        std::vector<class ActorRuntimeID> const&,
+        std::string const& animation,
+        std::string const&,
+        float              blendOutTime,
+        std::string const& stopExpression,
+        ::MolangVersion,
+        std::string const& controller
+    );
 
     // NOLINTEND
 };

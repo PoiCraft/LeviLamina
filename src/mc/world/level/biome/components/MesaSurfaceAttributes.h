@@ -11,8 +11,8 @@ public:
 
 public:
     // NOLINTBEGIN
-    // symbol: ??1MesaSurfaceAttributes@@QEAA@XZ
-    MCAPI ~MesaSurfaceAttributes();
+    // vIndex: 0, symbol: __gen_??1MesaSurfaceAttributes@@UEAA@XZ
+    virtual ~MesaSurfaceAttributes() = default;
 
     // NOLINTEND
 };

@@ -1,40 +1,41 @@
 #include "ll/api/thread/TickSyncTaskPool.h"
+
+#include <functional>
+#include <memory>
+#include <utility>
+
 #include "ll/api/memory/Hook.h"
+#include "ll/api/utils/ErrorUtils.h"
+#include "ll/core/LeviLamina.h"
 
 #include "mc/server/ServerLevel.h"
-#include "mc/world/level/Tick.h"
 
-namespace ll::thread::detail {
+#include "concurrent_queue.h"
 
-std::atomic_bool workerHooked{};
+namespace ll::thread {
 
-std::mutex                                            poolListMutex;
-std::atomic_size_t                                    poolListSize{};
-std::vector<std::reference_wrapper<TickSyncTaskPool>> poolList;
+static Concurrency::concurrent_queue<std::function<void()>> works;
 
-LL_TYPE_INSTANCE_HOOK(TickSyncTaskPoolWorker, HookPriority::Low, ServerLevel, &ServerLevel::_subTick, void) {
-    if (poolListSize > 0) {
-        std::lock_guard lock(poolListMutex);
-        for (auto& e : poolList) {
-            auto&           pool = e.get();
-            std::lock_guard lockp(pool.mutex);
-            auto            num = std::min(pool.tasksPerTick, pool.tasks.size());
-            for (size_t i = 0; i < num; i++) {
-                pool.tasks.front()();
-                pool.tasks.pop();
-            }
+LL_TYPE_INSTANCE_HOOK(TickSyncTaskPool::Worker, HookPriority::Low, ServerLevel, &ServerLevel::_subTick, void) {
+    std::function<void()> f;
+    while (works.try_pop(f)) {
+        try {
+            f();
+        } catch (...) {
+            logger.error("Error in TickSyncTaskPool:");
+            error_utils::printCurrentException(logger);
         }
-    } else {
-        unhook();
-        workerHooked = false;
     }
     origin();
 }
 
-void notifyWorker() {
-    if (!workerHooked) {
-        workerHooked = true;
-        TickSyncTaskPoolWorker::hook();
-    }
-}
-} // namespace ll::thread::detail
+struct TickSyncTaskPool::Impl {
+    ::ll::memory::HookRegistrar<Worker> reg;
+};
+
+TickSyncTaskPool::TickSyncTaskPool() : impl(std::make_unique<Impl>()) {}
+TickSyncTaskPool::~TickSyncTaskPool() {}
+
+void TickSyncTaskPool::addTaskImpl(std::function<void()> f) { works.push(std::move(f)); }
+
+} // namespace ll::thread

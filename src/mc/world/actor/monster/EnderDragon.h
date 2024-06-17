@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -46,43 +45,43 @@ public:
     // vIndex: 13, symbol: ?remove@EnderDragon@@UEAAXXZ
     virtual void remove();
 
-    // vIndex: 41, symbol: ?getShadowRadius@EnderDragon@@UEBAMXZ
+    // vIndex: 38, symbol: ?getShadowRadius@EnderDragon@@UEBAMXZ
     virtual float getShadowRadius() const;
 
-    // vIndex: 42, symbol: ?getHeadLookVector@EnderDragon@@UEBA?AVVec3@@M@Z
+    // vIndex: 39, symbol: ?getHeadLookVector@EnderDragon@@UEBA?AVVec3@@M@Z
     virtual class Vec3 getHeadLookVector(float a) const;
 
-    // vIndex: 46, symbol: ?isImmobile@EnderDragon@@UEBA_NXZ
+    // vIndex: 43, symbol: ?isImmobile@EnderDragon@@UEBA_NXZ
     virtual bool isImmobile() const;
 
-    // vIndex: 66, symbol: ?setSitting@EnderDragon@@UEAAX_N@Z
+    // vIndex: 60, symbol: ?setSitting@EnderDragon@@UEAAX_N@Z
     virtual void setSitting(bool value);
 
-    // vIndex: 75, symbol: ?isInvulnerableTo@EnderDragon@@UEBA_NAEBVActorDamageSource@@@Z
+    // vIndex: 69, symbol: ?isInvulnerableTo@EnderDragon@@UEBA_NAEBVActorDamageSource@@@Z
     virtual bool isInvulnerableTo(class ActorDamageSource const& source) const;
 
-    // vIndex: 80, symbol: ?handleEntityEvent@EnderDragon@@UEAAXW4ActorEvent@@H@Z
+    // vIndex: 74, symbol: ?handleEntityEvent@EnderDragon@@UEAAXW4ActorEvent@@H@Z
     virtual void handleEntityEvent(::ActorEvent id, int data);
 
-    // vIndex: 103, symbol: ?canChangeDimensionsUsingPortal@EnderDragon@@UEBA_NXZ
+    // vIndex: 94, symbol: ?canChangeDimensionsUsingPortal@EnderDragon@@UEBA_NXZ
     virtual bool canChangeDimensionsUsingPortal() const;
 
-    // vIndex: 112, symbol: ?canBePulledIntoVehicle@EnderDragon@@UEBA_NXZ
+    // vIndex: 102, symbol: ?canBePulledIntoVehicle@EnderDragon@@UEBA_NXZ
     virtual bool canBePulledIntoVehicle() const;
 
-    // vIndex: 121, symbol: ?canBeAffected@EnderDragon@@UEBA_NI@Z
+    // vIndex: 111, symbol: ?canBeAffected@EnderDragon@@UEBA_NI@Z
     virtual bool canBeAffected(uint) const;
 
-    // vIndex: 143, symbol: ?die@EnderDragon@@UEAAXAEBVActorDamageSource@@@Z
+    // vIndex: 131, symbol: ?die@EnderDragon@@UEAAXAEBVActorDamageSource@@@Z
     virtual void die(class ActorDamageSource const& source);
 
-    // vIndex: 156, symbol: ?updateEntitySpecificMolangVariables@EnderDragon@@UEAAXAEAVRenderParams@@@Z
+    // vIndex: 144, symbol: ?updateEntitySpecificMolangVariables@EnderDragon@@UEAAXAEAVRenderParams@@@Z
     virtual void updateEntitySpecificMolangVariables(class RenderParams& renderParams);
 
-    // vIndex: 158, symbol: ?_hurt@EnderDragon@@MEAA_NAEBVActorDamageSource@@M_N1@Z
+    // vIndex: 146, symbol: ?_hurt@EnderDragon@@MEAA_NAEBVActorDamageSource@@M_N1@Z
     virtual bool _hurt(class ActorDamageSource const& source, float damage, bool knock, bool ignite);
 
-    // vIndex: 202, symbol: ?tickDeath@EnderDragon@@MEAAXXZ
+    // vIndex: 188, symbol: ?tickDeath@EnderDragon@@MEAAXXZ
     virtual void tickDeath();
 
     // symbol: ??0EnderDragon@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
@@ -184,7 +183,7 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?GROWL_INTERVAL_MAX@EnderDragon@@0HA
     MCAPI static int GROWL_INTERVAL_MAX;
@@ -197,19 +196,6 @@ private:
 
     // symbol: ?SITTING_ALLOWED_DAMAGE_PERCENTAGE@EnderDragon@@0MA
     MCAPI static float SITTING_ALLOWED_DAMAGE_PERCENTAGE;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $GROWL_INTERVAL_MAX() { return GROWL_INTERVAL_MAX; }
-
-    static auto& $GROWL_INTERVAL_MIN() { return GROWL_INTERVAL_MIN; }
-
-    static auto& $MAX_PATH_RADIUS() { return MAX_PATH_RADIUS; }
-
-    static auto& $SITTING_ALLOWED_DAMAGE_PERCENTAGE() { return SITTING_ALLOWED_DAMAGE_PERCENTAGE; }
 
     // NOLINTEND
 };

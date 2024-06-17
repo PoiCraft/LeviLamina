@@ -66,16 +66,16 @@ public:
     // vIndex: 25, symbol: ?canConnect@FenceBlock@@UEBA_NAEBVBlock@@E0@Z
     virtual bool canConnect(class Block const& otherBlock, uchar, class Block const&) const;
 
-    // vIndex: 33, symbol: ?isFenceBlock@FenceBlock@@UEBA_NXZ
+    // vIndex: 34, symbol: ?isFenceBlock@FenceBlock@@UEBA_NXZ
     virtual bool isFenceBlock() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@FenceBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@FenceBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 85, symbol: ?mayPlace@FenceBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 86, symbol: ?mayPlace@FenceBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 89, symbol: ?breaksFallingBlocks@FenceBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
+    // vIndex: 90, symbol: ?breaksFallingBlocks@FenceBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
     virtual bool breaksFallingBlocks(class Block const&, class BaseGameVersion version) const;
 
     // vIndex: 96, symbol: ?asItemInstance@FenceBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
@@ -85,10 +85,7 @@ public:
     // ?buildDescriptionId@FenceBlock@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVBlock@@@Z
     virtual std::string buildDescriptionId(class Block const&) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@FenceBlock@@MEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 154, symbol: ?use@FenceBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@FenceBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
     // symbol: ??0FenceBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVMaterial@@@Z
@@ -113,17 +110,10 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?FENCE_DOESNT_BREAK_FALLING_BLOCK_VERSION@FenceBlock@@0VBaseGameVersion@@B
     MCAPI static class BaseGameVersion const FENCE_DOESNT_BREAK_FALLING_BLOCK_VERSION;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $FENCE_DOESNT_BREAK_FALLING_BLOCK_VERSION() { return FENCE_DOESNT_BREAK_FALLING_BLOCK_VERSION; }
 
     // NOLINTEND
 };

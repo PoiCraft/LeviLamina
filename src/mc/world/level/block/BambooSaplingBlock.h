@@ -33,26 +33,26 @@ public:
     // vIndex: 16, symbol: ?randomlyModifyPosition@BambooSaplingBlock@@UEBA?AVVec3@@AEBVBlockPos@@@Z
     virtual class Vec3 randomlyModifyPosition(class BlockPos const& pos) const;
 
-    // vIndex: 49, symbol: ?isValidAuxValue@BambooSaplingBlock@@UEBA_NH@Z
+    // vIndex: 50, symbol: ?isValidAuxValue@BambooSaplingBlock@@UEBA_NH@Z
     virtual bool isValidAuxValue(int auxValue) const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@BambooSaplingBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@BambooSaplingBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 79, symbol:
+    // vIndex: 80, symbol:
     // ?onFertilized@BambooSaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool
     onFertilized(class BlockSource& region, class BlockPos const& pos, class Actor* entity, ::FertilizerType fType)
         const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@BambooSaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@BambooSaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool
     canBeFertilized(class BlockSource& region, class BlockPos const& pos, class Block const& aboveBlock) const;
 
-    // vIndex: 85, symbol: ?mayPlace@BambooSaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 86, symbol: ?mayPlace@BambooSaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@BambooSaplingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@BambooSaplingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -65,10 +65,10 @@ public:
     // vIndex: 129, symbol: ?getVariant@BambooSaplingBlock@@UEBAHAEBVBlock@@@Z
     virtual int getVariant(class Block const& block) const;
 
-    // vIndex: 151, symbol: ?randomTick@BambooSaplingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 149, symbol: ?randomTick@BambooSaplingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void randomTick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 156, symbol: ?canSurvive@BambooSaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 154, symbol: ?canSurvive@BambooSaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool canSurvive(class BlockSource& region, class BlockPos const& pos) const;
 
     // symbol: ??0BambooSaplingBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

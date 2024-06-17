@@ -42,6 +42,9 @@ public:
     // symbol: ?queue@WorkerPool@@QEAAXV?$shared_ptr@VBackgroundTaskBase@@@std@@_N@Z
     MCAPI void queue(std::shared_ptr<class BackgroundTaskBase> task, bool queueImmediate);
 
+    // symbol: ?resortPriorityQueue@WorkerPool@@QEAAXXZ
+    MCAPI void resortPriorityQueue();
+
     // symbol: ?size@WorkerPool@@QEBA_KXZ
     MCAPI uint64 size() const;
 
@@ -64,22 +67,13 @@ public:
 
     // NOLINTEND
 
-protected:
+    // protected:
     // NOLINTBEGIN
     // symbol: ?sAllPools@WorkerPool@@1V?$SmallSet@PEAVWorkerPool@@@@A
     MCAPI static class SmallSet<class WorkerPool*> sAllPools;
 
     // symbol: ?sAllPoolsMutex@WorkerPool@@1VMutex@Threading@Bedrock@@A
     MCAPI static class Bedrock::Threading::Mutex sAllPoolsMutex;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $sAllPools() { return sAllPools; }
-
-    static auto& $sAllPoolsMutex() { return sAllPoolsMutex; }
 
     // NOLINTEND
 };

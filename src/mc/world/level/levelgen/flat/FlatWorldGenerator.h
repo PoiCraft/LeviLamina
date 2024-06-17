@@ -16,10 +16,10 @@ namespace Json { class Value; }
 
 class FlatWorldGenerator : public ::WorldGenerator {
 public:
-    std::vector<Block const*>         mPrototypeBlocks; // this+0x90
-    BlockVolume                       mPrototype;       // this+0xA8
-    Biome const*                      mBiome;           // this+0xD0
-    std::unique_ptr<FixedBiomeSource> mBiomeSource;     // this+0xD8
+    std::vector<Block const*>         mPrototypeBlocks; // this+0x188
+    BlockVolume                       mPrototype;       // this+0x1A0
+    Biome const*                      mBiome;           // this+0x1C8
+    std::unique_ptr<FixedBiomeSource> mBiomeSource;     // this+0x1D0
 
     // prevent constructor by default
     FlatWorldGenerator& operator=(FlatWorldGenerator const&);
@@ -48,14 +48,15 @@ public:
     virtual class BlockPos findSpawnPosition() const;
 
     // vIndex: 45, symbol:
-    // ?decorateWorldGenLoadChunk@FlatWorldGenerator@@MEBAXAEAVBiome@@AEAVLevelChunk@@AEAVBlockVolumeTarget@@AEAVRandom@@AEBVChunkPos@@@Z
+    // ?decorateWorldGenLoadChunk@FlatWorldGenerator@@MEBAXAEBVBiome@@AEAVLevelChunk@@AEAVBlockVolumeTarget@@AEAVRandom@@AEBVChunkPos@@@Z
     virtual void
-    decorateWorldGenLoadChunk(class Biome&, class LevelChunk&, class BlockVolumeTarget&, class Random&, class ChunkPos const&)
+    decorateWorldGenLoadChunk(class Biome const&, class LevelChunk&, class BlockVolumeTarget&, class Random&, class ChunkPos const&)
         const;
 
     // vIndex: 46, symbol:
-    // ?decorateWorldGenPostProcess@FlatWorldGenerator@@MEBAXAEAVBiome@@AEAVLevelChunk@@AEAVBlockSource@@AEAVRandom@@@Z
-    virtual void decorateWorldGenPostProcess(class Biome&, class LevelChunk&, class BlockSource&, class Random&) const;
+    // ?decorateWorldGenPostProcess@FlatWorldGenerator@@MEBAXAEBVBiome@@AEAVLevelChunk@@AEAVBlockSource@@AEAVRandom@@@Z
+    virtual void
+    decorateWorldGenPostProcess(class Biome const&, class LevelChunk&, class BlockSource&, class Random&) const;
 
     // WorldGenerator reload function
     // vIndex: 33, symbol:
@@ -75,10 +76,10 @@ public:
 
     // ChunkSource reload function
     // vIndex: 9, symbol: ?postProcess@FlatWorldGenerator@@UEAA_NAEAVChunkViewSource@@@Z
-    virtual bool postProcess(class ChunkViewSource&);
+    virtual bool postProcess(class ChunkViewSource& neighborhood);
 
     // vIndex: 11, symbol: ?loadChunk@FlatWorldGenerator@@UEAAXAEAVLevelChunk@@_N@Z
-    virtual void loadChunk(class LevelChunk&, bool);
+    virtual void loadChunk(class LevelChunk& levelchunk, bool forceImmediateReplacementDataLoad);
 
     // symbol: ??0FlatWorldGenerator@@QEAA@AEAVDimension@@IAEBVValue@Json@@@Z
     MCAPI FlatWorldGenerator(class Dimension& dimension, uint, class Json::Value const& generationOptionsJSON);

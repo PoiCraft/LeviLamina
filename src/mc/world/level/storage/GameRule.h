@@ -69,6 +69,9 @@ public:
     // symbol: ?allowUseInCommand@GameRule@@QEBA_NXZ
     MCAPI bool allowUseInCommand() const;
 
+    // symbol: ?allowUseInScripting@GameRule@@QEBA_NXZ
+    MCAPI bool allowUseInScripting() const;
+
     // symbol: ?canBeModifiedByPlayer@GameRule@@QEBA_NXZ
     MCAPI bool canBeModifiedByPlayer() const;
 
@@ -80,6 +83,9 @@ public:
 
     // symbol: ?getInt@GameRule@@QEBAHXZ
     MCAPI int getInt() const;
+
+    // symbol: ?getLowercaseName@GameRule@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+    MCAPI std::string getLowercaseName() const;
 
     // symbol: ?getName@GameRule@@QEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     MCAPI std::string const& getName() const;
@@ -111,8 +117,10 @@ public:
     // symbol: ?setInt@GameRule@@QEAA_NHPEA_NPEAVValidationError@1@@Z
     MCAPI bool setInt(int value, bool* pValidated, class GameRule::ValidationError* errorOutput);
 
-    // symbol: ?setTagDataNotFoundCallback@GameRule@@QEAAAEAV1@V?$function@$$A6AXAEAVGameRule@@@Z@std@@@Z
-    MCAPI class GameRule& setTagDataNotFoundCallback(TagDataNotFoundCallback cb);
+    // symbol:
+    // ?setTagDataNotFoundCallback@GameRule@@QEAAAEAV1@V?$function@$$A6AXAEAVGameRule@@AEBVBaseGameVersion@@@Z@std@@@Z
+    MCAPI class GameRule&
+        setTagDataNotFoundCallback(std::function<void(class GameRule&, class BaseGameVersion const&)>);
 
     // symbol:
     // ?setValidateValueCallback@GameRule@@QEAAAEAV1@V?$function@$$A6A_NAEBTValue@GameRule@@PEAVValidationError@2@@Z@std@@@Z

@@ -30,26 +30,23 @@ public:
     // vIndex: 0, symbol: __gen_??1GlowLichenBlock@@UEAA@XZ
     virtual ~GlowLichenBlock() = default;
 
-    // vIndex: 79, symbol:
+    // vIndex: 80, symbol:
     // ?onFertilized@GlowLichenBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool
     onFertilized(class BlockSource& region, class BlockPos const& pos, class Actor* entity, ::FertilizerType fType)
         const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@GlowLichenBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@GlowLichenBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool
     canBeFertilized(class BlockSource& region, class BlockPos const& pos, class Block const& aboveBlock) const;
 
     // vIndex: 136, symbol: ?init@GlowLichenBlock@@UEAAAEAVBlockLegacy@@XZ
     virtual class BlockLegacy& init();
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@GlowLichenBlock@@UEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 168, symbol: ?getMultifaceBlock@GlowLichenBlock@@UEBAAEBVBlock@@XZ
+    // vIndex: 163, symbol: ?getMultifaceBlock@GlowLichenBlock@@UEBAAEBVBlock@@XZ
     virtual class Block const& getMultifaceBlock() const;
 
-    // vIndex: 169, symbol: ?getMultifaceSpreader@GlowLichenBlock@@UEBAAEBVMultifaceSpreader@@XZ
+    // vIndex: 164, symbol: ?getMultifaceSpreader@GlowLichenBlock@@UEBAAEBVMultifaceSpreader@@XZ
     virtual class MultifaceSpreader const& getMultifaceSpreader() const;
 
     // symbol:

@@ -7,6 +7,7 @@
 #include "mc/deps/core/utility/NumberConversionResult.h"
 #include "mc/deps/puv/EquipmentSlot.h"
 #include "mc/entity/components/agent/Direction.h"
+#include "mc/enums/BoneTransformType.h"
 #include "mc/enums/LogArea.h"
 #include "mc/world/AutomaticID.h"
 
@@ -16,7 +17,6 @@ namespace AgentComponents { struct BlockQueryResult; }
 namespace Json { class Value; }
 namespace Util { struct ActorReplacementParams; }
 namespace Util { struct ContainerReplacementParams; }
-namespace Util { struct FormattedString; }
 namespace Util { struct ReplacementResults; }
 namespace Util::Agent { struct SimulatedMoveResult; }
 namespace Util::ResourceUri { struct ValidationResult; }
@@ -34,6 +34,9 @@ MCAPI extern std::string const EMPTY_GUID;
 
 // symbol: ?EMPTY_STRING@Util@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B
 MCAPI extern std::string const EMPTY_STRING;
+
+// symbol: ?HEX_CHARS@Util@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B
+MCAPI extern std::string const HEX_CHARS;
 
 // symbol: ?NEW_LINE@Util@@3V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B
 MCAPI extern std::string const NEW_LINE;
@@ -63,9 +66,6 @@ MCAPI void _recordProfanityLocationInWord(
     std::unordered_map<std::string, int> const& exactMap,
     std::unordered_set<std::string> const&      containsSet
 );
-
-// symbol: ?allocateVFormat@Util@@YA?AUFormattedString@1@PEBDPEAD@Z
-MCAPI struct Util::FormattedString allocateVFormat(char const*, char*);
 
 // symbol: ?base64_decode@Util@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV23@@Z
 MCAPI std::string base64_decode(std::string const& encoded_string);
@@ -155,9 +155,6 @@ MCAPI std::string getNameWithoutNamespace(std::string const& name);
 // symbol: ?getNamespace@Util@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV23@@Z
 MCAPI std::string getNamespace(std::string const& name);
 
-// symbol: ?hashCode@Util@@YAIV?$basic_string_view@DU?$char_traits@D@std@@@std@@@Z
-MCAPI uint hashCode(std::string_view str);
-
 // symbol: ?hashCodeAsUtf16@Util@@YAIV?$basic_string_view@DU?$char_traits@D@std@@@std@@@Z
 MCAPI uint hashCodeAsUtf16(std::string_view);
 
@@ -188,6 +185,9 @@ MCAPI bool isUpperCaseAlphabetic(char c);
 // symbol: ?isValidNamespaceFormat@Util@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 MCAPI bool isValidNamespaceFormat(std::string const& name);
 
+// symbol: ?isValidPfid@Util@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+MCAPI bool isValidPfid(std::string const&);
+
 // symbol: ?isValidUTF8@Util@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 MCAPI bool isValidUTF8(std::string const& content);
 
@@ -199,6 +199,9 @@ MCAPI bool isWhiteSpace(char c);
 
 // symbol: ?loadGameVersion@Util@@YAXAEAVSemVersion@@AEBVValue@Json@@@Z
 MCAPI void loadGameVersion(class SemVersion& version, class Json::Value const& versionNode);
+
+// symbol: ?normalizeLineEndings@Util@@YAXAEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+MCAPI void normalizeLineEndings(std::string& str);
 
 // symbol: ?removeChars@Util@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V23@AEBV23@@Z
 MCAPI std::string removeChars(std::string str, std::string const& characters);
@@ -288,6 +291,9 @@ MCAPI void toLowerInPlace(std::string& str);
 // symbol: ?toPascalCase@Util@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV23@D@Z
 MCAPI std::string toPascalCase(std::string const& src, char delimiter);
 
+// symbol: ?toString@Util@@YAPEBDW4BoneTransformType@@@Z
+MCAPI char const* toString(::BoneTransformType boneTransformType);
+
 // symbol: ?toString@Util@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV23@@Z
 MCAPI std::string toString(std::string const& inputStr);
 
@@ -320,7 +326,12 @@ MCAPI std::string vFormat(char const*, char*);
 
 // symbol:
 // ?validateIdentifier@Util@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4LogArea@@_NPEAU?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V12@@3@@Z
-MCAPI bool validateIdentifier(std::string const& id, ::LogArea logArea, bool, std::pair<std::string, std::string>*);
+MCAPI bool validateIdentifier(
+    std::string const&                   id,
+    ::LogArea                            logArea,
+    bool                                 allowMinecraftNamespace,
+    std::pair<std::string, std::string>* idNameOut
+);
 
 // symbol:
 // ?validateIdentifierChunk@Util@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4LogArea@@@Z

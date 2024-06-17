@@ -25,9 +25,6 @@ public:
 
 public:
     // NOLINTBEGIN
-    // symbol: ??0ScriptSystemBeforeEvents@ScriptModuleMinecraft@@QEAA@$$QEAV01@@Z
-    MCAPI ScriptSystemBeforeEvents(class ScriptModuleMinecraft::ScriptSystemBeforeEvents&&);
-
     // symbol:
     // ??0ScriptSystemBeforeEvents@ScriptModuleMinecraft@@QEAA@AEBVWeakLifetimeScope@Scripting@@V?$not_null@PEAVServerLevel@@@gsl@@@Z
     MCAPI ScriptSystemBeforeEvents(class Scripting::WeakLifetimeScope const&, gsl::not_null<class ServerLevel*>);
@@ -36,10 +33,6 @@ public:
     // ?onBeforeWatchdogTerminate@ScriptSystemBeforeEvents@ScriptModuleMinecraft@@QEAAXV?$StrongTypedObjectHandle@UScriptWatchdogTerminateBeforeEvent@ScriptModuleMinecraft@@@Scripting@@@Z
     MCAPI void onBeforeWatchdogTerminate(class Scripting::StrongTypedObjectHandle<
                                          struct ScriptModuleMinecraft::ScriptWatchdogTerminateBeforeEvent>);
-
-    // symbol: ??4ScriptSystemBeforeEvents@ScriptModuleMinecraft@@QEAAAEAV01@$$QEAV01@@Z
-    MCAPI class ScriptModuleMinecraft::ScriptSystemBeforeEvents&
-    operator=(class ScriptModuleMinecraft::ScriptSystemBeforeEvents&&);
 
     // symbol:
     // ?registerHandler@ScriptSystemBeforeEvents@ScriptModuleMinecraft@@QEAAXU?$TypedObjectHandle@VScriptSystemBeforeEvents@ScriptModuleMinecraft@@@Scripting@@@Z

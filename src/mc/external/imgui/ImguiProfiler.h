@@ -112,8 +112,8 @@ public:
 
     public:
         // NOLINTBEGIN
-        // vIndex: 0, symbol: ??1Timer@ImguiProfiler@@UEAA@XZ
-        virtual ~Timer();
+        // vIndex: 0, symbol: __gen_??1Timer@ImguiProfiler@@UEAA@XZ
+        virtual ~Timer() = default;
 
         // NOLINTEND
     };
@@ -129,9 +129,6 @@ public:
         // NOLINTBEGIN
         // vIndex: 0, symbol: ??1ManualTimer@ImguiProfiler@@UEAA@XZ
         virtual ~ManualTimer();
-
-        // symbol: ??0ManualTimer@ImguiProfiler@@QEAA@PEBD0_N@Z
-        MCAPI ManualTimer(char const* group, char const* name, bool isClient);
 
         // symbol: ?mark@ManualTimer@ImguiProfiler@@QEAAXXZ
         MCAPI void mark();
@@ -180,7 +177,7 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol:
     // ?sPendingRecords@ImguiProfiler@@0V?$vector@URecord@ImguiProfiler@@V?$allocator@URecord@ImguiProfiler@@@std@@@std@@A
@@ -191,17 +188,6 @@ private:
 
     // symbol: ?sRecordMutex@ImguiProfiler@@0VMutex@Threading@Bedrock@@A
     MCAPI static class Bedrock::Threading::Mutex sRecordMutex;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $sPendingRecords() { return sPendingRecords; }
-
-    static auto& $sProduceRecords() { return sProduceRecords; }
-
-    static auto& $sRecordMutex() { return sRecordMutex; }
 
     // NOLINTEND
 };

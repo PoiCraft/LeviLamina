@@ -33,9 +33,6 @@ public:
     // vIndex: 96, symbol: ?asItemInstance@ColoredTerracottaBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
     virtual class ItemInstance asItemInstance(class Block const& block, class BlockActor const*) const;
 
-    // vIndex: 163, symbol: ?getResourceItem@ColoredTerracottaBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const& block, int) const;
-
     // symbol:
     // ??0ColoredTerracottaBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVMaterial@@@Z
     MCAPI ColoredTerracottaBlock(std::string const& nameId, int id, class Material const& material);

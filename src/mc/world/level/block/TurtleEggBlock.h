@@ -33,24 +33,24 @@ public:
     // vIndex: 23, symbol: ?canProvideSupport@TurtleEggBlock@@UEBA_NAEBVBlock@@EW4BlockSupportType@@@Z
     virtual bool canProvideSupport(class Block const&, uchar face, ::BlockSupportType type) const;
 
-    // vIndex: 55, symbol: ?waterSpreadCausesSpawn@TurtleEggBlock@@UEBA_NXZ
+    // vIndex: 56, symbol: ?waterSpreadCausesSpawn@TurtleEggBlock@@UEBA_NXZ
     virtual bool waterSpreadCausesSpawn() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@TurtleEggBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@TurtleEggBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 61, symbol: ?checkIsPathable@TurtleEggBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
+    // vIndex: 62, symbol: ?checkIsPathable@TurtleEggBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
     virtual bool
     checkIsPathable(class Actor& entity, class BlockPos const& lastPathPos, class BlockPos const& pathPos) const;
 
-    // vIndex: 64, symbol: ?transformOnFall@TurtleEggBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@M@Z
+    // vIndex: 65, symbol: ?transformOnFall@TurtleEggBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@M@Z
     virtual void
     transformOnFall(class BlockSource& region, class BlockPos const& pos, class Actor* actor, float fallDistance) const;
 
-    // vIndex: 84, symbol: ?mayPlace@TurtleEggBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@E@Z
+    // vIndex: 85, symbol: ?mayPlace@TurtleEggBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@E@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 94, symbol: ?playerWillDestroy@TurtleEggBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
+    // vIndex: 95, symbol: ?playerWillDestroy@TurtleEggBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
     virtual class Block const*
     playerWillDestroy(class Player& player, class BlockPos const& pos, class Block const& block) const;
 
@@ -58,25 +58,16 @@ public:
     // ?buildDescriptionId@TurtleEggBlock@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVBlock@@@Z
     virtual std::string buildDescriptionId(class Block const&) const;
 
-    // vIndex: 147, symbol: ?onPlace@TurtleEggBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@TurtleEggBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@TurtleEggBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@TurtleEggBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 154, symbol: ?use@TurtleEggBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@TurtleEggBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar) const;
 
-    // vIndex: 163, symbol: ?getResourceItem@TurtleEggBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const&, int) const;
-
-    // vIndex: 164, symbol: ?getResourceCount@TurtleEggBlock@@UEBAHAEAVRandomize@@AEBVBlock@@H@Z
-    virtual int getResourceCount(class Randomize&, class Block const&, int) const;
-
-    // vIndex: 165, symbol: ?getSilkTouchItemInstance@TurtleEggBlock@@UEBA?AVItemInstance@@AEBVBlock@@@Z
-    virtual class ItemInstance getSilkTouchItemInstance(class Block const& block) const;
-
-    // vIndex: 167, symbol: ?entityInside@TurtleEggBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
+    // vIndex: 162, symbol: ?entityInside@TurtleEggBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
     virtual void entityInside(class BlockSource&, class BlockPos const& pos, class Actor& entity) const;
 
     // symbol: ??0TurtleEggBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

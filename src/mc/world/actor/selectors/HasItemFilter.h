@@ -5,14 +5,13 @@
 struct HasItemFilter {
 public:
     // prevent constructor by default
-    HasItemFilter& operator=(HasItemFilter const&);
     HasItemFilter(HasItemFilter const&);
     HasItemFilter();
 
 public:
     // NOLINTBEGIN
-    // symbol: ??0HasItemFilter@@QEAA@$$QEAU0@@Z
-    MCAPI HasItemFilter(struct HasItemFilter&&);
+    // symbol: ??4HasItemFilter@@QEAAAEAU0@AEBU0@@Z
+    MCAPI struct HasItemFilter& operator=(struct HasItemFilter const&);
 
     // symbol: ??1HasItemFilter@@QEAA@XZ
     MCAPI ~HasItemFilter();

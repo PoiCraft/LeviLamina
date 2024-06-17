@@ -18,6 +18,7 @@
 
 // auto generated forward declare list
 // clang-format off
+namespace BlockEvents { struct BlockFallOnEvent; }
 namespace mce { class Color; }
 // clang-format on
 
@@ -54,10 +55,10 @@ public:
     virtual void
     onProjectileHit(class BlockSource& region, class BlockPos const& pos, class Actor const& projectile) const;
 
-    // vIndex: 85, symbol: ?mayPlace@PointedDripstoneBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 86, symbol: ?mayPlace@PointedDripstoneBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@PointedDripstoneBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@PointedDripstoneBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -81,39 +82,41 @@ public:
     // vIndex: 136, symbol: ?init@PointedDripstoneBlock@@UEAAAEAVBlockLegacy@@XZ
     virtual class BlockLegacy& init();
 
-    // vIndex: 148, symbol: ?onFallOn@PointedDripstoneBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@M@Z
-    virtual void
-    onFallOn(class BlockSource& region, class BlockPos const& pos, class Actor& actor, float fallDistance) const;
+    // vIndex: 142, symbol: ?_addHardCodedBlockComponents@PointedDripstoneBlock@@MEAAXAEBVExperiments@@@Z
+    virtual void _addHardCodedBlockComponents(class Experiments const&);
 
-    // vIndex: 150, symbol: ?tick@PointedDripstoneBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@PointedDripstoneBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random&) const;
 
-    // vIndex: 151, symbol: ?randomTick@PointedDripstoneBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 149, symbol: ?randomTick@PointedDripstoneBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void randomTick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 156, symbol: ?canSurvive@PointedDripstoneBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 154, symbol: ?canSurvive@PointedDripstoneBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool canSurvive(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 168, symbol: ?getDustColor@PointedDripstoneBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
+    // vIndex: 163, symbol: ?getDustColor@PointedDripstoneBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
     virtual class mce::Color getDustColor(class Block const& block) const;
 
-    // vIndex: 169, symbol:
+    // vIndex: 164, symbol:
     // ?getDustParticleName@PointedDripstoneBlock@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVBlock@@@Z
     virtual std::string getDustParticleName(class Block const&) const;
 
-    // vIndex: 170, symbol: ?falling@PointedDripstoneBlock@@UEBA_NXZ
-    virtual bool falling() const;
-
-    // vIndex: 171, symbol: ?onLand@PointedDripstoneBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 166, symbol: ?onLand@PointedDripstoneBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onLand(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 173, symbol: ?startFalling@PointedDripstoneBlock@@MEBAXAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@_N@Z
+    // vIndex: 168, symbol: ?startFalling@PointedDripstoneBlock@@MEBAXAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@_N@Z
     virtual void
     startFalling(class BlockSource& region, class BlockPos const& pos, class Block const& oldBlock, bool creative)
         const;
 
+    // symbol: ?falling@PointedDripstoneBlock@@UEBA_NXZ
+    MCVAPI bool falling() const;
+
     // symbol: ??0PointedDripstoneBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI PointedDripstoneBlock(std::string const& nameId, int id);
+
+    // symbol: ?onFallOn@PointedDripstoneBlock@@QEBAXAEAUBlockFallOnEvent@BlockEvents@@@Z
+    MCAPI void onFallOn(struct BlockEvents::BlockFallOnEvent&) const;
 
     // symbol: ?addDripParticle@PointedDripstoneBlock@@SAXAEAVBlockSource@@AEBVBlockPos@@W4ParticleType@@@Z
     MCAPI static void

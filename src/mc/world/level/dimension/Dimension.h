@@ -55,26 +55,29 @@ public:
     // symbol: ?deserialize@Dimension@@UEAAXAEBVCompoundTag@@@Z
     MCVAPI void deserialize(class CompoundTag const& tag);
 
+    // symbol: ?fetchEntity@Dimension@@UEBAPEAVActor@@UActorUniqueID@@_N@Z
+    MCVAPI class Actor* fetchEntity(struct ActorUniqueID actorID, bool getRemoved) const;
+
     // symbol: ?flushLevelChunkGarbageCollector@Dimension@@UEAAXXZ
     MCVAPI void flushLevelChunkGarbageCollector();
+
+    // symbol: ?forEachPlayer@Dimension@@UEBAXV?$function@$$A6A_NAEAVPlayer@@@Z@std@@@Z
+    MCVAPI void forEachPlayer(std::function<bool(class Player&)> callback) const;
 
     // symbol: ?forceCheckAllNeighChunkSavedStat@Dimension@@UEBA_NXZ
     MCVAPI bool forceCheckAllNeighChunkSavedStat() const;
 
-    // symbol: ?getBiomeRegistry@Dimension@@UEAAAEAVBiomeRegistry@@XZ
-    MCVAPI class BiomeRegistry& getBiomeRegistry();
-
     // symbol: ?getBiomeRegistry@Dimension@@UEBAAEBVBiomeRegistry@@XZ
     MCVAPI class BiomeRegistry const& getBiomeRegistry() const;
+
+    // symbol: ?getBiomeRegistry@Dimension@@UEAAAEAVBiomeRegistry@@XZ
+    MCVAPI class BiomeRegistry& getBiomeRegistry();
 
     // symbol: ?getBrightnessDependentFogColor@Dimension@@UEBA?AVColor@mce@@AEBV23@M@Z
     MCVAPI class mce::Color getBrightnessDependentFogColor(class mce::Color const& baseColor, float brightness) const;
 
     // symbol: ?getBrightnessRamp@Dimension@@UEBAAEBVDimensionBrightnessRamp@@XZ
     MCVAPI class DimensionBrightnessRamp const& getBrightnessRamp() const;
-
-    // symbol: ?getClearColorScale@Dimension@@UEAAMXZ
-    MCVAPI float getClearColorScale();
 
     // symbol: ?getCloudHeight@Dimension@@UEBAFXZ
     MCVAPI short getCloudHeight() const;
@@ -100,9 +103,6 @@ public:
     // symbol: ?getTimeOfDay@Dimension@@MEBAMHM@Z
     MCVAPI float getTimeOfDay(int time, float a) const;
 
-    // symbol: ?hasBedrockFog@Dimension@@UEAA_NXZ
-    MCVAPI bool hasBedrockFog();
-
     // symbol: ?hasGround@Dimension@@UEBA_NXZ
     MCVAPI bool hasGround() const;
 
@@ -123,9 +123,6 @@ public:
 
     // symbol: ?isDay@Dimension@@UEBA_NXZ
     MCVAPI bool isDay() const;
-
-    // symbol: ?isFoggyAt@Dimension@@UEBA_NHH@Z
-    MCVAPI bool isFoggyAt(int x, int z) const;
 
     // symbol: ?isNaturalDimension@Dimension@@UEBA_NXZ
     MCVAPI bool isNaturalDimension() const;
@@ -187,11 +184,11 @@ public:
     // symbol:
     // ??0Dimension@@QEAA@AEAVILevel@@V?$AutomaticID@VDimension@@H@@VDimensionHeightRange@@AEAVScheduler@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
     MCAPI Dimension(
-        class ILevel& level,
-        DimensionType dimId,
-        class DimensionHeightRange,
-        class Scheduler& callbackContext,
-        std::string      name
+        class ILevel&              level,
+        DimensionType              dimId,
+        class DimensionHeightRange heightRange,
+        class Scheduler&           callbackContext,
+        std::string                name
     );
 
     // symbol:
@@ -219,9 +216,6 @@ public:
     // symbol: ?fetchAnyInteractablePlayer@Dimension@@QEBAPEAVPlayer@@AEBVVec3@@M@Z
     MCAPI class Player* fetchAnyInteractablePlayer(class Vec3 const&, float maxDist) const;
 
-    // symbol: ?fetchEntity@Dimension@@QEBAPEAVActor@@UActorUniqueID@@_N@Z
-    MCAPI class Actor* fetchEntity(struct ActorUniqueID actorID, bool getRemoved) const;
-
     // symbol: ?fetchNearestAttackablePlayer@Dimension@@QEBAPEAVPlayer@@AEAVActor@@M@Z
     MCAPI class Player* fetchNearestAttackablePlayer(class Actor& source, float maxDist) const;
 
@@ -247,9 +241,6 @@ public:
 
     // symbol: ?flushRunTimeLighting@Dimension@@QEAAXXZ
     MCAPI void flushRunTimeLighting();
-
-    // symbol: ?forEachPlayer@Dimension@@QEBAXV?$function@$$A6A_NAEAVPlayer@@@Z@std@@@Z
-    MCAPI void forEachPlayer(std::function<bool(class Player&)> callback) const;
 
     // symbol: ?getBlockEventDispatcher@Dimension@@QEAAAEAVBlockEventDispatcher@@XZ
     MCAPI class BlockEventDispatcher& getBlockEventDispatcher();
@@ -322,6 +313,9 @@ public:
     // symbol: ?getSunAngle@Dimension@@QEBAMM@Z
     MCAPI float getSunAngle(float a) const;
 
+    // symbol: ?getTargetMetaData@Dimension@@QEAA?AV?$shared_ptr@$$CBVLevelChunkMetaData@@@std@@XZ
+    MCAPI std::shared_ptr<class LevelChunkMetaData const> getTargetMetaData();
+
     // symbol: ?getTickingAreas@Dimension@@QEAAAEAVTickingAreaList@@XZ
     MCAPI class TickingAreaList& getTickingAreas();
 
@@ -373,7 +367,7 @@ public:
 
     // symbol:
     // ?onStaticTickingAreaAdded@Dimension@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
-    MCAPI void onStaticTickingAreaAdded(std::string const&);
+    MCAPI void onStaticTickingAreaAdded(std::string const& tickingAreaName);
 
     // symbol: ?pauseAndFlushTaskGroups@Dimension@@QEAAXXZ
     MCAPI void pauseAndFlushTaskGroups();
@@ -432,7 +426,7 @@ public:
     MCAPI void tryGarbageCollectStructures();
 
     // symbol: ?tryLoadLimboEntities@Dimension@@QEAAXAEBVChunkPos@@@Z
-    MCAPI void tryLoadLimboEntities(class ChunkPos const&);
+    MCAPI void tryLoadLimboEntities(class ChunkPos const& loadPos);
 
     // symbol: ?unregisterDisplayEntity@Dimension@@QEAAXV?$WeakRef@VEntityContext@@@@@Z
     MCAPI void unregisterDisplayEntity(class WeakRef<class EntityContext>);

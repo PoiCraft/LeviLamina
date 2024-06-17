@@ -19,18 +19,22 @@
 #include "mc/deps/core/UnzipResult.h"
 #include "mc/deps/core/WriteOperation.h"
 #include "mc/deps/core/ZipResult.h"
+#include "mc/deps/core/common/bedrock/ErrorInfo.h"
 #include "mc/deps/core/common/bedrock/NonOwnerPointer.h"
 #include "mc/deps/core/common/bedrock/Result.h"
 #include "mc/deps/core/common/bedrock/ThreadLocalObject.h"
+#include "mc/deps/core/common/bedrock/UniqueLock.h"
 
 // auto generated forward declare list
 // clang-format off
 namespace Bedrock { class EnableNonOwnerReferences; }
+namespace Bedrock { class OSError; }
 namespace Bedrock::Threading { class Mutex; }
 namespace Core { class DiskAccessTracker; }
 namespace Core { class File; }
 namespace Core { class FileImpl; }
 namespace Core { class FileOpenMode; }
+namespace Core { class FileSizePresetToken; }
 namespace Core { class FileStats; }
 namespace Core { class FileStorageArea; }
 namespace Core { class FileStream; }
@@ -49,7 +53,6 @@ namespace Core { class Random; }
 namespace Core { class Result; }
 namespace Core { class StorageAreaStateListener; }
 namespace Core { class StorageAreasTree; }
-namespace Core { class TransactionFrame; }
 namespace Core { class TransactionFrameSourceTarget; }
 namespace Core { struct DirectoryIterationItem; }
 namespace Core { struct ExcludedPath; }

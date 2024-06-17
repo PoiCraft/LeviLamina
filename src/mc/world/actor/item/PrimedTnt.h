@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -53,28 +52,25 @@ public:
     // vIndex: 12, symbol: ?getOwnerEntityType@PrimedTnt@@UEAA?AW4ActorType@@XZ
     virtual ::ActorType getOwnerEntityType();
 
-    // vIndex: 26, symbol: ?teleportTo@PrimedTnt@@UEAAXAEBVVec3@@_NHH1@Z
+    // vIndex: 23, symbol: ?teleportTo@PrimedTnt@@UEAAXAEBVVec3@@_NHH1@Z
     virtual void teleportTo(class Vec3 const& pos, bool shouldStopRiding, int cause, int sourceEntityType, bool);
 
-    // vIndex: 29, symbol: ?normalTick@PrimedTnt@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@PrimedTnt@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 41, symbol: ?getShadowRadius@PrimedTnt@@UEBAMXZ
+    // vIndex: 38, symbol: ?getShadowRadius@PrimedTnt@@UEBAMXZ
     virtual float getShadowRadius() const;
 
-    // vIndex: 48, symbol: ?isPickable@PrimedTnt@@UEAA_NXZ
-    virtual bool isPickable();
-
-    // vIndex: 97, symbol: ?getSourceUniqueID@PrimedTnt@@UEBA?AUActorUniqueID@@XZ
+    // vIndex: 90, symbol: ?getSourceUniqueID@PrimedTnt@@UEBA?AUActorUniqueID@@XZ
     virtual struct ActorUniqueID getSourceUniqueID() const;
 
-    // vIndex: 158, symbol: ?_hurt@PrimedTnt@@MEAA_NAEBVActorDamageSource@@M_N1@Z
+    // vIndex: 146, symbol: ?_hurt@PrimedTnt@@MEAA_NAEBVActorDamageSource@@M_N1@Z
     virtual bool _hurt(class ActorDamageSource const& source, float damage, bool knock, bool ignite);
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@PrimedTnt@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@PrimedTnt@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@PrimedTnt@@MEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@PrimedTnt@@MEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag& entityTag) const;
 
     // symbol: ??0PrimedTnt@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

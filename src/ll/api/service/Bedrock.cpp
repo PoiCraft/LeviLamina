@@ -13,6 +13,7 @@
 #include "mc/server/ServerLevel.h"
 #include "mc/server/commands/CommandRegistry.h"
 #include "mc/server/commands/MinecraftCommands.h"
+#include "mc/server/common/DedicatedServer.h"
 #include "mc/server/common/PropertiesSettings.h"
 #include "mc/server/common/commands/AllowListCommand.h"
 #include "mc/world/Minecraft.h"
@@ -28,7 +29,7 @@ namespace ll::service::inline bedrock {
 using namespace ll::memory;
 
 // Minecraft
-std::atomic<Minecraft*> minecraft;
+static std::atomic<Minecraft*> minecraft;
 
 LL_TYPE_INSTANCE_HOOK(MinecraftInit, HookPriority::High, Minecraft, &Minecraft::initAsDedicatedServer, void) {
     minecraft = this;
@@ -40,24 +41,28 @@ LL_INSTANCE_HOOK(MinecraftDestructor, HookPriority::High, "??1Minecraft@@UEAA@XZ
 }
 
 // PropertiesSettings
-std::atomic<PropertiesSettings*> propertiesSettings;
+static std::atomic<PropertiesSettings*> propertiesSettings;
 
-LL_INSTANCE_HOOK(
-    PropertiesSettingsConstructor,
+LL_TYPE_INSTANCE_HOOK(
+    PropertiesSettingsInit,
     HookPriority::High,
-    "??0PropertiesSettings@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z",
-    PropertiesSettings*,
-    std::string const& path
+    DedicatedServer,
+    &DedicatedServer::runDedicatedServerLoop,
+    DedicatedServer::StartResult,
+    Core::FilePathManager&                  filePathManager,
+    PropertiesSettings&                     properties,
+    LevelSettings&                          settings,
+    AllowListFile&                          allowListFile,
+    std::unique_ptr<class PermissionsFile>& permissionsFile
 ) {
-    return propertiesSettings = origin(path);
-}
-LL_INSTANCE_HOOK(PropertiesSettingsDestructor, HookPriority::High, "??1PropertiesSettings@@QEAA@XZ", void) {
-    propertiesSettings = nullptr;
-    origin();
+    propertiesSettings               = &properties;
+    DedicatedServer::StartResult res = origin(filePathManager, properties, settings, allowListFile, permissionsFile);
+    propertiesSettings               = nullptr;
+    return res;
 }
 
 // ServerNetworkHandler
-std::atomic<ServerNetworkHandler*> serverNetworkHandler;
+static std::atomic<ServerNetworkHandler*> serverNetworkHandler;
 
 LL_TYPE_INSTANCE_HOOK(
     ServerNetworkHandlerInit,
@@ -78,7 +83,7 @@ LL_INSTANCE_HOOK(ServerNetworkHandlerDestructor, HookPriority::High, "??1ServerN
 }
 
 // NetworkSystem
-std::atomic<NetworkSystem*> networkSystem;
+static std::atomic<NetworkSystem*> networkSystem;
 
 LL_INSTANCE_HOOK(
     NetworkSystemConstructor,
@@ -95,7 +100,7 @@ LL_INSTANCE_HOOK(NetworkSystemDestructor, HookPriority::High, "??1NetworkSystem@
 }
 
 // Level
-std::atomic<Level*> level;
+static std::atomic<Level*> level;
 
 LL_TYPE_INSTANCE_HOOK(
     ServerLevelInit,
@@ -114,7 +119,7 @@ LL_INSTANCE_HOOK(LevelDestructor, HookPriority::High, "??1Level@@UEAA@XZ", void)
 }
 
 // RakNet::RakPeer
-std::atomic<RakNet::RakPeer*> rakPeer;
+static std::atomic<RakNet::RakPeer*> rakPeer;
 
 LL_INSTANCE_HOOK(RakNetRakPeerConstructor, HookPriority::High, "??0RakPeer@RakNet@@QEAA@XZ", RakNet::RakPeer*) {
     unhook();
@@ -127,7 +132,7 @@ LL_INSTANCE_HOOK(RakNetRakPeerDestructor, HookPriority::High, "??1RakPeer@RakNet
 }
 
 // ResourcePackRepository
-std::atomic<ResourcePackRepository*> resourcePackRepository;
+static std::atomic<ResourcePackRepository*> resourcePackRepository;
 
 LL_TYPE_INSTANCE_HOOK(
     ResourcePackRepositoryInit,
@@ -145,10 +150,17 @@ LL_INSTANCE_HOOK(ResourcePackRepositoryDestructor, HookPriority::High, "??1Resou
 }
 
 // CommandRegistry
-std::atomic<CommandRegistry*> commandRegistry;
+static std::atomic<CommandRegistry*> commandRegistry;
 
-LL_TYPE_INSTANCE_HOOK(CommandRegistryConstructor, HookPriority::High, CommandRegistry, "??0CommandRegistry@@QEAA@XZ", CommandRegistry*) {
-    return commandRegistry = origin();
+LL_TYPE_INSTANCE_HOOK(
+    CommandRegistryConstructor,
+    HookPriority::High,
+    CommandRegistry,
+    "??0CommandRegistry@@QEAA@_N@Z",
+    CommandRegistry*,
+    bool eduMode
+) {
+    return commandRegistry = origin(eduMode);
 }
 LL_INSTANCE_HOOK(CommandRegistryDestructor, HookPriority::High, "??1CommandRegistry@@QEAA@XZ", void) {
     commandRegistry = nullptr;
@@ -156,7 +168,7 @@ LL_INSTANCE_HOOK(CommandRegistryDestructor, HookPriority::High, "??1CommandRegis
 }
 
 // ServerInstance
-std::atomic<ServerInstance*> serverInstance;
+static std::atomic<ServerInstance*> serverInstance;
 
 LL_TYPE_INSTANCE_HOOK(ServerInstanceConstructor, HookPriority::High, ServerInstance, "??0ServerInstance@@QEAA@AEAVIMinecraftApp@@AEBV?$not_null@V?$NonOwnerPointer@VServerInstanceEventCoordinator@@@Bedrock@@@gsl@@@Z", ServerInstance*) {
     return serverInstance = origin();
@@ -187,8 +199,7 @@ optional_ref<ServerInstance> getServerInstance() { return serverInstance.load();
 using HookReg = memory::HookRegistrar<
     MinecraftInit,
     MinecraftDestructor,
-    PropertiesSettingsConstructor,
-    PropertiesSettingsDestructor,
+    PropertiesSettingsInit,
     ServerNetworkHandlerInit,
     ServerNetworkHandlerDestructor,
     NetworkSystemConstructor,

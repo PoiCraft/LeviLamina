@@ -33,7 +33,7 @@ public:
     // vIndex: 25, symbol: ?canConnect@BarrierBlock@@UEBA_NAEBVBlock@@E0@Z
     virtual bool canConnect(class Block const& otherBlock, uchar toOther, class Block const& thisBlock) const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@BarrierBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@BarrierBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
     // vIndex: 127, symbol: ?getShadeBrightness@BarrierBlock@@UEBAMAEBVBlock@@@Z

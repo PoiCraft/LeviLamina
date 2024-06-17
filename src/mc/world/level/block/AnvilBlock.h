@@ -46,13 +46,13 @@ public:
     // vIndex: 23, symbol: ?canProvideSupport@AnvilBlock@@UEBA_NAEBVBlock@@EW4BlockSupportType@@@Z
     virtual bool canProvideSupport(class Block const&, uchar face, ::BlockSupportType type) const;
 
-    // vIndex: 31, symbol: ?isCraftingBlock@AnvilBlock@@UEBA_NXZ
+    // vIndex: 32, symbol: ?isCraftingBlock@AnvilBlock@@UEBA_NXZ
     virtual bool isCraftingBlock() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@AnvilBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@AnvilBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 89, symbol: ?breaksFallingBlocks@AnvilBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
+    // vIndex: 90, symbol: ?breaksFallingBlocks@AnvilBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
     virtual bool breaksFallingBlocks(class Block const& block, class BaseGameVersion version) const;
 
     // vIndex: 96, symbol: ?asItemInstance@AnvilBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
@@ -71,24 +71,24 @@ public:
     // vIndex: 135, symbol: ?animateTick@AnvilBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@AnvilBlock@@MEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 152, symbol: ?isInteractiveBlock@AnvilBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@AnvilBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@AnvilBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@AnvilBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 168, symbol: ?getDustColor@AnvilBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
+    // vIndex: 163, symbol: ?getDustColor@AnvilBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
     virtual class mce::Color getDustColor(class Block const& block) const;
 
-    // vIndex: 169, symbol:
+    // vIndex: 164, symbol:
     // ?getDustParticleName@AnvilBlock@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVBlock@@@Z
     virtual std::string getDustParticleName(class Block const&) const;
 
-    // vIndex: 171, symbol: ?onLand@AnvilBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 166, symbol: ?onLand@AnvilBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onLand(class BlockSource& region, class BlockPos const& pos) const;
+
+    // symbol: ?falling@AnvilBlock@@UEBA_NXZ
+    MCVAPI bool falling() const;
 
     // symbol: ??0AnvilBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI AnvilBlock(std::string const& nameId, int id);

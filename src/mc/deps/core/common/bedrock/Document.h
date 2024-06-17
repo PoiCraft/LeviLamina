@@ -52,10 +52,13 @@ public:
         class Bedrock::Intrusive::list<
             class Bedrock::JSONObject::NodeBase,
             class Bedrock::JSONObject::NodeBase,
-            class Bedrock::JSONObject::NodeBase>&,
-        uint64 size,
-        uint64 alignment
+            class Bedrock::JSONObject::NodeBase>& freeList,
+        uint64                                    size,
+        uint64                                    alignment
     );
+
+    // symbol: ?_acquireStringBuffer@Document@JSONObject@Bedrock@@AEAAPEAX_KAEA_K@Z
+    MCAPI void* _acquireStringBuffer(uint64 length, uint64&);
 
     // symbol: ?_createNode@Document@JSONObject@Bedrock@@AEAAPEAVNodeBase@23@AEBVValueWrapper@23@@Z
     MCAPI class Bedrock::JSONObject::NodeBase* _createNode(class Bedrock::JSONObject::ValueWrapper const& value);

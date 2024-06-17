@@ -54,27 +54,27 @@ public:
     // vIndex: 137, symbol: ?getLightEmission@RespawnAnchorBlock@@UEBA?AUBrightness@@AEBVBlock@@@Z
     virtual struct Brightness getLightEmission(class Block const& block) const;
 
-    // vIndex: 147, symbol: ?onPlace@RespawnAnchorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@RespawnAnchorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 152, symbol: ?isInteractiveBlock@RespawnAnchorBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@RespawnAnchorBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@RespawnAnchorBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
-    virtual bool use(class Player& player, class BlockPos const&, uchar face) const;
+    // vIndex: 152, symbol: ?use@RespawnAnchorBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    virtual bool use(class Player& player, class BlockPos const& anchorBlockPos, uchar face) const;
 
     // symbol: ??0RespawnAnchorBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI RespawnAnchorBlock(std::string const& nameId, int id);
 
     // symbol:
-    // ?addItem@RespawnAnchorBlock@@SA_NAEAVContainer@@HAEAVItemStack@@AEAVBlockSource@@AEBVBlock@@AEBVBlockPos@@@Z
+    // ?addItem@RespawnAnchorBlock@@SA_NAEAVContainer@@HAEBVItemStack@@AEAVBlockSource@@AEBVBlock@@AEBVBlockPos@@@Z
     MCAPI static bool addItem(
-        class Container&      fromContainer,
-        int                   slot,
-        class ItemStack&      item,
-        class BlockSource&    region,
-        class Block const&    block,
-        class BlockPos const& pos
+        class Container&       fromContainer,
+        int                    slot,
+        class ItemStack const& item,
+        class BlockSource&     region,
+        class Block const&     block,
+        class BlockPos const&  pos
     );
 
     // NOLINTEND

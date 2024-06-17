@@ -1,6 +1,10 @@
 #pragma once
 
 #include "mc/_HeaderOutputPredefine.h"
+#include "mc/deps/core/common/bedrock/IAsyncResult.h"
+
+// auto generated inclusion list
+#include "mc/deps/core/common/bedrock/IAsyncResult.h"
 
 class TaskResult {
 public:
@@ -8,10 +12,22 @@ public:
     TaskResult& operator=(TaskResult const&);
     TaskResult(TaskResult const&);
 
+    bool                                                    mIsDone;            // this+0x0
+    std::chrono::steady_clock::time_point                   mRunAtTime;         // this+0x8
+    std::shared_ptr<Bedrock::Threading::IAsyncResult<void>> mWaitOperation;     // this+0x10
+    bool                                                    mLinkWaitOperation; // this+0x20
+
 public:
     // NOLINTBEGIN
     // symbol: ??0TaskResult@@QEAA@XZ
     MCAPI TaskResult();
+
+    // symbol:
+    // ?getRunAtTime@TaskResult@@QEBA?AV?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@XZ
+    MCAPI std::chrono::steady_clock::time_point getRunAtTime() const;
+
+    // symbol: ?getWaitingOperation@TaskResult@@QEBA?AV?$shared_ptr@V?$IAsyncResult@X@Threading@Bedrock@@@std@@XZ
+    MCAPI std::shared_ptr<class Bedrock::Threading::IAsyncResult<void>> getWaitingOperation() const;
 
     // symbol: ?hasDelay@TaskResult@@QEBA_NXZ
     MCAPI bool hasDelay() const;
@@ -21,6 +37,9 @@ public:
 
     // symbol: ?isWaiting@TaskResult@@QEBA_NXZ
     MCAPI bool isWaiting() const;
+
+    // symbol: ?isWaitingOperationLinked@TaskResult@@QEBA_NXZ
+    MCAPI bool isWaitingOperationLinked() const;
 
     // symbol: ??1TaskResult@@QEAA@XZ
     MCAPI ~TaskResult();

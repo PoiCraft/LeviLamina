@@ -27,6 +27,7 @@
 #include <cwctype>       // Wide character classification
 #include <deque>         // STL double ended queue container
 #include <exception>     // Exception handling classes
+#include <filesystem>    // STL file system
 #include <forward_list>  // STL forward list container
 #include <fstream>       // File stream classes
 #include <functional>    // STL Function objects
@@ -61,8 +62,7 @@
 
 #include "entt/entt.hpp" // Entity Component System Library
 #include "entt/fwd.hpp"  // Entity Component Forward Declarations
-
-#include "gsl/gsl" // Guideline Support Library
+#include "gsl/gsl"       // Guideline Support Library
 
 // LevelDB C++ Library
 #include "leveldb/c.h"

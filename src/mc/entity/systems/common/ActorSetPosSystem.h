@@ -25,6 +25,9 @@ public:
     // vIndex: 0, symbol: __gen_??1ActorSetPosSystem@@UEAA@XZ
     virtual ~ActorSetPosSystem() = default;
 
+    // vIndex: 1, symbol: ?registerEvents@ISystem@@UEAAXAEAV?$basic_dispatcher@V?$allocator@X@std@@@entt@@@Z
+    virtual void registerEvents(entt::dispatcher&);
+
     // vIndex: 2, symbol: __unk_vfn_2
     virtual void __unk_vfn_2();
 
@@ -35,7 +38,7 @@ public:
     virtual void __unk_vfn_4();
 
     // vIndex: 5, symbol:
-    // ?tick@ActorSetPosSystem@@UEAAXAEAV?$StrictExecutionContext@U?$Filter@V?$FlagComponent@UActorAddedFlag@@@@V?$FlagComponent@UActorRemovedFlag@@@@V?$FlagComponent@ULocalPlayerComponentFlag@@@@V?$FlagComponent@UPaintingFlag@@@@V?$FlagComponent@UPlayerComponentFlag@@@@V?$FlagComponent@UShulkerFlag@@@@@@U?$Read@VActorOwnerComponent@@UChunkPositionComponent@@UOffsetsComponent@@USlideOffsetComponent@@@@U?$Write@UAABBShapeComponent@@UActorSetPositionRequestComponent@@VHitboxComponent@@UStateVectorComponent@@USynchedActorDataComponent@@UActorDataFlagComponent@@UActorDataDirtyFlagsComponent@@@@U?$AddRemove@V?$FlagComponent@UActorChunkMoveFlag@@@@V?$FlagComponent@UActorLocalPlayerEntityMovedFlag@@@@UActorSetPositionRequestComponent@@@@U?$GlobalRead@$$V@@U?$GlobalWrite@$$V@@U?$EntityFactoryT@$$V@@@@@Z
+    // ?tick@ActorSetPosSystem@@UEAAXAEAV?$StrictExecutionContext@U?$Filter@V?$FlagComponent@UActorAddedFlag@@@@V?$FlagComponent@UActorRemovedFlag@@@@V?$FlagComponent@ULocalPlayerComponentFlag@@@@V?$FlagComponent@UPaintingFlag@@@@V?$FlagComponent@UPlayerComponentFlag@@@@V?$FlagComponent@UShulkerFlag@@@@@@U?$Read@VActorOwnerComponent@@UChunkPositionComponent@@UOffsetsComponent@@@@U?$Write@UAABBShapeComponent@@UActorSetPositionRequestComponent@@VHitboxComponent@@UStateVectorComponent@@USynchedActorDataComponent@@UActorDataFlagComponent@@UActorDataDirtyFlagsComponent@@@@U?$AddRemove@V?$FlagComponent@UActorChunkMoveFlag@@@@V?$FlagComponent@UActorLocalPlayerEntityMovedFlag@@@@UActorSetPositionRequestComponent@@@@U?$GlobalRead@$$V@@U?$GlobalWrite@$$V@@U?$EntityFactoryT@$$V@@@@@Z
     virtual void tick(class StrictExecutionContext<
                       struct Filter<
                           class FlagComponent<struct ActorAddedFlag>,
@@ -44,11 +47,7 @@ public:
                           class FlagComponent<struct PaintingFlag>,
                           class FlagComponent<struct PlayerComponentFlag>,
                           class FlagComponent<struct ShulkerFlag>>,
-                      struct Read<
-                          class ActorOwnerComponent,
-                          struct ChunkPositionComponent,
-                          struct OffsetsComponent,
-                          struct SlideOffsetComponent>,
+                      struct Read<class ActorOwnerComponent, struct ChunkPositionComponent, struct OffsetsComponent>,
                       struct Write<
                           struct AABBShapeComponent,
                           struct ActorSetPositionRequestComponent,
@@ -66,7 +65,7 @@ public:
                       struct EntityFactoryT<>>& executionContext);
 
     // vIndex: 6, symbol:
-    // ?singleTick@ActorSetPosSystem@@UEAAXAEAV?$StrictExecutionContext@U?$Filter@V?$FlagComponent@UActorAddedFlag@@@@V?$FlagComponent@UActorRemovedFlag@@@@V?$FlagComponent@ULocalPlayerComponentFlag@@@@V?$FlagComponent@UPaintingFlag@@@@V?$FlagComponent@UPlayerComponentFlag@@@@V?$FlagComponent@UShulkerFlag@@@@@@U?$Read@VActorOwnerComponent@@UChunkPositionComponent@@UOffsetsComponent@@USlideOffsetComponent@@@@U?$Write@UAABBShapeComponent@@UActorSetPositionRequestComponent@@VHitboxComponent@@UStateVectorComponent@@USynchedActorDataComponent@@UActorDataFlagComponent@@UActorDataDirtyFlagsComponent@@@@U?$AddRemove@V?$FlagComponent@UActorChunkMoveFlag@@@@V?$FlagComponent@UActorLocalPlayerEntityMovedFlag@@@@UActorSetPositionRequestComponent@@@@U?$GlobalRead@$$V@@U?$GlobalWrite@$$V@@U?$EntityFactoryT@$$V@@@@AEAVStrictEntityContext@@@Z
+    // ?singleTick@ActorSetPosSystem@@UEAAXAEAV?$StrictExecutionContext@U?$Filter@V?$FlagComponent@UActorAddedFlag@@@@V?$FlagComponent@UActorRemovedFlag@@@@V?$FlagComponent@ULocalPlayerComponentFlag@@@@V?$FlagComponent@UPaintingFlag@@@@V?$FlagComponent@UPlayerComponentFlag@@@@V?$FlagComponent@UShulkerFlag@@@@@@U?$Read@VActorOwnerComponent@@UChunkPositionComponent@@UOffsetsComponent@@@@U?$Write@UAABBShapeComponent@@UActorSetPositionRequestComponent@@VHitboxComponent@@UStateVectorComponent@@USynchedActorDataComponent@@UActorDataFlagComponent@@UActorDataDirtyFlagsComponent@@@@U?$AddRemove@V?$FlagComponent@UActorChunkMoveFlag@@@@V?$FlagComponent@UActorLocalPlayerEntityMovedFlag@@@@UActorSetPositionRequestComponent@@@@U?$GlobalRead@$$V@@U?$GlobalWrite@$$V@@U?$EntityFactoryT@$$V@@@@AEAVStrictEntityContext@@@Z
     virtual void singleTick(
         class StrictExecutionContext<
             struct Filter<
@@ -76,11 +75,7 @@ public:
                 class FlagComponent<struct PaintingFlag>,
                 class FlagComponent<struct PlayerComponentFlag>,
                 class FlagComponent<struct ShulkerFlag>>,
-            struct Read<
-                class ActorOwnerComponent,
-                struct ChunkPositionComponent,
-                struct OffsetsComponent,
-                struct SlideOffsetComponent>,
+            struct Read<class ActorOwnerComponent, struct ChunkPositionComponent, struct OffsetsComponent>,
             struct Write<
                 struct AABBShapeComponent,
                 struct ActorSetPositionRequestComponent,
@@ -108,9 +103,8 @@ public:
     // symbol: ?moveHitboxTo@ActorSetPosSystem@@SAXAEBVVec3@@AEAV?$vector@UHitbox@@V?$allocator@UHitbox@@@std@@@std@@@Z
     MCAPI static void moveHitboxTo(class Vec3 const& pos, std::vector<struct Hitbox>&);
 
-    // symbol: ?refreshAABB@ActorSetPosSystem@@SA?AVAABB@@MAEBVVec3@@AEBVVec2@@1@Z
-    MCAPI static class AABB
-    refreshAABB(float heightOffset, class Vec3 const& pos, class Vec2 const& aabbDim, class Vec2 const&);
+    // symbol: ?refreshAABB@ActorSetPosSystem@@SA?AVAABB@@MAEBVVec3@@AEBVVec2@@@Z
+    MCAPI static class AABB refreshAABB(float, class Vec3 const&, class Vec2 const&);
 
     // NOLINTEND
 };

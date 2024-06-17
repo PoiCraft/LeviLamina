@@ -31,7 +31,7 @@ public:
     // vIndex: 0, symbol: __gen_??1LodestoneCompassItem@@UEAA@XZ
     virtual ~LodestoneCompassItem() = default;
 
-    // vIndex: 106, symbol: ?getAnimationFrameFor@LodestoneCompassItem@@UEBAHPEAVMob@@_NPEBVItemStack@@_N@Z
+    // vIndex: 106, symbol: ?getAnimationFrameFor@LodestoneCompassItem@@UEBAHPEAVMob@@_NPEBVItemStack@@1@Z
     virtual int
     getAnimationFrameFor(class Mob* holder, bool asItemEntity, class ItemStack const* item, bool shouldAnimate) const;
 
@@ -53,8 +53,10 @@ public:
     // NOLINTBEGIN
     // symbol:
     // ?_tryGetOrAddComponent@LodestoneCompassItem@@CAPEAVLodestoneCompassComponent@@PEAVTrackingRecord@PositionTrackingDB@@AEBV?$variant@UActorUniqueID@@U?$pair@VBlockPos@@V?$AutomaticID@VDimension@@H@@@std@@@std@@@Z
-    MCAPI static class LodestoneCompassComponent*
-    _tryGetOrAddComponent(class PositionTrackingDB::TrackingRecord* record, std::variant<struct ActorUniqueID, std::pair<class BlockPos, DimensionType>> const&);
+    MCAPI static class LodestoneCompassComponent* _tryGetOrAddComponent(
+        class PositionTrackingDB::TrackingRecord*                                           record,
+        std::variant<struct ActorUniqueID, std::pair<class BlockPos, DimensionType>> const& calcId
+    );
 
     // NOLINTEND
 };

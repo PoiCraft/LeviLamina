@@ -2,6 +2,9 @@
 
 #include "mc/_HeaderOutputPredefine.h"
 
+// auto generated inclusion list
+#include "mc/external/scripting/EnumBinding.h"
+
 // auto generated forward declare list
 // clang-format off
 namespace Scripting { class Release; }
@@ -85,9 +88,9 @@ public:
     _filterEnumBindings(std::vector<struct Scripting::EnumBinding> const&, bool, std::vector<std::string> const&) const;
 
     // symbol:
-    // ?_filterEnumValueMap@ModuleBindingBuilder@Scripting@@AEBA?AV?$vector@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@Vmeta_any@entt@@@std@@V?$allocator@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@Vmeta_any@entt@@@std@@@2@@std@@AEBV?$vector@UConstantFactory@Scripting@@V?$allocator@UConstantFactory@Scripting@@@std@@@4@AEBV34@@Z
-    MCAPI std::vector<std::pair<std::string, entt::meta_any>>
-    _filterEnumValueMap(std::vector<struct Scripting::ConstantFactory> const&, std::vector<std::pair<std::string, entt::meta_any>> const&)
+    // ?_filterEnumValueMap@ModuleBindingBuilder@Scripting@@AEBA?AV?$vector@UEnumValue@EnumBinding@Scripting@@V?$allocator@UEnumValue@EnumBinding@Scripting@@@std@@@std@@AEBV?$vector@UConstantFactory@Scripting@@V?$allocator@UConstantFactory@Scripting@@@std@@@4@AEBV34@@Z
+    MCAPI std::vector<struct Scripting::EnumBinding::EnumValue>
+    _filterEnumValueMap(std::vector<struct Scripting::ConstantFactory> const&, std::vector<struct Scripting::EnumBinding::EnumValue> const&)
         const;
 
     // symbol:
@@ -113,18 +116,27 @@ public:
 
     // symbol:
     // ?_assertClassMemberSymbolDoesntExist@ModuleBindingBuilder@Scripting@@CA_NAEBUClassBinding@2@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUTaggedBinding@2@@Z
-    MCAPI static bool
-    _assertClassMemberSymbolDoesntExist(struct Scripting::ClassBinding const&, std::string const& name, struct Scripting::TaggedBinding const&);
+    MCAPI static bool _assertClassMemberSymbolDoesntExist(
+        struct Scripting::ClassBinding const&,
+        std::string const&                     name,
+        struct Scripting::TaggedBinding const& binding
+    );
 
     // symbol:
     // ?_assertEnumMemberSymbolDoesntExist@ModuleBindingBuilder@Scripting@@CA_NAEBUEnumBinding@2@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUTaggedBinding@2@@Z
-    MCAPI static bool
-    _assertEnumMemberSymbolDoesntExist(struct Scripting::EnumBinding const&, std::string const& name, struct Scripting::TaggedBinding const&);
+    MCAPI static bool _assertEnumMemberSymbolDoesntExist(
+        struct Scripting::EnumBinding const&,
+        std::string const&                     name,
+        struct Scripting::TaggedBinding const& binding
+    );
 
     // symbol:
     // ?_assertModuleMemberSymbolDoesntExist@ModuleBindingBuilder@Scripting@@CA_NAEBUModuleBinding@2@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUTaggedBinding@2@@Z
-    MCAPI static bool
-    _assertModuleMemberSymbolDoesntExist(struct Scripting::ModuleBinding const&, std::string const& name, struct Scripting::TaggedBinding const&);
+    MCAPI static bool _assertModuleMemberSymbolDoesntExist(
+        struct Scripting::ModuleBinding const&,
+        std::string const&                     name,
+        struct Scripting::TaggedBinding const& binding
+    );
 
     // symbol: ?_validateClassConstructors@ModuleBindingBuilder@Scripting@@CAXAEBUModuleBinding@2@@Z
     MCAPI static void _validateClassConstructors(struct Scripting::ModuleBinding const&);
@@ -134,7 +146,7 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?mEmptyConstantFactory@ModuleBindingBuilder@Scripting@@0UConstantFactory@2@A
     MCAPI static struct Scripting::ConstantFactory mEmptyConstantFactory;
@@ -144,17 +156,6 @@ private:
 
     // symbol: ?mEmptyObjectFactory@ModuleBindingBuilder@Scripting@@0UObjectFactory@2@A
     MCAPI static struct Scripting::ObjectFactory mEmptyObjectFactory;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $mEmptyConstantFactory() { return mEmptyConstantFactory; }
-
-    static auto& $mEmptyFunctionBinding() { return mEmptyFunctionBinding; }
-
-    static auto& $mEmptyObjectFactory() { return mEmptyObjectFactory; }
 
     // NOLINTEND
 };

@@ -18,12 +18,28 @@ class FileArchiver : public ::Bedrock::EnableNonOwnerReferences {
 public:
     // FileArchiver inner types declare
     // clang-format off
+    struct EduCloudImportInfo;
     class IWorldConverter;
     class ProgressReporter;
     struct Result;
     // clang-format on
 
     // FileArchiver inner types define
+    struct EduCloudImportInfo {
+    public:
+        // prevent constructor by default
+        EduCloudImportInfo& operator=(EduCloudImportInfo const&);
+        EduCloudImportInfo(EduCloudImportInfo const&);
+        EduCloudImportInfo();
+
+    public:
+        // NOLINTBEGIN
+        // symbol: ??1EduCloudImportInfo@FileArchiver@@QEAA@XZ
+        MCAPI ~EduCloudImportInfo();
+
+        // NOLINTEND
+    };
+
     class IWorldConverter {
     public:
         // prevent constructor by default
@@ -55,10 +71,12 @@ public:
         // prevent constructor by default
         Result& operator=(Result const&);
         Result(Result const&);
-        Result();
 
     public:
         // NOLINTBEGIN
+        // symbol: ??0Result@FileArchiver@@QEAA@XZ
+        MCAPI Result();
+
         // symbol: ??1Result@FileArchiver@@QEAA@XZ
         MCAPI ~Result();
 
@@ -79,8 +97,8 @@ public:
     // symbol:
     // ??0FileArchiver@@QEAA@AEAVScheduler@@AEAVILevelListCache@@AEBV?$not_null@V?$NonOwnerPointer@VFilePathManager@Core@@@Bedrock@@@gsl@@AEBV?$not_null@V?$NonOwnerPointer@VIResourcePackRepository@@@Bedrock@@@4@_NV?$unique_ptr@VIWorldConverter@FileArchiver@@U?$default_delete@VIWorldConverter@FileArchiver@@@std@@@std@@V?$not_null@V?$NonOwnerPointer@$$CBVIContentKeyProvider@@@Bedrock@@@4@V?$not_null@V?$NonOwnerPointer@VLevelDbEnv@@@Bedrock@@@4@V?$function@$$A6AXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z@7@@Z
     MCAPI FileArchiver(
-        class Scheduler& scheduler,
-        class ILevelListCache&,
+        class Scheduler&                                                  scheduler,
+        class ILevelListCache&                                            levelListCache,
         Bedrock::NotNullNonOwnerPtr<class Core::FilePathManager> const&   pathManager,
         Bedrock::NotNullNonOwnerPtr<class IResourcePackRepository> const& resourcePackRepository,
         bool,

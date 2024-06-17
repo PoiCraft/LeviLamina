@@ -52,19 +52,19 @@ public:
     virtual class AABB const&
     getVisualShapeInWorld(class Block const&, class IConstBlockSource const&, class BlockPos const&, class AABB&) const;
 
-    // vIndex: 32, symbol: ?isWaterBlocking@MultifaceBlock@@UEBA_NXZ
+    // vIndex: 33, symbol: ?isWaterBlocking@MultifaceBlock@@UEBA_NXZ
     virtual bool isWaterBlocking() const;
 
-    // vIndex: 45, symbol: ?isMultifaceBlock@MultifaceBlock@@UEBA_NXZ
+    // vIndex: 46, symbol: ?isMultifaceBlock@MultifaceBlock@@UEBA_NXZ
     virtual bool isMultifaceBlock() const;
 
-    // vIndex: 51, symbol: ?sanitizeFillBlock@MultifaceBlock@@UEBAAEBVBlock@@AEBV2@@Z
+    // vIndex: 52, symbol: ?sanitizeFillBlock@MultifaceBlock@@UEBAAEBVBlock@@AEBV2@@Z
     virtual class Block const& sanitizeFillBlock(class Block const&) const;
 
-    // vIndex: 84, symbol: ?mayPlace@MultifaceBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@E@Z
+    // vIndex: 85, symbol: ?mayPlace@MultifaceBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@E@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@MultifaceBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@MultifaceBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -77,17 +77,11 @@ public:
         int                   itemValue
     ) const;
 
-    // vIndex: 150, symbol: ?tick@MultifaceBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@MultifaceBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random&) const;
 
-    // vIndex: 156, symbol: ?canSurvive@MultifaceBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 154, symbol: ?canSurvive@MultifaceBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool canSurvive(class BlockSource& region, class BlockPos const& pos) const;
-
-    // vIndex: 168, symbol: ?getMultifaceBlock@GlowLichenBlock@@UEBAAEBVBlock@@XZ
-    virtual class Block const& getMultifaceBlock() const = 0;
-
-    // vIndex: 169, symbol: ?getMultifaceSpreader@GlowLichenBlock@@UEBAAEBVMultifaceSpreader@@XZ
-    virtual class MultifaceSpreader const& getMultifaceSpreader() const = 0;
 
     // symbol:
     // ??0MultifaceBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVMaterial@@@Z
@@ -111,10 +105,10 @@ public:
 
     // symbol: ?getBlockForPlacement@MultifaceBlock@@SAAEBVBlock@@AEBV2@0AEAVBlockSource@@AEBVBlockPos@@E@Z
     MCAPI static class Block const& getBlockForPlacement(
-        class Block const& oldBlock,
-        class Block const& placementBlock,
-        class BlockSource& region,
-        class BlockPos const&,
+        class Block const&    oldBlock,
+        class Block const&    placementBlock,
+        class BlockSource&    region,
+        class BlockPos const& placementPos,
         uchar
     );
 
@@ -124,7 +118,7 @@ public:
         class Block const&       oldBlock,
         class Block const&       placementBlock,
         class IBlockWorldGenAPI& region,
-        class BlockPos const&,
+        class BlockPos const&    placementPos,
         uchar
     );
 

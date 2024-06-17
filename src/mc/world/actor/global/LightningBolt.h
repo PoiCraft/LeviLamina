@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -46,19 +45,19 @@ public:
     // vIndex: 10, symbol: __gen_??1LightningBolt@@UEAA@XZ
     virtual ~LightningBolt() = default;
 
-    // vIndex: 29, symbol: ?normalTick@LightningBolt@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@LightningBolt@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 41, symbol: ?getShadowRadius@LightningBolt@@UEBAMXZ
+    // vIndex: 38, symbol: ?getShadowRadius@LightningBolt@@UEBAMXZ
     virtual float getShadowRadius() const;
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@LightningBolt@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@LightningBolt@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@LightningBolt@@UEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@LightningBolt@@UEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag& tag) const;
 
-    // vIndex: 163, symbol: ?shouldAlwaysRender@LightningBolt@@UEAA_NXZ
+    // vIndex: 151, symbol: ?shouldAlwaysRender@LightningBolt@@UEAA_NXZ
     virtual bool shouldAlwaysRender();
 
     // symbol: ??0LightningBolt@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

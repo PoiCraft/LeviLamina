@@ -29,10 +29,10 @@ public:
     // vIndex: 0, symbol: __gen_??1BedItem@@UEAA@XZ
     virtual ~BedItem() = default;
 
-    // vIndex: 54, symbol: ?isValidAuxValue@BedItem@@UEBA_NH@Z
+    // vIndex: 56, symbol: ?isValidAuxValue@BedItem@@UEBA_NH@Z
     virtual bool isValidAuxValue(int value) const;
 
-    // vIndex: 82, symbol:
+    // vIndex: 83, symbol:
     // ?buildDescriptionId@BedItem@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVItemDescriptor@@PEBVCompoundTag@@@Z
     virtual std::string buildDescriptionId(class ItemDescriptor const&, class CompoundTag const*) const;
 

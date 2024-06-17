@@ -87,7 +87,7 @@ public:
         std::string const& actorIdentifier,
         int                armorSlot,
         std::string const&,
-        int,
+        int               dataValue,
         class Vec3 const& position,
         bool
     );
@@ -198,6 +198,10 @@ public:
         std::optional<class Scripting::StrongTypedObjectHandle<class ScriptModuleGameTest::ScriptSculkSpreader>>,
         struct gametest::GameTestError>
     getSculkSpreader(class Vec3 const&);
+
+    // symbol:
+    // ?getTestDirection@ScriptGameTestHelper@ScriptModuleGameTest@@QEBA?AW4ScriptFacing@ScriptModuleMinecraft@@XZ
+    MCAPI ::ScriptModuleMinecraft::ScriptFacing getTestDirection() const;
 
     // symbol:
     // ?idle@ScriptGameTestHelper@ScriptModuleGameTest@@QEAA?AV?$Promise@XUError@Scripting@@X@Scripting@@AEAVScriptObjectFactory@4@H@Z
@@ -405,6 +409,9 @@ public:
     // ?worldPosition@ScriptGameTestHelper@ScriptModuleGameTest@@QEBA?AV?$Result@VVec3@@UGameTestError@gametest@@@Scripting@@AEBVVec3@@@Z
     MCAPI class Scripting::Result<class Vec3, struct gametest::GameTestError> worldPosition(class Vec3 const&) const;
 
+    // symbol: ??1ScriptGameTestHelper@ScriptModuleGameTest@@QEAA@XZ
+    MCAPI ~ScriptGameTestHelper();
+
     // NOLINTEND
 
     // private:
@@ -413,8 +420,8 @@ public:
     // ?_getBlockFromVariant@ScriptGameTestHelper@ScriptModuleGameTest@@AEAA?AV?$optional@PEBVBlockLegacy@@@std@@AEBV?$variant@V?$StrongTypedObjectHandle@VScriptBlockType@ScriptModuleMinecraft@@@Scripting@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@4@@Z
     MCAPI std::optional<class BlockLegacy const*>
           _getBlockFromVariant(std::variant<
-                         class Scripting::StrongTypedObjectHandle<class ScriptModuleMinecraft::ScriptBlockType>,
-                         std::string> const&);
+                               class Scripting::StrongTypedObjectHandle<class ScriptModuleMinecraft::ScriptBlockType>,
+                               std::string> const&);
 
     // symbol:
     // ?_callClosure@ScriptGameTestHelper@ScriptModuleGameTest@@CA?AV?$optional@UGameTestError@gametest@@@std@@AEBV?$Closure@$$A6AXXZ$$V@Scripting@@@Z

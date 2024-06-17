@@ -5,6 +5,7 @@
 class BaseBlockLocationIterator {
 public:
     // prevent constructor by default
+    BaseBlockLocationIterator& operator=(BaseBlockLocationIterator const&);
     BaseBlockLocationIterator(BaseBlockLocationIterator const&);
 
 public:
@@ -15,8 +16,8 @@ public:
     // vIndex: 1, symbol: ??EBaseBlockLocationIterator@@UEAAAEAV0@XZ
     virtual class BaseBlockLocationIterator& operator++();
 
-    // vIndex: 2, symbol: ??EBaseBlockLocationIterator@@UEAA?AV0@H@Z
-    virtual class BaseBlockLocationIterator operator++(int);
+    // vIndex: 2, symbol: ?isValid@CompoundBlockVolumeIterator@@UEBA_NXZ
+    virtual bool isValid() const = 0;
 
     // vIndex: 3, symbol: ?_begin@BaseBlockLocationIterator@@MEAAXXZ
     virtual void _begin();
@@ -26,6 +27,9 @@ public:
 
     // symbol: ?done@BaseBlockLocationIterator@@QEBA_NXZ
     MCAPI bool done() const;
+
+    // symbol: ??9BaseBlockLocationIterator@@QEAA_NAEBV0@@Z
+    MCAPI bool operator!=(class BaseBlockLocationIterator const& rhs);
 
     // symbol: ??DBaseBlockLocationIterator@@QEBA?AVBlockPos@@XZ
     MCAPI class BlockPos operator*() const;
@@ -42,9 +46,6 @@ public:
 
     // symbol: ??0BaseBlockLocationIterator@@IEAA@AEBVBlockPos@@0_N@Z
     MCAPI BaseBlockLocationIterator(class BlockPos const& min, class BlockPos const& max, bool begin);
-
-    // symbol: ??4BaseBlockLocationIterator@@IEAAAEAV0@AEBV0@@Z
-    MCAPI class BaseBlockLocationIterator& operator=(class BaseBlockLocationIterator const& other);
 
     // NOLINTEND
 };

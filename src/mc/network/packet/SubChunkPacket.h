@@ -15,8 +15,8 @@ public:
     // SubChunkPacket inner types declare
     // clang-format off
     class HeightmapData;
-    struct SubChunkPosOffset;
     struct SubChunkPacketData;
+    struct SubChunkPosOffset;
     // clang-format on
 
     // SubChunkPacket inner types define
@@ -41,6 +41,7 @@ public:
     public:
         HeightMapDataType                         mHeightMapType;
         std::array<std::array<schar, 16UL>, 16UL> mSubchunkHeightMap;
+
         // prevent constructor by default
         HeightmapData& operator=(HeightmapData const&);
         HeightmapData(HeightmapData const&);
@@ -62,6 +63,7 @@ public:
         schar mX;
         schar mY;
         schar mZ;
+
         // prevent constructor by default
         SubChunkPosOffset& operator=(SubChunkPosOffset const&);
         SubChunkPosOffset(SubChunkPosOffset const&);
@@ -75,6 +77,7 @@ public:
         SubChunkRequestResult   mResult;
         HeightmapData           mHeightMapData;
         uint64                  mBlobId;
+
         // prevent constructor by default
         SubChunkPacketData& operator=(SubChunkPacketData const&);
         SubChunkPacketData(SubChunkPacketData const&);
@@ -84,10 +87,6 @@ public:
         // NOLINTBEGIN
         // symbol: ??0SubChunkPacketData@SubChunkPacket@@QEAA@$$QEAU01@@Z
         MCAPI SubChunkPacketData(struct SubChunkPacket::SubChunkPacketData&&);
-
-        // symbol: ??0SubChunkPacketData@SubChunkPacket@@QEAA@AEBUSubChunkPosOffset@1@W4SubChunkRequestResult@1@@Z
-        MCAPI
-        SubChunkPacketData(struct SubChunkPacket::SubChunkPosOffset const&, ::SubChunkPacket::SubChunkRequestResult);
 
         // symbol: ??1SubChunkPacketData@SubChunkPacket@@QEAA@XZ
         MCAPI ~SubChunkPacketData();
@@ -117,10 +116,10 @@ public:
     // ?getName@SubChunkPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@SubChunkPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@SubChunkPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@SubChunkPacket@@EEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream);
 

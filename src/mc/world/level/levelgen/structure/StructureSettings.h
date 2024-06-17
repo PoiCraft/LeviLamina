@@ -44,15 +44,16 @@ public:
     };
 
 public:
+    // prevent constructor by default
+    StructureSettings(StructureSettings const&);
+
+public:
     // NOLINTBEGIN
     // symbol: ??0StructureSettings@@QEAA@XZ
     MCAPI StructureSettings();
 
     // symbol: ??0StructureSettings@@QEAA@$$QEAV0@@Z
     MCAPI StructureSettings(class StructureSettings&&);
-
-    // symbol: ??0StructureSettings@@QEAA@AEBV0@@Z
-    MCAPI StructureSettings(class StructureSettings const&);
 
     // symbol: ?getAnimationMode@StructureSettings@@QEBA?AW4AnimationMode@@XZ
     MCAPI ::AnimationMode getAnimationMode() const;
@@ -75,8 +76,14 @@ public:
     // symbol: ?getIntegrityValue@StructureSettings@@QEBAMXZ
     MCAPI float getIntegrityValue() const;
 
+    // symbol: ?getIsWaterLogged@StructureSettings@@QEBA_NXZ
+    MCAPI bool getIsWaterLogged() const;
+
     // symbol: ?getMirror@StructureSettings@@QEBA?AW4Mirror@@XZ
     MCAPI ::Mirror getMirror() const;
+
+    // symbol: ?getPivot@StructureSettings@@QEBAAEBVVec3@@XZ
+    MCAPI class Vec3 const& getPivot() const;
 
     // symbol: ?getRotation@StructureSettings@@QEBA?AW4Rotation@@XZ
     MCAPI ::Rotation getRotation() const;
@@ -99,6 +106,15 @@ public:
     // symbol: ?setAllowNonTickingPlayerAndTickingAreaChunks@StructureSettings@@QEAAX_N@Z
     MCAPI void setAllowNonTickingPlayerAndTickingAreaChunks(bool allowNonPlayerTicking);
 
+    // symbol: ?setAnimationMode@StructureSettings@@QEAAXW4AnimationMode@@@Z
+    MCAPI void setAnimationMode(::AnimationMode);
+
+    // symbol: ?setAnimationSeconds@StructureSettings@@QEAAXM@Z
+    MCAPI void setAnimationSeconds(float seconds);
+
+    // symbol: ?setAnimationTicks@StructureSettings@@QEAAXI@Z
+    MCAPI void setAnimationTicks(uint ticks);
+
     // symbol: ?setIgnoreBlocks@StructureSettings@@QEAAX_N@Z
     MCAPI void setIgnoreBlocks(bool ignoreBlocks);
 
@@ -106,13 +122,25 @@ public:
     MCAPI void setIgnoreEntities(bool ignoreEntities);
 
     // symbol: ?setIgnoreJigsawBlocks@StructureSettings@@QEAAX_N@Z
-    MCAPI void setIgnoreJigsawBlocks(bool);
+    MCAPI void setIgnoreJigsawBlocks(bool ignoreJigsawBlocks);
 
     // symbol: ?setIntegritySeed@StructureSettings@@QEAAXI@Z
     MCAPI void setIntegritySeed(uint integritySeed);
 
-    // symbol: ?setPivot@StructureSettings@@QEAAXAEBVVec3@@@Z
-    MCAPI void setPivot(class Vec3 const& pivot);
+    // symbol: ?setIntegrityValue@StructureSettings@@QEAAXM@Z
+    MCAPI void setIntegrityValue(float integrityValue);
+
+    // symbol: ?setIsWaterLogged@StructureSettings@@QEAAX_N@Z
+    MCAPI void setIsWaterLogged(bool);
+
+    // symbol: ?setLastTouchedByPlayerID@StructureSettings@@QEAAXUActorUniqueID@@@Z
+    MCAPI void setLastTouchedByPlayerID(struct ActorUniqueID lastTouchedByPlayerID);
+
+    // symbol: ?setMirror@StructureSettings@@QEAAXW4Mirror@@@Z
+    MCAPI void setMirror(::Mirror mirror);
+
+    // symbol: ?setPivotFromStructureSize@StructureSettings@@QEAAXXZ
+    MCAPI void setPivotFromStructureSize();
 
     // symbol: ?setReloadActorEquipment@StructureSettings@@QEAAX_N@Z
     MCAPI void setReloadActorEquipment(bool);

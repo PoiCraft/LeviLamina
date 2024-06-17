@@ -17,6 +17,7 @@ struct BlockMaterialInstancesDescription : public ::BlockComponentDescription {
 public:
     // prevent constructor by default
     BlockMaterialInstancesDescription& operator=(BlockMaterialInstancesDescription const&);
+    BlockMaterialInstancesDescription();
 
 public:
     // NOLINTBEGIN
@@ -45,15 +46,15 @@ public:
     // ?initializeFromNetwork@BlockMaterialInstancesDescription@@UEAAXAEBVCompoundTag@@AEBUReflectionCtx@cereal@@@Z
     virtual void initializeFromNetwork(class CompoundTag const&, struct cereal::ReflectionCtx const&);
 
-    // symbol: ??0BlockMaterialInstancesDescription@@QEAA@XZ
-    MCAPI BlockMaterialInstancesDescription();
+    // symbol: ??0BlockMaterialInstancesDescription@@QEAA@$$QEAU0@@Z
+    MCAPI BlockMaterialInstancesDescription(struct BlockMaterialInstancesDescription&&);
 
     // symbol: ??0BlockMaterialInstancesDescription@@QEAA@AEBU0@@Z
     MCAPI BlockMaterialInstancesDescription(struct BlockMaterialInstancesDescription const&);
 
     // symbol:
     // ??0BlockMaterialInstancesDescription@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4BlockRenderLayer@@_N2@Z
-    MCAPI BlockMaterialInstancesDescription(std::string const& textureName, ::BlockRenderLayer, bool, bool);
+    MCAPI BlockMaterialInstancesDescription(std::string const& textureName, ::BlockRenderLayer, bool, bool faceDimming);
 
     // symbol: ??4BlockMaterialInstancesDescription@@QEAAAEAU0@$$QEAU0@@Z
     MCAPI struct BlockMaterialInstancesDescription& operator=(struct BlockMaterialInstancesDescription&&);

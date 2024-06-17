@@ -28,19 +28,22 @@ public:
     // ?getName@CameraPresetsPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@CameraPresetsPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@CameraPresetsPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 4, symbol:
+    // vIndex: 5, symbol:
     // ?read@CameraPresetsPacket@@UEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> read(class ReadOnlyBinaryStream& stream);
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@CameraPresetsPacket@@EEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream);
 
     // symbol: ??0CameraPresetsPacket@@QEAA@XZ
     MCAPI CameraPresetsPacket();
+
+    // symbol: ??0CameraPresetsPacket@@QEAA@AEBVCameraPresets@@@Z
+    MCAPI explicit CameraPresetsPacket(class CameraPresets const&);
 
     // NOLINTEND
 };

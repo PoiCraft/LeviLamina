@@ -120,9 +120,9 @@ public:
     }
 
     // Convertors
-    [[nodiscard]] constexpr explicit operator std::string const&() const { return str; }
+    [[nodiscard]] constexpr operator std::string const&() const { return str; } // NOLINT
 
-    [[nodiscard]] constexpr explicit operator std::string_view() const { return std::string_view(str); }
+    [[nodiscard]] constexpr operator std::string_view() const { return std::string_view(str); } // NOLINT
 
 public:
     // NOLINTBEGIN

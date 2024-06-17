@@ -30,14 +30,14 @@ public:
     // vIndex: 0, symbol: ??1DispenserBlock@@UEAA@XZ
     virtual ~DispenserBlock();
 
-    // vIndex: 30, symbol: ?isContainerBlock@DispenserBlock@@UEBA_NXZ
+    // vIndex: 31, symbol: ?isContainerBlock@DispenserBlock@@UEBA_NXZ
     virtual bool isContainerBlock() const;
 
-    // vIndex: 65, symbol: ?onRedstoneUpdate@DispenserBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
+    // vIndex: 66, symbol: ?onRedstoneUpdate@DispenserBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
     virtual void
     onRedstoneUpdate(class BlockSource& region, class BlockPos const& pos, int strength, bool isFirstTime) const;
 
-    // vIndex: 71, symbol: ?setupRedstoneComponent@DispenserBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 72, symbol: ?setupRedstoneComponent@DispenserBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void setupRedstoneComponent(class BlockSource& region, class BlockPos const& pos) const;
 
     // vIndex: 98, symbol: ?getPlacementBlock@DispenserBlock@@UEBAAEBVBlock@@AEBVActor@@AEBVBlockPos@@EAEBVVec3@@H@Z
@@ -63,28 +63,28 @@ public:
     // vIndex: 132, symbol: ?getMappedFace@DispenserBlock@@UEBAEEAEBVBlock@@@Z
     virtual uchar getMappedFace(uchar face, class Block const& block) const;
 
-    // vIndex: 144, symbol: ?onRemove@DispenserBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 143, symbol: ?onRemove@DispenserBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onRemove(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 147, symbol: ?onPlace@DispenserBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@DispenserBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@DispenserBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@DispenserBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 152, symbol: ?isInteractiveBlock@DispenserBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@DispenserBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@DispenserBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@DispenserBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 155, symbol: ?allowStateMismatchOnPlacement@DispenserBlock@@UEBA_NAEBVBlock@@0@Z
+    // vIndex: 153, symbol: ?allowStateMismatchOnPlacement@DispenserBlock@@UEBA_NAEBVBlock@@0@Z
     virtual bool allowStateMismatchOnPlacement(class Block const&, class Block const&) const;
 
-    // vIndex: 168, symbol: ?getTickDelay@DispenserBlock@@UEBAHXZ
+    // vIndex: 163, symbol: ?getTickDelay@DispenserBlock@@UEBAHXZ
     virtual int getTickDelay() const;
 
-    // vIndex: 169, symbol: ?dispenseFrom@DispenserBlock@@MEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 164, symbol: ?dispenseFrom@DispenserBlock@@MEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void dispenseFrom(class BlockSource& region, class BlockPos const& pos) const;
 
     // symbol: ??0DispenserBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

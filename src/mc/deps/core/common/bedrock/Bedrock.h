@@ -14,13 +14,14 @@
 #include "mc/deps/core/common/bedrock/IApplicationDataStores.h"
 #include "mc/deps/core/common/bedrock/IAsyncResult.h"
 #include "mc/deps/core/common/bedrock/IRequestBody.h"
+#include "mc/deps/core/common/bedrock/JSONType.h"
 #include "mc/deps/core/common/bedrock/LogLevel.h"
 #include "mc/deps/core/common/bedrock/NodeBase.h"
 #include "mc/deps/core/common/bedrock/NonOwnerPointer.h"
 #include "mc/deps/core/common/bedrock/ObjectNode.h"
 #include "mc/deps/core/common/bedrock/PlatformBootstrap.h"
-#include "mc/deps/core/common/bedrock/RequestPriority.h"
 #include "mc/deps/core/common/bedrock/ResponseBodyType.h"
+#include "mc/deps/core/common/bedrock/StaticOptimizedString.h"
 #include "mc/deps/core/common/bedrock/WorkerTaskStats.h"
 #include "mc/deps/core/common/bedrock/list.h"
 #include "mc/deps/core/common/bedrock/pubsub/ConnectPosition.h"
@@ -42,6 +43,7 @@ namespace Bedrock { class FilePickerManager; }
 namespace Bedrock { class IApplicationDataStores; }
 namespace Bedrock { class IIslandCore; }
 namespace Bedrock { class PlatformBootstrap; }
+namespace Bedrock { class StaticOptimizedString; }
 namespace Bedrock { class WorkerPoolHandleInterface; }
 namespace Bedrock { class WorkerPoolManager; }
 namespace Bedrock { struct CallStack; }
@@ -57,7 +59,6 @@ namespace Bedrock::Http { class Method; }
 namespace Bedrock::Http { class Request; }
 namespace Bedrock::Http { class RequestBuilder; }
 namespace Bedrock::Http { class Response; }
-namespace Bedrock::Http { class RetryPolicy; }
 namespace Bedrock::Http { class Status; }
 namespace Bedrock::Http { class WebSocketInterface; }
 namespace Bedrock::Http::Internal { class IRequestBody; }
@@ -91,6 +92,7 @@ namespace Bedrock::Threading { class OSThreadPriority; }
 namespace Bedrock::Threading { class SharedRecursiveMutexBase; }
 namespace Bedrock::Threading::AsyncResult { class ToXAsyncBlock; }
 namespace Core { class Path; }
+namespace Core { class Result; }
 // clang-format on
 
 namespace Bedrock {

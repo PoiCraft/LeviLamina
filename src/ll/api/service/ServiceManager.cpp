@@ -6,6 +6,17 @@
 #include "ll/api/event/server/ServiceEvents.h"
 
 namespace ll::service {
+std::string GetServiceError::message() const noexcept {
+    switch (code) {
+    case NotExist:
+        return "service not exist";
+    case VersionMismatch:
+        return fmt::format("service version mismatch [{}]", version);
+    default:
+        _STL_UNREACHABLE;
+    }
+}
+
 // to avoid a lifetime dependency on external Plugin
 struct ServiceInfo {
     std::string              name;
@@ -34,10 +45,10 @@ namespace std {
 template <>
 struct hash<ll::service::ServiceInfo> {
     size_t operator()(ll::service::ServiceInfo const& info) const noexcept {
-        return ll::hash_utils::hashCombine(
-            ll::hash_utils::hashCombine(std::hash<std::string_view>{}(info.name), std::hash<size_t>{}(info.version)),
-            std::hash<std::string_view>{}(info.pluginName)
-        );
+        size_t hash = std::hash<std::string_view>{}(info.name);
+        ll::hash_utils::hashCombine(std::hash<size_t>{}(info.version), hash);
+        ll::hash_utils::hashCombine(std::hash<std::string_view>{}(info.pluginName), hash);
+        return hash;
     }
 };
 } // namespace std
@@ -100,14 +111,14 @@ public:
     }
 };
 
-auto ServiceManager::getService(ServiceId const& id) -> nonstd::expected<std::shared_ptr<Service>, GetServiceError> {
+Expected<std::shared_ptr<Service>> ServiceManager::getService(ServiceId const& id) {
     std::lock_guard lock(impl->mutex);
     if (!impl->services.contains(id.name)) {
-        return nonstd::make_unexpected(GetServiceError::NotExist);
+        return makeError<GetServiceError>(GetServiceError::NotExist);
     }
     auto& info = impl->services[id.name];
     if (info->version != id.version) {
-        return nonstd::make_unexpected(GetServiceError{GetServiceError::VersionMismatch, info->version});
+        return makeError<GetServiceError>(GetServiceError::VersionMismatch, info->version);
     }
     return info->service;
 }

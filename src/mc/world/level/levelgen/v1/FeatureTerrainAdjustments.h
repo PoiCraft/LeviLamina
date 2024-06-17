@@ -15,10 +15,12 @@ public:
     public:
         // prevent constructor by default
         Descriptions& operator=(Descriptions const&);
-        Descriptions();
 
     public:
         // NOLINTBEGIN
+        // symbol: ??0Descriptions@FeatureTerrainAdjustments@@QEAA@XZ
+        MCAPI Descriptions();
+
         // symbol: ??0Descriptions@FeatureTerrainAdjustments@@QEAA@AEBU01@@Z
         MCAPI Descriptions(struct FeatureTerrainAdjustments::Descriptions const&);
 
@@ -50,10 +52,11 @@ public:
     MCAPI void garbageCollectDescriptions();
 
     // symbol: ?setBeardAndShaver@FeatureTerrainAdjustments@@QEAA?AV?$shared_ptr@_N@std@@AEBVBoundingBox@@HMM@Z
-    MCAPI std::shared_ptr<bool> setBeardAndShaver(class BoundingBox const& bb, int, float, float);
+    MCAPI std::shared_ptr<bool>
+          setBeardAndShaver(class BoundingBox const& bb, int deltaY, float minBeardWidth, float maxBeardWidth);
 
     // symbol: ?setBeardifier@FeatureTerrainAdjustments@@QEAA?AV?$shared_ptr@_N@std@@AEBVBoundingBox@@H@Z
-    MCAPI std::shared_ptr<bool> setBeardifier(class BoundingBox const& bb, int);
+    MCAPI std::shared_ptr<bool> setBeardifier(class BoundingBox const& bb, int deltaY);
 
     // symbol: ?setBury@FeatureTerrainAdjustments@@QEAA?AV?$shared_ptr@_N@std@@AEBVBoundingBox@@@Z
     MCAPI std::shared_ptr<bool> setBury(class BoundingBox const& bb);
@@ -63,8 +66,8 @@ public:
 
     // symbol: ?calculateContribution@FeatureTerrainAdjustments@@SAMAEBUDescriptions@1@AEBVBlockPos@@M@Z
     MCAPI static float calculateContribution(
-        struct FeatureTerrainAdjustments::Descriptions const&,
-        class BlockPos const& currentPos,
+        struct FeatureTerrainAdjustments::Descriptions const& descriptions,
+        class BlockPos const&                                 currentPos,
         float
     );
 
@@ -72,7 +75,7 @@ public:
     MCAPI static struct BeardKernel& getBeardKernel();
 
     // symbol: ?shouldDoTerrainAdjustments@FeatureTerrainAdjustments@@SA_NAEBUDescriptions@1@@Z
-    MCAPI static bool shouldDoTerrainAdjustments(struct FeatureTerrainAdjustments::Descriptions const&);
+    MCAPI static bool shouldDoTerrainAdjustments(struct FeatureTerrainAdjustments::Descriptions const& descriptions);
 
     // NOLINTEND
 
@@ -85,17 +88,10 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?mBeardKernel@FeatureTerrainAdjustments@@0UBeardKernel@@A
     MCAPI static struct BeardKernel mBeardKernel;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $mBeardKernel() { return mBeardKernel; }
 
     // NOLINTEND
 };

@@ -11,11 +11,11 @@ public:
 
 public:
     // NOLINTBEGIN
+    // vIndex: 0, symbol: __gen_??1CappedSurfaceAttributes@@UEAA@XZ
+    virtual ~CappedSurfaceAttributes() = default;
+
     // symbol: ?initializeNoise@CappedSurfaceAttributes@@QEAAXI@Z
     MCAPI void initializeNoise(uint levelSeed);
-
-    // symbol: ??4CappedSurfaceAttributes@@QEAAAEAU0@$$QEAU0@@Z
-    MCAPI struct CappedSurfaceAttributes& operator=(struct CappedSurfaceAttributes&&);
 
     // NOLINTEND
 };

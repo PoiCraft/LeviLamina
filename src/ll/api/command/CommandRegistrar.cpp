@@ -7,6 +7,7 @@
 #include <utility>
 #include <vector>
 
+#include "ll/api/base/Containers.h"
 #include "ll/api/base/StdInt.h"
 #include "ll/api/command/CommandHandle.h"
 #include "ll/api/command/OverloadData.h"
@@ -19,9 +20,9 @@
 
 namespace ll::command {
 struct CommandRegistrar::Impl {
-    std::unordered_map<std::string, CommandHandle> commands;
-    std::unordered_map<std::string, uint64>        textWithRef;
-    std::recursive_mutex                           mutex;
+    UnorderedStringMap<CommandHandle> commands;
+    UnorderedStringMap<uint64>        textWithRef;
+    std::recursive_mutex              mutex;
 };
 
 CommandRegistrar::CommandRegistrar() : impl(std::make_unique<Impl>()) {}
@@ -46,19 +47,26 @@ CommandHandle& CommandRegistrar::getOrCreateCommand(
         registry.registerCommand(name, description.c_str(), requirement, flag);
         signature = registry.findCommand(name);
         if (!signature) {
-            throw std::runtime_error{"failed to register command " + name};
+            std::terminate();
         }
-        return impl->commands.try_emplace(signature->name, *this, signature, true).first->second;
+        return impl->commands.try_emplace(signature->name, *this, *signature, true).first->second;
     } else if (impl->commands.contains(signature->name)) {
         return impl->commands.at(signature->name);
     } else {
-        return impl->commands.try_emplace(signature->name, *this, signature, false).first->second;
+        return impl->commands.try_emplace(signature->name, *this, *signature, false).first->second;
+    }
+}
+
+void CommandRegistrar::disablePluginCommands(std::string_view pluginName) {
+    std::lock_guard lock{impl->mutex};
+    for (auto& [name, handle] : impl->commands) {
+        handle.disablePluginOverloads(pluginName);
     }
 }
 
 bool CommandRegistrar::hasEnum(std::string const& name) { return getRegistry().mEnumLookup.contains(name); }
 
-static auto toLower(std::vector<std::pair<std::string, uint64>>& vec) {
+static auto& toLower(std::vector<std::pair<std::string, uint64>>& vec) {
     for (auto& [k, v] : vec) {
         k = string_utils::toSnakeCase(k);
     }
@@ -89,6 +97,18 @@ bool CommandRegistrar::addEnumValues(
     }
     registry._addEnumValuesInternal(name, toLower(values), type, nullptr);
     return true;
+}
+bool CommandRegistrar::tryRegisterRuntimeEnum(
+    std::string const&                          name,
+    std::vector<std::pair<std::string, uint64>> values
+) {
+    return tryRegisterEnum(name, std::move(values), Bedrock::type_id<CommandRegistry, std::pair<std::string, uint64>>(), &CommandRegistry::parse<std::pair<std::string, uint64>>);
+}
+bool CommandRegistrar::addRuntimeEnumValues(
+    std::string const&                          name,
+    std::vector<std::pair<std::string, uint64>> values
+) {
+    return addEnumValues(name, std::move(values), Bedrock::type_id<CommandRegistry, std::pair<std::string, uint64>>());
 }
 bool CommandRegistrar::hasSoftEnum(std::string const& name) { return getRegistry().mSoftEnumLookup.contains(name); }
 

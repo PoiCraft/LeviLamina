@@ -31,19 +31,19 @@ public:
     // vIndex: 0, symbol: __gen_??1ChemistryTableBlock@@UEAA@XZ
     virtual ~ChemistryTableBlock() = default;
 
-    // vIndex: 31, symbol: ?isCraftingBlock@ChemistryTableBlock@@UEBA_NXZ
+    // vIndex: 32, symbol: ?isCraftingBlock@ChemistryTableBlock@@UEBA_NXZ
     virtual bool isCraftingBlock() const;
 
-    // vIndex: 32, symbol: ?isWaterBlocking@ChemistryTableBlock@@UEBA_NXZ
+    // vIndex: 33, symbol: ?isWaterBlocking@ChemistryTableBlock@@UEBA_NXZ
     virtual bool isWaterBlocking() const;
 
-    // vIndex: 49, symbol: ?isValidAuxValue@ChemistryTableBlock@@UEBA_NH@Z
+    // vIndex: 50, symbol: ?isValidAuxValue@ChemistryTableBlock@@UEBA_NH@Z
     virtual bool isValidAuxValue(int value) const;
 
-    // vIndex: 52, symbol: ?onFillBlock@ChemistryTableBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 53, symbol: ?onFillBlock@ChemistryTableBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual void onFillBlock(class BlockSource& region, class BlockPos const& pos, class Block const&) const;
 
-    // vIndex: 60, symbol: ?canBeUsedInCommands@ChemistryTableBlock@@UEBA_NAEBVBaseGameVersion@@@Z
+    // vIndex: 61, symbol: ?canBeUsedInCommands@ChemistryTableBlock@@UEBA_NAEBVBaseGameVersion@@@Z
     virtual bool canBeUsedInCommands(class BaseGameVersion const& requiredBaseGameVersion) const;
 
     // vIndex: 96, symbol: ?asItemInstance@ChemistryTableBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
@@ -72,13 +72,13 @@ public:
     // vIndex: 132, symbol: ?getMappedFace@ChemistryTableBlock@@UEBAEEAEBVBlock@@@Z
     virtual uchar getMappedFace(uchar face, class Block const& block) const;
 
-    // vIndex: 144, symbol: ?onRemove@ChemistryTableBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 143, symbol: ?onRemove@ChemistryTableBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onRemove(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 152, symbol: ?isInteractiveBlock@ChemistryTableBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@ChemistryTableBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@ChemistryTableBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@ChemistryTableBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
     // symbol: ??0ChemistryTableBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

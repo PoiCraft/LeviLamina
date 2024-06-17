@@ -14,6 +14,7 @@ namespace Core { class FileStats; }
 namespace Core { class FileSystemImpl; }
 namespace Core { class Path; }
 namespace Core { class Result; }
+namespace Core { class StorageAreaStateListener; }
 namespace Core { class StorageAreasTree; }
 // clang-format on
 
@@ -141,19 +142,16 @@ public:
     // vIndex: 29, symbol: ?trackWriteOperation@FileStorageArea@Core@@UEAAXAEBVPath@2@W4WriteOperation@2@@Z
     virtual void trackWriteOperation(class Core::Path const&, ::Core::WriteOperation);
 
-    // vIndex: 30, symbol: ?setInitialSize@FileStorageArea@Core@@UEAAXAEBVPath@2@_K@Z
-    virtual void setInitialSize(class Core::Path const&, uint64);
-
-    // vIndex: 31, symbol: ?getStorageAreaSpaceInfo@FileStorageArea@Core@@UEAA?AUStorageAreaSpaceInfo@12@XZ
+    // vIndex: 30, symbol: ?getStorageAreaSpaceInfo@FileStorageArea@Core@@UEAA?AUStorageAreaSpaceInfo@12@XZ
     virtual struct Core::FileStorageArea::StorageAreaSpaceInfo getStorageAreaSpaceInfo();
 
-    // vIndex: 32, symbol: ?_commit@FileStorageArea@Core@@MEAA?AVResult@2@XZ
+    // vIndex: 31, symbol: ?_commit@FileStorageArea@Core@@MEAA?AVResult@2@XZ
     virtual class Core::Result _commit();
 
-    // vIndex: 33, symbol: ?_onTransactionsEmpty@FileStorageArea@Core@@MEAA?AVResult@2@_N@Z
+    // vIndex: 32, symbol: ?_onTransactionsEmpty@FileStorageArea@Core@@MEAA?AVResult@2@_N@Z
     virtual class Core::Result _onTransactionsEmpty(bool fromChild);
 
-    // vIndex: 34, symbol: ?_onTeardown@FileStorageArea@Core@@MEAAXXZ
+    // vIndex: 33, symbol: ?_onTeardown@FileStorageArea@Core@@MEAAXXZ
     virtual void _onTeardown();
 
     // symbol: ?checkUserStorage@FileStorageArea@Core@@QEAAXXZ
@@ -162,6 +160,9 @@ public:
     // symbol:
     // ?getRootPath@FileStorageArea@Core@@QEBAAEBV?$PathBuffer@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@XZ
     MCAPI class Core::PathBuffer<std::string> const& getRootPath() const;
+
+    // symbol: ?removeStateListener@FileStorageArea@Core@@QEAAXPEAVStorageAreaStateListener@2@@Z
+    MCAPI void removeStateListener(class Core::StorageAreaStateListener*);
 
     // symbol:
     // ?getStorageAreaForPath@FileStorageArea@Core@@SA?AVResult@2@AEAV?$shared_ptr@VFileStorageArea@Core@@@std@@AEBVPath@2@@Z
@@ -222,7 +223,7 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol:
     // ?sStorageAreaFileStats@FileStorageArea@Core@@0V?$vector@PEAVFileStats@Core@@V?$allocator@PEAVFileStats@Core@@@std@@@std@@A
@@ -233,17 +234,6 @@ private:
 
     // symbol: ?sStorageAreas@FileStorageArea@Core@@0VStorageAreasTree@2@A
     MCAPI static class Core::StorageAreasTree sStorageAreas;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $sStorageAreaFileStats() { return sStorageAreaFileStats; }
-
-    static auto& $sStorageAreaLock() { return sStorageAreaLock; }
-
-    static auto& $sStorageAreas() { return sStorageAreas; }
 
     // NOLINTEND
 };

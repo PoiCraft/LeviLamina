@@ -3,6 +3,8 @@
 #include "mc/_HeaderOutputPredefine.h"
 
 // auto generated inclusion list
+#include "mc/external/scripting/DebuggerLogLevel.h"
+#include "mc/external/scripting/EnumBinding.h"
 #include "mc/external/scripting/FutureStatus.h"
 #include "mc/external/scripting/LogLevel.h"
 #include "mc/external/scripting/ObjectHandleValue.h"
@@ -94,6 +96,7 @@ namespace Scripting { struct WatchdogEvent; }
 namespace Scripting { struct WatchdogSettings; }
 namespace Scripting::QuickJS { class ClassRegistry; }
 namespace Scripting::QuickJS { class ContextObject; }
+namespace Scripting::QuickJS { class ContextTimings; }
 namespace Scripting::QuickJS { class ContextUserData; }
 namespace Scripting::QuickJS { class ObjectInspector; }
 namespace Scripting::QuickJS { class RegisteredClass; }
@@ -112,6 +115,13 @@ namespace Scripting::internal { struct FetchAsAnyComponent; }
 
 namespace Scripting {
 // NOLINTBEGIN
+// symbol:
+// ?GetDefaultArgCount@Scripting@@YAIAEBV?$vector@UArgumentDetails@Scripting@@V?$allocator@UArgumentDetails@Scripting@@@std@@@std@@@Z
+MCAPI uint GetDefaultArgCount(std::vector<struct Scripting::ArgumentDetails> const&);
+
+// symbol: ?GetInjectedArgCount@Scripting@@YAIPEAVIFunction@Reflection@1@@Z
+MCAPI uint GetInjectedArgCount(class Scripting::Reflection::IFunction*);
+
 // symbol: ?LogMessage@Scripting@@YAXW4LogLevel@1@PEBDI1ZZ
 MCAPI void LogMessage(::Scripting::LogLevel, char const*, uint, char const*, ...);
 

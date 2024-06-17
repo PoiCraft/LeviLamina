@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -39,16 +38,16 @@ public:
     // vIndex: 10, symbol: __gen_??1EvocationFang@@UEAA@XZ
     virtual ~EvocationFang() = default;
 
-    // vIndex: 29, symbol: ?normalTick@EvocationFang@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@EvocationFang@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 41, symbol: ?getShadowRadius@EvocationFang@@UEBAMXZ
+    // vIndex: 38, symbol: ?getShadowRadius@EvocationFang@@UEBAMXZ
     virtual float getShadowRadius() const;
 
-    // vIndex: 80, symbol: ?handleEntityEvent@EvocationFang@@UEAAXW4ActorEvent@@H@Z
+    // vIndex: 74, symbol: ?handleEntityEvent@EvocationFang@@UEAAXW4ActorEvent@@H@Z
     virtual void handleEntityEvent(::ActorEvent id, int data);
 
-    // vIndex: 97, symbol: ?getSourceUniqueID@EvocationFang@@UEBA?AUActorUniqueID@@XZ
+    // vIndex: 90, symbol: ?getSourceUniqueID@EvocationFang@@UEBA?AUActorUniqueID@@XZ
     virtual struct ActorUniqueID getSourceUniqueID() const;
 
     // symbol: ??0EvocationFang@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

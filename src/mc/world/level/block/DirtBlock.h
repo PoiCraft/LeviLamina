@@ -30,25 +30,25 @@ public:
     // vIndex: 0, symbol: __gen_??1DirtBlock@@UEAA@XZ
     virtual ~DirtBlock() = default;
 
-    // vIndex: 47, symbol: ?canBeOriginalSurface@DirtBlock@@UEBA_NXZ
+    // vIndex: 48, symbol: ?canBeOriginalSurface@DirtBlock@@UEBA_NXZ
     virtual bool canBeOriginalSurface() const;
 
-    // vIndex: 49, symbol: ?isValidAuxValue@DirtBlock@@UEBA_NH@Z
+    // vIndex: 50, symbol: ?isValidAuxValue@DirtBlock@@UEBA_NH@Z
     virtual bool isValidAuxValue(int value) const;
 
-    // vIndex: 79, symbol: ?onFertilized@DirtBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
+    // vIndex: 80, symbol: ?onFertilized@DirtBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool
     onFertilized(class BlockSource& region, class BlockPos const& pos, class Actor* entity, ::FertilizerType fType)
         const;
 
-    // vIndex: 80, symbol: ?mayConsumeFertilizer@DirtBlock@@UEBA_NAEAVBlockSource@@@Z
+    // vIndex: 81, symbol: ?mayConsumeFertilizer@DirtBlock@@UEBA_NAEAVBlockSource@@@Z
     virtual bool mayConsumeFertilizer(class BlockSource& region) const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@DirtBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@DirtBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool
     canBeFertilized(class BlockSource& region, class BlockPos const& pos, class Block const& aboveBlock) const;
 
-    // vIndex: 88, symbol: ?tryToTill@DirtBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@AEAVItemStack@@@Z
+    // vIndex: 89, symbol: ?tryToTill@DirtBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@AEAVItemStack@@@Z
     virtual bool
     tryToTill(class BlockSource& region, class BlockPos const& pos, class Actor& entity, class ItemStack& item) const;
 
@@ -65,21 +65,15 @@ public:
     // vIndex: 129, symbol: ?getVariant@DirtBlock@@UEBAHAEBVBlock@@@Z
     virtual int getVariant(class Block const& block) const;
 
-    // vIndex: 143, symbol: ?_addHardCodedBlockComponents@DirtBlock@@UEAAXAEBVExperiments@@@Z
+    // vIndex: 142, symbol: ?_addHardCodedBlockComponents@DirtBlock@@UEAAXAEBVExperiments@@@Z
     virtual void _addHardCodedBlockComponents(class Experiments const&);
 
-    // vIndex: 154, symbol: ?use@DirtBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@DirtBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 162, symbol: ?getMapColor@DirtBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 160, symbol: ?getMapColor@DirtBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual class mce::Color
     getMapColor(class BlockSource& region, class BlockPos const& pos, class Block const& block) const;
-
-    // vIndex: 163, symbol: ?getResourceItem@DirtBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const& block, int) const;
-
-    // vIndex: 165, symbol: ?getSilkTouchItemInstance@DirtBlock@@UEBA?AVItemInstance@@AEBVBlock@@@Z
-    virtual class ItemInstance getSilkTouchItemInstance(class Block const& block) const;
 
     // symbol: ??0DirtBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI DirtBlock(std::string const& nameId, int id);

@@ -62,6 +62,9 @@ public:
     // symbol: ?onNeighborChanged@FurnaceBlockActor@@UEAAXAEAVBlockSource@@AEBVBlockPos@@@Z
     MCVAPI void onNeighborChanged(class BlockSource& region, class BlockPos const& position);
 
+    // symbol: ?onRemoved@FurnaceBlockActor@@UEAAXAEAVBlockSource@@@Z
+    MCVAPI void onRemoved(class BlockSource&);
+
     // symbol: ?save@FurnaceBlockActor@@UEBA_NAEAVCompoundTag@@@Z
     MCVAPI bool save(class CompoundTag& tag) const;
 
@@ -191,7 +194,7 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?BURN_DURATION_KEY@FurnaceBlockActor@@0V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B
     MCAPI static std::string const BURN_DURATION_KEY;
@@ -220,29 +223,6 @@ private:
 
     // symbol: ?STORED_XP_KEY@FurnaceBlockActor@@0V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B
     MCAPI static std::string const STORED_XP_KEY;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $BURN_DURATION_KEY() { return BURN_DURATION_KEY; }
-
-    static auto& $BURN_TIME_KEY() { return BURN_TIME_KEY; }
-
-    static auto& $COOK_TIME_KEY() { return COOK_TIME_KEY; }
-
-    static auto& $CUSTOM_NAME_KEY() { return CUSTOM_NAME_KEY; }
-
-    static auto& $ITEMS_LIST_KEY() { return ITEMS_LIST_KEY; }
-
-    static auto& $LAST_FUEL_KEY() { return LAST_FUEL_KEY; }
-
-    static auto& $SLOT_KEY() { return SLOT_KEY; }
-
-    static auto& $STORED_XP_DEPRECATED_KEY() { return STORED_XP_DEPRECATED_KEY; }
-
-    static auto& $STORED_XP_KEY() { return STORED_XP_KEY; }
 
     // NOLINTEND
 };

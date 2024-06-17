@@ -9,12 +9,12 @@
 
 class VoidGenerator : public ::WorldGenerator {
 public:
-    const Biome*                      mBiome;           // this+136
-    std::unique_ptr<FixedBiomeSource> mBiomeSource;     // this+144
-    void*                             unk_152;          // this+152
-    std::vector<Block const*>         mPrototypeBlocks; // this+160
-    BlockVolume                       mPrototype;       // this+184
-    bool                              unk_224;          // this+224
+    const Biome*                      mBiome; // this+188
+    std::unique_ptr<FixedBiomeSource> mBiomeSource;
+    void*                             unk_408;
+    std::vector<Block const*>         mPrototypeBlocks;
+    BlockVolume                       mPrototype;
+    bool                              unk_480;
     // prevent constructor by default
     VoidGenerator& operator=(VoidGenerator const&);
     VoidGenerator(VoidGenerator const&);
@@ -29,9 +29,9 @@ public:
     virtual class WorldGenCache createWorldGenCache(class ChunkPos chunkPos) const;
 
     // vIndex: 45, symbol:
-    // ?decorateWorldGenLoadChunk@VoidGenerator@@MEBAXAEAVBiome@@AEAVLevelChunk@@AEAVBlockVolumeTarget@@AEAVRandom@@AEBVChunkPos@@@Z
+    // ?decorateWorldGenLoadChunk@VoidGenerator@@MEBAXAEBVBiome@@AEAVLevelChunk@@AEAVBlockVolumeTarget@@AEAVRandom@@AEBVChunkPos@@@Z
     virtual void decorateWorldGenLoadChunk(
-        class Biome&             biome,
+        class Biome const&       biome,
         class LevelChunk&        lc,
         class BlockVolumeTarget& target,
         class Random&            random,
@@ -39,24 +39,24 @@ public:
     ) const;
 
     // vIndex: 46, symbol:
-    // ?decorateWorldGenPostProcess@VoidGenerator@@MEBAXAEAVBiome@@AEAVLevelChunk@@AEAVBlockSource@@AEAVRandom@@@Z
+    // ?decorateWorldGenPostProcess@VoidGenerator@@MEBAXAEBVBiome@@AEAVLevelChunk@@AEAVBlockSource@@AEAVRandom@@@Z
     virtual void decorateWorldGenPostProcess(
-        class Biome&       biome,
+        class Biome const& biome,
         class LevelChunk&  lc,
         class BlockSource& source,
         class Random&      random
     ) const;
 
-    // vIndex: 42, symbol: ?findSpawnPosition@VoidGenerator@@UEBA?AVBlockPos@@XZ
+    // vIndex: 43, symbol: ?findSpawnPosition@VoidGenerator@@UEBA?AVBlockPos@@XZ
     virtual class BlockPos findSpawnPosition() const;
 
-    // vIndex: 39, symbol: ?getBiomeArea@VoidGenerator@@UEBA?AVBiomeArea@@AEBVBoundingBox@@I@Z
+    // vIndex: 40, symbol: ?getBiomeArea@VoidGenerator@@UEBA?AVBiomeArea@@AEBVBoundingBox@@I@Z
     virtual class BiomeArea getBiomeArea(class BoundingBox const& area, uint scale) const;
 
-    // vIndex: 40, symbol: ?getBiomeSource@VoidGenerator@@UEBAAEBVBiomeSource@@XZ
+    // vIndex: 41, symbol: ?getBiomeSource@VoidGenerator@@UEBAAEBVBiomeSource@@XZ
     virtual class BiomeSource const& getBiomeSource() const;
 
-    // vIndex: 41, symbol: ?getBlockVolumeDimensions@VoidGenerator@@UEBA?AUBlockVolumeDimensions@WorldGenerator@@XZ
+    // vIndex: 42, symbol: ?getBlockVolumeDimensions@VoidGenerator@@UEBA?AUBlockVolumeDimensions@WorldGenerator@@XZ
     virtual struct WorldGenerator::BlockVolumeDimensions getBlockVolumeDimensions() const;
 
     // vIndex: 11, symbol: ?loadChunk@VoidGenerator@@UEAAXAEAVLevelChunk@@_N@Z
@@ -65,7 +65,7 @@ public:
     // vIndex: 9, symbol: ?postProcess@VoidGenerator@@UEAA_NAEAVChunkViewSource@@@Z
     virtual bool postProcess(class ChunkViewSource& neighborhood);
 
-    // vIndex: 38, symbol:
+    // vIndex: 39, symbol:
     // ?prepareAndComputeHeights@VoidGenerator@@UEAAXAEAVBlockVolume@@AEBVChunkPos@@AEAV?$vector@FV?$allocator@F@std@@@std@@_NH@Z
     virtual void prepareAndComputeHeights(
         class BlockVolume&    box,
@@ -75,7 +75,7 @@ public:
         int                   skipTopN
     );
 
-    // vIndex: 37, symbol: ?prepareHeights@VoidGenerator@@UEAAXAEAVBlockVolume@@AEBVChunkPos@@_N@Z
+    // vIndex: 38, symbol: ?prepareHeights@VoidGenerator@@UEAAXAEAVBlockVolume@@AEBVChunkPos@@_N@Z
     virtual void prepareHeights(class BlockVolume& box, class ChunkPos const& chunkPos, bool factorInBeardsAndShavers);
 
     // symbol: ??0VoidGenerator@@QEAA@AEAVDimension@@@Z

@@ -40,7 +40,7 @@ public:
     // vIndex: 120, symbol: ?isAuxValueRelevantForPicking@StoneBricksBlock@@UEBA_NXZ
     virtual bool isAuxValueRelevantForPicking() const;
 
-    // vIndex: 141, symbol: ?tryGetInfested@StoneBricksBlock@@UEBAPEBVBlock@@AEBV2@@Z
+    // vIndex: 140, symbol: ?tryGetInfested@StoneBricksBlock@@UEBAPEBVBlock@@AEBV2@@Z
     virtual class Block const* tryGetInfested(class Block const& block) const;
 
     // symbol:

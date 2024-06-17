@@ -30,23 +30,20 @@ public:
     // vIndex: 0, symbol: __gen_??1FrostedIceBlock@@UEAA@XZ
     virtual ~FrostedIceBlock() = default;
 
-    // vIndex: 89, symbol: ?breaksFallingBlocks@FrostedIceBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
+    // vIndex: 90, symbol: ?breaksFallingBlocks@FrostedIceBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
     virtual bool breaksFallingBlocks(class Block const& block, class BaseGameVersion version) const;
 
-    // vIndex: 94, symbol: ?playerWillDestroy@FrostedIceBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
+    // vIndex: 95, symbol: ?playerWillDestroy@FrostedIceBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
     virtual class Block const*
     playerWillDestroy(class Player& player, class BlockPos const& pos, class Block const& block) const;
 
     // vIndex: 96, symbol: ?asItemInstance@FrostedIceBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
     virtual class ItemInstance asItemInstance(class Block const&, class BlockActor const*) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@FrostedIceBlock@@UEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 147, symbol: ?onPlace@FrostedIceBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@FrostedIceBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@FrostedIceBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@FrostedIceBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
     // symbol: ??0FrostedIceBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H_N@Z
@@ -58,22 +55,13 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?MAX_AGE@FrostedIceBlock@@0HB
     MCAPI static int const MAX_AGE;
 
     // symbol: ?MIN_NEIGHBORS@FrostedIceBlock@@0HB
     MCAPI static int const MIN_NEIGHBORS;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $MAX_AGE() { return MAX_AGE; }
-
-    static auto& $MIN_NEIGHBORS() { return MIN_NEIGHBORS; }
 
     // NOLINTEND
 };

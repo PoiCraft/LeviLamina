@@ -13,12 +13,6 @@ public:
 
 public:
     // NOLINTBEGIN
-    // symbol: ?Armadillo@Experiments@@QEBA_NXZ
-    MCAPI bool Armadillo() const;
-
-    // symbol: ?Cameras@Experiments@@QEBA_NXZ
-    MCAPI bool Cameras() const;
-
     // symbol: ?DataDrivenBiomes@Experiments@@QEBA_NXZ
     MCAPI bool DataDrivenBiomes() const;
 
@@ -33,9 +27,6 @@ public:
 
     // symbol: ?UpcomingCreatorFeatures@Experiments@@QEBA_NXZ
     MCAPI bool UpcomingCreatorFeatures() const;
-
-    // symbol: ?UpdateAnnouncedLive2023@Experiments@@QEBA_NXZ
-    MCAPI bool UpdateAnnouncedLive2023() const;
 
     // symbol: ?VillagerTradesRebalance@Experiments@@QEBA_NXZ
     MCAPI bool VillagerTradesRebalance() const;
@@ -52,10 +43,10 @@ public:
     MCAPI void getTagData(class CompoundTag const& tag);
 
     // symbol: ?isExperimentEnabled@Experiments@@QEBA_NW4AllExperiments@@@Z
-    MCAPI bool isExperimentEnabled(::AllExperiments) const;
+    MCAPI bool isExperimentEnabled(::AllExperiments experiment) const;
 
     // symbol: ?setExperimentEnabled@Experiments@@QEAAXW4AllExperiments@@_N@Z
-    MCAPI void setExperimentEnabled(::AllExperiments, bool value);
+    MCAPI void setExperimentEnabled(::AllExperiments experiment, bool value);
 
     // symbol: ?setTagData@Experiments@@QEBAXAEAVCompoundTag@@@Z
     MCAPI void setTagData(class CompoundTag& tag) const;

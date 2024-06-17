@@ -30,7 +30,7 @@ public:
     // vIndex: 0, symbol: __gen_??1CalibratedSculkSensorBlock@@UEAA@XZ
     virtual ~CalibratedSculkSensorBlock() = default;
 
-    // vIndex: 71, symbol: ?setupRedstoneComponent@CalibratedSculkSensorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 72, symbol: ?setupRedstoneComponent@CalibratedSculkSensorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void setupRedstoneComponent(class BlockSource& region, class BlockPos const& pos) const;
 
     // vIndex: 129, symbol: ?getVariant@CalibratedSculkSensorBlock@@UEBAHAEBVBlock@@@Z

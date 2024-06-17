@@ -5,10 +5,9 @@
 #include <utility>
 #include <vector>
 
-#include "gsl/pointers"
-
 #include "ll/api/base/Macro.h"
 #include "ll/api/base/StdInt.h"
+#include "ll/api/plugin/NativePlugin.h"
 
 #include "mc/deps/core/common/bedrock/typeid_t.h"
 #include "mc/server/commands/CommandParameterData.h"
@@ -27,13 +26,18 @@ class OverloadData {
     struct Impl;
     std::unique_ptr<Impl> impl;
 
-    CommandRegistry::FactoryFn        getFactory();
-    std::vector<CommandParameterData> moveParams();
-
 protected:
-    LLAPI explicit OverloadData(CommandHandle& handle);
+    LLNDAPI CommandRegistry::FactoryFn* getFactory();
+    LLNDAPI std::vector<CommandParameterData>& getParams();
+    LLNDAPI CommandHandle&                     getHandle();
+    LLNDAPI std::weak_ptr<plugin::Plugin>& getPlugin();
+    LLNDAPI std::lock_guard<std::recursive_mutex> lock();
 
-    LLAPI CommandParameterData& back();
+    LLNDAPI char const* storeStr(std::string_view);
+
+    LLNDAPI explicit OverloadData(CommandHandle& handle, std::weak_ptr<plugin::Plugin> plugin);
+
+    LLNDAPI CommandParameterData& back();
 
     LLAPI CommandParameterData& addParamImpl(
         Bedrock::typeid_t<CommandRegistry> id,
@@ -48,9 +52,11 @@ protected:
 
     LLAPI CommandParameterData& addTextImpl(std::string_view text, int offset);
 
-    LLAPI void setFactory(CommandRegistry::FactoryFn fn);
+    LLAPI void setFactory(std::function<std::unique_ptr<::Command>()>&& fn);
 
 public:
     LLAPI ~OverloadData();
+    LLAPI OverloadData& operator=(OverloadData&&);
+    LLNDAPI             OverloadData(OverloadData&&);
 };
 } // namespace ll::command

@@ -8,6 +8,7 @@
 #include "mc/enums/MinecraftPacketIds.h"
 #include "mc/network/packet/Packet.h"
 #include "mc/world/containers/ContainerID.h"
+#include "mc/world/containers/ContainerType.h"
 
 class ContainerClosePacket : public ::Packet {
 public:
@@ -30,18 +31,18 @@ public:
     // ?getName@ContainerClosePacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@ContainerClosePacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@ContainerClosePacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@ContainerClosePacket@@EEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream);
 
     // symbol: ??0ContainerClosePacket@@QEAA@XZ
     MCAPI ContainerClosePacket();
 
-    // symbol: ??0ContainerClosePacket@@QEAA@W4ContainerID@@_N@Z
-    MCAPI ContainerClosePacket(::ContainerID containerId, bool);
+    // symbol: ??0ContainerClosePacket@@QEAA@W4ContainerID@@W4ContainerType@@_N@Z
+    MCAPI ContainerClosePacket(::ContainerID, ::ContainerType, bool);
 
     // NOLINTEND
 };

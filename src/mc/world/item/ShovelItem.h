@@ -37,7 +37,7 @@ public:
     // vIndex: 31, symbol: ?canDestroySpecial@ShovelItem@@UEBA_NAEBVBlock@@@Z
     virtual bool canDestroySpecial(class Block const& block) const;
 
-    // vIndex: 49, symbol: ?getEnchantSlot@ShovelItem@@UEBAHXZ
+    // vIndex: 50, symbol: ?getEnchantSlot@ShovelItem@@UEBAHXZ
     virtual int getEnchantSlot() const;
 
     // vIndex: 118, symbol:

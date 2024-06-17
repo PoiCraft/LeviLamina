@@ -27,12 +27,9 @@ public:
     // vIndex: 5, symbol: ?postProcessMobsAt@Igloo@@UEAAXAEAVBlockSource@@AEAVRandom@@AEBVBoundingBox@@@Z
     virtual void postProcessMobsAt(class BlockSource& region, class Random& random, class BoundingBox const& chunkBB);
 
-    // symbol: ??0Igloo@@QEAA@FHH@Z
-    MCAPI Igloo(short seaLevel, int west, int north);
-
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol:
     // ?STRUCTURE_LOCATION_IGLOO_NO_TRAPDOOR@Igloo@@0V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B
@@ -47,19 +44,6 @@ private:
 
     // symbol: ?STRUCTURE_LOCATION_LADDER@Igloo@@0V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B
     MCAPI static std::string const STRUCTURE_LOCATION_LADDER;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $STRUCTURE_LOCATION_IGLOO_NO_TRAPDOOR() { return STRUCTURE_LOCATION_IGLOO_NO_TRAPDOOR; }
-
-    static auto& $STRUCTURE_LOCATION_IGLOO_TRAPDOOR() { return STRUCTURE_LOCATION_IGLOO_TRAPDOOR; }
-
-    static auto& $STRUCTURE_LOCATION_LABORATORY() { return STRUCTURE_LOCATION_LABORATORY; }
-
-    static auto& $STRUCTURE_LOCATION_LADDER() { return STRUCTURE_LOCATION_LADDER; }
 
     // NOLINTEND
 };

@@ -3,7 +3,6 @@
 #include "mc/_HeaderOutputPredefine.h"
 
 // auto generated inclusion list
-#include "mc/common/wrapper/WeakPtr.h"
 #include "mc/common/wrapper/optional_ref.h"
 #include "mc/enums/FertilizerType.h"
 #include "mc/enums/Flip.h"
@@ -31,7 +30,7 @@ public:
     // vIndex: 0, symbol: __gen_??1StoneSlabBlock2@@UEAA@XZ
     virtual ~StoneSlabBlock2() = default;
 
-    // vIndex: 49, symbol: ?isValidAuxValue@StoneSlabBlock2@@UEBA_NH@Z
+    // vIndex: 50, symbol: ?isValidAuxValue@StoneSlabBlock2@@UEBA_NH@Z
     virtual bool isValidAuxValue(int auxValue) const;
 
     // vIndex: 96, symbol: ?asItemInstance@StoneSlabBlock2@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
@@ -47,18 +46,12 @@ public:
     // vIndex: 129, symbol: ?getVariant@StoneSlabBlock2@@UEBAHAEBVBlock@@@Z
     virtual int getVariant(class Block const& block) const;
 
-    // vIndex: 162, symbol: ?getMapColor@StoneSlabBlock2@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 160, symbol: ?getMapColor@StoneSlabBlock2@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual class mce::Color getMapColor(class BlockSource&, class BlockPos const&, class Block const& block) const;
 
-    // vIndex: 163, symbol: ?getResourceItem@StoneSlabBlock2@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const& block, int) const;
-
-    // vIndex: 165, symbol: ?getSilkTouchItemInstance@StoneSlabBlock2@@UEBA?AVItemInstance@@AEBVBlock@@@Z
-    virtual class ItemInstance getSilkTouchItemInstance(class Block const& block) const;
-
     // symbol:
-    // ??0StoneSlabBlock2@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H_NV?$WeakPtr@VBlockLegacy@@@@@Z
-    MCAPI StoneSlabBlock2(std::string const& nameId, int id, bool fullSize, class WeakPtr<class BlockLegacy> baseSlab);
+    // ??0StoneSlabBlock2@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H_NAEBVHashedString@@@Z
+    MCAPI StoneSlabBlock2(std::string const& nameId, int id, bool fullSize, class HashedString const& baseSlab);
 
     // symbol:
     // ?SLAB_NAMES@StoneSlabBlock2@@2V?$array@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@$07@std@@B

@@ -33,23 +33,23 @@ public:
     // vIndex: 11, symbol: ?getVisualShape@StemBlock@@UEBAAEBVAABB@@AEBVBlock@@AEAV2@@Z
     virtual class AABB const& getVisualShape(class Block const&, class AABB&) const;
 
-    // vIndex: 29, symbol: ?isStemBlock@StemBlock@@UEBA_NXZ
+    // vIndex: 30, symbol: ?isStemBlock@StemBlock@@UEBA_NXZ
     virtual bool isStemBlock() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@StemBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@StemBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 79, symbol: ?onFertilized@StemBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
+    // vIndex: 80, symbol: ?onFertilized@StemBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool
     onFertilized(class BlockSource& region, class BlockPos const& pos, class Actor*, ::FertilizerType fType) const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@StemBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@StemBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool canBeFertilized(class BlockSource&, class BlockPos const&, class Block const&) const;
 
-    // vIndex: 86, symbol: ?mayPlaceOn@StemBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 87, symbol: ?mayPlaceOn@StemBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlaceOn(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@StemBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@StemBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -65,10 +65,7 @@ public:
     // vIndex: 123, symbol: ?getColorAtPos@StemBlock@@UEBAHAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual int getColorAtPos(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@StemBlock@@MEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 151, symbol: ?randomTick@StemBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 149, symbol: ?randomTick@StemBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void randomTick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
     // symbol: ??0StemBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVBlockLegacy@@@Z

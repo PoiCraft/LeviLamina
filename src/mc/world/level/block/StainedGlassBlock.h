@@ -39,30 +39,18 @@ public:
     // vIndex: 25, symbol: ?canConnect@StainedGlassBlock@@UEBA_NAEBVBlock@@E0@Z
     virtual bool canConnect(class Block const& otherBlock, uchar toOther, class Block const& thisBlock) const;
 
-    // vIndex: 89, symbol: ?breaksFallingBlocks@StainedGlassBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
+    // vIndex: 90, symbol: ?breaksFallingBlocks@StainedGlassBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
     virtual bool breaksFallingBlocks(class Block const& block, class BaseGameVersion version) const;
-
-    // vIndex: 164, symbol: ?getResourceCount@StainedGlassBlock@@UEBAHAEAVRandomize@@AEBVBlock@@H@Z
-    virtual int getResourceCount(class Randomize& randomize, class Block const& block, int bonusLootLevel) const;
 
     // symbol: ??0StainedGlassBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H_N1@Z
     MCAPI StainedGlassBlock(std::string const&, int, bool, bool);
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?STAINED_GLASS_DOESNT_BREAK_FALLING_BLOCK_VERSION@StainedGlassBlock@@0VBaseGameVersion@@B
     MCAPI static class BaseGameVersion const STAINED_GLASS_DOESNT_BREAK_FALLING_BLOCK_VERSION;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $STAINED_GLASS_DOESNT_BREAK_FALLING_BLOCK_VERSION() {
-        return STAINED_GLASS_DOESNT_BREAK_FALLING_BLOCK_VERSION;
-    }
 
     // NOLINTEND
 };

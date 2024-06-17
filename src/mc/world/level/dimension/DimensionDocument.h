@@ -26,44 +26,6 @@ public:
         // Dimension inner types define
         struct Components {
         public:
-            // Components inner types declare
-            // clang-format off
-            struct Bounds;
-            struct Generation;
-            // clang-format on
-
-            // Components inner types define
-            struct Bounds {
-            public:
-                // prevent constructor by default
-                Bounds& operator=(Bounds const&);
-                Bounds(Bounds const&);
-                Bounds();
-
-            public:
-                // NOLINTBEGIN
-                // symbol: ?bindType@Bounds@Components@Dimension@DimensionDocument@@SAXAEAUReflectionCtx@cereal@@@Z
-                MCAPI static void bindType(struct cereal::ReflectionCtx&);
-
-                // NOLINTEND
-            };
-
-            struct Generation {
-            public:
-                // prevent constructor by default
-                Generation& operator=(Generation const&);
-                Generation(Generation const&);
-                Generation();
-
-            public:
-                // NOLINTBEGIN
-                // symbol: ?bindType@Generation@Components@Dimension@DimensionDocument@@SAXAEAUReflectionCtx@cereal@@@Z
-                MCAPI static void bindType(struct cereal::ReflectionCtx&);
-
-                // NOLINTEND
-            };
-
-        public:
             // prevent constructor by default
             Components(Components const&);
             Components();
@@ -94,9 +56,6 @@ public:
             // NOLINTBEGIN
             // symbol: ??1Description@Dimension@DimensionDocument@@QEAA@XZ
             MCAPI ~Description();
-
-            // symbol: ?bindType@Description@Dimension@DimensionDocument@@SAXAEAUReflectionCtx@cereal@@@Z
-            MCAPI static void bindType(struct cereal::ReflectionCtx&);
 
             // NOLINTEND
         };
@@ -131,11 +90,11 @@ public:
 
 public:
     // NOLINTBEGIN
+    // symbol: ??0DimensionDocument@@QEAA@AEAUReflectionCtx@cereal@@@Z
+    MCAPI explicit DimensionDocument(struct cereal::ReflectionCtx&);
+
     // symbol: ??1DimensionDocument@@QEAA@XZ
     MCAPI ~DimensionDocument();
-
-    // symbol: ?bindType@DimensionDocument@@SAXAEAUReflectionCtx@cereal@@@Z
-    MCAPI static void bindType(struct cereal::ReflectionCtx&);
 
     // NOLINTEND
 };

@@ -29,16 +29,13 @@ public:
     // vIndex: 0, symbol: __gen_??1SuspiciousStewItem@@UEAA@XZ
     virtual ~SuspiciousStewItem() = default;
 
-    // vIndex: 57, symbol: ?uniqueAuxValues@SuspiciousStewItem@@UEBA_NXZ
+    // vIndex: 59, symbol: ?uniqueAuxValues@SuspiciousStewItem@@UEBA_NXZ
     virtual bool uniqueAuxValues() const;
 
-    // vIndex: 73, symbol:
+    // vIndex: 75, symbol:
     // ?useTimeDepleted@SuspiciousStewItem@@UEBA?AW4ItemUseMethod@@AEAVItemStack@@PEAVLevel@@PEAVPlayer@@@Z
     virtual ::ItemUseMethod
     useTimeDepleted(class ItemStack& inoutInstance, class Level* level, class Player* player) const;
-
-    // symbol: ??0SuspiciousStewItem@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@F@Z
-    MCAPI SuspiciousStewItem(std::string const& name, short id);
 
     // symbol: ?applyStewEffect@SuspiciousStewItem@@SAXAEBVItemStack@@AEAVActor@@@Z
     MCAPI static void applyStewEffect(class ItemStack const& inoutInstance, class Actor& actor);

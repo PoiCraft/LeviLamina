@@ -40,7 +40,7 @@ public:
     // vIndex: 120, symbol: ?isAuxValueRelevantForPicking@PrismarineBlock@@UEBA_NXZ
     virtual bool isAuxValueRelevantForPicking() const;
 
-    // vIndex: 162, symbol: ?getMapColor@PrismarineBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 160, symbol: ?getMapColor@PrismarineBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual class mce::Color getMapColor(class BlockSource&, class BlockPos const&, class Block const& block) const;
 
     // symbol: ??0PrismarineBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

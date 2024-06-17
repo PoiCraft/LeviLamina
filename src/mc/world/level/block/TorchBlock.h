@@ -41,16 +41,16 @@ public:
     // vIndex: 11, symbol: ?getVisualShape@TorchBlock@@UEBAAEBVAABB@@AEBVBlock@@AEAV2@@Z
     virtual class AABB const& getVisualShape(class Block const&, class AABB&) const;
 
-    // vIndex: 55, symbol: ?waterSpreadCausesSpawn@TorchBlock@@UEBA_NXZ
+    // vIndex: 56, symbol: ?waterSpreadCausesSpawn@TorchBlock@@UEBA_NXZ
     virtual bool waterSpreadCausesSpawn() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@TorchBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@TorchBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 85, symbol: ?mayPlace@TorchBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 86, symbol: ?mayPlace@TorchBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@TorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@TorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -69,22 +69,19 @@ public:
     // vIndex: 134, symbol: ?animateTickBedrockLegacy@TorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@TorchBlock@@MEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 143, symbol: ?_addHardCodedBlockComponents@TorchBlock@@UEAAXAEBVExperiments@@@Z
+    // vIndex: 142, symbol: ?_addHardCodedBlockComponents@TorchBlock@@UEAAXAEBVExperiments@@@Z
     virtual void _addHardCodedBlockComponents(class Experiments const&);
 
-    // vIndex: 147, symbol: ?onPlace@TorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@TorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@TorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@TorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random&) const;
 
-    // vIndex: 156, symbol: ?canSurvive@TorchBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 154, symbol: ?canSurvive@TorchBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool canSurvive(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 158, symbol:
+    // vIndex: 156, symbol:
     // ?getRenderLayer@TorchBlock@@UEBA?AW4BlockRenderLayer@@AEBVBlock@@AEAVBlockSource@@AEBVBlockPos@@@Z
     virtual ::BlockRenderLayer
     getRenderLayer(class Block const& block, class BlockSource&, class BlockPos const& pos) const;
@@ -104,22 +101,13 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?DATA_FROM_FACING@TorchBlock@@0QBW4TorchFacing@@B
     MCAPI static ::TorchFacing const DATA_FROM_FACING[];
 
     // symbol: ?FACING_FROM_DATA@TorchBlock@@0QBGB
     MCAPI static ushort const FACING_FROM_DATA[];
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $DATA_FROM_FACING() { return DATA_FROM_FACING; }
-
-    static auto& $FACING_FROM_DATA() { return FACING_FROM_DATA; }
 
     // NOLINTEND
 };

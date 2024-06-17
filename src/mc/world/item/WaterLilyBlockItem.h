@@ -29,7 +29,7 @@ public:
     // vIndex: 0, symbol: __gen_??1WaterLilyBlockItem@@UEAA@XZ
     virtual ~WaterLilyBlockItem() = default;
 
-    // vIndex: 44, symbol: ?isLiquidClipItem@WaterLilyBlockItem@@UEBA_NXZ
+    // vIndex: 45, symbol: ?isLiquidClipItem@WaterLilyBlockItem@@UEBA_NXZ
     virtual bool isLiquidClipItem() const;
 
     // vIndex: 116, symbol:
@@ -40,9 +40,6 @@ public:
     // ?_useOn@WaterLilyBlockItem@@UEBA?AVInteractionResult@@AEAVItemStack@@AEAVActor@@VBlockPos@@EAEBVVec3@@@Z
     virtual class InteractionResult
     _useOn(class ItemStack& instance, class Actor& actor, class BlockPos pos, uchar, class Vec3 const&) const;
-
-    // symbol: ??0WaterLilyBlockItem@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
-    MCAPI WaterLilyBlockItem(std::string const& name, int blockId);
 
     // NOLINTEND
 };

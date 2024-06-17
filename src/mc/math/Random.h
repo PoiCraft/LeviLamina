@@ -80,43 +80,14 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
-    // symbol: ?mFixed@Random@Core@@0U?$atomic@I@std@@A
-    MCAPI static std::atomic<uint> mFixed;
-
-    // symbol: ?mFixedGaussian@Random@Core@@0U?$atomic@M@std@@A
-    MCAPI static std::atomic<float> mFixedGaussian;
-
-    // symbol: ?mFixedUInt32@Random@Core@@0U?$atomic@I@std@@A
-    MCAPI static std::atomic<uint> mFixedUInt32;
-
     // symbol: ?mRandomDevice@Random@Core@@0Vrandom_device@std@@A
     MCAPI static std::random_device mRandomDevice;
 
     // symbol:
     // ?mThreadLocalRandom@Random@Core@@0V?$ThreadLocalObject@VRandom@Core@@V?$allocator@VRandom@Core@@@std@@@Threading@Bedrock@@A
     MCAPI static class Bedrock::Threading::ThreadLocalObject<class Core::Random> mThreadLocalRandom;
-
-    // symbol: ?mUnfixed@Random@Core@@0U?$atomic@I@std@@A
-    MCAPI static std::atomic<uint> mUnfixed;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $mFixed() { return mFixed; }
-
-    static auto& $mFixedGaussian() { return mFixedGaussian; }
-
-    static auto& $mFixedUInt32() { return mFixedUInt32; }
-
-    static auto& $mRandomDevice() { return mRandomDevice; }
-
-    static auto& $mThreadLocalRandom() { return mThreadLocalRandom; }
-
-    static auto& $mUnfixed() { return mUnfixed; }
 
     // NOLINTEND
 };

@@ -61,22 +61,22 @@ public:
     // vIndex: 25, symbol: ?canConnect@WallBlock@@UEBA_NAEBVBlock@@E0@Z
     virtual bool canConnect(class Block const& otherBlock, uchar, class Block const&) const;
 
-    // vIndex: 36, symbol: ?isWallBlock@WallBlock@@UEBA_NXZ
+    // vIndex: 37, symbol: ?isWallBlock@WallBlock@@UEBA_NXZ
     virtual bool isWallBlock() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@WallBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@WallBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 69, symbol: ?onStructureBlockPlace@WallBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 70, symbol: ?onStructureBlockPlace@WallBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onStructureBlockPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 70, symbol: ?onStructureNeighborBlockPlace@WallBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 71, symbol: ?onStructureNeighborBlockPlace@WallBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onStructureNeighborBlockPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 89, symbol: ?breaksFallingBlocks@WallBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
+    // vIndex: 90, symbol: ?breaksFallingBlocks@WallBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
     virtual bool breaksFallingBlocks(class Block const&, class BaseGameVersion version) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@WallBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@WallBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -102,16 +102,13 @@ public:
     // vIndex: 129, symbol: ?getVariant@WallBlock@@UEBAHAEBVBlock@@@Z
     virtual int getVariant(class Block const& block) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@WallBlock@@MEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 147, symbol: ?onPlace@WallBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@WallBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@WallBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@WallBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 162, symbol: ?getMapColor@WallBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 160, symbol: ?getMapColor@WallBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual class mce::Color
     getMapColor(class BlockSource& region, class BlockPos const& pos, class Block const& block) const;
 
@@ -149,7 +146,7 @@ public:
     _desiredConnectionState(class BlockSource& region, class BlockPos const& pos, uchar neighbor) const;
 
     // symbol: ?_isCovered@WallBlock@@AEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVAABB@@@Z
-    MCAPI bool _isCovered(class BlockSource& region, class BlockPos const& pos, class AABB const&) const;
+    MCAPI bool _isCovered(class BlockSource& region, class BlockPos const& pos, class AABB const& testAABB) const;
 
     // symbol: ?_shouldBePost@WallBlock@@AEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     MCAPI bool _shouldBePost(class BlockSource& region, class BlockPos const& pos, class Block const& block) const;
@@ -159,17 +156,10 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?WALL_DOESNT_BREAK_FALLING_BLOCK_VERSION@WallBlock@@0VBaseGameVersion@@B
     MCAPI static class BaseGameVersion const WALL_DOESNT_BREAK_FALLING_BLOCK_VERSION;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $WALL_DOESNT_BREAK_FALLING_BLOCK_VERSION() { return WALL_DOESNT_BREAK_FALLING_BLOCK_VERSION; }
 
     // NOLINTEND
 };

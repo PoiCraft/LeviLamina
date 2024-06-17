@@ -12,6 +12,12 @@
 struct SubChunk {
 public:
     // SubChunk inner types define
+    enum class BlockLayer : schar {
+        Standard = 0,
+        Extra    = 1,
+        Count    = 2,
+    };
+
     enum class SubChunkState : int {
         Invalid                    = -1,
         Normal                     = 0,
@@ -24,25 +30,14 @@ public:
         RequestFinished            = 7,
     };
 
-    enum class BlockLayer : schar {
-        Standard = 0,
-        Extra    = 1,
-        Count    = 2,
-    };
-
 public:
     // prevent constructor by default
     SubChunk& operator=(SubChunk const&);
     SubChunk(SubChunk const&);
+    SubChunk();
 
 public:
     // NOLINTBEGIN
-    // symbol: ??0SubChunk@@QEAA@XZ
-    MCAPI SubChunk();
-
-    // symbol: ??0SubChunk@@QEAA@$$QEAU0@@Z
-    MCAPI SubChunk(struct SubChunk&& rhs);
-
     // symbol: ??0SubChunk@@QEAA@PEBVBlock@@_N1AEAVSpinLock@@C@Z
     MCAPI SubChunk(class Block const* initBlock, bool maxSkyLight, bool fullyLit, class SpinLock& spinLock, schar);
 
@@ -79,6 +74,15 @@ public:
         std::vector<class BlockDataFetchResult<class Block>>& output
     ) const;
 
+    // symbol: ?getAbsoluteIndex@SubChunk@@QEBACXZ
+    MCAPI schar getAbsoluteIndex() const;
+
+    // symbol: ?getBlock@SubChunk@@QEBAAEBVBlock@@G@Z
+    MCAPI class Block const& getBlock(ushort index) const;
+
+    // symbol: ?getExtraBlock@SubChunk@@QEBAAEBVBlock@@G@Z
+    MCAPI class Block const& getExtraBlock(ushort index) const;
+
     // symbol: ?getLight@SubChunk@@QEBA?AULightPair@SubChunkBrightnessStorage@@G@Z
     MCAPI struct SubChunkBrightnessStorage::LightPair getLight(ushort idx) const;
 
@@ -89,26 +93,20 @@ public:
     MCAPI void
     initialize(class Block const* initBlock, bool maxSkyLight, bool fullyLit, class SpinLock& spinLock, schar);
 
-    // symbol: ?isPaletteUniform@SubChunk@@QEBA_NAEBVBlock@@@Z
-    MCAPI bool isPaletteUniform(class Block const& block) const;
+    // symbol: ?isEmpty@SubChunk@@QEBA_NXZ
+    MCAPI bool isEmpty() const;
+
+    // symbol: ?isPlaceHolderSubChunk@SubChunk@@QEBA_NXZ
+    MCAPI bool isPlaceHolderSubChunk() const;
 
     // symbol: ?isUniform@SubChunk@@QEBA_NAEBVBlock@@@Z
     MCAPI bool isUniform(class Block const& block) const;
-
-    // symbol: ?likelyHasNonUniformBlockLight@SubChunk@@QEBA_NXZ
-    MCAPI bool likelyHasNonUniformBlockLight() const;
-
-    // symbol: ?needsInitLighting@SubChunk@@QEBA_NXZ
-    MCAPI bool needsInitLighting() const;
 
     // symbol: ??4SubChunk@@QEAAAEAU0@$$QEAU0@@Z
     MCAPI struct SubChunk& operator=(struct SubChunk&& rhs);
 
     // symbol: ?prune@SubChunk@@QEAAXW4PruneType@SubChunkStorageUnit@@@Z
     MCAPI void prune(::SubChunkStorageUnit::PruneType);
-
-    // symbol: ?recalculateHash@SubChunk@@QEAAX_N@Z
-    MCAPI void recalculateHash(bool network);
 
     // symbol:
     // ?recalculateHashAndSerialize@SubChunk@@QEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z
@@ -123,11 +121,8 @@ public:
     // symbol: ?serialize@SubChunk@@QEBAXAEAVIDataOutput@@_N@Z
     MCAPI void serialize(class IDataOutput& stream, bool network) const;
 
-    // symbol: ?setAllIsMaxSkyLight@SubChunk@@QEAAXXZ
-    MCAPI void setAllIsMaxSkyLight();
-
-    // symbol: ?setAllIsNoSkyLight@SubChunk@@QEAAXXZ
-    MCAPI void setAllIsNoSkyLight();
+    // symbol: ?setBlock@SubChunk@@QEAAXGAEBVBlock@@@Z
+    MCAPI void setBlock(ushort, class Block const&);
 
     // symbol: ?setBlockLight@SubChunk@@QEAAXGE@Z
     MCAPI void setBlockLight(ushort index, uchar lightValue);
@@ -135,17 +130,14 @@ public:
     // symbol: ?setFromBlockVolume@SubChunk@@QEAAXAEBVBlockVolume@@F@Z
     MCAPI void setFromBlockVolume(class BlockVolume const& box, short height);
 
-    // symbol: ?setNeedsClientLighting@SubChunk@@QEAAX_N@Z
-    MCAPI void setNeedsClientLighting(bool state);
-
-    // symbol: ?setNeedsInitLighting@SubChunk@@QEAAX_N@Z
-    MCAPI void setNeedsInitLighting(bool state);
-
     // symbol: ?setSkyLight@SubChunk@@QEAAXGE@Z
     MCAPI void setSkyLight(ushort, uchar);
 
     // symbol: ??1SubChunk@@QEAA@XZ
     MCAPI ~SubChunk();
+
+    // symbol: ?flushGarbageCollectors@SubChunk@@SAXXZ
+    MCAPI static void flushGarbageCollectors();
 
     // NOLINTEND
 

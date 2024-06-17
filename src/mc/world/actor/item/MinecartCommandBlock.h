@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -44,25 +43,25 @@ public:
     // vIndex: 10, symbol: __gen_??1MinecartCommandBlock@@UEAA@XZ
     virtual ~MinecartCommandBlock() = default;
 
-    // vIndex: 38, symbol: ?canShowNameTag@MinecartCommandBlock@@UEBA_NXZ
+    // vIndex: 35, symbol: ?canShowNameTag@MinecartCommandBlock@@UEBA_NXZ
     virtual bool canShowNameTag() const;
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@MinecartCommandBlock@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@MinecartCommandBlock@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@MinecartCommandBlock@@UEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@MinecartCommandBlock@@UEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag& tag) const;
 
-    // vIndex: 164, symbol: ?getType@MinecartCommandBlock@@UEAA?AW4MinecartType@@XZ
+    // vIndex: 152, symbol: ?getType@MinecartCommandBlock@@UEAA?AW4MinecartType@@XZ
     virtual ::MinecartType getType();
 
-    // vIndex: 165, symbol: ?getDefaultDisplayBlock@MinecartCommandBlock@@UEBAPEBVBlock@@XZ
+    // vIndex: 153, symbol: ?getDefaultDisplayBlock@MinecartCommandBlock@@UEBAPEBVBlock@@XZ
     virtual class Block const* getDefaultDisplayBlock() const;
 
-    // vIndex: 167, symbol: ?applyNaturalSlowdown@MinecartCommandBlock@@MEAAXAEAVBlockSource@@@Z
+    // vIndex: 155, symbol: ?applyNaturalSlowdown@MinecartCommandBlock@@MEAAXAEAVBlockSource@@@Z
     virtual void applyNaturalSlowdown(class BlockSource& region);
 
-    // vIndex: 168, symbol: ?_lazyInitDisplayBlock@MinecartCommandBlock@@EEAAXXZ
+    // vIndex: 156, symbol: ?_lazyInitDisplayBlock@MinecartCommandBlock@@EEAAXXZ
     virtual void _lazyInitDisplayBlock();
 
     // symbol:

@@ -36,16 +36,16 @@ public:
     // vIndex: 23, symbol: ?canProvideSupport@SkullBlock@@UEBA_NAEBVBlock@@EW4BlockSupportType@@@Z
     virtual bool canProvideSupport(class Block const& block, uchar face, ::BlockSupportType type) const;
 
-    // vIndex: 55, symbol: ?waterSpreadCausesSpawn@SkullBlock@@UEBA_NXZ
+    // vIndex: 56, symbol: ?waterSpreadCausesSpawn@SkullBlock@@UEBA_NXZ
     virtual bool waterSpreadCausesSpawn() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@SkullBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@SkullBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 71, symbol: ?setupRedstoneComponent@SkullBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 72, symbol: ?setupRedstoneComponent@SkullBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void setupRedstoneComponent(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 85, symbol: ?mayPlace@SkullBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 86, symbol: ?mayPlace@SkullBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos) const;
 
     // vIndex: 96, symbol: ?asItemInstance@SkullBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
@@ -64,7 +64,7 @@ public:
     // ?buildDescriptionId@SkullBlock@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVBlock@@@Z
     virtual std::string buildDescriptionId(class Block const&) const;
 
-    // vIndex: 147, symbol: ?onPlace@SkullBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@SkullBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
     // symbol: ??0SkullBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

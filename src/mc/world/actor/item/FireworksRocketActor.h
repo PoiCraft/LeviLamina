@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -39,22 +38,22 @@ public:
     // vIndex: 10, symbol: __gen_??1FireworksRocketActor@@UEAA@XZ
     virtual ~FireworksRocketActor() = default;
 
-    // vIndex: 27, symbol: ?lerpMotion@FireworksRocketActor@@UEAAXAEBVVec3@@@Z
+    // vIndex: 24, symbol: ?lerpMotion@FireworksRocketActor@@UEAAXAEBVVec3@@@Z
     virtual void lerpMotion(class Vec3 const& delta);
 
-    // vIndex: 41, symbol: ?getShadowRadius@FireworksRocketActor@@UEBAMXZ
+    // vIndex: 38, symbol: ?getShadowRadius@FireworksRocketActor@@UEBAMXZ
     virtual float getShadowRadius() const;
 
-    // vIndex: 80, symbol: ?handleEntityEvent@FireworksRocketActor@@UEAAXW4ActorEvent@@H@Z
+    // vIndex: 74, symbol: ?handleEntityEvent@FireworksRocketActor@@UEAAXW4ActorEvent@@H@Z
     virtual void handleEntityEvent(::ActorEvent eventId, int data);
 
-    // vIndex: 109, symbol: ?onSynchedDataUpdate@FireworksRocketActor@@UEAAXH@Z
+    // vIndex: 99, symbol: ?onSynchedDataUpdate@FireworksRocketActor@@UEAAXH@Z
     virtual void onSynchedDataUpdate(int dataId);
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@FireworksRocketActor@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@FireworksRocketActor@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@FireworksRocketActor@@MEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@FireworksRocketActor@@MEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag& tag) const;
 
     // symbol:

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "mc/_HeaderOutputPredefine.h"
+#include "mc/network/NetworkSettingOptions.h"
 
 // auto generated inclusion list
 #include "mc/enums/Compressibility.h"
@@ -12,6 +13,11 @@ public:
     CompressedNetworkPeer& operator=(CompressedNetworkPeer const&);
     CompressedNetworkPeer(CompressedNetworkPeer const&);
     CompressedNetworkPeer();
+
+    std::string           mSendBuffer;         // this+0x18
+    std::string           mReceiveBuffer;      // this+0x38
+    bool                  mCompressionEnabled; // this+0x58
+    NetworkSettingOptions mNetworkSettings;    // this+0x5C
 
 public:
     // NOLINTBEGIN
@@ -30,6 +36,9 @@ public:
 
     // vIndex: 3, symbol: ?getNetworkStatus@CompressedNetworkPeer@@UEBA?AUNetworkStatus@NetworkPeer@@XZ
     virtual struct NetworkPeer::NetworkStatus getNetworkStatus() const;
+
+    // symbol: ??0CompressedNetworkPeer@@QEAA@V?$shared_ptr@VNetworkPeer@@@std@@@Z
+    MCAPI explicit CompressedNetworkPeer(std::shared_ptr<class NetworkPeer> peer);
 
     // symbol: ?setCompressionEnabled@CompressedNetworkPeer@@QEAAX_NUNetworkSettingOptions@@@Z
     MCAPI void setCompressionEnabled(bool val, struct NetworkSettingOptions options);

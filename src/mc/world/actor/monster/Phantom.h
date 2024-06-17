@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -39,13 +38,13 @@ public:
     // vIndex: 10, symbol: __gen_??1Phantom@@UEAA@XZ
     virtual ~Phantom() = default;
 
-    // vIndex: 29, symbol: ?normalTick@Phantom@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@Phantom@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 72, symbol: ?shouldRender@Phantom@@UEBA_NXZ
+    // vIndex: 66, symbol: ?shouldRender@Phantom@@UEBA_NXZ
     virtual bool shouldRender() const;
 
-    // vIndex: 173, symbol: ?checkSpawnRules@Phantom@@UEAA_N_N@Z
+    // vIndex: 160, symbol: ?checkSpawnRules@Phantom@@UEAA_N_N@Z
     virtual bool checkSpawnRules(bool fromSpawner);
 
     // symbol: ??0Phantom@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

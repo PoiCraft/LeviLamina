@@ -9,7 +9,7 @@
 
 class CompressedBiomeDefinitionListPacket : public ::BiomeDefinitionListPacket {
 public:
-    std::string definitions;
+    std::string mDefinitions;
 
     // prevent constructor by default
     CompressedBiomeDefinitionListPacket& operator=(CompressedBiomeDefinitionListPacket const&);
@@ -27,10 +27,10 @@ public:
     // ?getName@CompressedBiomeDefinitionListPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@CompressedBiomeDefinitionListPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@CompressedBiomeDefinitionListPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 4, symbol:
+    // vIndex: 5, symbol:
     // ?read@CompressedBiomeDefinitionListPacket@@UEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> read(class ReadOnlyBinaryStream& stream);
 

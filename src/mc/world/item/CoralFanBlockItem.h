@@ -32,7 +32,7 @@ public:
     // vIndex: 32, symbol: ?getLevelDataForAuxValue@CoralFanBlockItem@@UEBAHH@Z
     virtual int getLevelDataForAuxValue(int auxValue) const;
 
-    // vIndex: 54, symbol: ?isValidAuxValue@CoralFanBlockItem@@UEBA_NH@Z
+    // vIndex: 56, symbol: ?isValidAuxValue@CoralFanBlockItem@@UEBA_NH@Z
     virtual bool isValidAuxValue(int auxValue) const;
 
     // vIndex: 118, symbol:

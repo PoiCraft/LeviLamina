@@ -3,6 +3,7 @@
 #include "mc/_HeaderOutputPredefine.h"
 #include "mc/math/Vec3.h"
 #include "mc/world/ActorRuntimeID.h"
+#include "mc/world/level/Tick.h"
 
 // auto generated inclusion list
 #include "mc/deps/core/common/bedrock/Result.h"
@@ -13,6 +14,7 @@ class SetActorMotionPacket : public ::Packet {
 public:
     ActorRuntimeID mRuntimeId; // this+0x30
     Vec3           mMotion;    // this+0x38
+    Tick           mTick;      // this+0x48
 
     // prevent constructor by default
     SetActorMotionPacket& operator=(SetActorMotionPacket const&);
@@ -30,10 +32,10 @@ public:
     // ?getName@SetActorMotionPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@SetActorMotionPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@SetActorMotionPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@SetActorMotionPacket@@EEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream);
 

@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -39,16 +38,16 @@ public:
     // vIndex: 10, symbol: __gen_??1Camel@@UEAA@XZ
     virtual ~Camel() = default;
 
-    // vIndex: 20, symbol: ?getInterpolatedRidingOffset@Camel@@UEBA?AVVec3@@MH@Z
+    // vIndex: 19, symbol: ?getInterpolatedRidingOffset@Camel@@UEBA?AVVec3@@MH@Z
     virtual class Vec3 getInterpolatedRidingOffset(float, int) const;
 
-    // vIndex: 29, symbol: ?normalTick@Camel@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@Camel@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 161, symbol: ?_playStepSound@Camel@@MEAAXAEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 149, symbol: ?_playStepSound@Camel@@MEAAXAEBVBlockPos@@AEBVBlock@@@Z
     virtual void _playStepSound(class BlockPos const&, class Block const& onBlock);
 
-    // vIndex: 171, symbol: ?aiStep@Camel@@UEAAXXZ
+    // vIndex: 158, symbol: ?aiStep@Camel@@UEAAXXZ
     virtual void aiStep();
 
     // symbol: ??0Camel@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

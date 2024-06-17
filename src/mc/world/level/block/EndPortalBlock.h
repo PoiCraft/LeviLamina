@@ -15,6 +15,7 @@
 
 // auto generated forward declare list
 // clang-format off
+namespace BlockEvents { struct BlockFallOnEvent; }
 namespace mce { class Color; }
 // clang-format on
 
@@ -41,16 +42,16 @@ public:
         class optional_ref<class GetCollisionShapeInterface const> entity
     ) const;
 
-    // vIndex: 32, symbol: ?isWaterBlocking@EndPortalBlock@@UEBA_NXZ
+    // vIndex: 33, symbol: ?isWaterBlocking@EndPortalBlock@@UEBA_NXZ
     virtual bool isWaterBlocking() const;
 
-    // vIndex: 55, symbol: ?waterSpreadCausesSpawn@EndPortalBlock@@UEBA_NXZ
+    // vIndex: 56, symbol: ?waterSpreadCausesSpawn@EndPortalBlock@@UEBA_NXZ
     virtual bool waterSpreadCausesSpawn() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@EndPortalBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@EndPortalBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 77, symbol: ?canRenderSelectionOverlay@EndPortalBlock@@UEBA_NW4BlockRenderLayer@@@Z
+    // vIndex: 78, symbol: ?canRenderSelectionOverlay@EndPortalBlock@@UEBA_NW4BlockRenderLayer@@@Z
     virtual bool canRenderSelectionOverlay(::BlockRenderLayer) const;
 
     // vIndex: 96, symbol: ?asItemInstance@EndPortalBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
@@ -59,15 +60,17 @@ public:
     // vIndex: 134, symbol: ?animateTickBedrockLegacy@EndPortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 148, symbol: ?onFallOn@EndPortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@M@Z
-    virtual void
-    onFallOn(class BlockSource& region, class BlockPos const& pos, class Actor& entity, float fallDistance) const;
+    // vIndex: 142, symbol: ?_addHardCodedBlockComponents@EndPortalBlock@@MEAAXAEBVExperiments@@@Z
+    virtual void _addHardCodedBlockComponents(class Experiments const&);
 
-    // vIndex: 167, symbol: ?entityInside@EndPortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
+    // vIndex: 162, symbol: ?entityInside@EndPortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
     virtual void entityInside(class BlockSource& region, class BlockPos const& pos, class Actor& entity) const;
 
     // symbol: ??0EndPortalBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI EndPortalBlock(std::string const& nameId, int id);
+
+    // symbol: ?onFallOn@EndPortalBlock@@QEBAXAEAUBlockFallOnEvent@BlockEvents@@@Z
+    MCAPI void onFallOn(struct BlockEvents::BlockFallOnEvent&) const;
 
     // NOLINTEND
 };

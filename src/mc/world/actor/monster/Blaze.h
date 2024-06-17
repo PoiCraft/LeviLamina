@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -42,19 +41,19 @@ public:
     // vIndex: 10, symbol: __gen_??1Blaze@@UEAA@XZ
     virtual ~Blaze() = default;
 
-    // vIndex: 29, symbol: ?normalTick@Blaze@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@Blaze@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 44, symbol: ?getBrightness@Blaze@@UEBAMMAEBVIConstBlockSource@@@Z
+    // vIndex: 41, symbol: ?getBrightness@Blaze@@UEBAMMAEBVIConstBlockSource@@@Z
     virtual float getBrightness(float, class IConstBlockSource const&) const;
 
-    // vIndex: 55, symbol: ?isOnFire@Blaze@@UEBA_NXZ
+    // vIndex: 51, symbol: ?isOnFire@Blaze@@UEBA_NXZ
     virtual bool isOnFire() const;
 
-    // vIndex: 171, symbol: ?aiStep@Blaze@@UEAAXXZ
+    // vIndex: 158, symbol: ?aiStep@Blaze@@UEAAXXZ
     virtual void aiStep();
 
-    // vIndex: 204, symbol: ?isDarkEnoughToSpawn@Blaze@@UEBA_NXZ
+    // vIndex: 190, symbol: ?isDarkEnoughToSpawn@Blaze@@UEBA_NXZ
     virtual bool isDarkEnoughToSpawn() const;
 
     // symbol: ??0Blaze@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

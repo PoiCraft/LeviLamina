@@ -2,10 +2,48 @@
 
 ## 开始之前
 
-该项目使用 [lip](https://github.com/lippkg/lip)。如果您尚未在本地安装，请前往查看。
+我们强烈推荐你使用 [lip](https://docs.lippkg.com/zh/install/) 来进行插件安装。如果您尚未在本地安装，请前往查看。
+
+以下内容针对使用 lip 的情况下进行快速入门。
 
 !!! tip
     不习惯使用命令行工具？你可以使用[LipUI](https://github.com/lippkg/LipUI)。
+
+## 配置代理或镜像
+
+如果你有**代理**可用，使用以下命令配置代理（支持socks5，http，https）：
+
+```sh
+lip config ProxyURL <proxy-url>
+```
+
+例如你的**代理**地址是 `http://127.0.0.1:8080`，你可以使用以下命令配置代理：
+
+```sh
+lip config ProxyURL http://127.0.0.1:8080
+```
+
+如果你本地没有代理可用，你可以使用以下命令配置**镜像源**：
+
+```sh
+lip config GoModuleProxyURL <go-module-proxy-url>
+lip config GitHubMirrorURL <github-mirror-url>
+```
+
+例如：
+
+```sh
+lip config GoModuleProxyURL https://goproxy.cn
+lip config GitHubMirrorURL https://github.bibk.top
+```
+
+这两个镜像我们已在中国大陆测试过可用，当然你仍然可以使用其他镜像。
+
+## 安装BDS
+
+如果你在上一步配置了代理，你可以跳过这一步，因为LeviLamina安装过程中会自动安装BDS。
+
+否则，请手动在Minecraft官网下载BDS，然后把压缩文件丢到`.cache/bdsdown`目录下。
 
 ## 安装 LeviLamina
 
@@ -22,13 +60,6 @@ cd myserver
 lip install github.com/LiteLDev/LeviLamina
 ```
 
-!!! tip
-    网络环境不好？你可以添加GitHub镜像源，以加速下载速度。以下是一个示例：
-
-    ```sh
-    lip config GitHubMirrorURL https://github.bibk.top
-    ```
-
 ## 运行服务器
 
 要启动服务器，只需运行 `bedrock_server_mod.exe`：
@@ -39,13 +70,7 @@ lip install github.com/LiteLDev/LeviLamina
 
 ## 更新 LeviLamina
 
-在涉及数据安全性时，我们建议不要在当前位置更新 LeviLamina。相反，我们建议创建一个新目录，在那里安装新版本的 LeviLamina，并随后将旧位置的 `worlds` 目录复制到新位置。然后，按照插件开发者提供的说明，迁移您正在使用的插件的配置文件和数据文件到新目录。
-
-但是，如果您坚持要在相同位置进行更新，您可以使用以下命令更新 LeviLamina：
-
-```sh
-lip install --upgrade github.com/LiteLDev/LeviLamina
-```
+不要在同一位置更新 LeviLamina，这样做会影响数据安全。相反，我们建议创建一个新目录，在那里安装 LeviLamina 的新版本，并随后将 `worlds` 目录从旧位置复制到新位置。然后，按照插件开发者提供的说明迁移您正在使用的插件的配置文件和数据文件。
 
 ## 查找插件
 

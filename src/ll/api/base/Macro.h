@@ -19,10 +19,6 @@
 #define LLNDAPI [[nodiscard]] LLAPI
 #endif
 
-#ifndef LLETAPI
-#define LLETAPI LLAPI extern
-#endif
-
 #ifndef LL_EBO
 #define LL_EBO __declspec(empty_bases)
 #endif
@@ -37,8 +33,8 @@
 
 #ifndef LL_UNIQUE_TYPE
 #ifdef __INTELLISENSE__
-#define LL_UNIQUE_TYPE decltype(nullptr)
+#define LL_UNIQUE_TYPE decltype((nullptr))
 #else
-#define LL_UNIQUE_TYPE decltype([] {})
+#define LL_UNIQUE_TYPE decltype(([] {}))
 #endif
 #endif

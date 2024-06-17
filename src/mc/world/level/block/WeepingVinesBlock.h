@@ -41,47 +41,50 @@ public:
     virtual class AABB const&
     getOutline(class Block const&, class IConstBlockSource const&, class BlockPos const&, class AABB&) const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@WeepingVinesBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@WeepingVinesBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 79, symbol:
+    // vIndex: 80, symbol:
     // ?onFertilized@WeepingVinesBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool
     onFertilized(class BlockSource& region, class BlockPos const& pos, class Actor* entity, ::FertilizerType fType)
         const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@WeepingVinesBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@WeepingVinesBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool
     canBeFertilized(class BlockSource& region, class BlockPos const& pos, class Block const& aboveBlock) const;
 
-    // vIndex: 85, symbol: ?mayPlace@WeepingVinesBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 86, symbol: ?mayPlace@WeepingVinesBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@WeepingVinesBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@WeepingVinesBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
-    // vIndex: 144, symbol: ?onRemove@WeepingVinesBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 143, symbol: ?onRemove@WeepingVinesBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onRemove(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 147, symbol: ?onPlace@WeepingVinesBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@WeepingVinesBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@WeepingVinesBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@WeepingVinesBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 156, symbol: ?canSurvive@WeepingVinesBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 154, symbol: ?canSurvive@WeepingVinesBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool canSurvive(class BlockSource& region, class BlockPos const& pos) const;
-
-    // vIndex: 163, symbol: ?getResourceItem@WeepingVinesBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize& randomize, class Block const&, int) const;
 
     // symbol: ??0WeepingVinesBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI WeepingVinesBlock(std::string const& nameId, int id);
 
     // symbol: ?placeVineString@WeepingVinesBlock@@SAXAEAVBlockSource@@AEAVRandom@@AEBVBlockPos@@HHH@Z
-    MCAPI static void
-    placeVineString(class BlockSource& region, class Random& random, class BlockPos const& vinePos, int, int, int);
+    MCAPI static void placeVineString(
+        class BlockSource&    region,
+        class Random&         random,
+        class BlockPos const& vinePos,
+        int                   vineHeight,
+        int                   minAge,
+        int                   maxAge
+    );
 
     // NOLINTEND
 

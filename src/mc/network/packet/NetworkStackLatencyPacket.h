@@ -9,8 +9,8 @@
 
 class NetworkStackLatencyPacket : public ::Packet {
 public:
-    std::chrono::steady_clock::time_point createTime; // this+0x30
-    bool                                  fromServer; // this+0x38
+    std::chrono::steady_clock::time_point mCreateTime; // this+0x30
+    bool                                  mFromServer; // this+0x38
 
     // prevent constructor by default
     NetworkStackLatencyPacket& operator=(NetworkStackLatencyPacket const&);
@@ -29,10 +29,10 @@ public:
     // ?getName@NetworkStackLatencyPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@NetworkStackLatencyPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@NetworkStackLatencyPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@NetworkStackLatencyPacket@@EEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream);
 

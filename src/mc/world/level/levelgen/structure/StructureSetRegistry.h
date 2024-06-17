@@ -10,7 +10,11 @@ namespace br::worldgen { struct StructureSet; }
 namespace br::worldgen {
 
 class StructureSetRegistry {
+    using StructureSetMap = entt::dense_map<std::string, std::shared_ptr<br::worldgen::StructureSet>>;
+
 public:
+    StructureSetMap mStructureSetMap;
+
     // prevent constructor by default
     StructureSetRegistry& operator=(StructureSetRegistry const&);
     StructureSetRegistry(StructureSetRegistry const&);
@@ -30,11 +34,12 @@ public:
         entt::internal::dense_map_node<std::string, std::shared_ptr<struct br::worldgen::StructureSet>>>>>>
           end() const;
 
+    // symbol:
+    // ?record@StructureSetRegistry@worldgen@br@@QEAAXV?$basic_string_view@DU?$char_traits@D@std@@@std@@$$QEAV?$shared_ptr@UStructureSet@worldgen@br@@@5@@Z
+    MCAPI void record(std::string_view, std::shared_ptr<struct br::worldgen::StructureSet>&&);
+
     // symbol: ?size@StructureSetRegistry@worldgen@br@@QEBA_KXZ
     MCAPI uint64 size() const;
-
-    // symbol: ??1StructureSetRegistry@worldgen@br@@QEAA@XZ
-    MCAPI ~StructureSetRegistry();
 
     // NOLINTEND
 };

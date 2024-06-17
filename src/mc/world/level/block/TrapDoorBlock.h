@@ -44,18 +44,18 @@ public:
     // vIndex: 25, symbol: ?canConnect@TrapDoorBlock@@UEBA_NAEBVBlock@@E0@Z
     virtual bool canConnect(class Block const& otherBlock, uchar toOther, class Block const& thisBlock) const;
 
-    // vIndex: 61, symbol: ?checkIsPathable@TrapDoorBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
+    // vIndex: 62, symbol: ?checkIsPathable@TrapDoorBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
     virtual bool
     checkIsPathable(class Actor& entity, class BlockPos const& lastPathPos, class BlockPos const& pathPos) const;
 
-    // vIndex: 65, symbol: ?onRedstoneUpdate@TrapDoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
+    // vIndex: 66, symbol: ?onRedstoneUpdate@TrapDoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
     virtual void
     onRedstoneUpdate(class BlockSource& region, class BlockPos const& pos, int strength, bool isFirstTime) const;
 
-    // vIndex: 71, symbol: ?setupRedstoneComponent@TrapDoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 72, symbol: ?setupRedstoneComponent@TrapDoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void setupRedstoneComponent(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 89, symbol: ?breaksFallingBlocks@TrapDoorBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
+    // vIndex: 90, symbol: ?breaksFallingBlocks@TrapDoorBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
     virtual bool breaksFallingBlocks(class Block const& block, class BaseGameVersion version) const;
 
     // vIndex: 96, symbol: ?asItemInstance@TrapDoorBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
@@ -70,20 +70,17 @@ public:
         int                   itemValue
     ) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@TrapDoorBlock@@MEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 147, symbol: ?onPlace@TrapDoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@TrapDoorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 152, symbol: ?isInteractiveBlock@TrapDoorBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@TrapDoorBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@TrapDoorBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@TrapDoorBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 166, symbol: ?_onHitByActivatingAttack@TrapDoorBlock@@EEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
-    virtual void _onHitByActivatingAttack(class BlockSource&, class BlockPos const&) const;
+    // vIndex: 161, symbol: ?_onHitByActivatingAttack@TrapDoorBlock@@EEBAXAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@@Z
+    virtual void _onHitByActivatingAttack(class BlockSource&, class BlockPos const&, class Actor*) const;
 
     // symbol: ??0TrapDoorBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVMaterial@@@Z
     MCAPI TrapDoorBlock(std::string const& nameId, int id, class Material const& material);
@@ -103,19 +100,10 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?TRAP_DOOR_DOESNT_BREAK_FALLING_BLOCK_VERSION@TrapDoorBlock@@0VBaseGameVersion@@B
     MCAPI static class BaseGameVersion const TRAP_DOOR_DOESNT_BREAK_FALLING_BLOCK_VERSION;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $TRAP_DOOR_DOESNT_BREAK_FALLING_BLOCK_VERSION() {
-        return TRAP_DOOR_DOESNT_BREAK_FALLING_BLOCK_VERSION;
-    }
 
     // NOLINTEND
 };

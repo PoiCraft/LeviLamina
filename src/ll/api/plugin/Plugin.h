@@ -1,13 +1,13 @@
 #pragma once
 
-#include <any>
 #include <filesystem>
+#include <functional>
+#include <memory>
 
+#include "ll/api/Expected.h"
 #include "ll/api/Logger.h"
-#include "ll/api/base/Containers.h"
+#include "ll/api/base/Macro.h"
 #include "ll/api/plugin/Manifest.h"
-
-#include "mc/common/wrapper/optional_ref.h"
 
 namespace ll::plugin {
 
@@ -42,23 +42,39 @@ public:
 
     LLNDAPI Logger& getLogger() const;
 
+    [[nodiscard]] bool isEnabled() const { return getState() == State::Enabled; }
+
+    [[nodiscard]] bool isDisabled() const { return getState() == State::Disabled; }
+
+    // set on load callback and etc...
+    LLAPI void onLoad(CallbackFn func) noexcept;
+
+    LLAPI void onUnload(CallbackFn func) noexcept;
+
+    LLAPI void onEnable(CallbackFn func) noexcept;
+
+    LLAPI void onDisable(CallbackFn func) noexcept;
+
 protected:
     LLAPI void setState(State state) const;
 
-    LLNDAPI bool hasOnLoad();
-    LLNDAPI bool hasOnUnload();
-    LLNDAPI bool hasOnEnable();
-    LLNDAPI bool hasOnDisable();
+    // is callback set
+    LLNDAPI bool hasOnLoad() const noexcept;
 
-    LLAPI bool onLoad();
-    LLAPI bool onUnload();
-    LLAPI bool onEnable();
-    LLAPI bool onDisable();
+    LLNDAPI bool hasOnUnload() const noexcept;
 
-    LLAPI void onLoad(CallbackFn func);
-    LLAPI void onUnload(CallbackFn func);
-    LLAPI void onEnable(CallbackFn func);
-    LLAPI void onDisable(CallbackFn func);
+    LLNDAPI bool hasOnEnable() const noexcept;
+
+    LLNDAPI bool hasOnDisable() const noexcept;
+
+    // call on load callback and etc...
+    LLAPI Expected<> onLoad() noexcept;
+
+    LLAPI Expected<> onUnload() noexcept;
+
+    LLAPI Expected<> onEnable() noexcept;
+
+    LLAPI Expected<> onDisable() noexcept;
 
 private:
     friend PluginManager;

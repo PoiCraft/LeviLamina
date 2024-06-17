@@ -31,13 +31,13 @@ public:
     // vIndex: 0, symbol: __gen_??1SnifferEggBlock@@UEAA@XZ
     virtual ~SnifferEggBlock() = default;
 
-    // vIndex: 55, symbol: ?waterSpreadCausesSpawn@SnifferEggBlock@@UEBA_NXZ
+    // vIndex: 56, symbol: ?waterSpreadCausesSpawn@SnifferEggBlock@@UEBA_NXZ
     virtual bool waterSpreadCausesSpawn() const;
 
-    // vIndex: 61, symbol: ?checkIsPathable@SnifferEggBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
+    // vIndex: 62, symbol: ?checkIsPathable@SnifferEggBlock@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
     virtual bool checkIsPathable(class Actor&, class BlockPos const&, class BlockPos const&) const;
 
-    // vIndex: 85, symbol: ?mayPlace@SnifferEggBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 86, symbol: ?mayPlace@SnifferEggBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos) const;
 
     // vIndex: 119, symbol:
@@ -47,17 +47,11 @@ public:
     // vIndex: 129, symbol: ?getVariant@SnifferEggBlock@@UEBAHAEBVBlock@@@Z
     virtual int getVariant(class Block const& block) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@SnifferEggBlock@@UEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 147, symbol: ?onPlace@SnifferEggBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@SnifferEggBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@SnifferEggBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@SnifferEggBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random&) const;
-
-    // vIndex: 163, symbol: ?getResourceItem@SnifferEggBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const&, int) const;
 
     // symbol: ??0SnifferEggBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI SnifferEggBlock(std::string const& nameId, int id);

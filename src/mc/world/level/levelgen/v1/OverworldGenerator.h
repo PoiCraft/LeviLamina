@@ -25,13 +25,13 @@ public:
         ThreadData();
     };
 
-    float mBiomeBlendKernel[9]; // this+0x88
-    bool  mIsLegacyWorld;       // this+0xAC
+    float mBiomeBlendKernel[9]; // this+0x188
+    bool  mIsLegacyWorld;
     // Bedrock::Threading::InstancedThreadLocal<ThreadData> generatorHelpersPool;
-    char                    generatorHelpersPool[168]; // this+0xAD
-    MonsterRoomFeature      monsterRoomFeature;        // this+0x376
-    CanyonFeature           canyonFeature;             // this+0x150
-    UnderwaterCanyonFeature underwaterCanyonFeature;   // this+0x188
+    char                    mGeneratorHelpersPool[168];
+    MonsterRoomFeature      mMonsterRoomFeature;
+    CanyonFeature           mCanyonFeature;
+    UnderwaterCanyonFeature mUnderwaterCanyonFeature; // this+0x288
 
 public:
     // prevent constructor by default
@@ -42,45 +42,51 @@ public:
 public:
     // NOLINTBEGIN
     // vIndex: 9, symbol: ?postProcess@OverworldGenerator@@UEAA_NAEAVChunkViewSource@@@Z
-    virtual bool postProcess(class ChunkViewSource&);
+    virtual bool postProcess(class ChunkViewSource& neighborhood);
 
     // vIndex: 11, symbol: ?loadChunk@OverworldGenerator@@UEAAXAEAVLevelChunk@@_N@Z
-    virtual void loadChunk(class LevelChunk&, bool);
+    virtual void loadChunk(class LevelChunk& lc, bool forceImmediateReplacementDataLoad);
 
-    // vIndex: 37,  symbol: ?prepareHeights@OverworldGenerator@@UEAAXAEAVBlockVolume@@AEBVChunkPos@@_N@Z
-    virtual void prepareHeights(class BlockVolume&, class ChunkPos const&, bool);
+    // vIndex: 38,  symbol: ?prepareHeights@OverworldGenerator@@UEAAXAEAVBlockVolume@@AEBVChunkPos@@_N@Z
+    virtual void prepareHeights(class BlockVolume& box, class ChunkPos const& chunkPos, bool factorInBeardsAndShavers);
 
-    // vIndex: 38, symbol:
+    // vIndex: 39, symbol:
     // ?prepareAndComputeHeights@OverworldGenerator@@UEAAXAEAVBlockVolume@@AEBVChunkPos@@AEAV?$vector@FV?$allocator@F@std@@@std@@_NH@Z
-    virtual void prepareAndComputeHeights(class BlockVolume&, class ChunkPos const&, std::vector<short>&, bool, int);
+    virtual void prepareAndComputeHeights(
+        class BlockVolume&    box,
+        class ChunkPos const& chunkPos,
+        std::vector<short>&   ZXheights,
+        bool                  factorInBeardsAndShavers,
+        int                   skipTopN
+    );
 
-    // vIndex: 39, symbol: ?getBiomeArea@OverworldGenerator@@UEBA?AVBiomeArea@@AEBVBoundingBox@@I@Z
-    virtual class BiomeArea getBiomeArea(class BoundingBox const&, uint) const;
+    // vIndex: 40, symbol: ?getBiomeArea@OverworldGenerator@@UEBA?AVBiomeArea@@AEBVBoundingBox@@I@Z
+    virtual class BiomeArea getBiomeArea(class BoundingBox const& area, uint scale) const;
 
-    // vIndex: 41, symbol: ?getBlockVolumeDimensions@OverworldGenerator@@UEBA?AUBlockVolumeDimensions@WorldGenerator@@XZ
+    // vIndex: 42, symbol: ?getBlockVolumeDimensions@OverworldGenerator@@UEBA?AUBlockVolumeDimensions@WorldGenerator@@XZ
     virtual struct WorldGenerator::BlockVolumeDimensions getBlockVolumeDimensions() const;
 
-    // vIndex: 45, symbol:
-    // ?decorateWorldGenLoadChunk@OverworldGenerator@@MEBAXAEAVBiome@@AEAVLevelChunk@@AEAVBlockVolumeTarget@@AEAVRandom@@AEBVChunkPos@@@Z
+    // vIndex: 46, symbol:
+    // ?decorateWorldGenLoadChunk@OverworldGenerator@@MEBAXAEBVBiome@@AEAVLevelChunk@@AEAVBlockVolumeTarget@@AEAVRandom@@AEBVChunkPos@@@Z
     virtual void decorateWorldGenLoadChunk(
-        class Biome&             biome,
+        class Biome const&       biome,
         class LevelChunk&        lc,
         class BlockVolumeTarget& target,
         class Random&            random,
         class ChunkPos const&    pos
     ) const;
 
-    // vIndex: 47
-    virtual class Util::MultidimensionalArray<float, 5, 5, 41>
-    generateDensityCellsForChunk(class ChunkPos const&) const = 0;
-
     // vIndex: 48
-    virtual int getLevelGenHeight() const = 0;
+    virtual class Util::MultidimensionalArray<float, 5, 5, 41>
+    generateDensityCellsForChunk(class ChunkPos const& chunkPos) const = 0;
 
     // vIndex: 49
+    virtual int getLevelGenHeight() const = 0;
+
+    // vIndex: 50
     virtual std::optional<class XoroshiroPositionalRandomFactory> getXoroshiroPositionalRandomFactory() const = 0;
 
-    // vIndex: 50, symbol:
+    // vIndex: 51, symbol:
     // ?tryMakeAquifer@OverworldGenerator@@MEBA?AV?$unique_ptr@VAquifer@@U?$default_delete@VAquifer@@@std@@@std@@AEBVChunkPos@@AEBVSurfaceLevelCache@@FFF@Z
     virtual std::unique_ptr<class Aquifer> tryMakeAquifer(
         class ChunkPos const&          chunkPos,
@@ -90,28 +96,28 @@ public:
         short                          seaLevel
     ) const;
 
-    // vIndex: 51, symbol: ?createNoiseCache@OverworldGenerator@@MEBA?AVChunkLocalNoiseCache@@VChunkPos@@@Z
-    virtual class ChunkLocalNoiseCache createNoiseCache(class ChunkPos) const;
+    // vIndex: 52, symbol: ?createNoiseCache@OverworldGenerator@@MEBA?AVChunkLocalNoiseCache@@VChunkPos@@@Z
+    virtual class ChunkLocalNoiseCache createNoiseCache(class ChunkPos chunkPos) const;
 
-    // vIndex: 52, symbol: ?createWorldGenCache@OverworldGenerator@@MEBA?AVWorldGenCache@@VChunkPos@@@Z
+    // vIndex: 53, symbol: ?createWorldGenCache@OverworldGenerator@@MEBA?AVWorldGenCache@@VChunkPos@@@Z
     virtual class WorldGenCache createWorldGenCache(class ChunkPos) const;
 
-    // vIndex: 53
+    // vIndex: 54
     virtual class PerlinSimplexNoise const& getSurfaceNoise() = 0;
 
-    // vIndex: 54
+    // vIndex: 55
     virtual std::unique_ptr<class PerlinSimplexNoise> const& getMaterialAdjNoise() const = 0;
 
-    // vIndex: 55
+    // vIndex: 56
     virtual void _prepareHeights(
-        class BlockVolume&,
-        class ChunkPos const&,
-        class WorldGenCache const&,
-        class Aquifer*,
-        std::function<void(class BlockPos const&, class Block const&, int)>&&,
-        bool,
-        std::vector<short>*,
-        int
+        class BlockVolume&                                                    box,
+        class ChunkPos const&                                                 chunkPos,
+        class WorldGenCache const&                                            worldGenCache,
+        class Aquifer*                                                        aquiferPtr,
+        std::function<void(class BlockPos const&, class Block const&, int)>&& tickUpdateFn,
+        bool                                                                  factorInBeardsAndShavers,
+        std::vector<short>*                                                   ZXheights,
+        int                                                                   skipTopN
     ) = 0;
 
     // symbol: ??1OverworldGenerator@@UEAA@XZ

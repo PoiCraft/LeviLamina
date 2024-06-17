@@ -11,8 +11,8 @@ public:
 
 public:
     // NOLINTBEGIN
-    // symbol: ??4WorldGenClimateMappingAttributes@@QEAAAEAV0@$$QEAV0@@Z
-    MCAPI class WorldGenClimateMappingAttributes& operator=(class WorldGenClimateMappingAttributes&&);
+    // vIndex: 0, symbol: __gen_??1WorldGenClimateMappingAttributes@@UEAA@XZ
+    virtual ~WorldGenClimateMappingAttributes() = default;
 
     // NOLINTEND
 };

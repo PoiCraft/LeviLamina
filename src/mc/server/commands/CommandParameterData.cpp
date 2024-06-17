@@ -14,15 +14,18 @@ CommandParameterData::CommandParameterData(
   mParse(parser),
   mName(std::move(name)),
   mEnumNameOrPostfix(enumNameOrPostfix),
-  mUnknown(nullptr),
+  mSubChain(nullptr),
   mParamType(type),
   mOffset(offset),
-  mSetOffset(flagOffset),
+  mSettedOffset(flagOffset),
   mIsOptional(optional),
   mOptions(CommandParameterOption::None){};
 
 bool CommandParameterData::operator==(CommandParameterData const& other) const {
     return mTypeIndex == other.mTypeIndex && mName == other.mName
-        && (strcmp(mEnumNameOrPostfix, other.mEnumNameOrPostfix) == 0) && (strcmp(mUnknown, other.mUnknown) == 0)
+        && ((mEnumNameOrPostfix == other.mEnumNameOrPostfix)
+            || (mEnumNameOrPostfix && other.mEnumNameOrPostfix
+                && strcmp(mEnumNameOrPostfix, other.mEnumNameOrPostfix) == 0))
+        && ((mSubChain == other.mSubChain) || (mSubChain && other.mSubChain && strcmp(mSubChain, other.mSubChain) == 0))
         && mParamType == other.mParamType && mIsOptional == other.mIsOptional && mOptions == other.mOptions;
 }

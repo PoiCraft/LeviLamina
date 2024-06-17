@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -39,20 +38,17 @@ public:
     // vIndex: 10, symbol: __gen_??1Llama@@UEAA@XZ
     virtual ~Llama() = default;
 
-    // vIndex: 68, symbol: ?onFailedTame@Llama@@UEAAXXZ
+    // vIndex: 62, symbol: ?onFailedTame@Llama@@UEAAXXZ
     virtual void onFailedTame();
 
-    // vIndex: 108, symbol: ?causeFallDamageToActor@Llama@@MEAAMMMVActorDamageSource@@@Z
+    // vIndex: 98, symbol: ?causeFallDamageToActor@Llama@@MEAAMMMVActorDamageSource@@@Z
     virtual float causeFallDamageToActor(float, float, class ActorDamageSource);
 
-    // vIndex: 156, symbol: ?updateEntitySpecificMolangVariables@Llama@@UEAAXAEAVRenderParams@@@Z
+    // vIndex: 144, symbol: ?updateEntitySpecificMolangVariables@Llama@@UEAAXAEAVRenderParams@@@Z
     virtual void updateEntitySpecificMolangVariables(class RenderParams& renderParams);
 
-    // vIndex: 161, symbol: ?_playStepSound@Llama@@MEAAXAEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 149, symbol: ?_playStepSound@Llama@@MEAAXAEBVBlockPos@@AEBVBlock@@@Z
     virtual void _playStepSound(class BlockPos const& pos, class Block const& onBlock);
-
-    // vIndex: 181, symbol: ?getArmorValue@Llama@@UEBAHXZ
-    virtual int getArmorValue() const;
 
     // symbol: ??0Llama@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
     MCAPI Llama(

@@ -16,6 +16,10 @@ namespace Core { struct LevelStorageResult; }
 
 class LevelStorage {
 public:
+    // LevelStorage inner types define
+    enum class StatsType {};
+
+public:
     // prevent constructor by default
     LevelStorage& operator=(LevelStorage const&);
     LevelStorage(LevelStorage const&);
@@ -78,11 +82,14 @@ public:
     deleteData(std::string const& key, ::DBHelpers::Category category) = 0;
 
     // vIndex: 12, symbol:
-    // ?getStatistics@DBStorage@@UEBAXAEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
-    virtual void getStatistics(std::string& stats) const = 0;
+    // ?getStatistics@DBStorage@@UEBAXAEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4StatsType@LevelStorage@@@Z
+    virtual void getStatistics(std::string&, ::LevelStorage::StatsType) const = 0;
 
     // vIndex: 13, symbol: ?clonePlayerData@LevelStorage@@UEAA_NV?$basic_string_view@DU?$char_traits@D@std@@@std@@0@Z
     virtual bool clonePlayerData(std::string_view fromKey, std::string_view toKey);
+
+    // vIndex: 14, symbol: ?getLevelStorageState@DBStorage@@UEBA?AULevelStorageResult@Core@@XZ
+    virtual struct Core::LevelStorageResult getLevelStorageState() const = 0;
 
     // vIndex: 15, symbol: ?startShutdown@DBStorage@@UEAAXXZ
     virtual void startShutdown() = 0;
@@ -97,6 +104,9 @@ public:
     // ?loadData@LevelStorage@@UEBA_NV?$basic_string_view@DU?$char_traits@D@std@@@std@@AEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@W4Category@DBHelpers@@@Z
     virtual bool loadData(std::string_view key, std::string& buffer, ::DBHelpers::Category category) const;
 
+    // vIndex: 19, symbol: ?getState@DBStorage@@UEBA?AULevelStorageResult@Core@@XZ
+    virtual struct Core::LevelStorageResult getState() const = 0;
+
     // vIndex: 20, symbol:
     // ?createSnapshot@DBStorage@@UEAA?AV?$vector@USnapshotFilenameAndLength@@V?$allocator@USnapshotFilenameAndLength@@@std@@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@_N@Z
     virtual std::vector<struct SnapshotFilenameAndLength> createSnapshot(std::string const&, bool) = 0;
@@ -104,8 +114,8 @@ public:
     // vIndex: 21, symbol: ?releaseSnapshot@DBStorage@@UEAAXXZ
     virtual void releaseSnapshot() = 0;
 
-    // vIndex: 22, symbol: ?compactStorage@DBStorage@@UEAAXXZ
-    virtual void compactStorage() = 0;
+    // vIndex: 22, symbol: ?compactStorage@DBStorage@@UEAA?AV?$shared_ptr@V?$IAsyncResult@X@Threading@Bedrock@@@std@@XZ
+    virtual std::shared_ptr<class Bedrock::Threading::IAsyncResult<void>> compactStorage() = 0;
 
     // vIndex: 23, symbol: ?syncAndSuspendStorage@DBStorage@@UEAAXXZ
     virtual void syncAndSuspendStorage() = 0;

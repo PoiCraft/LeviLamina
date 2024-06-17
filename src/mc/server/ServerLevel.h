@@ -51,9 +51,6 @@ public:
     // symbol: ?getLevelChunkMetaDataManager@ServerLevel@@UEAAPEAVLevelChunkMetaDataManager@@XZ
     MCVAPI class LevelChunkMetaDataManager* getLevelChunkMetaDataManager();
 
-    // symbol: ?getLevelEventCoordinator@ServerLevel@@UEAAAEAVLevelEventCoordinator@@XZ
-    MCVAPI class LevelEventCoordinator& getLevelEventCoordinator();
-
     // symbol: ?getPlayerSleepManager@ServerLevel@@UEAAAEAVPlayerSleepManager@@XZ
     MCVAPI class PlayerSleepManager& getPlayerSleepManager();
 
@@ -92,12 +89,6 @@ public:
     // symbol: ?loadFunctionManager@ServerLevel@@UEAAXXZ
     MCVAPI void loadFunctionManager();
 
-    // symbol: ?onChunkLoaded@ServerLevel@@UEAAXAEAVChunkSource@@AEAVLevelChunk@@@Z
-    MCVAPI void onChunkLoaded(class ChunkSource& source, class LevelChunk& lc);
-
-    // symbol: ?registerEventCoordinators@ServerLevel@@UEAAXXZ
-    MCVAPI void registerEventCoordinators();
-
     // symbol: ?runCommand@ServerLevel@@UEAAXAEAVCommand@@AEAVCommandOrigin@@W4CommandOriginSystem@@@Z
     MCVAPI void runCommand(class Command& command, class CommandOrigin& origin, ::CommandOriginSystem originSystem);
 
@@ -112,9 +103,6 @@ public:
 
     // symbol: ?setCommandsEnabled@ServerLevel@@UEAAX_N@Z
     MCVAPI void setCommandsEnabled(bool commandsEnabled);
-
-    // symbol: ?setServerTickOffset@ServerLevel@@UEAAX_J@Z
-    MCVAPI void setServerTickOffset(int64);
 
     // symbol: ?setWorldTemplateOptionsUnlocked@ServerLevel@@UEAAXXZ
     MCVAPI void setWorldTemplateOptionsUnlocked();
@@ -160,9 +148,6 @@ public:
 
     // private:
     // NOLINTBEGIN
-    // symbol: ?_checkBlockPermutationCap@ServerLevel@@AEAAXXZ
-    MCAPI void _checkBlockPermutationCap();
-
     // symbol: ?_initializeActorManager@ServerLevel@@AEAAXXZ
     MCAPI void _initializeActorManager();
 
@@ -189,9 +174,6 @@ public:
 
     // symbol: ?_onPlayerWakeUp@ServerLevel@@AEAAXAEAVPlayer@@@Z
     MCAPI void _onPlayerWakeUp(class Player& player);
-
-    // symbol: ?_onRemoveActorEntityReferences@ServerLevel@@AEAAXAEAVActor@@@Z
-    MCAPI void _onRemoveActorEntityReferences(class Actor& actor);
 
     // symbol: ?_onSleepingPlayerListUpdated@ServerLevel@@AEAAXAEBUPlayerSleepStatus@@@Z
     MCAPI void _onSleepingPlayerListUpdated(struct PlayerSleepStatus const&);

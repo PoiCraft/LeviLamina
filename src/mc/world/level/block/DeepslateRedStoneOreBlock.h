@@ -33,13 +33,10 @@ public:
     // vIndex: 96, symbol: ?asItemInstance@DeepslateRedStoneOreBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
     virtual class ItemInstance asItemInstance(class Block const&, class BlockActor const*) const;
 
-    // vIndex: 150, symbol: ?tick@DeepslateRedStoneOreBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@DeepslateRedStoneOreBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 165, symbol: ?getSilkTouchItemInstance@DeepslateRedStoneOreBlock@@UEBA?AVItemInstance@@AEBVBlock@@@Z
-    virtual class ItemInstance getSilkTouchItemInstance(class Block const&) const;
-
-    // vIndex: 168, symbol: ?_lightUpBlock@DeepslateRedStoneOreBlock@@MEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 163, symbol: ?_lightUpBlock@DeepslateRedStoneOreBlock@@MEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void _lightUpBlock(class BlockSource& region, class BlockPos const& pos) const;
 
     // symbol: ??0DeepslateRedStoneOreBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H_N@Z

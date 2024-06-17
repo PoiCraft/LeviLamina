@@ -11,8 +11,8 @@ public:
 
 public:
     // NOLINTBEGIN
-    // symbol: ??4BiomeTagAttributes@@QEAAAEAU0@$$QEAU0@@Z
-    MCAPI struct BiomeTagAttributes& operator=(struct BiomeTagAttributes&&);
+    // vIndex: 0, symbol: __gen_??1BiomeTagAttributes@@UEAA@XZ
+    virtual ~BiomeTagAttributes() = default;
 
     // NOLINTEND
 };

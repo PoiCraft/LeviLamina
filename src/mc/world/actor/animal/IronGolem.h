@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -39,28 +38,28 @@ public:
     // vIndex: 10, symbol: __gen_??1IronGolem@@UEAA@XZ
     virtual ~IronGolem() = default;
 
-    // vIndex: 41, symbol: ?getShadowRadius@IronGolem@@UEBAMXZ
+    // vIndex: 38, symbol: ?getShadowRadius@IronGolem@@UEBAMXZ
     virtual float getShadowRadius() const;
 
-    // vIndex: 80, symbol: ?handleEntityEvent@IronGolem@@UEAAXW4ActorEvent@@H@Z
+    // vIndex: 74, symbol: ?handleEntityEvent@IronGolem@@UEAAXW4ActorEvent@@H@Z
     virtual void handleEntityEvent(::ActorEvent id, int data);
 
-    // vIndex: 143, symbol: ?die@IronGolem@@UEAAXAEBVActorDamageSource@@@Z
+    // vIndex: 131, symbol: ?die@IronGolem@@UEAAXAEBVActorDamageSource@@@Z
     virtual void die(class ActorDamageSource const& source);
 
-    // vIndex: 156, symbol: ?updateEntitySpecificMolangVariables@IronGolem@@UEAAXAEAVRenderParams@@@Z
+    // vIndex: 144, symbol: ?updateEntitySpecificMolangVariables@IronGolem@@UEAAXAEAVRenderParams@@@Z
     virtual void updateEntitySpecificMolangVariables(class RenderParams& renderParams);
 
-    // vIndex: 161, symbol: ?_playStepSound@IronGolem@@MEAAXAEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 149, symbol: ?_playStepSound@IronGolem@@MEAAXAEBVBlockPos@@AEBVBlock@@@Z
     virtual void _playStepSound(class BlockPos const& pos, class Block const& onBlock);
 
-    // vIndex: 170, symbol: ?hurtEffects@IronGolem@@UEAAXAEBVActorDamageSource@@M_N1@Z
+    // vIndex: 157, symbol: ?hurtEffects@IronGolem@@UEAAXAEBVActorDamageSource@@M_N1@Z
     virtual void hurtEffects(class ActorDamageSource const& source, float damage, bool knock, bool ignite);
 
-    // vIndex: 171, symbol: ?aiStep@IronGolem@@UEAAXXZ
+    // vIndex: 158, symbol: ?aiStep@IronGolem@@UEAAXXZ
     virtual void aiStep();
 
-    // vIndex: 180, symbol: ?doHurtTarget@IronGolem@@UEAA_NPEAVActor@@AEBW4ActorDamageCause@@@Z
+    // vIndex: 167, symbol: ?doHurtTarget@IronGolem@@UEAA_NPEAVActor@@AEBW4ActorDamageCause@@@Z
     virtual bool doHurtTarget(class Actor* target, ::ActorDamageCause const& cause);
 
     // symbol: ??0IronGolem@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

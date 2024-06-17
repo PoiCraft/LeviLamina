@@ -40,19 +40,19 @@ public:
     // vIndex: 129, symbol: ?getVariant@AzaleaLeavesBlock@@UEBAHAEBVBlock@@@Z
     virtual int getVariant(class Block const&) const;
 
-    // vIndex: 158, symbol:
+    // vIndex: 156, symbol:
     // ?getRenderLayer@AzaleaLeavesBlock@@UEBA?AW4BlockRenderLayer@@AEBVBlock@@AEAVBlockSource@@AEBVBlockPos@@@Z
     virtual ::BlockRenderLayer
     getRenderLayer(class Block const&, class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 162, symbol:
+    // vIndex: 160, symbol:
     // ?getMapColor@AzaleaLeavesBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual class mce::Color
     getMapColor(class BlockSource& region, class BlockPos const& pos, class Block const& block) const;
 
     // symbol:
-    // ??0AzaleaLeavesBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HV?$WeakPtr@VBlockLegacy@@@@@Z
-    MCAPI AzaleaLeavesBlock(std::string const& nameId, int id, class WeakPtr<class BlockLegacy> sapling);
+    // ??0AzaleaLeavesBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HV?$WeakPtr@$$CBVBlockLegacy@@@@@Z
+    MCAPI AzaleaLeavesBlock(std::string const& nameId, int id, class WeakPtr<class BlockLegacy const> sapling);
 
     // NOLINTEND
 };

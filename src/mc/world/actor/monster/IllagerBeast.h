@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -39,7 +38,7 @@ public:
     // vIndex: 10, symbol: __gen_??1IllagerBeast@@UEAA@XZ
     virtual ~IllagerBeast() = default;
 
-    // vIndex: 24, symbol: ?blockedByShield@IllagerBeast@@UEAAXAEBVActorDamageSource@@AEAVActor@@@Z
+    // vIndex: 21, symbol: ?blockedByShield@IllagerBeast@@UEAAXAEBVActorDamageSource@@AEAVActor@@@Z
     virtual void blockedByShield(class ActorDamageSource const& source, class Actor& blocker);
 
     // symbol: ??0IllagerBeast@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

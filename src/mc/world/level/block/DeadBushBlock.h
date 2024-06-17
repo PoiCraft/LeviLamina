@@ -30,14 +30,8 @@ public:
     // vIndex: 0, symbol: __gen_??1DeadBushBlock@@UEAA@XZ
     virtual ~DeadBushBlock() = default;
 
-    // vIndex: 86, symbol: ?mayPlaceOn@DeadBushBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 87, symbol: ?mayPlaceOn@DeadBushBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlaceOn(class BlockSource& region, class BlockPos const& pos) const;
-
-    // vIndex: 138, symbol: ?canBeSilkTouched@DeadBushBlock@@UEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 163, symbol: ?getResourceItem@DeadBushBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const&, int) const;
 
     // symbol: ??0DeadBushBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI DeadBushBlock(std::string const& nameId, int id);

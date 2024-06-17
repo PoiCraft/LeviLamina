@@ -14,10 +14,20 @@
 
 namespace ActorMobilityUtils {
 // NOLINTBEGIN
+// symbol: ?canActivateElytra@ActorMobilityUtils@@YA_NAEBUMoveInputComponent@@AEBUVanillaClientGameplayComponent@@_N2@Z
+MCAPI bool
+canActivateElytra(struct MoveInputComponent const&, struct VanillaClientGameplayComponent const&, bool, bool);
+
+// symbol: ?canDash@ActorMobilityUtils@@YA_NAEBUActorDataFlagComponent@@@Z
+MCAPI bool canDash(struct ActorDataFlagComponent const&);
+
 // symbol:
 // ?canJump@ActorMobilityUtils@@YA_NAEBUActorDataFlagComponent@@AEBVIConstBlockSource@@AEBUStateVectorComponent@@AEBUAABBShapeComponent@@AEBVGetCollisionShapeInterface@@@Z
 MCAPI bool
-canJump(struct ActorDataFlagComponent const&, class IConstBlockSource const& region, struct StateVectorComponent const&, struct AABBShapeComponent const&, class GetCollisionShapeInterface const&);
+canJump(struct ActorDataFlagComponent const& actorData, class IConstBlockSource const& region, struct StateVectorComponent const&, struct AABBShapeComponent const&, class GetCollisionShapeInterface const&);
+
+// symbol: ?canPowerJump@ActorMobilityUtils@@YA_NAEBUActorDataFlagComponent@@_N1@Z
+MCAPI bool canPowerJump(struct ActorDataFlagComponent const&, bool, bool);
 
 // symbol:
 // ?endJump@ActorMobilityUtils@@YAXAEBVStrictEntityContext@@AEBUStateVectorComponent@@AEAUActorDataJumpDurationComponent@@AEAUActorDataDirtyFlagsComponent@@AEAUMobJumpComponent@@PEBUVehicleComponent@@V?$ViewT@VStrictEntityContext@@U?$Include@V?$FlagComponent@UParrotFlag@@@@@@$$CBUPassengerComponent@@@@AEAV?$EntityModifier@V?$FlagComponent@UExitFromPassengerFlag@@@@V?$FlagComponent@UStopRidingRequestFlag@@@@V?$FlagComponent@UMobIsJumpingFlag@@@@@@@Z
@@ -38,8 +48,8 @@ MCAPI float getJumpEffectAmplifierValue(struct MobEffectsComponent const&);
 // symbol: ?getJumpPower@ActorMobilityUtils@@YAMPEBVJumpControlComponent@@_N@Z
 MCAPI float getJumpPower(class JumpControlComponent const* jumpControlComponent, bool);
 
-// symbol: ?getPosFromAABB@ActorMobilityUtils@@YA?AVVec3@@AEBVAABB@@MAEBVVec2@@@Z
-MCAPI class Vec3 getPosFromAABB(class AABB const& aabb, float heightOffset, class Vec2 const&);
+// symbol: ?getPosFromAABB@ActorMobilityUtils@@YA?AVVec3@@AEBVAABB@@M@Z
+MCAPI class Vec3 getPosFromAABB(class AABB const&, float);
 
 // symbol:
 // ?getSpeed@ActorMobilityUtils@@YAMAEBVStrictEntityContext@@AEBV?$ViewT@VStrictEntityContext@@$$CBUMovementAttributesComponent@@$$CBUMovementSpeedComponent@@@@AEBV?$ViewT@VStrictEntityContext@@U?$Include@V?$FlagComponent@UPlayerComponentFlag@@@@@@@@@Z
@@ -53,10 +63,13 @@ MCAPI float getSpeed(
         players
 );
 
+// symbol: ?isGliding@ActorMobilityUtils@@YA_NAEBUActorDataFlagComponent@@@Z
+MCAPI bool isGliding(struct ActorDataFlagComponent const&);
+
 // symbol:
-// ?isImmobile@ActorMobilityUtils@@YA_NAEBVStrictEntityContext@@PEAV?$ViewT@VStrictEntityContext@@$$CBUActorDataFlagComponent@@V?$Optional@$$CBV?$FlagComponent@UActorIsImmobileFlag@@@@@@@@PEAV?$ViewT@VStrictEntityContext@@U?$Include@V?$FlagComponent@UMobFlag@@@@@@$$CBUMovementAttributesComponent@@V?$Optional@$$CBV?$FlagComponent@UActorIsKnockedBackOnDeathFlag@@@@@@@@PEAV?$ViewT@VStrictEntityContext@@$$CBUActorDataFlagComponent@@U?$Include@V?$FlagComponent@UOnGroundFlag@@@@V?$FlagComponent@UHorseFlag@@@@@@U?$Exclude@V?$FlagComponent@UMobAllowStandSlidingFlag@@@@V?$FlagComponent@UMobIsJumpingFlag@@@@@@@@PEAV?$ViewT@VStrictEntityContext@@V?$FlagComponent@UHorseFlag@@@@@@PEAV?$ViewT@VStrictEntityContext@@$$CBV?$FlagComponent@UPlayerIsSleepingFlag@@@@$$CBV?$FlagComponent@UPlayerComponentFlag@@@@@@@Z
+// ?isImmobile@ActorMobilityUtils@@YA_NAEBVStrictEntityContext@@PEAV?$ViewT@VStrictEntityContext@@$$CBUActorDataFlagComponent@@V?$Optional@$$CBV?$FlagComponent@UActorIsImmobileFlag@@@@@@@@PEAV?$ViewT@VStrictEntityContext@@U?$Include@V?$FlagComponent@UMobFlag@@@@@@$$CBUMovementAttributesComponent@@V?$Optional@$$CBV?$FlagComponent@UActorIsKnockedBackOnDeathFlag@@@@@@@@PEAV?$ViewT@VStrictEntityContext@@$$CBUActorDataFlagComponent@@U?$Include@UOnGroundFlagComponent@@V?$FlagComponent@UHorseFlag@@@@@@U?$Exclude@V?$FlagComponent@UMobAllowStandSlidingFlag@@@@V?$FlagComponent@UMobIsJumpingFlag@@@@@@@@PEAV?$ViewT@VStrictEntityContext@@U?$Include@V?$FlagComponent@UHorseFlag@@@@@@@@PEAV?$ViewT@VStrictEntityContext@@$$CBV?$FlagComponent@UPlayerIsSleepingFlag@@@@$$CBV?$FlagComponent@UPlayerComponentFlag@@@@@@@Z
 MCAPI bool
-isImmobile(class StrictEntityContext const& context, class ViewT<class StrictEntityContext, struct ActorDataFlagComponent const, class Optional<class FlagComponent<struct ActorIsImmobileFlag> const>>*, class ViewT<class StrictEntityContext, struct Include<class FlagComponent<struct MobFlag>>, struct MovementAttributesComponent const, class Optional<class FlagComponent<struct ActorIsKnockedBackOnDeathFlag> const>>*, class ViewT<class StrictEntityContext, struct ActorDataFlagComponent const, struct Include<class FlagComponent<struct OnGroundFlag>, class FlagComponent<struct HorseFlag>>, struct Exclude<class FlagComponent<struct MobAllowStandSlidingFlag>, class FlagComponent<struct MobIsJumpingFlag>>>*, class ViewT<class StrictEntityContext, class FlagComponent<struct HorseFlag>>*, class ViewT<class StrictEntityContext, class FlagComponent<struct PlayerIsSleepingFlag> const, class FlagComponent<struct PlayerComponentFlag> const>*);
+isImmobile(class StrictEntityContext const& context, class ViewT<class StrictEntityContext, struct ActorDataFlagComponent const, class Optional<class FlagComponent<struct ActorIsImmobileFlag> const>>*, class ViewT<class StrictEntityContext, struct Include<class FlagComponent<struct MobFlag>>, struct MovementAttributesComponent const, class Optional<class FlagComponent<struct ActorIsKnockedBackOnDeathFlag> const>>*, class ViewT<class StrictEntityContext, struct ActorDataFlagComponent const, struct Include<struct OnGroundFlagComponent, class FlagComponent<struct HorseFlag>>, struct Exclude<class FlagComponent<struct MobAllowStandSlidingFlag>, class FlagComponent<struct MobIsJumpingFlag>>>*, class ViewT<class StrictEntityContext, struct Include<class FlagComponent<struct HorseFlag>>>*, class ViewT<class StrictEntityContext, class FlagComponent<struct PlayerIsSleepingFlag> const, class FlagComponent<struct PlayerComponentFlag> const>*);
 
 // symbol: ?isInLava@ActorMobilityUtils@@YA_NAEBVIConstBlockSource@@AEBUAABBShapeComponent@@AEBUSubBBsComponent@@@Z
 MCAPI bool
@@ -109,6 +122,11 @@ MCAPI void setStanding(
 
 // symbol: ?shouldApplyLava@ActorMobilityUtils@@YA_NAEBVIConstBlockSource@@AEBVEntityContext@@@Z
 MCAPI bool shouldApplyLava(class IConstBlockSource const& region, class EntityContext const& entity);
+
+// symbol:
+// ?shouldApplyLava@ActorMobilityUtils@@YA_NAEBVIConstBlockSource@@AEBUAABBShapeComponent@@AEBUSubBBsComponent@@_N@Z
+MCAPI bool
+shouldApplyLava(class IConstBlockSource const&, struct AABBShapeComponent const&, struct SubBBsComponent const&, bool);
 // NOLINTEND
 
 }; // namespace ActorMobilityUtils

@@ -63,10 +63,6 @@ public:
         // symbol: ?getPack@KnownPackContainer@ResourcePackRepository@@QEAAPEAUKnownPackInfo@2@AEBVResourceLocation@@@Z
         MCAPI struct ResourcePackRepository::KnownPackInfo* getPack(class ResourceLocation const& packLocation);
 
-        // symbol: ?getPack@KnownPackContainer@ResourcePackRepository@@QEBAPEBUKnownPackInfo@2@AEBVResourceLocation@@@Z
-        MCAPI struct ResourcePackRepository::KnownPackInfo const* getPack(class ResourceLocation const& packLocation
-        ) const;
-
         // symbol: ??1KnownPackContainer@ResourcePackRepository@@QEAA@XZ
         MCAPI ~KnownPackContainer();
 
@@ -74,7 +70,7 @@ public:
     };
 
 public:
-    LLAPI void setCustomResourcePackPath(std::string const& path, PackType type);
+    LLAPI void addCustomResourcePackPath(std::filesystem::path const& path, PackType type);
 
     // prevent constructor by default
     ResourcePackRepository& operator=(ResourcePackRepository const&);
@@ -327,6 +323,9 @@ public:
 
     // symbol: ?_packExists@ResourcePackRepository@@AEBA_NAEBVUUID@mce@@AEBVSemVersion@@W4PackOrigin@@@Z
     MCAPI bool _packExists(class mce::UUID const& packId, class SemVersion const& version, ::PackOrigin origin) const;
+
+    // symbol: ?_reloadDynamicPackagePacks@ResourcePackRepository@@AEAAXXZ
+    MCAPI void _reloadDynamicPackagePacks();
 
     // symbol: ?_reloadUserPacks@ResourcePackRepository@@AEAAXXZ
     MCAPI void _reloadUserPacks();

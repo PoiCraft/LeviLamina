@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -40,25 +39,25 @@ public:
     // vIndex: 10, symbol: __gen_??1MinecartTNT@@UEAA@XZ
     virtual ~MinecartTNT() = default;
 
-    // vIndex: 29, symbol: ?normalTick@MinecartTNT@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@MinecartTNT@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 80, symbol: ?handleEntityEvent@MinecartTNT@@UEAAXW4ActorEvent@@H@Z
+    // vIndex: 74, symbol: ?handleEntityEvent@MinecartTNT@@UEAAXW4ActorEvent@@H@Z
     virtual void handleEntityEvent(::ActorEvent eventId, int data);
 
-    // vIndex: 108, symbol: ?causeFallDamageToActor@MinecartTNT@@MEAAMMMVActorDamageSource@@@Z
+    // vIndex: 98, symbol: ?causeFallDamageToActor@MinecartTNT@@MEAAMMMVActorDamageSource@@@Z
     virtual float causeFallDamageToActor(float, float, class ActorDamageSource);
 
-    // vIndex: 158, symbol: ?_hurt@MinecartTNT@@MEAA_NAEBVActorDamageSource@@M_N1@Z
+    // vIndex: 146, symbol: ?_hurt@MinecartTNT@@MEAA_NAEBVActorDamageSource@@M_N1@Z
     virtual bool _hurt(class ActorDamageSource const& source, float damage, bool knock, bool ignite);
 
-    // vIndex: 163, symbol: ?destroy@MinecartTNT@@UEAAXAEBVActorDamageSource@@_N@Z
+    // vIndex: 151, symbol: ?destroy@MinecartTNT@@UEAAXAEBVActorDamageSource@@_N@Z
     virtual void destroy(class ActorDamageSource const& source, bool dropMinecartComponents);
 
-    // vIndex: 164, symbol: ?getType@MinecartTNT@@UEAA?AW4MinecartType@@XZ
+    // vIndex: 152, symbol: ?getType@MinecartTNT@@UEAA?AW4MinecartType@@XZ
     virtual ::MinecartType getType();
 
-    // vIndex: 165, symbol: ?getDefaultDisplayBlock@MinecartTNT@@UEBAPEBVBlock@@XZ
+    // vIndex: 153, symbol: ?getDefaultDisplayBlock@MinecartTNT@@UEBAPEBVBlock@@XZ
     virtual class Block const* getDefaultDisplayBlock() const;
 
     // symbol: ??0MinecartTNT@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
@@ -73,17 +72,10 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?DEFAULT_FUSE_LENGTH@MinecartTNT@@0HB
     MCAPI static int const DEFAULT_FUSE_LENGTH;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $DEFAULT_FUSE_LENGTH() { return DEFAULT_FUSE_LENGTH; }
 
     // NOLINTEND
 };

@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -42,28 +41,28 @@ public:
     // vIndex: 10, symbol: __gen_??1Parrot@@UEAA@XZ
     virtual ~Parrot() = default;
 
-    // vIndex: 41, symbol: ?getShadowRadius@Parrot@@UEBAMXZ
+    // vIndex: 38, symbol: ?getShadowRadius@Parrot@@UEBAMXZ
     virtual float getShadowRadius() const;
 
-    // vIndex: 66, symbol: ?setSitting@Parrot@@UEAAX_N@Z
+    // vIndex: 60, symbol: ?setSitting@Parrot@@UEAAX_N@Z
     virtual void setSitting(bool value);
 
-    // vIndex: 73, symbol: ?playAmbientSound@Parrot@@UEAAXXZ
+    // vIndex: 67, symbol: ?playAmbientSound@Parrot@@UEAAXXZ
     virtual void playAmbientSound();
 
-    // vIndex: 74, symbol: ?getAmbientSound@Parrot@@UEBA?AW4LevelSoundEvent@Legacy@Puv@@XZ
+    // vIndex: 68, symbol: ?getAmbientSound@Parrot@@UEBA?AW4LevelSoundEvent@Legacy@Puv@@XZ
     virtual ::Puv::Legacy::LevelSoundEvent getAmbientSound() const;
 
-    // vIndex: 75, symbol: ?isInvulnerableTo@Parrot@@UEBA_NAEBVActorDamageSource@@@Z
+    // vIndex: 69, symbol: ?isInvulnerableTo@Parrot@@UEBA_NAEBVActorDamageSource@@@Z
     virtual bool isInvulnerableTo(class ActorDamageSource const& source) const;
 
-    // vIndex: 112, symbol: ?canBePulledIntoVehicle@Parrot@@UEBA_NXZ
+    // vIndex: 102, symbol: ?canBePulledIntoVehicle@Parrot@@UEBA_NXZ
     virtual bool canBePulledIntoVehicle() const;
 
-    // vIndex: 161, symbol: ?_playStepSound@Parrot@@MEAAXAEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 149, symbol: ?_playStepSound@Parrot@@MEAAXAEBVBlockPos@@AEBVBlock@@@Z
     virtual void _playStepSound(class BlockPos const& pos, class Block const& onBlock);
 
-    // vIndex: 198, symbol: ?_getWalkTargetValue@Parrot@@UEAAMAEBVBlockPos@@@Z
+    // vIndex: 184, symbol: ?_getWalkTargetValue@Parrot@@UEAAMAEBVBlockPos@@@Z
     virtual float _getWalkTargetValue(class BlockPos const& pos);
 
     // symbol: ??0Parrot@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

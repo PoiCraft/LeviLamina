@@ -1,13 +1,19 @@
 #pragma once
 
 #include "mc/_HeaderOutputPredefine.h"
+#include "mc/deps/core/common/bedrock/EnableNonOwnerReferences.h"
 
 // auto generated inclusion list
 #include "mc/enums/LogArea.h"
 #include "mc/enums/LogAreaID.h"
 #include "mc/enums/LogLevel.h"
 
-class ContentLog {
+// auto generated forward declare list
+// clang-format off
+namespace Bedrock { class StaticOptimizedString; }
+// clang-format on
+
+class ContentLog : Bedrock::EnableNonOwnerReferences {
 public:
     // ContentLog inner types declare
     // clang-format off
@@ -41,8 +47,8 @@ public:
 
     public:
         // NOLINTBEGIN
-        // symbol: ??0ContentLogScope@ContentLog@@QEAA@VContentScopeString@@@Z
-        MCAPI explicit ContentLogScope(class ContentScopeString);
+        // symbol: ??0ContentLogScope@ContentLog@@QEAA@VStaticOptimizedString@Bedrock@@@Z
+        MCAPI explicit ContentLogScope(class Bedrock::StaticOptimizedString);
 
         // symbol: ??1ContentLogScope@ContentLog@@QEAA@XZ
         MCAPI ~ContentLogScope();
@@ -63,6 +69,10 @@ public:
     ContentLog& operator=(ContentLog const&);
     ContentLog(ContentLog const&);
 
+    bool mEnabled; // this+0x18
+
+    // map this+0x90
+
 public:
     // NOLINTBEGIN
     // vIndex: 0, symbol: __gen_??1ContentLog@@UEAA@XZ
@@ -79,6 +89,9 @@ public:
 
     // symbol: ?log@ContentLog@@QEAAX_NW4LogLevel@@W4LogArea@@ZZ
     MCAPI void log(bool, ::LogLevel, ::LogArea, ...);
+
+    // symbol: ?unregisterEndPoint@ContentLog@@QEAAXV?$not_null@PEAVContentLogEndPoint@@@gsl@@@Z
+    MCAPI void unregisterEndPoint(gsl::not_null<class ContentLogEndPoint*> endPoint);
 
     // symbol: ?updateEnabledStatus@ContentLog@@QEAAXXZ
     MCAPI void updateEnabledStatus();

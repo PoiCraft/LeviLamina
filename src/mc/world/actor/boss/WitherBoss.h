@@ -11,7 +11,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -55,52 +54,52 @@ public:
     // vIndex: 13, symbol: ?remove@WitherBoss@@UEAAXXZ
     virtual void remove();
 
-    // vIndex: 15, symbol: ?getFiringPos@WitherBoss@@UEBA?AVVec3@@XZ
+    // vIndex: 14, symbol: ?getFiringPos@WitherBoss@@UEBA?AVVec3@@XZ
     virtual class Vec3 getFiringPos() const;
 
-    // vIndex: 32, symbol: ?startRiding@WitherBoss@@UEAA_NAEAVActor@@@Z
+    // vIndex: 29, symbol: ?startRiding@WitherBoss@@UEAA_NAEAVActor@@@Z
     virtual bool startRiding(class Actor&);
 
-    // vIndex: 75, symbol: ?isInvulnerableTo@WitherBoss@@UEBA_NAEBVActorDamageSource@@@Z
+    // vIndex: 69, symbol: ?isInvulnerableTo@WitherBoss@@UEBA_NAEBVActorDamageSource@@@Z
     virtual bool isInvulnerableTo(class ActorDamageSource const& source) const;
 
-    // vIndex: 80, symbol: ?handleEntityEvent@WitherBoss@@UEAAXW4ActorEvent@@H@Z
+    // vIndex: 74, symbol: ?handleEntityEvent@WitherBoss@@UEAAXW4ActorEvent@@H@Z
     virtual void handleEntityEvent(::ActorEvent id, int data);
 
-    // vIndex: 98, symbol: ?canFreeze@WitherBoss@@UEBA_NXZ
+    // vIndex: 91, symbol: ?canFreeze@WitherBoss@@UEBA_NXZ
     virtual bool canFreeze() const;
 
-    // vIndex: 108, symbol: ?causeFallDamageToActor@WitherBoss@@UEAAMMMVActorDamageSource@@@Z
+    // vIndex: 98, symbol: ?causeFallDamageToActor@WitherBoss@@UEAAMMMVActorDamageSource@@@Z
     virtual float causeFallDamageToActor(float, float, class ActorDamageSource);
 
-    // vIndex: 121, symbol: ?canBeAffected@WitherBoss@@UEBA_NI@Z
+    // vIndex: 111, symbol: ?canBeAffected@WitherBoss@@UEBA_NI@Z
     virtual bool canBeAffected(uint effectId) const;
 
-    // vIndex: 122, symbol: ?canBeAffectedByArrow@WitherBoss@@UEBA_NAEBVMobEffectInstance@@@Z
+    // vIndex: 112, symbol: ?canBeAffectedByArrow@WitherBoss@@UEBA_NAEBVMobEffectInstance@@@Z
     virtual bool canBeAffectedByArrow(class MobEffectInstance const& effect) const;
 
-    // vIndex: 143, symbol: ?die@WitherBoss@@UEAAXAEBVActorDamageSource@@@Z
+    // vIndex: 131, symbol: ?die@WitherBoss@@UEAAXAEBVActorDamageSource@@@Z
     virtual void die(class ActorDamageSource const& source);
 
-    // vIndex: 158, symbol: ?_hurt@WitherBoss@@MEAA_NAEBVActorDamageSource@@M_N1@Z
+    // vIndex: 146, symbol: ?_hurt@WitherBoss@@MEAA_NAEBVActorDamageSource@@M_N1@Z
     virtual bool _hurt(class ActorDamageSource const& source, float damage, bool knock, bool ignite);
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@WitherBoss@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@WitherBoss@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@WitherBoss@@UEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@WitherBoss@@UEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag& tag) const;
 
-    // vIndex: 170, symbol: ?hurtEffects@WitherBoss@@UEAAXAEBVActorDamageSource@@M_N1@Z
+    // vIndex: 157, symbol: ?hurtEffects@WitherBoss@@UEAAXAEBVActorDamageSource@@M_N1@Z
     virtual void hurtEffects(class ActorDamageSource const& source, float damage, bool knock, bool ignite);
 
-    // vIndex: 171, symbol: ?aiStep@WitherBoss@@UEAAXXZ
+    // vIndex: 158, symbol: ?aiStep@WitherBoss@@UEAAXXZ
     virtual void aiStep();
 
-    // vIndex: 181, symbol: ?getArmorValue@WitherBoss@@UEBAHXZ
+    // vIndex: 168, symbol: ?getArmorValue@WitherBoss@@UEBAHXZ
     virtual int getArmorValue() const;
 
-    // vIndex: 201, symbol: ?newServerAiStep@WitherBoss@@UEAAXXZ
+    // vIndex: 187, symbol: ?newServerAiStep@WitherBoss@@UEAAXXZ
     virtual void newServerAiStep();
 
     // symbol: ??0WitherBoss@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
@@ -116,8 +115,8 @@ public:
     // symbol: ?getHeadPos@WitherBoss@@QEBA?AVVec3@@H@Z
     MCAPI class Vec3 getHeadPos(int headID) const;
 
-    // symbol: ?getHeadRot@WitherBoss@@QEAA?AVVec2@@H@Z
-    MCAPI class Vec2 getHeadRot(int headID);
+    // symbol: ?getHeadRot@WitherBoss@@QEBA?AVVec2@@H@Z
+    MCAPI class Vec2 getHeadRot(int headID) const;
 
     // symbol: ?getInvulnerableTicks@WitherBoss@@QEBAHXZ
     MCAPI int getInvulnerableTicks() const;
@@ -191,17 +190,10 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?TIME_BEFORE_MOVING@WitherBoss@@0HB
     MCAPI static int const TIME_BEFORE_MOVING;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $TIME_BEFORE_MOVING() { return TIME_BEFORE_MOVING; }
 
     // NOLINTEND
 };

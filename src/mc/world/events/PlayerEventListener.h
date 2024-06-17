@@ -3,7 +3,6 @@
 #include "mc/_HeaderOutputPredefine.h"
 
 // auto generated inclusion list
-#include "mc/common/wrapper/ReplayCorrectionResult.h"
 #include "mc/events/MinecraftEventing.h"
 #include "mc/world/AutomaticID.h"
 #include "mc/world/actor/player/PlayerActionType.h"
@@ -32,12 +31,6 @@ public:
 
     // symbol: ?onLocalPlayerRespawn@PlayerEventListener@@UEAA?AW4EventResult@@AEAVIClientInstance@@AEAVLocalPlayer@@@Z
     MCVAPI ::EventResult onLocalPlayerRespawn(class IClientInstance& client, class LocalPlayer& player);
-
-    // symbol: ?onPlayerAIStepBegin@PlayerEventListener@@UEAA?AW4EventResult@@AEAVPlayer@@@Z
-    MCVAPI ::EventResult onPlayerAIStepBegin(class Player&);
-
-    // symbol: ?onPlayerAIStepEnd@PlayerEventListener@@UEAA?AW4EventResult@@AEAVPlayer@@@Z
-    MCVAPI ::EventResult onPlayerAIStepEnd(class Player&);
 
     // symbol:
     // ?onPlayerAction@PlayerEventListener@@UEAA?AW4EventResult@@AEAVPlayer@@W4PlayerActionType@@AEBVBlockPos@@H@Z
@@ -116,15 +109,8 @@ public:
     // symbol: ?onPlayerMove@PlayerEventListener@@UEAA?AW4EventResult@@AEAVPlayer@@@Z
     MCVAPI ::EventResult onPlayerMove(class Player& player);
 
-    // symbol:
-    // ?onPlayerMovementRewindCorrected@PlayerEventListener@@UEAA?AW4EventResult@@AEAVPlayer@@_KW4ReplayCorrectionResult@@@Z
-    MCVAPI ::EventResult onPlayerMovementRewindCorrected(class Player&, uint64, ::ReplayCorrectionResult);
-
     // symbol: ?onPlayerNamedItem@PlayerEventListener@@UEAA?AW4EventResult@@AEAVPlayer@@AEBVItemDescriptor@@@Z
     MCVAPI ::EventResult onPlayerNamedItem(class Player& player, class ItemDescriptor const& item);
-
-    // symbol: ?onPlayerOnGround@PlayerEventListener@@UEAA?AW4EventResult@@AEAVPlayer@@@Z
-    MCVAPI ::EventResult onPlayerOnGround(class Player& player);
 
     // symbol:
     // ?onPlayerPiglinBarter@PlayerEventListener@@UEAA?AW4EventResult@@AEAVPlayer@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z
@@ -139,6 +125,9 @@ public:
     // ?onPlayerPortalUsed@PlayerEventListener@@UEAA?AW4EventResult@@AEAVPlayer@@V?$AutomaticID@VDimension@@H@@1@Z
     MCVAPI ::EventResult
     onPlayerPortalUsed(class Player& player, DimensionType fromDimension, DimensionType toDimension);
+
+    // symbol: ?onPlayerPoweredBeacon@PlayerEventListener@@UEAA?AW4EventResult@@AEBVPlayer@@H@Z
+    MCVAPI ::EventResult onPlayerPoweredBeacon(class Player const&, int);
 
     // symbol: ?onPlayerSaved@PlayerEventListener@@UEAA?AW4EventResult@@AEAVPlayer@@@Z
     MCVAPI ::EventResult onPlayerSaved(class Player& player);

@@ -28,7 +28,7 @@ public:
         Deferred = 0x1,
     };
 
-    /*These member variables were obtained by analyzing BDS 1.20.51 using IDA.*/
+    /*These member variables were obtained by analyzing BDS 1.20.61 using IDA.*/
     int                          mChunkSide;             // this+0x18
     Level*                       mLevel;                 // this+0x20
     Dimension*                   mDimension;             // this+0x28
@@ -208,7 +208,10 @@ public:
     // protected:
     // NOLINTBEGIN
     // symbol: ?_checkAndDispatchTaskForLevelChunk@ChunkSource@@IEAA_NAEBU?$pair@VChunkPos@@W4ChunkState@@@std@@_N@Z
-    MCAPI bool _checkAndDispatchTaskForLevelChunk(std::pair<class ChunkPos, ::ChunkState> const&, bool areInTask);
+    MCAPI bool _checkAndDispatchTaskForLevelChunk(
+        std::pair<class ChunkPos, ::ChunkState> const& chunkPosAndExpectedState,
+        bool                                           areInTask
+    );
 
     // symbol: ?_checkForReplacementDataTask@ChunkSource@@IEAAXAEAVLevelChunk@@AEAVChunkViewSource@@@Z
     MCAPI void _checkForReplacementDataTask(class LevelChunk& lc, class ChunkViewSource& chunks);

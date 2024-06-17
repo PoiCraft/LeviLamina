@@ -30,7 +30,7 @@ public:
     // vIndex: 0, symbol: __gen_??1PoweredRailBlock@@UEAA@XZ
     virtual ~PoweredRailBlock() = default;
 
-    // vIndex: 65, symbol: ?onRedstoneUpdate@PoweredRailBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
+    // vIndex: 66, symbol: ?onRedstoneUpdate@PoweredRailBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
     virtual void
     onRedstoneUpdate(class BlockSource& region, class BlockPos const& pos, int strength, bool isFirstTime) const;
 

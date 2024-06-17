@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -42,13 +41,13 @@ public:
     // vIndex: 10, symbol: ??1Fish@@UEAA@XZ
     virtual ~Fish();
 
-    // vIndex: 32, symbol: ?startRiding@Fish@@UEAA_NAEAVActor@@@Z
+    // vIndex: 29, symbol: ?startRiding@Fish@@UEAA_NAEAVActor@@@Z
     virtual bool startRiding(class Actor&);
 
-    // vIndex: 156, symbol: ?updateEntitySpecificMolangVariables@Fish@@UEAAXAEAVRenderParams@@@Z
+    // vIndex: 144, symbol: ?updateEntitySpecificMolangVariables@Fish@@UEAAXAEAVRenderParams@@@Z
     virtual void updateEntitySpecificMolangVariables(class RenderParams& renderParams);
 
-    // vIndex: 193, symbol: ?createAIGoals@Fish@@UEAA_NXZ
+    // vIndex: 180, symbol: ?createAIGoals@Fish@@UEAA_NXZ
     virtual bool createAIGoals();
 
     // symbol: ??0Fish@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
@@ -57,9 +56,6 @@ public:
         struct ActorDefinitionIdentifier const& definitionName,
         class EntityContext&                    entityContext
     );
-
-    // symbol: ?postNormalTick@Fish@@QEAAXXZ
-    MCAPI void postNormalTick();
 
     // NOLINTEND
 };

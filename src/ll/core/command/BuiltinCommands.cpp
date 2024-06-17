@@ -1,28 +1,24 @@
 #include "ll/core/command/BuiltinCommands.h"
 #include "ll/api/memory/Hook.h"
-#include "ll/core/Config.h"
 
 #include "mc/server/commands/ServerCommands.h"
 #include "mc/server/commands/standard/TeleportCommand.h"
+#include "mc/world/events/ServerInstanceEventCoordinator.h"
 
 namespace ll::command {
-LL_STATIC_HOOK(
+LL_TYPE_INSTANCE_HOOK(
     registerBuiltinCommands,
-    ll::memory::HookPriority::Normal,
-    ServerCommands::setupStandardServer,
+    ll::memory::HookPriority::Highest,
+    ServerInstanceEventCoordinator,
+    &ServerInstanceEventCoordinator::sendServerThreadStarted,
     void,
-    Minecraft&         server,
-    std::string const& networkCommands,
-    std::string const& networkTestCommands,
-    PermissionsFile*   permissionsFile
+    ::ServerInstance& ins
 ) {
-    origin(server, networkCommands, networkTestCommands, permissionsFile);
-    if (globalConfig.modules.commands.versionCommand) {
-        registerVersionCommand();
-    }
-    if (globalConfig.modules.commands.memstatusCommand) {
-        registerMemstatusCommand();
-    }
+    origin(ins);
+    registerVersionCommand();
+    registerMemstatsCommand();
+    registerCrashCommand();
+    registerPluginManageCommand();
 }
 LL_STATIC_HOOK(
     registerTpdimCommands,
@@ -32,9 +28,7 @@ LL_STATIC_HOOK(
     CommandRegistry& registry
 ) {
     origin(registry);
-    if (globalConfig.modules.commands.tpdimCommand) {
-        registerTpdimCommand();
-    }
+    registerTpdimCommand();
 }
 void registerCommands() { static memory::HookRegistrar<registerBuiltinCommands, registerTpdimCommands> hooks{}; }
 } // namespace ll::command

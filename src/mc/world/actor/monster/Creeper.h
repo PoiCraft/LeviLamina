@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -39,10 +38,10 @@ public:
     // vIndex: 10, symbol: __gen_??1Creeper@@UEAA@XZ
     virtual ~Creeper() = default;
 
-    // vIndex: 29, symbol: ?normalTick@Creeper@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@Creeper@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 143, symbol: ?die@Creeper@@UEAAXAEBVActorDamageSource@@@Z
+    // vIndex: 131, symbol: ?die@Creeper@@UEAAXAEBVActorDamageSource@@@Z
     virtual void die(class ActorDamageSource const& source);
 
     // symbol: ??0Creeper@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

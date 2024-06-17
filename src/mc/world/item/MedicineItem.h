@@ -29,18 +29,18 @@ public:
     // vIndex: 0, symbol: __gen_??1MedicineItem@@UEAA@XZ
     virtual ~MedicineItem() = default;
 
-    // vIndex: 54, symbol: ?isValidAuxValue@MedicineItem@@UEBA_NH@Z
+    // vIndex: 56, symbol: ?isValidAuxValue@MedicineItem@@UEBA_NH@Z
     virtual bool isValidAuxValue(int auxValue) const;
 
-    // vIndex: 71, symbol: ?use@MedicineItem@@UEBAAEAVItemStack@@AEAV2@AEAVPlayer@@@Z
+    // vIndex: 72, symbol: ?use@MedicineItem@@UEBAAEAVItemStack@@AEAV2@AEAVPlayer@@@Z
     virtual class ItemStack& use(class ItemStack& item, class Player& player) const;
 
-    // vIndex: 73, symbol:
+    // vIndex: 75, symbol:
     // ?useTimeDepleted@MedicineItem@@UEBA?AW4ItemUseMethod@@AEAVItemStack@@PEAVLevel@@PEAVPlayer@@@Z
     virtual ::ItemUseMethod
     useTimeDepleted(class ItemStack& inoutInstance, class Level* level, class Player* player) const;
 
-    // vIndex: 82, symbol:
+    // vIndex: 83, symbol:
     // ?buildDescriptionId@MedicineItem@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVItemDescriptor@@PEBVCompoundTag@@@Z
     virtual std::string buildDescriptionId(class ItemDescriptor const&, class CompoundTag const*) const;
 

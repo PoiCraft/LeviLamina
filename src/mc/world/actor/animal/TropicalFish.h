@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -43,16 +42,16 @@ public:
     // vIndex: 10, symbol: __gen_??1TropicalFish@@UEAA@XZ
     virtual ~TropicalFish() = default;
 
-    // vIndex: 32, symbol: ?startRiding@TropicalFish@@UEAA_NAEAVActor@@@Z
+    // vIndex: 29, symbol: ?startRiding@TropicalFish@@UEAA_NAEAVActor@@@Z
     virtual bool startRiding(class Actor&);
 
-    // vIndex: 109, symbol: ?onSynchedDataUpdate@TropicalFish@@UEAAXH@Z
+    // vIndex: 99, symbol: ?onSynchedDataUpdate@TropicalFish@@UEAAXH@Z
     virtual void onSynchedDataUpdate(int dataId);
 
-    // vIndex: 156, symbol: ?updateEntitySpecificMolangVariables@TropicalFish@@UEAAXAEAVRenderParams@@@Z
+    // vIndex: 144, symbol: ?updateEntitySpecificMolangVariables@TropicalFish@@UEAAXAEAVRenderParams@@@Z
     virtual void updateEntitySpecificMolangVariables(class RenderParams& renderParams);
 
-    // vIndex: 193, symbol: ?createAIGoals@TropicalFish@@UEAA_NXZ
+    // vIndex: 180, symbol: ?createAIGoals@TropicalFish@@UEAA_NXZ
     virtual bool createAIGoals();
 
     // symbol: ??0TropicalFish@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
@@ -61,9 +60,6 @@ public:
         struct ActorDefinitionIdentifier const& definitionName,
         class EntityContext&                    entityContext
     );
-
-    // symbol: ?postNormalTick@TropicalFish@@QEAAXXZ
-    MCAPI void postNormalTick();
 
     // NOLINTEND
 };

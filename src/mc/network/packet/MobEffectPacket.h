@@ -2,6 +2,7 @@
 
 #include "mc/_HeaderOutputPredefine.h"
 #include "mc/world/ActorRuntimeID.h"
+#include "mc/world/level/Tick.h"
 
 // auto generated inclusion list
 #include "mc/deps/core/common/bedrock/Result.h"
@@ -25,6 +26,7 @@ public:
     int              mEffectId;            // this+0x40
     int              mEffectAmplifier;     // this+0x44
     bool             mShowParticles;       // this+0x48
+    Tick             mTick;                // this+0x50
 
     // prevent constructor by default
     MobEffectPacket& operator=(MobEffectPacket const&);
@@ -32,8 +34,8 @@ public:
 
 public:
     // NOLINTBEGIN
-    // vIndex: 0, symbol: ??1MobEffectPacket@@UEAA@XZ
-    virtual ~MobEffectPacket();
+    // vIndex: 0, symbol: __gen_??1MobEffectPacket@@UEAA@XZ
+    virtual ~MobEffectPacket() = default;
 
     // vIndex: 1, symbol: ?getId@MobEffectPacket@@UEBA?AW4MinecraftPacketIds@@XZ
     virtual ::MinecraftPacketIds getId() const;
@@ -42,25 +44,15 @@ public:
     // ?getName@MobEffectPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@MobEffectPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@MobEffectPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@MobEffectPacket@@EEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream);
 
     // symbol: ??0MobEffectPacket@@QEAA@XZ
     MCAPI MobEffectPacket();
-
-    // symbol: ??0MobEffectPacket@@QEAA@VActorRuntimeID@@W4Event@0@HHH_N@Z
-    MCAPI MobEffectPacket(
-        class ActorRuntimeID     runtimeId,
-        ::MobEffectPacket::Event event,
-        int                      effectId,
-        int                      duration,
-        int                      amplifier,
-        bool                     showParticles
-    );
 
     // NOLINTEND
 };

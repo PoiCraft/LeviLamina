@@ -30,36 +30,30 @@ public:
     // vIndex: 0, symbol: __gen_??1CherrySaplingBlock@@UEAA@XZ
     virtual ~CherrySaplingBlock() = default;
 
-    // vIndex: 56, symbol: ?canContainLiquid@CherrySaplingBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@CherrySaplingBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 79, symbol:
+    // vIndex: 80, symbol:
     // ?onFertilized@CherrySaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool
     onFertilized(class BlockSource& region, class BlockPos const& pos, class Actor* actor, ::FertilizerType fType)
         const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@CherrySaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@CherrySaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool canBeFertilized(class BlockSource&, class BlockPos const&, class Block const&) const;
 
-    // vIndex: 85, symbol: ?mayPlace@CherrySaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 86, symbol: ?mayPlace@CherrySaplingBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 138, symbol: ?canBeSilkTouched@CherrySaplingBlock@@UEBA_NXZ
-    virtual bool canBeSilkTouched() const;
-
-    // vIndex: 151, symbol: ?randomTick@CherrySaplingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 149, symbol: ?randomTick@CherrySaplingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void randomTick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 157, symbol: ?getRenderLayer@CherrySaplingBlock@@UEBA?AW4BlockRenderLayer@@XZ
+    // vIndex: 155, symbol: ?getRenderLayer@CherrySaplingBlock@@UEBA?AW4BlockRenderLayer@@XZ
     virtual ::BlockRenderLayer getRenderLayer() const;
 
-    // vIndex: 158, symbol:
+    // vIndex: 156, symbol:
     // ?getRenderLayer@CherrySaplingBlock@@UEBA?AW4BlockRenderLayer@@AEBVBlock@@AEAVBlockSource@@AEBVBlockPos@@@Z
     virtual ::BlockRenderLayer getRenderLayer(class Block const&, class BlockSource&, class BlockPos const&) const;
-
-    // vIndex: 163, symbol: ?getResourceItem@CherrySaplingBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const&, int) const;
 
     // symbol: ??0CherrySaplingBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI CherrySaplingBlock(std::string const& nameId, int id);
@@ -77,7 +71,8 @@ public:
     // private:
     // NOLINTBEGIN
     // symbol: ?_growTree@CherrySaplingBlock@@AEBA_NAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@_N@Z
-    MCAPI bool _growTree(class BlockSource& region, class BlockPos const& pos, class Random& random, bool) const;
+    MCAPI bool
+    _growTree(class BlockSource& region, class BlockPos const& pos, class Random& random, bool useRandom) const;
 
     // NOLINTEND
 };

@@ -95,9 +95,6 @@ public:
     // symbol: ?allowsResourcePackDevelopment@AppPlatform@@UEBA_NXZ
     MCVAPI bool allowsResourcePackDevelopment() const;
 
-    // symbol: ?alwaysUseZippedPacksForDlc@AppPlatform@@UEBA_NXZ
-    MCVAPI bool alwaysUseZippedPacksForDlc() const;
-
     // symbol: ?areThreadsFrozen@AppPlatform@@UEBA_NXZ
     MCVAPI bool areThreadsFrozen() const;
 
@@ -112,6 +109,9 @@ public:
 
     // symbol: ?canManageLegacyData@AppPlatform@@UEBA_NXZ
     MCVAPI bool canManageLegacyData() const;
+
+    // symbol: ?canMigrateWorldData@AppPlatform@@UEBA_NXZ
+    MCVAPI bool canMigrateWorldData() const;
 
     // symbol: ?canSwapVRMode@AppPlatform@@UEBA_N_N@Z
     MCVAPI bool canSwapVRMode(bool inVRMode) const;
@@ -358,6 +358,10 @@ public:
     // symbol: ?getRenderSurfaceParameters@AppPlatform@@UEBA?AV?$variant@PEAUHWND__@@Umonostate@std@@@std@@XZ
     MCVAPI std::variant<struct HWND__*, std::monostate> getRenderSurfaceParameters() const;
 
+    // symbol:
+    // ?getScratchPath@AppPlatform@@UEAA?AV?$PathBuffer@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Core@@XZ
+    MCVAPI class Core::PathBuffer<std::string> getScratchPath();
+
     // symbol: ?getScreenHeight@AppPlatform@@UEBAHXZ
     MCVAPI int getScreenHeight() const;
 
@@ -571,6 +575,9 @@ public:
     // symbol: ?notifyNetworkConfigurationChanged@AppPlatform@@UEAAXXZ
     MCVAPI void notifyNetworkConfigurationChanged();
 
+    // symbol: ?onFullGameUnlock@AppPlatform@@UEAAXXZ
+    MCVAPI void onFullGameUnlock();
+
     // symbol: ?onMinecraftGameInitComplete@AppPlatform@@UEAAXXZ
     MCVAPI void onMinecraftGameInitComplete();
 
@@ -625,6 +632,9 @@ public:
 
     // symbol: ?restartRequested@AppPlatform@@UEAA_NXZ
     MCVAPI bool restartRequested();
+
+    // symbol: ?saveTreatmentPacksAsZips@AppPlatform@@UEBA_NXZ
+    MCVAPI bool saveTreatmentPacksAsZips() const;
 
     // symbol: ?setARVRPlatform@AppPlatform@@UEAAXW4ARVRPlatform@@@Z
     MCVAPI void setARVRPlatform(::ARVRPlatform platform);
@@ -687,6 +697,11 @@ public:
 
     // symbol: ?showDialog@AppPlatform@@UEAAXH@Z
     MCVAPI void showDialog(int dialogId);
+
+    // symbol:
+    // ?showOSUserDialog@AppPlatform@@UEAA?AV?$shared_ptr@V?$IAsyncResult@_N@Threading@Bedrock@@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@00@Z
+    MCVAPI std::shared_ptr<class Bedrock::Threading::IAsyncResult<bool>>
+           showOSUserDialog(std::string, std::string, std::string);
 
     // symbol: ?showPlatformEmptyStoreDialog@AppPlatform@@UEAAX$$QEAV?$function@$$A6AX_N@Z@std@@@Z
     MCVAPI void showPlatformEmptyStoreDialog(std::function<void(bool)>&& callback);
@@ -761,7 +776,7 @@ public:
     MCVAPI ~AppPlatform();
 
     // symbol: ??0AppPlatform@@QEAA@_N@Z
-    MCAPI explicit AppPlatform(bool);
+    MCAPI explicit AppPlatform(bool registerService);
 
     // symbol: ?_fireAppTerminated@AppPlatform@@QEAAXXZ
     MCAPI void _fireAppTerminated();
@@ -781,10 +796,6 @@ public:
     // symbol:
     // ?getPlatformRuntimeInformation@AppPlatform@@QEBAAEBV?$unique_ptr@UPlatformRuntimeInfo@Bedrock@@U?$default_delete@UPlatformRuntimeInfo@Bedrock@@@std@@@std@@XZ
     MCAPI std::unique_ptr<struct Bedrock::PlatformRuntimeInfo> const& getPlatformRuntimeInformation() const;
-
-    // symbol:
-    // ?getScratchPath@AppPlatform@@QEAA?AV?$PathBuffer@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Core@@XZ
-    MCAPI class Core::PathBuffer<std::string> getScratchPath();
 
     // symbol:
     // ?getUserdataPath@AppPlatform@@QEBA?AV?$PathBuffer@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Core@@XZ
@@ -814,26 +825,17 @@ public:
 
     // NOLINTEND
 
-protected:
+    // protected:
     // NOLINTBEGIN
     // symbol: ?SHADERCACHE_PATH@AppPlatform@@1V?$PathBuffer@V?$StackString@D$0EAA@@Core@@@Core@@B
     MCAPI static class Core::PathBuffer<class Core::StackString<char, 1024>> const SHADERCACHE_PATH;
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?mIsInitialized@AppPlatform@@0_NA
     MCAPI static bool mIsInitialized;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $mIsInitialized() { return mIsInitialized; }
-
-    static auto& $SHADERCACHE_PATH() { return SHADERCACHE_PATH; }
 
     // NOLINTEND
 };

@@ -31,10 +31,10 @@ public:
     // vIndex: 0, symbol: ??1FurnaceBlock@@UEAA@XZ
     virtual ~FurnaceBlock();
 
-    // vIndex: 30, symbol: ?isContainerBlock@FurnaceBlock@@UEBA_NXZ
+    // vIndex: 31, symbol: ?isContainerBlock@FurnaceBlock@@UEBA_NXZ
     virtual bool isContainerBlock() const;
 
-    // vIndex: 31, symbol: ?isCraftingBlock@FurnaceBlock@@UEBA_NXZ
+    // vIndex: 32, symbol: ?isCraftingBlock@FurnaceBlock@@UEBA_NXZ
     virtual bool isCraftingBlock() const;
 
     // vIndex: 96, symbol: ?asItemInstance@FurnaceBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
@@ -54,13 +54,13 @@ public:
     // vIndex: 134, symbol: ?animateTickBedrockLegacy@FurnaceBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 144, symbol: ?onRemove@FurnaceBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 143, symbol: ?onRemove@FurnaceBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onRemove(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 152, symbol: ?isInteractiveBlock@FurnaceBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@FurnaceBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@FurnaceBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@FurnaceBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
     // symbol: ??0FurnaceBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H_N@Z

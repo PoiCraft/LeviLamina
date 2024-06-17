@@ -33,7 +33,7 @@ public:
     // vIndex: 2, symbol: ?getNextBlockPermutation@BeehiveBlock@@UEBAPEBVBlock@@AEBV2@@Z
     virtual class Block const* getNextBlockPermutation(class Block const& currentBlock) const;
 
-    // vIndex: 94, symbol: ?playerWillDestroy@BeehiveBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
+    // vIndex: 95, symbol: ?playerWillDestroy@BeehiveBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
     virtual class Block const*
     playerWillDestroy(class Player& player, class BlockPos const& pos, class Block const& block) const;
 
@@ -64,7 +64,7 @@ public:
     // vIndex: 134, symbol: ?animateTickBedrockLegacy@BeehiveBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 154, symbol: ?use@BeehiveBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@BeehiveBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
     // symbol: ??0BeehiveBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

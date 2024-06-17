@@ -3,6 +3,7 @@
 #include "mc/_HeaderOutputPredefine.h"
 
 // auto generated inclusion list
+#include "mc/enums/TransportLayer.h"
 #include "mc/network/Connector.h"
 
 // auto generated forward declare list
@@ -69,6 +70,9 @@ public:
     // vIndex: 14, symbol: ?getIPv6Port@LocalConnector@@UEBAGXZ
     virtual ushort getIPv6Port() const;
 
+    // vIndex: 15, symbol: ?getNetworkType@LocalConnector@@UEBA?AW4TransportLayer@@XZ
+    virtual ::TransportLayer getNetworkType() const;
+
     // symbol: ??0LocalConnector@@QEAA@AEAUConnectionCallbacks@Connector@@AEBVNetworkIdentifier@@@Z
     MCAPI LocalConnector(struct Connector::ConnectionCallbacks& callbacks, class NetworkIdentifier const& localId);
 
@@ -78,22 +82,12 @@ public:
     // symbol: ?host@LocalConnector@@QEAAXAEBVNetworkIdentifier@@@Z
     MCAPI void host(class NetworkIdentifier const& id);
 
-    // symbol: ?runEvents@LocalConnector@@QEAAXXZ
-    MCAPI void runEvents();
-
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?sLocalConnectivitySystem@LocalConnector@@0VLocalConnectivitySystem@@A
     MCAPI static class LocalConnectivitySystem sLocalConnectivitySystem;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $sLocalConnectivitySystem() { return sLocalConnectivitySystem; }
 
     // NOLINTEND
 };

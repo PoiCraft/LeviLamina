@@ -30,7 +30,7 @@ public:
     // vIndex: 0, symbol: ??1ActorBlock@@UEAA@XZ
     virtual ~ActorBlock();
 
-    // vIndex: 92, symbol: ?neighborChanged@ActorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@ActorBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 

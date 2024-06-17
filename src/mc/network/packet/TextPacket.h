@@ -8,17 +8,21 @@
 // auto generated inclusion list
 #include "mc/deps/core/common/bedrock/Result.h"
 #include "mc/enums/MinecraftPacketIds.h"
+#include "mc/enums/TextPacketType.h"
 #include "mc/network/packet/Packet.h"
 
 class TextPacket : public ::Packet {
 public:
-    TextPacketType           mType;       // this+0x30
-    std::string              mAuthor;     // this+0x38
-    std::string              mMessage;    // this+0x58
-    std::vector<std::string> params;      // this+0x78
-    bool                     mLocalize;   // this+0x90
-    std::string              mXuid;       // this+0x98
-    std::string              mPlatformId; // this+0xB8
+    TextPacketType           mType;            // this+0x30
+    std::string              mAuthor;          // this+0x38
+    std::string              mMessage;         // this+0x58
+    std::string              mFilteredMessage; // this+0x78
+    bool                     mUnknown;         // this+0x98
+    std::vector<std::string> mParams;          // this+0xA0
+    bool                     mLocalize;        // this+0x88
+    std::string              mXuid;            // this+0xC0
+    std::string              mPlatformId;      // this+0xE0
+    int                      mArraySize;       // this+0x100
 
     [[nodiscard]] inline static TextPacket createRawMessage(std::string_view msg) {
         auto res  = TextPacket{};
@@ -38,10 +42,10 @@ public:
     // vIndex: 2, symbol: ?getName@TextPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@TextPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@TextPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 7, symbol: ?_read@TextPacket@@EEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
+    // vIndex: 8, symbol: ?_read@TextPacket@@EEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream);
 
     // symbol: ??0TextPacket@@QEAA@XZ
@@ -51,9 +55,9 @@ public:
     MCAPI class TextPacket& operator=(class TextPacket const&);
 
     // symbol:
-    // ?_shouldHandleTextPacketForPlayer@TextPacket@@SA?B_NAEBV1@AEAUIPlayerData@PlayerCapabilities@@AEBUISharedController@3@@Z
+    // ?_shouldHandleTextPacketForPlayer@TextPacket@@SA?B_NAEAUIPlayerData@PlayerCapabilities@@AEBUISharedController@3@@Z
     MCAPI static bool const _shouldHandleTextPacketForPlayer(
-        class TextPacket const&                             packet,
+
         struct PlayerCapabilities::IPlayerData&             playerData,
         struct PlayerCapabilities::ISharedController const& sharedController
     );
@@ -67,13 +71,10 @@ public:
         std::string const& platformId
     );
 
-    // symbol: ?createChat@TextPacket@@SA?AV1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@000@Z
-    MCAPI static class TextPacket createChat(
-        std::string const& author,
-        std::string const& message,
-        std::string const& xuid,
-        std::string const& platformId
-    );
+    // symbol:
+    // ?createChat@TextPacket@@SA?AV1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0V?$optional@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@3@00@Z
+    MCAPI static class TextPacket
+    createChat(std::string const&, std::string const&, std::optional<std::string>, std::string const&, std::string const&);
 
     // symbol:
     // ?createJukeboxPopup@TextPacket@@SA?AV1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@3@@Z
@@ -99,9 +100,9 @@ public:
     // symbol:
     // ?createTextObjectWhisperMessage@TextPacket@@SA?AV1@AEBVResolvedTextObject@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@1@Z
     MCAPI static class TextPacket createTextObjectWhisperMessage(
-        class ResolvedTextObject const&,
-        std::string const& xuid,
-        std::string const& platformId
+        class ResolvedTextObject const& resolvedTextObject,
+        std::string const&              xuid,
+        std::string const&              platformId
     );
 
     // symbol:
@@ -129,6 +130,15 @@ public:
         std::string const& xuid,
         std::string const& platformId
     );
+
+    // NOLINTEND
+
+    // private:
+    // NOLINTBEGIN
+    // symbol:
+    // ??0TextPacket@@AEAA@W4TextPacketType@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@1V?$optional@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@3@AEBV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@3@_N11@Z
+    MCAPI
+    TextPacket(::TextPacketType, std::string const&, std::string const&, std::optional<std::string>, std::vector<std::string> const&, bool, std::string const&, std::string const&);
 
     // NOLINTEND
 };

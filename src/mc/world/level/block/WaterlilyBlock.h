@@ -41,13 +41,13 @@ public:
     virtual class AABB const&
     getOutline(class Block const&, class IConstBlockSource const&, class BlockPos const&, class AABB&) const;
 
-    // vIndex: 32, symbol: ?isWaterBlocking@WaterlilyBlock@@UEBA_NXZ
+    // vIndex: 33, symbol: ?isWaterBlocking@WaterlilyBlock@@UEBA_NXZ
     virtual bool isWaterBlocking() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@WaterlilyBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@WaterlilyBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 86, symbol: ?mayPlaceOn@WaterlilyBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 87, symbol: ?mayPlaceOn@WaterlilyBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlaceOn(class BlockSource& region, class BlockPos const& pos) const;
 
     // vIndex: 121, symbol: ?getColor@WaterlilyBlock@@UEBAHAEBVBlock@@@Z
@@ -56,7 +56,7 @@ public:
     // vIndex: 123, symbol: ?getColorAtPos@WaterlilyBlock@@UEBAHAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual int getColorAtPos(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 156, symbol: ?canSurvive@WaterlilyBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 154, symbol: ?canSurvive@WaterlilyBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool canSurvive(class BlockSource& region, class BlockPos const& pos) const;
 
     // symbol: ??0WaterlilyBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

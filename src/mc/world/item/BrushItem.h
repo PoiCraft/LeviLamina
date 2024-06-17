@@ -29,20 +29,14 @@ public:
     // vIndex: 0, symbol: __gen_??1BrushItem@@UEAA@XZ
     virtual ~BrushItem() = default;
 
-    // vIndex: 49, symbol: ?getEnchantSlot@BrushItem@@UEBAHXZ
+    // vIndex: 50, symbol: ?getEnchantSlot@BrushItem@@UEBAHXZ
     virtual int getEnchantSlot() const;
 
-    // vIndex: 72, symbol: ?dispense@BrushItem@@UEBA_NAEAVBlockSource@@AEAVContainer@@HAEBVVec3@@E@Z
+    // vIndex: 74, symbol: ?dispense@BrushItem@@UEBA_NAEAVBlockSource@@AEAVContainer@@HAEBVVec3@@E@Z
     virtual bool dispense(class BlockSource&, class Container&, int, class Vec3 const&, uchar) const;
 
-    // vIndex: 76, symbol: ?hurtActor@BrushItem@@UEBAXAEAVItemStack@@AEAVActor@@AEAVMob@@@Z
+    // vIndex: 78, symbol: ?hurtActor@BrushItem@@UEBAXAEAVItemStack@@AEAVActor@@AEAVMob@@@Z
     virtual void hurtActor(class ItemStack&, class Actor&, class Mob&) const;
-
-    // vIndex: 79, symbol: ?mineBlock@BrushItem@@UEBA_NAEAVItemInstance@@AEBVBlock@@HHHPEAVActor@@@Z
-    virtual bool mineBlock(class ItemInstance&, class Block const&, int, int, int, class Actor*) const;
-
-    // vIndex: 80, symbol: ?mineBlock@BrushItem@@UEBA_NAEAVItemStack@@AEBVBlock@@HHHPEAVActor@@@Z
-    virtual bool mineBlock(class ItemStack&, class Block const&, int, int, int, class Actor*) const;
 
     // vIndex: 100, symbol: ?useInterruptedByAttacking@BrushItem@@UEBA_NXZ
     virtual bool useInterruptedByAttacking() const;
@@ -52,6 +46,9 @@ public:
     virtual class InteractionResult
     _useOn(class ItemStack& item, class Actor& entity, class BlockPos pos, uchar face, class Vec3 const& clickPos)
         const;
+
+    // symbol: ??0BrushItem@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@F@Z
+    MCAPI BrushItem(std::string const&, short);
 
     // NOLINTEND
 

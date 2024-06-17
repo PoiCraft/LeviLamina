@@ -6,6 +6,7 @@
 #include "mc/common/wrapper/optional_ref.h"
 #include "mc/enums/FertilizerType.h"
 #include "mc/enums/Flip.h"
+#include "mc/enums/PortalAxis.h"
 #include "mc/enums/ShapeType.h"
 #include "mc/world/Direction.h"
 #include "mc/world/level/block/BlockLegacy.h"
@@ -46,19 +47,19 @@ public:
     virtual class AABB const&
     getVisualShapeInWorld(class Block const&, class IConstBlockSource const&, class BlockPos const&, class AABB&) const;
 
-    // vIndex: 32, symbol: ?isWaterBlocking@PortalBlock@@UEBA_NXZ
+    // vIndex: 33, symbol: ?isWaterBlocking@PortalBlock@@UEBA_NXZ
     virtual bool isWaterBlocking() const;
 
-    // vIndex: 55, symbol: ?waterSpreadCausesSpawn@PortalBlock@@UEBA_NXZ
+    // vIndex: 56, symbol: ?waterSpreadCausesSpawn@PortalBlock@@UEBA_NXZ
     virtual bool waterSpreadCausesSpawn() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@PortalBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@PortalBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 83, symbol: ?mayPick@PortalBlock@@UEBA_NAEBVBlockSource@@AEBVBlock@@_N@Z
+    // vIndex: 84, symbol: ?mayPick@PortalBlock@@UEBA_NAEBVBlockSource@@AEBVBlock@@_N@Z
     virtual bool mayPick(class BlockSource const& region, class Block const& block, bool liquid) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@PortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@PortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -68,16 +69,16 @@ public:
     // vIndex: 134, symbol: ?animateTickBedrockLegacy@PortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 144, symbol: ?onRemove@PortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 143, symbol: ?onRemove@PortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onRemove(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 147, symbol: ?onPlace@PortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@PortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@PortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@PortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 167, symbol: ?entityInside@PortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
+    // vIndex: 162, symbol: ?entityInside@PortalBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
     virtual void entityInside(class BlockSource&, class BlockPos const& pos, class Actor& entity) const;
 
     // symbol: ??0PortalBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
@@ -86,6 +87,9 @@ public:
     // symbol: ?tryMatchPortalRecordToFrameBlocksContainingPos@PortalBlock@@QEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     MCAPI void
     tryMatchPortalRecordToFrameBlocksContainingPos(class BlockSource& region, class BlockPos const& pos) const;
+
+    // symbol: ?trySpawnPigZombie@PortalBlock@@SAXAEAVBlockSource@@AEBVBlockPos@@W4PortalAxis@@@Z
+    MCAPI static void trySpawnPigZombie(class BlockSource& region, class BlockPos const& pos, ::PortalAxis axis);
 
     // symbol: ?trySpawnPortal@PortalBlock@@SA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     MCAPI static bool trySpawnPortal(class BlockSource& region, class BlockPos const& pos);

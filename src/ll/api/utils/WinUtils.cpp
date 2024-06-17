@@ -23,6 +23,25 @@ std::string getSystemLocaleName() {
     std::replace(str.begin(), str.end(), '-', '_');
     return str;
 }
+std::string const& getSystemName() {
+    static std::string result = []() {
+        std::string name{"Unknown"};
+        HMODULE     hMod = LoadLibraryEx(L"winbrand.dll", NULL, LOAD_LIBRARY_SEARCH_SYSTEM32);
+        if (hMod) {
+            PWSTR(WINAPI * pfnBrandingFormatString)(PCWSTR pstrFormat);
+            (FARPROC&)pfnBrandingFormatString = GetProcAddress(hMod, "BrandingFormatString");
+            if (pfnBrandingFormatString) {
+                PWSTR pstrOSName = pfnBrandingFormatString(L"%WINDOWS_LONG%");
+                name             = wstr2str(pstrOSName);
+                // Remember to free the memory!
+                GlobalFree((HGLOBAL)pstrOSName);
+            }
+            FreeLibrary(hMod);
+        }
+        return name;
+    }();
+    return result;
+}
 
 bool isWine() {
     static bool result = []() {
@@ -62,26 +81,48 @@ void* getModuleHandle(void* addr) {
     return hModule;
 }
 
-std::optional<std::filesystem::path> getModulePath(void* handle) {
-    std::wstring path(32767, '\0');
-    if (auto res = GetModuleFileName((HMODULE)handle, path.data(), 32767); res != 0 && res != 32767) {
-        path.resize(res);
-        return std::filesystem::path(path);
-    } else {
-        return std::nullopt;
-    }
+std::optional<std::filesystem::path> getModulePath(void* handle, void* process) {
+    return adaptFixedSizeToAllocatedResult(
+               [module = (HMODULE)handle,
+                process](wchar_t* value, size_t valueLength, size_t& valueLengthNeededWithNul) -> bool {
+                   DWORD  copiedCount{};
+                   size_t valueUsedWithNul{};
+                   bool   copyFailed{};
+                   bool   copySucceededWithNoTruncation{};
+                   if (process != nullptr) {
+                       // GetModuleFileNameExW truncates and provides no error or other indication it has done so.
+                       // The only way to be sure it didn't truncate is if it didn't need the whole buffer. The
+                       // count copied to the buffer includes the nul-character as well.
+                       copiedCount = ::GetModuleFileNameExW(process, module, value, static_cast<DWORD>(valueLength));
+                       valueUsedWithNul              = static_cast<size_t>(copiedCount) + 1;
+                       copyFailed                    = (0 == copiedCount);
+                       copySucceededWithNoTruncation = !copyFailed && (copiedCount < valueLength - 1);
+                   } else {
+                       // In cases of insufficient buffer, GetModuleFileNameW will return a value equal to
+                       // lengthWithNull and set the last error to ERROR_INSUFFICIENT_BUFFER. The count returned does
+                       // not include the nul-character
+                       copiedCount      = ::GetModuleFileNameW(module, value, static_cast<DWORD>(valueLength));
+                       valueUsedWithNul = static_cast<size_t>(copiedCount) + 1;
+                       copyFailed       = (0 == copiedCount);
+                       copySucceededWithNoTruncation = !copyFailed && (copiedCount < valueLength);
+                   }
+                   if (copyFailed) {
+                       return false;
+                   }
+                   // When the copy truncated, request another try with more space.
+                   valueLengthNeededWithNul = copySucceededWithNoTruncation ? valueUsedWithNul : (valueLength * 2);
+                   return true;
+               }
+    ).transform([](auto&& path) { return std::filesystem::path(path); });
 }
 
-std::string getModuleFileName(void* handle) {
-#if _HAS_CXX23
-    return getModulePath(handle).transform([](auto&& path) { return u8str2str(path.filename().u8string()); }
-    ).value_or("");
-#else
-    return {};
-#endif
+std::string getModuleFileName(void* handle, void* process) {
+    return getModulePath(handle, process)
+        .transform([](auto&& path) { return u8str2str(path.filename().u8string()); })
+        .value_or("unknown module");
 }
 
-LLNDAPI std::pair<std::tm, int> getLocalTime() {
+std::pair<std::tm, int> getLocalTime() {
     SYSTEMTIME sysTime;
     GetLocalTime(&sysTime);
     std::tm time{
@@ -97,4 +138,11 @@ LLNDAPI std::pair<std::tm, int> getLocalTime() {
     return {time, sysTime.wMilliseconds};
 }
 
+bool isStdoutSupportAnsi() {
+    DWORD mode;
+    if (GetConsoleMode(GetStdHandle(STD_OUTPUT_HANDLE), &mode)) {
+        return mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+    }
+    return false;
+}
 } // namespace ll::inline utils::win_utils

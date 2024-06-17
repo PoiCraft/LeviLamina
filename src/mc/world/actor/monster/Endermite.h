@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -39,19 +38,19 @@ public:
     // vIndex: 10, symbol: __gen_??1Endermite@@UEAA@XZ
     virtual ~Endermite() = default;
 
-    // vIndex: 29, symbol: ?normalTick@Endermite@@UEAAXXZ
+    // vIndex: 26, symbol: ?normalTick@Endermite@@UEAAXXZ
     virtual void normalTick();
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@Endermite@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@Endermite@@UEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@Endermite@@UEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@Endermite@@UEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag& tag) const;
 
-    // vIndex: 171, symbol: ?aiStep@Endermite@@UEAAXXZ
+    // vIndex: 158, symbol: ?aiStep@Endermite@@UEAAXXZ
     virtual void aiStep();
 
-    // vIndex: 173, symbol: ?checkSpawnRules@Endermite@@UEAA_N_N@Z
+    // vIndex: 160, symbol: ?checkSpawnRules@Endermite@@UEAA_N_N@Z
     virtual bool checkSpawnRules(bool fromSpawner);
 
     // symbol: ??0Endermite@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

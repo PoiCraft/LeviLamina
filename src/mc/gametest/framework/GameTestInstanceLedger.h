@@ -27,30 +27,31 @@ public:
     // vIndex: 1, symbol: ?onTestStructureLoaded@GameTestInstanceLedger@@UEAAXAEAVBaseGameTestInstance@gametest@@@Z
     virtual void onTestStructureLoaded(class gametest::BaseGameTestInstance&);
 
-    // symbol: ??0GameTestInstanceLedger@@QEAA@AEAVLevelStorage@@@Z
-    MCAPI explicit GameTestInstanceLedger(class LevelStorage& storage);
+    // vIndex: 2, symbol: ?onTestPassed@IGameTestListener@gametest@@UEAAXAEAVBaseGameTestInstance@2@@Z
+    virtual void onTestPassed(class gametest::BaseGameTestInstance&);
+
+    // vIndex: 3, symbol: ?onTestFailed@IGameTestListener@gametest@@UEAAXAEAVBaseGameTestInstance@2@@Z
+    virtual void onTestFailed(class gametest::BaseGameTestInstance&);
+
+    // vIndex: 4, symbol: ?onTestStarted@IGameTestListener@gametest@@UEAAXAEAVBaseGameTestInstance@2@@Z
+    virtual void onTestStarted(class gametest::BaseGameTestInstance&);
+
+    // vIndex: 5, symbol: ?onTestRetryStarted@IGameTestListener@gametest@@UEAAXAEAVBaseGameTestInstance@2@@Z
+    virtual void onTestRetryStarted(class gametest::BaseGameTestInstance&);
+
+    // vIndex: 6, symbol: ?onTestRetryFinished@IGameTestListener@gametest@@UEAAXAEAVBaseGameTestInstance@2@@Z
+    virtual void onTestRetryFinished(class gametest::BaseGameTestInstance&);
 
     // symbol: ?clear@GameTestInstanceLedger@@QEAAXV?$AutomaticID@VDimension@@H@@@Z
     MCAPI void clear(DimensionType dimension);
 
-    // symbol:
-    // ?getBoundingBoxes@GameTestInstanceLedger@@QEBA?AV?$vector@VBoundingBox@@V?$allocator@VBoundingBox@@@std@@@std@@V?$AutomaticID@VDimension@@H@@@Z
-    MCAPI std::vector<class BoundingBox> getBoundingBoxes(DimensionType dimension) const;
-
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol:
     // ?GAME_TEST_INSTANCE_PREFIX@GameTestInstanceLedger@@0V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B
     MCAPI static std::string const GAME_TEST_INSTANCE_PREFIX;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $GAME_TEST_INSTANCE_PREFIX() { return GAME_TEST_INSTANCE_PREFIX; }
 
     // NOLINTEND
 };

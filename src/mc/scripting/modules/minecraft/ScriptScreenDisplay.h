@@ -3,6 +3,8 @@
 #include "mc/_HeaderOutputPredefine.h"
 
 // auto generated inclusion list
+#include "mc/enums/HudElement.h"
+#include "mc/enums/HudVisibility.h"
 #include "mc/external/scripting/ClassBindingBuilder.h"
 #include "mc/external/scripting/Result.h"
 
@@ -24,6 +26,24 @@ public:
 
 public:
     // NOLINTBEGIN
+    // symbol: ??0ScriptScreenDisplay@ScriptModuleMinecraft@@QEAA@AEBVPlayer@@@Z
+    MCAPI explicit ScriptScreenDisplay(class Player const& player);
+
+    // symbol:
+    // ?getHiddenHudElements@ScriptScreenDisplay@ScriptModuleMinecraft@@QEAA?AV?$Result@V?$vector@W4HudElement@@V?$allocator@W4HudElement@@@std@@@std@@$$V@Scripting@@XZ
+    MCAPI class Scripting::Result<std::vector<::HudElement>> getHiddenHudElements();
+
+    // symbol:
+    // ?hideAllExcept@ScriptScreenDisplay@ScriptModuleMinecraft@@QEAA?AV?$Result@X$$V@Scripting@@V?$optional@V?$vector@W4HudElement@@V?$allocator@W4HudElement@@@std@@@std@@@std@@@Z
+    MCAPI class Scripting::Result<void> hideAllExcept(std::optional<std::vector<::HudElement>>);
+
+    // symbol:
+    // ?isForcedHidden@ScriptScreenDisplay@ScriptModuleMinecraft@@QEAA?AV?$Result@_N$$V@Scripting@@W4HudElement@@@Z
+    MCAPI class Scripting::Result<bool> isForcedHidden(::HudElement);
+
+    // symbol: ?resetHudElements@ScriptScreenDisplay@ScriptModuleMinecraft@@QEAA?AV?$Result@X$$V@Scripting@@XZ
+    MCAPI class Scripting::Result<void> resetHudElements();
+
     // symbol:
     // ?setActionBar@ScriptScreenDisplay@ScriptModuleMinecraft@@QEBA?AV?$Result@X$$V@Scripting@@AEBV?$variant@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UScriptRawMessageInterface@ScriptModuleMinecraft@@V?$vector@V?$variant@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UScriptRawMessageInterface@ScriptModuleMinecraft@@@std@@V?$allocator@V?$variant@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UScriptRawMessageInterface@ScriptModuleMinecraft@@@std@@@2@@2@@std@@@Z
     MCAPI class Scripting::Result<void>
@@ -32,6 +52,10 @@ public:
                  struct ScriptModuleMinecraft::ScriptRawMessageInterface,
                  std::vector<
                      std::variant<std::string, struct ScriptModuleMinecraft::ScriptRawMessageInterface>>> const&) const;
+
+    // symbol:
+    // ?setHudVisibility@ScriptScreenDisplay@ScriptModuleMinecraft@@QEAA?AV?$Result@X$$V@Scripting@@W4HudVisibility@@V?$optional@V?$vector@W4HudElement@@V?$allocator@W4HudElement@@@std@@@std@@@std@@@Z
+    MCAPI class Scripting::Result<void> setHudVisibility(::HudVisibility, std::optional<std::vector<::HudElement>>);
 
     // symbol:
     // ?setTitle@ScriptScreenDisplay@ScriptModuleMinecraft@@QEBA?AV?$Result@X$$V@Scripting@@AEBV?$variant@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UScriptRawMessageInterface@ScriptModuleMinecraft@@V?$vector@V?$variant@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UScriptRawMessageInterface@ScriptModuleMinecraft@@@std@@V?$allocator@V?$variant@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UScriptRawMessageInterface@ScriptModuleMinecraft@@@std@@@2@@2@@std@@V?$optional@UScriptTitleDisplayOptions@ScriptModuleMinecraft@@@6@@Z
@@ -62,6 +86,9 @@ public:
     MCAPI class Scripting::Result<std::string>
     _getJsonString(class Player&, std::variant<std::string, struct ScriptModuleMinecraft::ScriptRawMessageInterface, std::vector<std::variant<std::string, struct ScriptModuleMinecraft::ScriptRawMessageInterface>>> const&)
         const;
+
+    // symbol: ?_tryGetPlayer@ScriptScreenDisplay@ScriptModuleMinecraft@@AEBAPEAVPlayer@@XZ
+    MCAPI class Player* _tryGetPlayer() const;
 
     // NOLINTEND
 };

@@ -3,7 +3,6 @@
 #include "mc/_HeaderOutputPredefine.h"
 
 // auto generated inclusion list
-#include "mc/network/TypedServerNetId.h"
 #include "mc/world/containers/ContainerEnumName.h"
 #include "mc/world/inventory/simulation/ContainerScreenValidatorBase.h"
 
@@ -24,18 +23,10 @@ public:
     // vIndex: 3, symbol:
     // ?getCraftResult@StoneCutterContainerScreenValidator@@UEAA?AUContainerValidationCraftResult@@AEBVContainerScreenContext@@AEAVContainerScreenValidation@@V?$unique_ptr@UContainerValidationCraftInputs@@U?$default_delete@UContainerValidationCraftInputs@@@std@@@std@@@Z
     virtual struct ContainerValidationCraftResult
-    getCraftResult(class ContainerScreenContext const&, class ContainerScreenValidation&, std::unique_ptr<struct ContainerValidationCraftInputs>);
+    getCraftResult(class ContainerScreenContext const& screenContext, class ContainerScreenValidation&, std::unique_ptr<struct ContainerValidationCraftInputs>);
 
     // symbol: ??0StoneCutterContainerScreenValidator@@QEAA@XZ
     MCAPI StoneCutterContainerScreenValidator();
-
-    // NOLINTEND
-
-    // private:
-    // NOLINTBEGIN
-    // symbol:
-    // ?_recipeMatches@StoneCutterContainerScreenValidator@@AEBA_NAEBVContainerScreenContext@@AEBV?$TypedServerNetId@URecipeNetIdTag@@I$0A@@@AEBVItemStack@@@Z
-    MCAPI bool _recipeMatches(class ContainerScreenContext const&, RecipeNetId const&, class ItemStack const&) const;
 
     // NOLINTEND
 };

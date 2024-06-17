@@ -134,11 +134,6 @@ public:
     std::vector<ConstrainedValueData>  mConstraints;      // 48+24*7=216
 
 public:
-    LLNDAPI std::vector<std::string> getEnumNames() const;
-    LLNDAPI std::vector<std::string> getSoftEnumNames() const;
-    LLNDAPI std::vector<std::string> getEnumValues(std::string const& name) const;
-    LLNDAPI std::vector<std::string> getSoftEnumValues(std::string const& name) const;
-
     // prevent constructor by default
     AvailableCommandsPacket& operator=(AvailableCommandsPacket const&);
     AvailableCommandsPacket(AvailableCommandsPacket const&);
@@ -155,10 +150,10 @@ public:
     // ?getName@AvailableCommandsPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@AvailableCommandsPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@AvailableCommandsPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@AvailableCommandsPacket@@MEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream);
 

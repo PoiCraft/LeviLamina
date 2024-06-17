@@ -29,23 +29,28 @@ public:
     // vIndex: 5, symbol: ?getMaxLevel@CrossbowEnchant@@UEBAHXZ
     virtual int getMaxLevel() const;
 
-    // vIndex: 14, symbol: ?_isValidEnchantmentTypeForCategory@CrossbowEnchant@@EEBA_NW4Type@Enchant@@@Z
+    // vIndex: 16, symbol: ?_isValidEnchantmentTypeForCategory@CrossbowEnchant@@EEBA_NW4Type@Enchant@@@Z
     virtual bool _isValidEnchantmentTypeForCategory(::Enchant::Type type) const;
+
+    // symbol:
+    // ??0CrossbowEnchant@@QEAA@W4Type@Enchant@@W4Frequency@2@V?$basic_string_view@DU?$char_traits@D@std@@@std@@2H_NH@Z
+    MCAPI CrossbowEnchant(
+        ::Enchant::Type      type,
+        ::Enchant::Frequency frequency,
+        std::string_view     stringId,
+        std::string_view     description,
+        int                  primarySlots,
+        bool                 isLootable,
+        int                  secondarySlots
+    );
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol:
     // ?VALID_ENCHANTMENTS@CrossbowEnchant@@0V?$vector@W4Type@Enchant@@V?$allocator@W4Type@Enchant@@@std@@@std@@B
     MCAPI static std::vector<::Enchant::Type> const VALID_ENCHANTMENTS;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $VALID_ENCHANTMENTS() { return VALID_ENCHANTMENTS; }
 
     // NOLINTEND
 };

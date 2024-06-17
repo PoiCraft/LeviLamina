@@ -118,9 +118,8 @@ public:
     // symbol: ?constructItemEnchantsFromUserData@ItemStackBase@@QEBA?AVItemEnchants@@XZ
     MCAPI class ItemEnchants constructItemEnchantsFromUserData() const;
 
-    // symbol:
-    // ?executeEvent@ItemStackBase@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAVRenderParams@@@Z
-    MCAPI void executeEvent(std::string const& event, class RenderParams& params);
+    // symbol: ?deserializeComponents@ItemStackBase@@QEAAXAEAVIDataInput@@@Z
+    MCAPI void deserializeComponents(class IDataInput& input);
 
     // symbol: ?getArmorSlot@ItemStackBase@@QEBA?AW4ArmorSlot@@XZ
     MCAPI ::ArmorSlot getArmorSlot() const;
@@ -147,6 +146,9 @@ public:
     // symbol:
     // ?getCanPlaceOn@ItemStackBase@@QEBAAEBV?$vector@PEBVBlockLegacy@@V?$allocator@PEBVBlockLegacy@@@std@@@std@@XZ
     MCAPI std::vector<class BlockLegacy const*> const& getCanPlaceOn() const;
+
+    // symbol: ?getCategoryName@ItemStackBase@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+    MCAPI std::string getCategoryName() const;
 
     // symbol: ?getChargedItem@ItemStackBase@@QEBAAEBVItemInstance@@XZ
     MCAPI class ItemInstance const& getChargedItem() const;
@@ -209,8 +211,8 @@ public:
     // symbol: ?getItem@ItemStackBase@@QEBAPEBVItem@@XZ
     MCAPI class Item const* getItem() const;
 
-    // symbol: ?getLegacyBlock@ItemStackBase@@QEBAAEBV?$WeakPtr@VBlockLegacy@@@@XZ
-    MCAPI class WeakPtr<class BlockLegacy> const& getLegacyBlock() const;
+    // symbol: ?getLegacyBlock@ItemStackBase@@QEBAAEBV?$WeakPtr@$$CBVBlockLegacy@@@@XZ
+    MCAPI class WeakPtr<class BlockLegacy const> const& getLegacyBlock() const;
 
     // symbol: ?getMaxDamage@ItemStackBase@@QEBAFXZ
     MCAPI short getMaxDamage() const;
@@ -230,6 +232,9 @@ public:
 
     // symbol: ?getRawNameId@ItemStackBase@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     MCAPI std::string getRawNameId() const;
+
+    // symbol: ?getRequiredBaseGameVersion@ItemStackBase@@QEBAAEBVBaseGameVersion@@XZ
+    MCAPI class BaseGameVersion const& getRequiredBaseGameVersion() const;
 
     // symbol: ?getUseAnimation@ItemStackBase@@QEBA?AW4UseAnimation@Legacy@Puv@@XZ
     MCAPI ::Puv::Legacy::UseAnimation getUseAnimation() const;
@@ -276,9 +281,6 @@ public:
     // symbol: ?hurtAndBreak@ItemStackBase@@QEAA_NHPEAVActor@@@Z
     MCAPI bool hurtAndBreak(int deltaDamage, class Actor* owner);
 
-    // symbol: ?initParams@ItemStackBase@@QEAAXAEAVRenderParams@@PEAVActor@@@Z
-    MCAPI void initParams(class RenderParams& params, class Actor* actor);
-
     // symbol: ?isArmorItem@ItemStackBase@@QEBA_NXZ
     MCAPI bool isArmorItem() const;
 
@@ -287,6 +289,9 @@ public:
 
     // symbol: ?isBlockInstance@ItemStackBase@@QEBA_NAEBVHashedString@@@Z
     MCAPI bool isBlockInstance(class HashedString const& blockName) const;
+
+    // symbol: ?isCoolableItem@ItemStackBase@@QEBA_NXZ
+    MCAPI bool isCoolableItem() const;
 
     // symbol: ?isDamageableItem@ItemStackBase@@QEBA_NXZ
     MCAPI bool isDamageableItem() const;
@@ -315,8 +320,17 @@ public:
     // symbol: ?isHorseArmorItem@ItemStackBase@@QEBA_NXZ
     MCAPI bool isHorseArmorItem() const;
 
+    // symbol: ?isHumanoidArmorItem@ItemStackBase@@QEBA_NXZ
+    MCAPI bool isHumanoidArmorItem() const;
+
+    // symbol: ?isHumanoidWearableBlockItem@ItemStackBase@@QEBA_NXZ
+    MCAPI bool isHumanoidWearableBlockItem() const;
+
+    // symbol: ?isHumanoidWearableItem@ItemStackBase@@QEBA_NXZ
+    MCAPI bool isHumanoidWearableItem() const;
+
     // symbol: ?isInstance@ItemStackBase@@QEBA_NAEBVHashedString@@_N@Z
-    MCAPI bool isInstance(class HashedString const& itemName, bool) const;
+    MCAPI bool isInstance(class HashedString const& itemName, bool useItemLookup) const;
 
     // symbol: ?isItem@ItemStackBase@@QEBA_NXZ
     MCAPI bool isItem() const;
@@ -362,9 +376,6 @@ public:
 
     // symbol: ?isValidAuxValue@ItemStackBase@@QEBA_NH@Z
     MCAPI bool isValidAuxValue(int value) const;
-
-    // symbol: ?isWearableItem@ItemStackBase@@QEBA_NXZ
-    MCAPI bool isWearableItem() const;
 
     // symbol: ?load@ItemStackBase@@QEAAXAEBVCompoundTag@@@Z
     MCAPI void load(class CompoundTag const& compoundTag);
@@ -428,6 +439,9 @@ public:
     // ?sendEventTriggered@ItemStackBase@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVRenderParams@@@Z
     MCAPI bool sendEventTriggered(std::string const& event, class RenderParams const& params);
 
+    // symbol: ?serializeComponents@ItemStackBase@@QEBAXAEAVIDataOutput@@@Z
+    MCAPI void serializeComponents(class IDataOutput& output) const;
+
     // symbol: ?set@ItemStackBase@@QEAAXH@Z
     MCAPI void set(int inCount);
 
@@ -477,6 +491,9 @@ public:
 
     // symbol: ?setShowPickUp@ItemStackBase@@QEAAX_N@Z
     MCAPI void setShowPickUp(bool show);
+
+    // symbol: ?setStackSize@ItemStackBase@@QEAAXE@Z
+    MCAPI void setStackSize(uchar);
 
     // symbol:
     // ?setUserData@ItemStackBase@@QEAAXV?$unique_ptr@VCompoundTag@@U?$default_delete@VCompoundTag@@@std@@@std@@@Z
@@ -560,10 +577,10 @@ public:
     MCAPI void init(class BlockLegacy const& block, int count);
 
     // symbol: ?init@ItemStackBase@@IEAAXHHH_N@Z
-    MCAPI void init(int id, int count_, int aux_, bool);
+    MCAPI void init(int id, int count_, int aux_, bool doRemap);
 
     // symbol: ?init@ItemStackBase@@IEAAXAEBVItem@@HHPEBVCompoundTag@@_N@Z
-    MCAPI void init(class Item const& item, int count, int auxValue, class CompoundTag const* userData, bool);
+    MCAPI void init(class Item const& item, int count, int auxValue, class CompoundTag const* userData, bool doRemap);
 
     // symbol: ??4ItemStackBase@@IEAAAEAV0@AEBV0@@Z
     MCAPI class ItemStackBase& operator=(class ItemStackBase const& rhs);
@@ -593,7 +610,7 @@ public:
     MCAPI void _setChargedItem(class ItemInstance const& item);
 
     // symbol: ?_setItem@ItemStackBase@@AEAA_NH_N@Z
-    MCAPI bool _setItem(int id, bool);
+    MCAPI bool _setItem(int id, bool doRemap);
 
     // symbol: ?_updateCompareHashes@ItemStackBase@@AEAAXXZ
     MCAPI void _updateCompareHashes();
@@ -605,7 +622,7 @@ public:
 
     // NOLINTEND
 
-protected:
+    // protected:
     // NOLINTBEGIN
     // symbol: ?TAG_CHARGED_ITEM@ItemStackBase@@1V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B
     MCAPI static std::string const TAG_CHARGED_ITEM;
@@ -618,23 +635,10 @@ protected:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?MAX_STACK_SIZE@ItemStackBase@@0HB
     MCAPI static int const MAX_STACK_SIZE;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $MAX_STACK_SIZE() { return MAX_STACK_SIZE; }
-
-    static auto& $TAG_CHARGED_ITEM() { return TAG_CHARGED_ITEM; }
-
-    static auto& $TAG_STORE_CAN_DESTROY() { return TAG_STORE_CAN_DESTROY; }
-
-    static auto& $TAG_STORE_CAN_PLACE_ON() { return TAG_STORE_CAN_PLACE_ON; }
 
     // NOLINTEND
 };

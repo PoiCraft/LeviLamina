@@ -30,13 +30,13 @@ public:
     // vIndex: 0, symbol: __gen_??1CrafterBlock@@UEAA@XZ
     virtual ~CrafterBlock() = default;
 
-    // vIndex: 30, symbol: ?isContainerBlock@CrafterBlock@@UEBA_NXZ
+    // vIndex: 31, symbol: ?isContainerBlock@CrafterBlock@@UEBA_NXZ
     virtual bool isContainerBlock() const;
 
-    // vIndex: 65, symbol: ?onRedstoneUpdate@CrafterBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
+    // vIndex: 66, symbol: ?onRedstoneUpdate@CrafterBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
     virtual void onRedstoneUpdate(class BlockSource&, class BlockPos const&, int, bool) const;
 
-    // vIndex: 71, symbol: ?setupRedstoneComponent@CrafterBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 72, symbol: ?setupRedstoneComponent@CrafterBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void setupRedstoneComponent(class BlockSource&, class BlockPos const&) const;
 
     // vIndex: 98, symbol: ?getPlacementBlock@CrafterBlock@@UEBAAEBVBlock@@AEBVActor@@AEBVBlockPos@@EAEBVVec3@@H@Z
@@ -61,22 +61,22 @@ public:
     // vIndex: 133, symbol: ?getFaceFlip@CrafterBlock@@UEBA?AW4Flip@@EAEBVBlock@@@Z
     virtual ::Flip getFaceFlip(uchar, class Block const&) const;
 
-    // vIndex: 144, symbol: ?onRemove@CrafterBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 143, symbol: ?onRemove@CrafterBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onRemove(class BlockSource&, class BlockPos const&) const;
 
-    // vIndex: 147, symbol: ?onPlace@CrafterBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@CrafterBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource&, class BlockPos const&) const;
 
-    // vIndex: 150, symbol: ?tick@CrafterBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@CrafterBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 152, symbol: ?isInteractiveBlock@CrafterBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@CrafterBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@CrafterBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@CrafterBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player&, class BlockPos const&, uchar) const;
 
-    // vIndex: 155, symbol: ?allowStateMismatchOnPlacement@CrafterBlock@@UEBA_NAEBVBlock@@0@Z
+    // vIndex: 153, symbol: ?allowStateMismatchOnPlacement@CrafterBlock@@UEBA_NAEBVBlock@@0@Z
     virtual bool allowStateMismatchOnPlacement(class Block const&, class Block const&) const;
 
     // symbol: ??0CrafterBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

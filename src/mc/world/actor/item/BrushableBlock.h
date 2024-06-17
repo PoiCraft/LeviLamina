@@ -30,15 +30,15 @@ public:
     // vIndex: 0, symbol: __gen_??1BrushableBlock@@UEAA@XZ
     virtual ~BrushableBlock() = default;
 
-    // vIndex: 79, symbol:
+    // vIndex: 80, symbol:
     // ?onFertilized@BrushableBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool
     onFertilized(class BlockSource& region, class BlockPos const& pos, class Actor*, ::FertilizerType) const;
 
-    // vIndex: 80, symbol: ?mayConsumeFertilizer@BrushableBlock@@UEBA_NAEAVBlockSource@@@Z
+    // vIndex: 81, symbol: ?mayConsumeFertilizer@BrushableBlock@@UEBA_NAEAVBlockSource@@@Z
     virtual bool mayConsumeFertilizer(class BlockSource&) const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@BrushableBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@BrushableBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool canBeFertilized(class BlockSource&, class BlockPos const&, class Block const& aboveBlock) const;
 
     // vIndex: 96, symbol: ?asItemInstance@BrushableBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
@@ -50,23 +50,17 @@ public:
     // vIndex: 136, symbol: ?init@BrushableBlock@@UEAAAEAVBlockLegacy@@XZ
     virtual class BlockLegacy& init();
 
-    // vIndex: 150, symbol: ?tick@BrushableBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@BrushableBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 163, symbol: ?getResourceItem@BrushableBlock@@UEBA?AVItemInstance@@AEAVRandomize@@AEBVBlock@@H@Z
-    virtual class ItemInstance getResourceItem(class Randomize&, class Block const&, int) const;
-
-    // vIndex: 165, symbol: ?getSilkTouchItemInstance@BrushableBlock@@UEBA?AVItemInstance@@AEBVBlock@@@Z
-    virtual class ItemInstance getSilkTouchItemInstance(class Block const&) const;
-
-    // vIndex: 168, symbol: ?getDustColor@BrushableBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
+    // vIndex: 163, symbol: ?getDustColor@BrushableBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
     virtual class mce::Color getDustColor(class Block const&) const;
 
-    // vIndex: 169, symbol:
+    // vIndex: 164, symbol:
     // ?getDustParticleName@BrushableBlock@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVBlock@@@Z
     virtual std::string getDustParticleName(class Block const&) const;
 
-    // vIndex: 171, symbol: ?onLand@BrushableBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 166, symbol: ?onLand@BrushableBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onLand(class BlockSource& region, class BlockPos const& pos) const;
 
     // symbol: ??0BrushableBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

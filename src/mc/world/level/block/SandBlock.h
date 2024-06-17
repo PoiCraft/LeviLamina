@@ -30,18 +30,18 @@ public:
     // vIndex: 0, symbol: __gen_??1SandBlock@@UEAA@XZ
     virtual ~SandBlock() = default;
 
-    // vIndex: 47, symbol: ?canBeOriginalSurface@SandBlock@@UEBA_NXZ
+    // vIndex: 48, symbol: ?canBeOriginalSurface@SandBlock@@UEBA_NXZ
     virtual bool canBeOriginalSurface() const;
 
-    // vIndex: 79, symbol: ?onFertilized@SandBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
+    // vIndex: 80, symbol: ?onFertilized@SandBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@W4FertilizerType@@@Z
     virtual bool
     onFertilized(class BlockSource& region, class BlockPos const& pos, class Actor* entity, ::FertilizerType fType)
         const;
 
-    // vIndex: 80, symbol: ?mayConsumeFertilizer@SandBlock@@UEBA_NAEAVBlockSource@@@Z
+    // vIndex: 81, symbol: ?mayConsumeFertilizer@SandBlock@@UEBA_NAEAVBlockSource@@@Z
     virtual bool mayConsumeFertilizer(class BlockSource& region) const;
 
-    // vIndex: 81, symbol: ?canBeFertilized@SandBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 82, symbol: ?canBeFertilized@SandBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual bool
     canBeFertilized(class BlockSource& region, class BlockPos const& pos, class Block const& aboveBlock) const;
 
@@ -58,13 +58,13 @@ public:
     // vIndex: 129, symbol: ?getVariant@SandBlock@@UEBAHAEBVBlock@@@Z
     virtual int getVariant(class Block const& block) const;
 
-    // vIndex: 162, symbol: ?getMapColor@SandBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 160, symbol: ?getMapColor@SandBlock@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual class mce::Color getMapColor(class BlockSource&, class BlockPos const&, class Block const& block) const;
 
-    // vIndex: 168, symbol: ?getDustColor@SandBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
+    // vIndex: 163, symbol: ?getDustColor@SandBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
     virtual class mce::Color getDustColor(class Block const& block) const;
 
-    // vIndex: 169, symbol:
+    // vIndex: 164, symbol:
     // ?getDustParticleName@SandBlock@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVBlock@@@Z
     virtual std::string getDustParticleName(class Block const&) const;
 

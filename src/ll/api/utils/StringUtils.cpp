@@ -1,7 +1,19 @@
 #include "ll/api/utils/StringUtils.h"
 
+#include <cctype>
+#include <cfloat>
+#include <cstdint>
+#include <string>
+#include <string_view>
+#include <unordered_map>
+
 #include "ctre/ctre-unicode.hpp"
+#include "fmt/color.h"
+#include "fmt/core.h"
+#include "fmt/format.h"
 #include "magic_enum.hpp"
+
+#include "ll/api/base/StdInt.h"
 
 #include "mc/deps/core/mce/Color.h"
 #include "mc/deps/core/utility/Util.h"
@@ -74,14 +86,15 @@ fmt::text_style getTextStyleFromCode(std::string_view code) {
             if (svec.size() != 3) {
                 return {};
             }
-            auto colorFromCode = fmt::rgb(svtouc(svec[0]), svtouc(svec[1]), svtouc(svec[2]));
+            auto colorFromCode =
+                fmt::rgb(svtouc(svec[0]).value_or(0), svtouc(svec[1]).value_or(0), svtouc(svec[2]).value_or(0));
             if (background) {
                 return fmt::bg(colorFromCode);
             } else {
                 return fmt::fg(colorFromCode);
             }
         } else {
-            int num = svtoi(code);
+            int num = svtoi(code).value_or(0);
             if (magic_enum::enum_contains<fmt::terminal_color>((uchar)num)) {
                 return fmt::fg((fmt::terminal_color)num);
             } else if (magic_enum::enum_contains<fmt::terminal_color>((uchar)(num - 10))) {
@@ -103,7 +116,6 @@ fmt::text_style getTextStyleFromCode(std::string_view code) {
             }
         }
     }
-
     return {};
 }
 
@@ -199,23 +211,21 @@ std::string getAnsiCodeFromTextStyle(fmt::text_style style) {
 }
 
 std::wstring str2wstr(std::string_view str, uint codePage) {
-    int len = MultiByteToWideChar(codePage, 0, str.data(), (int)str.size(), nullptr, 0);
-    if (len == 0) {
-        return {};
-    }
-    std::wstring wstr(len, L'\0');
+    int          len = MultiByteToWideChar(codePage, 0, str.data(), (int)str.size(), nullptr, 0);
+    std::wstring wstr;
+    if (len == 0) return wstr;
+    wstr.resize(len);
     MultiByteToWideChar(codePage, 0, str.data(), (int)str.size(), wstr.data(), len);
     return wstr;
 }
 
-std::string wstr2str(std::wstring_view str, uint codePage) {
-    int len = WideCharToMultiByte(codePage, 0, str.data(), (int)str.size(), nullptr, 0, nullptr, nullptr);
-    if (len == 0) {
-        return {};
-    }
-    std::string ret(len, '\0');
-    WideCharToMultiByte(codePage, 0, str.data(), (int)str.size(), ret.data(), (int)ret.size(), nullptr, nullptr);
-    return ret;
+std::string wstr2str(std::wstring_view wstr, uint codePage) {
+    int         len = WideCharToMultiByte(codePage, 0, wstr.data(), (int)wstr.size(), nullptr, 0, nullptr, nullptr);
+    std::string str;
+    if (len == 0) return str;
+    str.resize(len);
+    WideCharToMultiByte(codePage, 0, wstr.data(), (int)wstr.size(), str.data(), (int)str.size(), nullptr, nullptr);
+    return str;
 }
 
 std::string str2str(std::string_view str, uint fromCodePage, uint toCodePage) {
@@ -281,10 +291,10 @@ std::string tou8str(std::string_view str) {
     }
 }
 std::string toSnakeCase(std::string_view str) {
-    if (str.empty()) {
-        return {};
-    }
     std::string res;
+    if (str.empty()) {
+        return res;
+    }
     res.reserve(str.length());
     res.push_back((char)tolower(str.front()));
     str.remove_prefix(1);
@@ -298,10 +308,12 @@ std::string toSnakeCase(std::string_view str) {
     }
     return res;
 }
-bool strtobool(std::string const& str) {
+Expected<bool> strtobool(std::string const& str) {
     bool res = false;
-    Util::toBool(str, res);
-    return res;
+    if (Util::toBool(str, res)) {
+        return res;
+    } else {
+        return makeErrorCodeError(std::errc::invalid_argument);
+    }
 }
-
 } // namespace ll::inline utils::string_utils

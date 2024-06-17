@@ -37,9 +37,6 @@ public:
     // symbol: ?tryRemoveOneFromItemStack@StorageItemComponent@@QEBA?AVItemStack@@AEAV2@@Z
     MCAPI class ItemStack tryRemoveOneFromItemStack(class ItemStack& item) const;
 
-    // symbol: ?use@StorageItemComponent@@QEBA_NAEAVItemStack@@AEAVPlayer@@@Z
-    MCAPI bool use(class ItemStack& item, class Player& player) const;
-
     // symbol: ?getIdentifier@StorageItemComponent@@SAAEBVHashedString@@XZ
     MCAPI static class HashedString const& getIdentifier();
 

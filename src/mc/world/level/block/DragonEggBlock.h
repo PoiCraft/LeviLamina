@@ -30,19 +30,19 @@ public:
     // vIndex: 0, symbol: __gen_??1DragonEggBlock@@UEAA@XZ
     virtual ~DragonEggBlock() = default;
 
-    // vIndex: 89, symbol: ?breaksFallingBlocks@DragonEggBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
+    // vIndex: 90, symbol: ?breaksFallingBlocks@DragonEggBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
     virtual bool breaksFallingBlocks(class Block const& block, class BaseGameVersion version) const;
 
     // vIndex: 101, symbol: ?attack@DragonEggBlock@@UEBA_NPEAVPlayer@@AEBVBlockPos@@@Z
     virtual bool attack(class Player* player, class BlockPos const& pos) const;
 
-    // vIndex: 154, symbol: ?use@DragonEggBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@DragonEggBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 168, symbol: ?getDustColor@DragonEggBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
+    // vIndex: 163, symbol: ?getDustColor@DragonEggBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
     virtual class mce::Color getDustColor(class Block const& block) const;
 
-    // vIndex: 169, symbol:
+    // vIndex: 164, symbol:
     // ?getDustParticleName@DragonEggBlock@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVBlock@@@Z
     virtual std::string getDustParticleName(class Block const&) const;
 

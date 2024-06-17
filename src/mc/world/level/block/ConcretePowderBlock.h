@@ -30,7 +30,7 @@ public:
     // vIndex: 0, symbol: __gen_??1ConcretePowderBlock@@UEAA@XZ
     virtual ~ConcretePowderBlock() = default;
 
-    // vIndex: 92, symbol: ?neighborChanged@ConcretePowderBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@ConcretePowderBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -40,13 +40,13 @@ public:
     // vIndex: 108, symbol: ?shouldStopFalling@ConcretePowderBlock@@UEBA_NAEAVActor@@@Z
     virtual bool shouldStopFalling(class Actor& entity) const;
 
-    // vIndex: 147, symbol: ?onPlace@ConcretePowderBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@ConcretePowderBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 168, symbol: ?getDustColor@ConcretePowderBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
+    // vIndex: 163, symbol: ?getDustColor@ConcretePowderBlock@@UEBA?AVColor@mce@@AEBVBlock@@@Z
     virtual class mce::Color getDustColor(class Block const& block) const;
 
-    // vIndex: 169, symbol:
+    // vIndex: 164, symbol:
     // ?getDustParticleName@ConcretePowderBlock@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVBlock@@@Z
     virtual std::string getDustParticleName(class Block const&) const;
 

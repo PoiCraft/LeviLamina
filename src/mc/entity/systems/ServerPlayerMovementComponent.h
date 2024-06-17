@@ -20,6 +20,9 @@ public:
     // symbol: ??0ServerPlayerMovementComponent@@QEAA@$$QEAU0@@Z
     MCAPI ServerPlayerMovementComponent(struct ServerPlayerMovementComponent&&);
 
+    // symbol: ?addInteractPacket@ServerPlayerMovementComponent@@QEAA_NAEBVInteractPacket@@@Z
+    MCAPI bool addInteractPacket(class InteractPacket const&);
+
     // symbol:
     // ?addInventoryTransactionPacket@ServerPlayerMovementComponent@@QEAA_NV?$shared_ptr@VInventoryTransactionPacket@@@std@@@Z
     MCAPI bool addInventoryTransactionPacket(std::shared_ptr<class InventoryTransactionPacket>);
@@ -32,6 +35,9 @@ public:
 
     // symbol: ?clear@ServerPlayerMovementComponent@@QEAAXXZ
     MCAPI void clear();
+
+    // symbol: ?empty@ServerPlayerMovementComponent@@QEBA_NXZ
+    MCAPI bool empty() const;
 
     // symbol: ?front@ServerPlayerMovementComponent@@QEAAAEAUMovementPackets@@XZ
     MCAPI struct MovementPackets& front();

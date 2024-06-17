@@ -10,6 +10,8 @@ public:
     // clang-format on
 
     // IMinecraftEventing inner types define
+    enum class AddedFriendLocation {};
+
     enum class CDNDownloadEventOrigin {};
 
     enum class CDNDownloadResult {};
@@ -59,8 +61,6 @@ public:
     enum class SignInAccountType {};
 
     enum class SignInStage {};
-
-    enum class SignInTrigger {};
 
     enum class StoreType {};
 

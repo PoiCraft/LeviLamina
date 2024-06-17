@@ -1,23 +1,35 @@
 #pragma once
 
 #include <concepts>
+#include <cstddef>
+#include <functional>
 #include <memory>
-#include <unordered_set>
+#include <string_view>
+#include <type_traits>
+#include <utility>
 
 #include "ll/api/base/Concepts.h"
 #include "ll/api/base/Macro.h"
 #include "ll/api/event/Event.h"
 #include "ll/api/event/EventId.h"
 #include "ll/api/event/Listener.h"
+#include "ll/api/event/ListenerBase.h"
 
+namespace ll::plugin {
+class Plugin;
+}
 namespace ll::event {
 class EmitterBase;
 
 class EventBus {
-private:
+    friend plugin::Plugin;
     class EventBusImpl;
     std::unique_ptr<EventBusImpl> impl;
     EventBus();
+
+    size_t removePluginListeners(std::string_view pluginName);
+
+    size_t removePluginEventEmitters(std::string_view pluginName);
 
 public:
     LLNDAPI static EventBus& getInstance();
@@ -26,22 +38,31 @@ public:
 
     LLAPI void publish(std::string_view pluginName, Event&, EventId);
 
-    LLAPI void setEventEmitter(std::function<std::unique_ptr<EmitterBase>(ListenerBase&)> fn, EventId eventId);
+    LLAPI void setEventEmitter(
+        std::function<std::unique_ptr<EmitterBase>(ListenerBase&)> fn,
+        EventId                                                    eventId,
+        std::weak_ptr<plugin::Plugin>                              plugin = plugin::NativePlugin::current()
+    );
 
     template <std::derived_from<Event> T>
-    void setEventEmitter(std::function<std::unique_ptr<EmitterBase>(ListenerBase&)> fn) {
-        setEventEmitter(std::move(fn), getEventId<T>);
+    void setEventEmitter(
+        std::function<std::unique_ptr<EmitterBase>(ListenerBase&)> fn,
+        std::weak_ptr<plugin::Plugin>                              plugin = plugin::NativePlugin::current()
+    ) {
+        setEventEmitter(std::move(fn), getEventId<T>, plugin);
     }
 
     template <class T>
         requires(std::derived_from<std::remove_cvref_t<T>, Event>)
     void publish(T&& event) {
+        static_assert(std::is_final_v<std::remove_cvref_t<T>>, "Only final classes can publish");
         publish(event, getEventId<T>);
     }
 
     template <class T>
         requires(std::derived_from<std::remove_cvref_t<T>, Event>)
     void publish(std::string_view pluginName, T&& event) {
+        static_assert(std::is_final_v<std::remove_cvref_t<T>>, "Only final classes can publish");
         publish(pluginName, event, getEventId<T>);
     }
 
@@ -49,6 +70,7 @@ public:
 
     template <std::derived_from<Event> T>
     [[nodiscard]] size_t getListenerCount() {
+        static_assert(std::is_final_v<std::remove_cvref_t<T>>, "Only final classes can be listen");
         return getListenerCount(getEventId<T>);
     }
 
@@ -57,13 +79,8 @@ public:
     template <class T, template <class...> class L, class... LT>
         requires((std::derived_from<T, LT> || ...) && std::derived_from<L<LT...>, ListenerBase>)
     bool addListener(std::shared_ptr<L<LT...>> const& listener) {
-        if constexpr (requires(L<LT...> a) {
-                          { a.getEventId() } -> std::same_as<EventId>;
-                      } && concepts::is_all_same_v<T, LT...>) {
-            return addListener(listener, listener->getEventId());
-        } else {
-            return addListener(listener, getEventId<T>);
-        }
+        static_assert(std::is_final_v<std::remove_cvref_t<T>>, "Only final classes can be listen");
+        return addListener(listener, getEventId<T>);
     }
     template <class T = void, template <class...> class L, class... LT>
         requires(std::same_as<T, void> && std::derived_from<L<LT...>, ListenerBase>)
@@ -84,6 +101,7 @@ public:
     bool removeListener(ListenerPtr const& listener) { return removeListener(listener, EmptyEventId); }
     template <std::derived_from<Event> T>
     bool removeListener(ListenerPtr const& listener) {
+        static_assert(std::is_final_v<std::remove_cvref_t<T>>, "Only final classes can be listen");
         return removeListener(listener, getEventId<T>);
     }
 
@@ -105,6 +123,7 @@ public:
     }
     template <std::derived_from<Event> T>
     bool removeListener(ListenerId id) {
+        static_assert(std::is_final_v<std::remove_cvref_t<T>>, "Only final classes can be listen");
         if (auto listener = getListener(id); listener) {
             return removeListener(listener, getEventId<T>);
         }
@@ -119,8 +138,6 @@ public:
     [[nodiscard]] bool hasListener(ListenerId id) const {
         return hasListener(id, getEventId<T>);
     }
-
-    LLAPI size_t removePluginListeners(std::string_view pluginName);
 };
 
 } // namespace ll::event

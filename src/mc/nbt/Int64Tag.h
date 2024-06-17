@@ -3,6 +3,7 @@
 #include "mc/_HeaderOutputPredefine.h"
 
 // auto generated inclusion list
+#include "mc/deps/core/common/bedrock/Result.h"
 #include "mc/nbt/Tag.h"
 
 class Int64Tag : public ::Tag {
@@ -33,8 +34,8 @@ public:
     // vIndex: 2, symbol: ?write@Int64Tag@@UEBAXAEAVIDataOutput@@@Z
     virtual void write(class IDataOutput& dos) const;
 
-    // vIndex: 3, symbol: ?load@Int64Tag@@UEAAXAEAVIDataInput@@@Z
-    virtual void load(class IDataInput& dis);
+    // vIndex: 3, symbol: ?load@Int64Tag@@UEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVIDataInput@@@Z
+    virtual class Bedrock::Result<void> load(class IDataInput& dis);
 
     // vIndex: 4, symbol: ?toString@Int64Tag@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string toString() const;
@@ -51,8 +52,12 @@ public:
     // vIndex: 10, symbol: ?hash@Int64Tag@@UEBA_KXZ
     virtual uint64 hash() const;
 
+    // symbol: ??0Int64Tag@@QEAA@_J@Z
+    MCAPI explicit Int64Tag(int64 data);
+
     // NOLINTEND
 };
+
 namespace ll::nbt_literals {
 [[nodiscard]] inline Int64Tag operator""_l(uint64 num) { return Int64Tag{(int64)num}; }
 } // namespace ll::nbt_literals

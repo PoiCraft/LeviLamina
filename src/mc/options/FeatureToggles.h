@@ -66,17 +66,9 @@ public:
     // private:
     // NOLINTBEGIN
     // symbol:
-    // ?_getDisableIfOtherOptionDisabledSetupCallback@FeatureToggles@@AEBA?AV?$function@$$A6AXAEAVOption@@@Z@std@@W4FeatureOptionID@@@Z
-    MCAPI std::function<void(class Option&)>
-          _getDisableIfOtherOptionDisabledSetupCallback(::FeatureOptionID optionIdToCheck) const;
-
-    // symbol:
     // ?_getDisabledIfOptionExpectationsNotMetSetupCallback@FeatureToggles@@AEAA?AV?$function@$$A6AXAEAVOption@@@Z@std@@V?$vector@W4FeatureOptionID@@V?$allocator@W4FeatureOptionID@@@std@@@3@0@Z
     MCAPI std::function<void(class Option&)>
         _getDisabledIfOptionExpectationsNotMetSetupCallback(std::vector<::FeatureOptionID>, std::vector<::FeatureOptionID>);
-
-    // symbol: ?_getForceEnableCallback@FeatureToggles@@AEAA?AV?$function@$$A6AXAEAVOption@@@Z@std@@XZ
-    MCAPI std::function<void(class Option&)> _getForceEnableCallback();
 
     // symbol:
     // ?_getLockIfInGameOrOptionExpectationsNotMetLockCallback@FeatureToggles@@AEAA?AV?$function@$$A6AXAEA_N@Z@std@@V?$vector@W4FeatureOptionID@@V?$allocator@W4FeatureOptionID@@@std@@@3@0@Z
@@ -107,18 +99,11 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol:
     // ?mFeatureToggles@FeatureToggles@@0V?$unique_ptr@VFeatureToggles@@U?$default_delete@VFeatureToggles@@@std@@@std@@A
     MCAPI static std::unique_ptr<class FeatureToggles> mFeatureToggles;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $mFeatureToggles() { return mFeatureToggles; }
 
     // NOLINTEND
 };

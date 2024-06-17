@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -45,28 +44,28 @@ public:
     // vIndex: 10, symbol: __gen_??1ThrownTrident@@UEAA@XZ
     virtual ~ThrownTrident() = default;
 
-    // vIndex: 45, symbol: ?playerTouch@ThrownTrident@@UEAAXAEAVPlayer@@@Z
+    // vIndex: 42, symbol: ?playerTouch@ThrownTrident@@UEAAXAEAVPlayer@@@Z
     virtual void playerTouch(class Player& player);
 
-    // vIndex: 71, symbol: ?isEnchanted@ThrownTrident@@UEBA_NXZ
+    // vIndex: 65, symbol: ?isEnchanted@ThrownTrident@@UEBA_NXZ
     virtual bool isEnchanted() const;
 
-    // vIndex: 83, symbol: ?despawn@ThrownTrident@@UEAAXXZ
+    // vIndex: 76, symbol: ?despawn@ThrownTrident@@UEAAXXZ
     virtual void despawn();
 
-    // vIndex: 158, symbol: ?_hurt@ThrownTrident@@MEAA_NAEBVActorDamageSource@@M_N1@Z
+    // vIndex: 146, symbol: ?_hurt@ThrownTrident@@MEAA_NAEBVActorDamageSource@@M_N1@Z
     virtual bool _hurt(class ActorDamageSource const& source, float damage, bool knock, bool ignite);
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@ThrownTrident@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@ThrownTrident@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@ThrownTrident@@MEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@ThrownTrident@@MEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag& tag) const;
 
-    // vIndex: 163, symbol: ?shoot@ThrownTrident@@UEAAXAEBVVec3@@MM0@Z
+    // vIndex: 151, symbol: ?shoot@ThrownTrident@@UEAAXAEBVVec3@@MM0@Z
     virtual void shoot(class Vec3 const& dir, float pow, float uncertainty, class Vec3 const& baseSpeed);
 
-    // vIndex: 164, symbol: ?_getPickupItem@ThrownTrident@@MEBA?AVItemStack@@XZ
+    // vIndex: 152, symbol: ?_getPickupItem@ThrownTrident@@MEBA?AVItemStack@@XZ
     virtual class ItemStack _getPickupItem() const;
 
     // symbol: ??0ThrownTrident@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

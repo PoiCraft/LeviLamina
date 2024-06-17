@@ -1,12 +1,17 @@
 #pragma once
 
+#include <memory>
+#include <string_view>
+
+#include "ll/api/base/Macro.h"
+#include "ll/api/plugin/Manifest.h"
 #include "ll/api/plugin/Plugin.h"
 #include "ll/api/utils/WinUtils.h"
 
 namespace ll::plugin {
 
 class NativePluginManager;
-constexpr std::string_view NativePluginManagerName = "native";
+[[maybe_unused]] constexpr std::string_view NativePluginManagerName = "native";
 
 class NativePlugin : public Plugin {
     friend NativePluginManager;
@@ -20,7 +25,7 @@ protected:
     void setHandle(Handle handle);
 
 public:
-    NativePlugin(Manifest manifest, Handle handle);
+    NativePlugin(Manifest manifest, Handle handle = nullptr);
     ~NativePlugin();
 
     LLNDAPI Handle getHandle() const;
@@ -29,4 +34,5 @@ public:
 
     LLNDAPI static std::shared_ptr<NativePlugin> current(Handle handle = win_utils::getCurrentModuleHandle());
 };
+
 } // namespace ll::plugin

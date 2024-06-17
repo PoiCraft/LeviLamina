@@ -14,6 +14,7 @@ class UpdatePlayerGameTypePacket : public ::Packet {
 public:
     GameType      mPlayerGameType; // this+0x30
     ActorUniqueID mTargetPlayer;   // this+0x38
+    int           mTick;
 
     // prevent constructor by default
     UpdatePlayerGameTypePacket& operator=(UpdatePlayerGameTypePacket const&);
@@ -31,18 +32,18 @@ public:
     // ?getName@UpdatePlayerGameTypePacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@UpdatePlayerGameTypePacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@UpdatePlayerGameTypePacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@UpdatePlayerGameTypePacket@@EEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream);
 
     // symbol: ??0UpdatePlayerGameTypePacket@@QEAA@XZ
     MCAPI UpdatePlayerGameTypePacket();
 
-    // symbol: ??0UpdatePlayerGameTypePacket@@QEAA@W4GameType@@AEBUActorUniqueID@@@Z
-    MCAPI UpdatePlayerGameTypePacket(::GameType playerGameType, struct ActorUniqueID const&);
+    // symbol: ??0UpdatePlayerGameTypePacket@@QEAA@W4GameType@@AEBUActorUniqueID@@_K@Z
+    MCAPI UpdatePlayerGameTypePacket(::GameType, struct ActorUniqueID const&, uint64);
 
     // NOLINTEND
 };

@@ -7,7 +7,6 @@
 
 // auto generated forward declare list
 // clang-format off
-namespace Puv::v1_20_50 { struct DiggerItemComponent; }
 namespace cereal { struct ReflectionCtx; }
 // clang-format on
 
@@ -31,6 +30,9 @@ public:
         // symbol: ??8BlockInfo@DiggerItemComponent@@QEBA_NAEBU01@@Z
         MCAPI bool operator==(struct DiggerItemComponent::BlockInfo const&) const;
 
+        // symbol: ??1BlockInfo@DiggerItemComponent@@QEAA@XZ
+        MCAPI ~BlockInfo();
+
         // NOLINTEND
     };
 
@@ -48,7 +50,10 @@ public:
     // vIndex: 1, symbol: ?checkComponentDataForContentErrors@ItemComponent@@UEBA_NXZ
     virtual bool checkComponentDataForContentErrors() const;
 
-    // vIndex: 3, symbol: ?isNetworkComponent@InteractButtonItemComponent@@UEBA_NXZ
+    // vIndex: 2, symbol: ?writeSettings@ItemComponent@@UEAAXXZ
+    virtual void writeSettings();
+
+    // vIndex: 3, symbol: ?isNetworkComponent@ItemComponent@@UEBA_NXZ
     virtual bool isNetworkComponent() const;
 
     // vIndex: 4, symbol:
@@ -70,9 +75,6 @@ public:
 
     // vIndex: 9, symbol: ?_initializeComponent@ItemComponent@@MEAAXXZ
     virtual void _initializeComponent();
-
-    // symbol: ??0DiggerItemComponent@@QEAA@U0v1_20_50@Puv@@@Z
-    MCAPI explicit DiggerItemComponent(struct Puv::v1_20_50::DiggerItemComponent);
 
     // symbol:
     // ?bindType@DiggerItemComponent@@SAXAEAUReflectionCtx@cereal@@AEBV?$vector@W4AllExperiments@@V?$allocator@W4AllExperiments@@@std@@@std@@V?$optional@VSemVersion@@@5@@Z

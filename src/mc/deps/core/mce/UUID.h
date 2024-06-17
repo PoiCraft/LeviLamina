@@ -18,7 +18,7 @@ public:
     LLNDAPI static mce::UUID random();
 
     [[nodiscard]] inline mce::UUID fromStringHash(std::string_view sv) {
-        return {ll::hash_utils::do_hash(sv), ll::hash_utils::do_hash2(sv)};
+        return {ll::hash_utils::doHash(sv), ll::hash_utils::doHash2(sv)};
     }
 
     [[nodiscard]] inline explicit operator bool() const { return !isEmpty(); }
@@ -41,6 +41,9 @@ public:
 
     // symbol: ?isEmpty@UUID@mce@@QEBA_NXZ
     MCAPI bool isEmpty() const;
+
+    // symbol: ??MUUID@mce@@QEBA_NAEBV01@@Z
+    MCAPI bool operator<(class mce::UUID const&) const;
 
     // symbol: ?canParse@UUID@mce@@SA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
     MCAPI static bool canParse(std::string const& in);

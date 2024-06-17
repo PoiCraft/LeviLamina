@@ -14,7 +14,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/GameType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
@@ -76,30 +75,30 @@ public:
     // vIndex: 10, symbol: __gen_??1SimulatedPlayer@@UEAA@XZ
     virtual ~SimulatedPlayer() = default;
 
-    // vIndex: 26, symbol: ?teleportTo@SimulatedPlayer@@UEAAXAEBVVec3@@_NHH1@Z
+    // vIndex: 23, symbol: ?teleportTo@SimulatedPlayer@@UEAAXAEBVVec3@@_NHH1@Z
     virtual void teleportTo(class Vec3 const& pos, bool shouldStopRiding, int cause, int sourceEntityType, bool);
 
-    // vIndex: 171, symbol: ?aiStep@SimulatedPlayer@@UEAAXXZ
+    // vIndex: 158, symbol: ?aiStep@SimulatedPlayer@@UEAAXXZ
     virtual void aiStep();
 
-    // vIndex: 259, symbol: ?isSimulated@SimulatedPlayer@@UEBA_NXZ
+    // vIndex: 245, symbol: ?isSimulated@SimulatedPlayer@@UEBA_NXZ
     virtual bool isSimulated() const;
 
-    // vIndex: 260, symbol:
+    // vIndex: 246, symbol:
     // ?getXuid@SimulatedPlayer@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getXuid() const;
 
-    // vIndex: 261, symbol: ?getMovementSettings@SimulatedPlayer@@UEBAAEBUPlayerMovementSettings@@XZ
+    // vIndex: 247, symbol: ?getMovementSettings@SimulatedPlayer@@UEBAAEBUPlayerMovementSettings@@XZ
     virtual struct PlayerMovementSettings const& getMovementSettings() const;
 
-    // vIndex: 265, symbol:
+    // vIndex: 251, symbol:
     // ?_createChunkSource@SimulatedPlayer@@MEAA?AV?$shared_ptr@VChunkViewSource@@@std@@AEAVChunkSource@@@Z
     virtual std::shared_ptr<class ChunkViewSource> _createChunkSource(class ChunkSource& mainChunkSource);
 
-    // vIndex: 269, symbol: ?_getSpawnChunkLimit@SimulatedPlayer@@MEBAHXZ
+    // vIndex: 255, symbol: ?_getSpawnChunkLimit@SimulatedPlayer@@MEBAHXZ
     virtual int _getSpawnChunkLimit() const;
 
-    // vIndex: 270, symbol: ?_updateChunkPublisherView@SimulatedPlayer@@MEAAXAEBVVec3@@M@Z
+    // vIndex: 256, symbol: ?_updateChunkPublisherView@SimulatedPlayer@@MEAAXAEBVVec3@@M@Z
     virtual void _updateChunkPublisherView(class Vec3 const&, float);
 
     // symbol:
@@ -117,8 +116,8 @@ public:
         std::string const&                 deviceId,
         std::unique_ptr<class Certificate> certificate,
         int                                maxChunkRadius,
-        bool,
-        class EntityContext& entityContext
+        bool                               enableItemStackNetManager,
+        class EntityContext&               entityContext
     );
 
     // symbol: ?getGameTestHelper@SimulatedPlayer@@QEBA?AV?$NonOwnerPointer@VBaseGameTestHelper@gametest@@@Bedrock@@XZ
@@ -174,9 +173,6 @@ public:
 
     // symbol: ?simulateLocalMove@SimulatedPlayer@@QEAAXAEBVVec3@@M@Z
     MCAPI void simulateLocalMove(class Vec3 const&, float speed);
-
-    // symbol: ?simulateLookAt@SimulatedPlayer@@QEAAXAEBVVec3@@@Z
-    MCAPI void simulateLookAt(class Vec3 const& pos);
 
     // symbol: ?simulateLookAt@SimulatedPlayer@@QEAAXAEAVActor@@W4LookDuration@sim@@@Z
     MCAPI void simulateLookAt(class Actor&, ::sim::LookDuration);

@@ -44,17 +44,17 @@ public:
     // vIndex: 23, symbol: ?canProvideSupport@UndyedShulkerBoxBlock@@UEBA_NAEBVBlock@@EW4BlockSupportType@@@Z
     virtual bool canProvideSupport(class Block const&, uchar, ::BlockSupportType) const;
 
-    // vIndex: 63, symbol: ?dispense@UndyedShulkerBoxBlock@@UEBA_NAEAVBlockSource@@AEAVContainer@@HAEBVVec3@@E@Z
+    // vIndex: 64, symbol: ?dispense@UndyedShulkerBoxBlock@@UEBA_NAEAVBlockSource@@AEAVContainer@@HAEBVVec3@@E@Z
     virtual bool
     dispense(class BlockSource& region, class Container& container, int slot, class Vec3 const& pos, uchar face) const;
 
-    // vIndex: 71, symbol: ?setupRedstoneComponent@UndyedShulkerBoxBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 72, symbol: ?setupRedstoneComponent@UndyedShulkerBoxBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void setupRedstoneComponent(class BlockSource&, class BlockPos const&) const;
 
-    // vIndex: 89, symbol: ?breaksFallingBlocks@UndyedShulkerBoxBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
+    // vIndex: 90, symbol: ?breaksFallingBlocks@UndyedShulkerBoxBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
     virtual bool breaksFallingBlocks(class Block const&, class BaseGameVersion version) const;
 
-    // vIndex: 94, symbol: ?playerWillDestroy@UndyedShulkerBoxBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
+    // vIndex: 95, symbol: ?playerWillDestroy@UndyedShulkerBoxBlock@@UEBAPEBVBlock@@AEAVPlayer@@AEBVBlockPos@@AEBV2@@Z
     virtual class Block const*
     playerWillDestroy(class Player& player, class BlockPos const& pos, class Block const& block) const;
 
@@ -84,19 +84,10 @@ public:
 
     // NOLINTEND
 
-protected:
+    // protected:
     // NOLINTBEGIN
     // symbol: ?SHULKER_BOX_DOESNT_BREAK_FALLING_BLOCK_VERSION@UndyedShulkerBoxBlock@@1VBaseGameVersion@@B
     MCAPI static class BaseGameVersion const SHULKER_BOX_DOESNT_BREAK_FALLING_BLOCK_VERSION;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $SHULKER_BOX_DOESNT_BREAK_FALLING_BLOCK_VERSION() {
-        return SHULKER_BOX_DOESNT_BREAK_FALLING_BLOCK_VERSION;
-    }
 
     // NOLINTEND
 };

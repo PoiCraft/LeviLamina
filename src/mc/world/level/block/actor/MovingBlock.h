@@ -15,6 +15,7 @@
 
 // auto generated forward declare list
 // clang-format off
+namespace BlockEvents { struct BlockFallOnEvent; }
 namespace mce { class Color; }
 // clang-format on
 
@@ -41,7 +42,10 @@ public:
     virtual class AABB const&
     getVisualShapeInWorld(class Block const&, class IConstBlockSource const&, class BlockPos const&, class AABB&) const;
 
-    // vIndex: 73, symbol:
+    // vIndex: 26, symbol: ?isMovingBlock@MovingBlock@@UEBA_NXZ
+    virtual bool isMovingBlock() const;
+
+    // vIndex: 74, symbol:
     // ?updateEntityAfterFallOn@MovingBlock@@UEBAXAEBVBlockPos@@AEAUUpdateEntityAfterFallOnInterface@@@Z
     virtual void
     updateEntityAfterFallOn(class BlockPos const& pos, struct UpdateEntityAfterFallOnInterface& entity) const;
@@ -52,12 +56,14 @@ public:
     // vIndex: 109, symbol: ?pushesUpFallingBlocks@MovingBlock@@UEBA_NXZ
     virtual bool pushesUpFallingBlocks() const;
 
-    // vIndex: 148, symbol: ?onFallOn@MovingBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@M@Z
-    virtual void
-    onFallOn(class BlockSource& region, class BlockPos const& pos, class Actor& entity, float fallDistance) const;
+    // vIndex: 142, symbol: ?_addHardCodedBlockComponents@MovingBlock@@MEAAXAEBVExperiments@@@Z
+    virtual void _addHardCodedBlockComponents(class Experiments const&);
 
     // symbol: ??0MovingBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
     MCAPI MovingBlock(std::string const& nameId, int id);
+
+    // symbol: ?onFallOn@MovingBlock@@QEBAXAEAUBlockFallOnEvent@BlockEvents@@@Z
+    MCAPI void onFallOn(struct BlockEvents::BlockFallOnEvent&) const;
 
     // NOLINTEND
 };

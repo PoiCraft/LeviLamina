@@ -79,7 +79,7 @@ public:
     virtual void updatePosition(class Vec3 const& pos);
 
     // vIndex: 19, symbol: ?updateAndCenter@TickingArea@@UEAAXAEAVLevelStorage@@UTick@@@Z
-    virtual void updateAndCenter(class LevelStorage& levelStorage, struct Tick);
+    virtual void updateAndCenter(class LevelStorage& levelStorage, struct Tick currentLevelTick);
 
     // vIndex: 20, symbol: ?findOwner@TickingArea@@UEAAPEAVActor@@AEAE@Z
     virtual class Actor* findOwner(uchar& pendingChunks);
@@ -102,17 +102,6 @@ public:
 
     // vIndex: 26, symbol: ?updateBlockSourceCurrentTick@TickingArea@@UEAAXAEBUTick@@@Z
     virtual void updateBlockSourceCurrentTick(struct Tick const& currentTick);
-
-    // symbol:
-    // ??0TickingArea@@QEAA@AEAVDimension@@VUUID@mce@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUBounds@@_NW4TickingAreaLoadMode@@@Z
-    MCAPI TickingArea(
-        class Dimension&      dimension,
-        class mce::UUID       uniqueId,
-        std::string const&    name,
-        struct Bounds const&  bounds,
-        bool                  isCircle,
-        ::TickingAreaLoadMode loadMode
-    );
 
     // NOLINTEND
 

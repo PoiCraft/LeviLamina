@@ -18,10 +18,6 @@ public:
     std::string                      mEffectName;         // this+0x50
     std::optional<MolangVariableMap> mMolangVariables;    // this+0x70
 
-    // prevent constructor by default
-    SpawnParticleEffectPacket& operator=(SpawnParticleEffectPacket const&);
-    SpawnParticleEffectPacket(SpawnParticleEffectPacket const&);
-
 public:
     // NOLINTBEGIN
     // vIndex: 0, symbol: ??1SpawnParticleEffectPacket@@UEAA@XZ
@@ -34,10 +30,10 @@ public:
     // ?getName@SpawnParticleEffectPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@SpawnParticleEffectPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@SpawnParticleEffectPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@SpawnParticleEffectPacket@@EEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream);
 

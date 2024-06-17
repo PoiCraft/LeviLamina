@@ -21,6 +21,7 @@
 #include "ll/api/service/ServerInfo.h"
 #include "ll/api/utils/ErrorUtils.h"
 #include "ll/api/utils/HashUtils.h"
+#include "ll/api/utils/WinUtils.h"
 
 #include "mc/server/common/DedicatedServer.h"
 #include "mc/server/common/commands/StopCommand.h"
@@ -45,7 +46,7 @@
 #include <winbase.h>
 #include <winnt.h>
 
-#if defined(LL_DEBUG) && _HAS_CXX23
+#if defined(LL_DEBUG)
 #include "ll/api/utils/StacktraceUtils.h"
 #endif
 
@@ -61,59 +62,42 @@ Logger                                logger("LeviLamina");
 std::chrono::steady_clock::time_point severStartBeginTime;
 std::chrono::steady_clock::time_point severStartEndTime;
 
-void fixCurrentDirectory() {
-    std::wstring path(32767, '\0');
-    GetModuleFileName(nullptr, path.data(), 32767);
-    SetCurrentDirectory(path.substr(0, path.find_last_of(L'\\')).c_str());
-}
+void fixCurrentDirectory() { SetCurrentDirectoryW(win_utils::getModulePath(nullptr).value().parent_path().c_str()); }
 
 void checkOtherBdsInstance() {
-    // get all processes id with name "bedrock_server.exe" or "bedrock_server_mod.exe"
+    auto currentPath = win_utils::getModulePath(nullptr).value();
     // and pid is not current process
     std::vector<DWORD> pids;
-    PROCESSENTRY32     pe32;
-    pe32.dwSize         = sizeof(PROCESSENTRY32);
+    ::PROCESSENTRY32W  pe32;
+    pe32.dwSize         = sizeof(PROCESSENTRY32W);
     HANDLE hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (hProcessSnap == INVALID_HANDLE_VALUE) {
         return;
     }
-    if (Process32First(hProcessSnap, &pe32)) {
+    if (::Process32FirstW(hProcessSnap, &pe32)) {
+        std::wstring currentExe = currentPath.filename().wstring();
         do {
             if (pe32.th32ProcessID != GetCurrentProcessId()
                 && (wcscmp(pe32.szExeFile, L"bedrock_server.exe") == 0
-                    || wcscmp(pe32.szExeFile, L"bedrock_server_mod.exe") == 0)) {
+                    || wcscmp(pe32.szExeFile, L"bedrock_server_mod.exe") == 0 || pe32.szExeFile == currentExe)) {
                 pids.push_back(pe32.th32ProcessID);
             }
-        } while (Process32Next(hProcessSnap, &pe32));
+        } while (::Process32NextW(hProcessSnap, &pe32));
     }
     CloseHandle(hProcessSnap);
-
-    // Get current process path
-    std::wstring currentPath(32767, '\0');
-    if (auto res = GetModuleFileName(nullptr, currentPath.data(), 32767); res != 0 && res != 32767) {
-        currentPath.resize(res);
-    } else {
-        return;
-    }
-
     // Get the BDS process paths
     for (auto& pid : pids) {
         // Open process handle
         auto handle = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ | PROCESS_TERMINATE, false, pid);
         if (handle) {
             // Get the full path of the process
-            std::wstring path(32767, '\0');
-            if (auto res = GetModuleFileNameEx(handle, nullptr, path.data(), 32767); res != 0 && res != 32767) {
-                path.resize(res);
-            } else {
-                continue;
-            }
+            auto path = win_utils::getModulePath(nullptr, handle).value();
             // Compare the path
             if (path == currentPath) {
                 logger.error("Detected the existence of another BDS process with the same path!"_tr());
                 logger.error("This may cause the network port and the level to be occupied"_tr());
                 while (true) {
-                    logger.error("Do you want to terminate the process with PID {}?  (y=Yes, n=No, e=Exit)"_tr(pid));
+                    logger.error("Do you want to terminate the process with PID {0}?  (y=Yes, n=No, e=Exit)"_tr(pid));
                     char input;
                     rewind(stdin);
                     input = static_cast<char>(getchar());
@@ -148,16 +132,14 @@ void printWelcomeMsg() {
     logger.info(R"(                                                                      )");
     logger.info(R"(                                                                      )");
 
-    logger.info("LeviLamina is a free software licensed under {}"_tr("LGPLv3"));
-    logger.info("Help us translate & improve text -> {}"_tr("https://crowdin.com/project/levilamina"));
-    logger.info("ll.sponsor.thanks"_tr());
-    logger.info("");
+    logger.info("LeviLamina is a free software licensed under {0}"_tr("LGPLv3"));
+    logger.info("Help us translate & improve text -> {0}"_tr("https://translate.liteldev.com/"));
 }
 
 void checkProtocolVersion() {
     auto currentProtocol = getServerProtocolVersion();
     if (TARGET_BDS_PROTOCOL_VERSION != currentProtocol) {
-        logger.warn("Protocol version not match, target version: {}, current version: {}"_tr(
+        logger.warn("Protocol version not match, target version: {0}, current version: {1}"_tr(
             TARGET_BDS_PROTOCOL_VERSION,
             currentProtocol
         ));
@@ -172,8 +154,8 @@ BOOL WINAPI ConsoleExitHandler(DWORD CEvent) {
     case CTRL_C_EVENT:
     case CTRL_CLOSE_EVENT:
     case CTRL_SHUTDOWN_EVENT: {
-        if (StopCommand::$mServer()) {
-            StopCommand::$mServer()->requestServerShutdown("");
+        if (StopCommand::mServer) {
+            StopCommand::mServer->requestServerShutdown("");
         } else {
             std::terminate();
         }
@@ -189,7 +171,7 @@ void unixSignalHandler(int signum) {
     switch (signum) {
     case SIGINT:
     case SIGTERM: {
-        if (StopCommand::$mServer()) StopCommand::$mServer()->requestServerShutdown("");
+        if (StopCommand::mServer) StopCommand::mServer->requestServerShutdown("");
         else std::terminate();
         break;
     }
@@ -206,7 +188,7 @@ void leviLaminaMain() {
     error_utils::setSehTranslator();
 
     // Prohibit pop-up windows to facilitate automatic restart
-    SetErrorMode(SEM_FAILCRITICALERRORS | SEM_NOGPFAULTERRORBOX | SEM_NOALIGNMENTFAULTEXCEPT);
+    SetErrorMode(SEM_FAILCRITICALERRORS | SEM_NOGPFAULTERRORBOX | SEM_NOOPENFILEERRORBOX | SEM_NOALIGNMENTFAULTEXCEPT);
 
     // Init LL Logger
     Logger::setDefaultFile(u8"logs/LeviLamina-latest.log", false);
@@ -215,7 +197,7 @@ void leviLaminaMain() {
     std::error_code ec;
     fs::create_directories(plugin::getPluginsRoot(), ec);
 
-    ::ll::i18n::load(u8"plugins/LeviLamina/lang");
+    ::ll::i18n::load(plugin::getPluginsRoot() / u8"LeviLamina/lang");
 
     loadLeviConfig();
 
@@ -233,10 +215,10 @@ void leviLaminaMain() {
         checkOtherBdsInstance();
     }
     if (globalConfig.modules.playerInfo.alwaysLaunch) {
-        ll::service::PlayerInfo::getInstance();
+        service::PlayerInfo::getInstance();
     }
     if (globalConfig.modules.crashLogger.enabled) {
-        if (globalConfig.modules.crashLogger.builtin) {
+        if (globalConfig.modules.crashLogger.useBuiltin) {
             static CrashLoggerNew crashLogger{};
         } else {
             CrashLogger::initCrashLogger();
@@ -254,9 +236,7 @@ void leviLaminaMain() {
     logger.warn("LeviLamina is running in DEBUG mode!"_tr());
 #endif
 
-    if (globalConfig.modules.commands.enabled) {
-        command::registerCommands();
-    }
+    command::registerCommands();
 
     plugin::PluginRegistrar::getInstance().loadAllPlugins();
 }
@@ -264,13 +244,13 @@ void leviLaminaMain() {
 
 LL_AUTO_STATIC_HOOK(LeviLaminaMainHook, HookPriority::High, "main", int, int argc, char* argv[]) {
 
-#if defined(LL_DEBUG) && _HAS_CXX23
-    static ll::stacktrace_utils::SymbolLoader symbols{};
+#if defined(LL_DEBUG)
+    static stacktrace_utils::SymbolLoader symbols{};
 #endif
     setServerStatus(ServerStatus::Default);
     severStartBeginTime = std::chrono::steady_clock::now();
     for (int i = 0; i < argc; ++i) {
-        switch (do_hash(argv[i])) {
+        switch (doHash(argv[i])) {
         case "--noColor"_h:
             globalConfig.logger.colorLog = false;
             break;
@@ -289,7 +269,7 @@ LL_AUTO_STATIC_HOOK(LeviLaminaMainHook, HookPriority::High, "main", int, int arg
     try {
         leviLaminaMain();
     } catch (...) {
-        ll::error_utils::printCurrentException(logger);
+        error_utils::printCurrentException(logger);
     }
     auto res = origin(argc, argv);
     setServerStatus(ServerStatus::Default);

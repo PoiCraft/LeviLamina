@@ -12,7 +12,6 @@
 
 // auto generated forward declare list
 // clang-format off
-namespace Json { class Value; }
 namespace mce { class UUID; }
 // clang-format on
 
@@ -104,14 +103,14 @@ public:
     virtual class mce::UUID const& getUUID() const;
 
     // vIndex: 26, symbol:
-    // ?handleCommandOutputCallback@CommandOrigin@@UEBAXH$$QEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@$$QEAVValue@Json@@@Z
-    virtual void handleCommandOutputCallback(int, std::string&&, class Json::Value&&) const;
+    // ?handleCommandOutputCallback@CommandOrigin@@UEBAXH$$QEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+    virtual void handleCommandOutputCallback(int, std::string&&) const;
 
     // vIndex: 27, symbol: ?updateValues@CommandOrigin@@UEAAXXZ
     virtual void updateValues();
 
     // vIndex: 28, symbol: ?getExecutePosition@CommandOrigin@@UEBA?BVVec3@@HAEBVCommandPositionFloat@@@Z
-    virtual class Vec3 const getExecutePosition(int version, class CommandPositionFloat const&) const;
+    virtual class Vec3 const getExecutePosition(int version, class CommandPositionFloat const& commandPosition) const;
 
     // vIndex: 29, symbol: ?serialize@CommandOrigin@@UEBA?AVCompoundTag@@XZ
     virtual class CompoundTag serialize() const;
@@ -158,17 +157,10 @@ public:
 
     // NOLINTEND
 
-protected:
+    // protected:
     // NOLINTBEGIN
     // symbol: ?sUnknownSource@CommandOrigin@@1VNetworkIdentifier@@A
     MCAPI static class NetworkIdentifier sUnknownSource;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $sUnknownSource() { return sUnknownSource; }
 
     // NOLINTEND
 };

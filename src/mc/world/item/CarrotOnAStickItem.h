@@ -29,27 +29,23 @@ public:
     // vIndex: 0, symbol: __gen_??1CarrotOnAStickItem@@UEAA@XZ
     virtual ~CarrotOnAStickItem() = default;
 
-    // vIndex: 36, symbol: ?isHandEquipped@CarrotOnAStickItem@@UEBA_NXZ
+    // vIndex: 37, symbol: ?isHandEquipped@CarrotOnAStickItem@@UEBA_NXZ
     virtual bool isHandEquipped() const;
 
-    // vIndex: 46, symbol: ?requiresInteract@CarrotOnAStickItem@@UEBA_NXZ
+    // vIndex: 47, symbol: ?requiresInteract@CarrotOnAStickItem@@UEBA_NXZ
     virtual bool requiresInteract() const;
 
-    // vIndex: 49, symbol: ?getEnchantSlot@CarrotOnAStickItem@@UEBAHXZ
+    // vIndex: 50, symbol: ?getEnchantSlot@CarrotOnAStickItem@@UEBAHXZ
     virtual int getEnchantSlot() const;
 
-    // vIndex: 50, symbol: ?getEnchantValue@CarrotOnAStickItem@@UEBAHXZ
+    // vIndex: 51, symbol: ?getEnchantValue@CarrotOnAStickItem@@UEBAHXZ
     virtual int getEnchantValue() const;
 
-    // vIndex: 76, symbol: ?hurtActor@CarrotOnAStickItem@@UEBAXAEAVItemStack@@AEAVActor@@AEAVMob@@@Z
+    // vIndex: 78, symbol: ?hurtActor@CarrotOnAStickItem@@UEBAXAEAVItemStack@@AEAVActor@@AEAVMob@@@Z
     virtual void hurtActor(class ItemStack& item, class Actor& actor, class Mob& attacker) const;
 
-    // vIndex: 80, symbol: ?mineBlock@CarrotOnAStickItem@@UEBA_NAEAVItemStack@@AEBVBlock@@HHHPEAVActor@@@Z
-    virtual bool
-    mineBlock(class ItemStack& item, class Block const& block, int x, int y, int z, class Actor* owner) const;
-
-    // symbol: ??0CarrotOnAStickItem@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
-    MCAPI CarrotOnAStickItem(std::string const& name, int id);
+    // symbol: ??0CarrotOnAStickItem@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@F@Z
+    MCAPI CarrotOnAStickItem(std::string const& name, short id);
 
     // NOLINTEND
 };

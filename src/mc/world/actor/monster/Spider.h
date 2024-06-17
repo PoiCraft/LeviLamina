@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -39,19 +38,19 @@ public:
     // vIndex: 10, symbol: __gen_??1Spider@@UEAA@XZ
     virtual ~Spider() = default;
 
-    // vIndex: 41, symbol: ?getShadowRadius@Spider@@UEBAMXZ
+    // vIndex: 38, symbol: ?getShadowRadius@Spider@@UEBAMXZ
     virtual float getShadowRadius() const;
 
-    // vIndex: 72, symbol: ?shouldRender@Spider@@UEBA_NXZ
+    // vIndex: 66, symbol: ?shouldRender@Spider@@UEBA_NXZ
     virtual bool shouldRender() const;
 
-    // vIndex: 121, symbol: ?canBeAffected@Spider@@UEBA_NI@Z
+    // vIndex: 111, symbol: ?canBeAffected@Spider@@UEBA_NI@Z
     virtual bool canBeAffected(uint effectId) const;
 
-    // vIndex: 161, symbol: ?_playStepSound@Spider@@MEAAXAEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 149, symbol: ?_playStepSound@Spider@@MEAAXAEBVBlockPos@@AEBVBlock@@@Z
     virtual void _playStepSound(class BlockPos const& pos, class Block const& onBlock);
 
-    // vIndex: 205, symbol: ?getModelScale@Spider@@UEBAMXZ
+    // vIndex: 191, symbol: ?getModelScale@Spider@@UEBAMXZ
     virtual float getModelScale() const;
 
     // symbol: ??0Spider@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z

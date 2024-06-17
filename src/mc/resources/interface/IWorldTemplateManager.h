@@ -8,6 +8,7 @@
 // auto generated forward declare list
 // clang-format off
 namespace Bedrock { class EnableNonOwnerReferences; }
+namespace Bedrock::PubSub { class Subscription; }
 namespace mce { class UUID; }
 // clang-format on
 
@@ -27,6 +28,15 @@ public:
     // ?findInstalledWorldTemplateByUUID@WorldTemplateManager@@UEBAPEBUWorldTemplateInfo@@AEBV?$vector@VUUID@mce@@V?$allocator@VUUID@mce@@@std@@@std@@@Z
     virtual struct WorldTemplateInfo const*
     findInstalledWorldTemplateByUUID(std::vector<class mce::UUID> const& packUUIDs) const = 0;
+
+    // vIndex: 2, symbol:
+    // ?registerModifiedCallback@WorldTemplateManager@@UEAA?AVSubscription@PubSub@Bedrock@@V?$function@$$A6AXAEBU?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@std@@@Z@std@@@Z
+    virtual class Bedrock::PubSub::Subscription
+        registerModifiedCallback(std::function<void(std::pair<std::string, bool> const&)>) = 0;
+
+    // vIndex: 3, symbol:
+    // ?getLocalTemplates@WorldTemplateManager@@UEBAAEBV?$vector@V?$unique_ptr@UWorldTemplateInfo@@U?$default_delete@UWorldTemplateInfo@@@std@@@std@@V?$allocator@V?$unique_ptr@UWorldTemplateInfo@@U?$default_delete@UWorldTemplateInfo@@@std@@@std@@@2@@std@@XZ
+    virtual std::vector<std::unique_ptr<struct WorldTemplateInfo>> const& getLocalTemplates() const = 0;
 
     // NOLINTEND
 };

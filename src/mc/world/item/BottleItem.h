@@ -29,10 +29,10 @@ public:
     // vIndex: 0, symbol: __gen_??1BottleItem@@UEAA@XZ
     virtual ~BottleItem() = default;
 
-    // vIndex: 44, symbol: ?isLiquidClipItem@BottleItem@@UEBA_NXZ
+    // vIndex: 45, symbol: ?isLiquidClipItem@BottleItem@@UEBA_NXZ
     virtual bool isLiquidClipItem() const;
 
-    // vIndex: 72, symbol: ?dispense@BottleItem@@UEBA_NAEAVBlockSource@@AEAVContainer@@HAEBVVec3@@E@Z
+    // vIndex: 74, symbol: ?dispense@BottleItem@@UEBA_NAEAVBlockSource@@AEAVContainer@@HAEBVVec3@@E@Z
     virtual bool
     dispense(class BlockSource& region, class Container& container, int slot, class Vec3 const& pos, uchar face) const;
 

@@ -31,13 +31,22 @@ struct PackInstanceId;
 
 class LevelSettings {
 public:
-    uchar filler[0x440]; // serialize<LevelSettings>::read
+    uchar filler[0x4E0]; // serialize<LevelSettings>::read line=1256
 
     // prevent constructor by default
     LevelSettings& operator=(LevelSettings const&);
 
 public:
     // NOLINTBEGIN
+    // symbol: ?GetScenarioId@LevelSettings@@QEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+    MCAPI std::string const& GetScenarioId() const;
+
+    // symbol: ?GetServerId@LevelSettings@@QEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+    MCAPI std::string const& GetServerId() const;
+
+    // symbol: ?GetWorldId@LevelSettings@@QEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+    MCAPI std::string const& GetWorldId() const;
+
     // symbol: ??0LevelSettings@@QEAA@XZ
     MCAPI LevelSettings();
 
@@ -220,6 +229,9 @@ public:
     // symbol: ?isFromWorldTemplate@LevelSettings@@QEBA_NXZ
     MCAPI bool isFromWorldTemplate() const;
 
+    // symbol: ?isHardcore@LevelSettings@@QEBA_NXZ
+    MCAPI bool isHardcore() const;
+
     // symbol: ?isRandomSeedAllowed@LevelSettings@@QEBA_NXZ
     MCAPI bool isRandomSeedAllowed() const;
 
@@ -243,9 +255,6 @@ public:
 
     // symbol: ?setChatRestrictionLevel@LevelSettings@@QEAAAEAV1@W4ChatRestrictionLevel@@@Z
     MCAPI class LevelSettings& setChatRestrictionLevel(::ChatRestrictionLevel);
-
-    // symbol: ?setCloudSaveInfo@LevelSettings@@QEAAAEAV1@V?$optional@VCloudSaveLevelInfo@@@std@@@Z
-    MCAPI class LevelSettings& setCloudSaveInfo(std::optional<class CloudSaveLevelInfo>);
 
     // symbol: ?setCommandsEnabled@LevelSettings@@QEAAAEAV1@_N@Z
     MCAPI class LevelSettings& setCommandsEnabled(bool commandsEnabled);
@@ -279,7 +288,7 @@ public:
     MCAPI class LevelSettings& setEmoteChatMuted(bool val);
 
     // symbol: ?setExperiments@LevelSettings@@QEAAAEAV1@AEBVExperimentStorage@@@Z
-    MCAPI class LevelSettings& setExperiments(class ExperimentStorage const&);
+    MCAPI class LevelSettings& setExperiments(class ExperimentStorage const& experiments);
 
     // symbol: ?setForceGameType@LevelSettings@@QEAAAEAV1@_N@Z
     MCAPI class LevelSettings& setForceGameType(bool value);
@@ -305,17 +314,26 @@ public:
     // symbol: ?setRandomSeed@LevelSettings@@QEAAAEAV1@VLevelSeed64@@@Z
     MCAPI class LevelSettings& setRandomSeed(class LevelSeed64 seed);
 
+    // symbol: ?setScenarioId@LevelSettings@@QEAAAEAV1@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+    MCAPI class LevelSettings& setScenarioId(std::string);
+
     // symbol: ?setServerChunkTickRange@LevelSettings@@QEAAAEAV1@I@Z
     MCAPI class LevelSettings& setServerChunkTickRange(uint serverChunkTickRange);
 
+    // symbol: ?setServerId@LevelSettings@@QEAAAEAV1@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+    MCAPI class LevelSettings& setServerId(std::string);
+
     // symbol: ?setSpawnSettings@LevelSettings@@QEAAAEAV1@USpawnSettings@@@Z
-    MCAPI class LevelSettings& setSpawnSettings(struct SpawnSettings);
+    MCAPI class LevelSettings& setSpawnSettings(struct SpawnSettings spawnSettings);
 
     // symbol: ?setTexturePackRequired@LevelSettings@@QEAAAEAV1@_N@Z
     MCAPI class LevelSettings& setTexturePackRequired(bool texturePackRequired);
 
     // symbol: ?setUseMsaGamertagsOnly@LevelSettings@@QEAAAEAV1@_N@Z
     MCAPI class LevelSettings& setUseMsaGamertagsOnly(bool useMsaGamertagsOnly);
+
+    // symbol: ?setWorldId@LevelSettings@@QEAAAEAV1@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+    MCAPI class LevelSettings& setWorldId(std::string);
 
     // symbol: ?setXblBroadcastIntent@LevelSettings@@QEAAAEAV1@W4GamePublishSetting@Social@@@Z
     MCAPI class LevelSettings& setXblBroadcastIntent(::Social::GamePublishSetting xblBroadcastIntent);

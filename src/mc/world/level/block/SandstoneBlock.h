@@ -30,7 +30,7 @@ public:
     // vIndex: 0, symbol: __gen_??1SandstoneBlock@@UEAA@XZ
     virtual ~SandstoneBlock() = default;
 
-    // vIndex: 47, symbol: ?canBeOriginalSurface@SandstoneBlock@@UEBA_NXZ
+    // vIndex: 48, symbol: ?canBeOriginalSurface@SandstoneBlock@@UEBA_NXZ
     virtual bool canBeOriginalSurface() const;
 
     // vIndex: 96, symbol: ?asItemInstance@SandstoneBlock@@MEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z

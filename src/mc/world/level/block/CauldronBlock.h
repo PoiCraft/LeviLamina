@@ -64,20 +64,23 @@ public:
     // vIndex: 23, symbol: ?canProvideSupport@CauldronBlock@@UEBA_NAEBVBlock@@EW4BlockSupportType@@@Z
     virtual bool canProvideSupport(class Block const& block, uchar face, ::BlockSupportType type) const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@CauldronBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@CauldronBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 59, symbol: ?handlePrecipitation@CauldronBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@MM@Z
+    // vIndex: 60, symbol: ?handlePrecipitation@CauldronBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@MM@Z
     virtual void
     handlePrecipitation(class BlockSource& region, class BlockPos const& pos, float downfallAmount, float temperature)
         const;
 
-    // vIndex: 89, symbol: ?breaksFallingBlocks@CauldronBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
+    // vIndex: 90, symbol: ?breaksFallingBlocks@CauldronBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
     virtual bool breaksFallingBlocks(class Block const& block, class BaseGameVersion version) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@CauldronBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@CauldronBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
+
+    // vIndex: 96, symbol: ?asItemInstance@CauldronBlock@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
+    virtual class ItemInstance asItemInstance(class Block const&, class BlockActor const*) const;
 
     // vIndex: 111, symbol: ?hasComparatorSignal@CauldronBlock@@UEBA_NXZ
     virtual bool hasComparatorSignal() const;
@@ -93,22 +96,22 @@ public:
     // vIndex: 137, symbol: ?getLightEmission@CauldronBlock@@UEBA?AUBrightness@@AEBVBlock@@@Z
     virtual struct Brightness getLightEmission(class Block const& block) const;
 
-    // vIndex: 147, symbol: ?onPlace@CauldronBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@CauldronBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@CauldronBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@CauldronBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random&) const;
 
-    // vIndex: 152, symbol: ?isInteractiveBlock@CauldronBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@CauldronBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@CauldronBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@CauldronBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 159, symbol: ?getExtraRenderLayers@CauldronBlock@@UEBAHXZ
+    // vIndex: 157, symbol: ?getExtraRenderLayers@CauldronBlock@@UEBAHXZ
     virtual int getExtraRenderLayers() const;
 
-    // vIndex: 160, symbol: ?getLight@CauldronBlock@@UEBA?AUBrightness@@AEBVBlock@@@Z
+    // vIndex: 158, symbol: ?getLight@CauldronBlock@@UEBA?AUBrightness@@AEBVBlock@@@Z
     virtual struct Brightness getLight(class Block const& block) const;
 
     // symbol: ??0CauldronBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
@@ -165,9 +168,9 @@ public:
         class CauldronBlockActor& blockEntity,
         class BlockSource&        region,
         int                       fillLevel,
-        bool,
-        bool isWater,
-        bool
+        bool                      isEmpty,
+        bool                      isWater,
+        bool                      isCleanWater
     ) const;
 
     // symbol: ?_useInventory@CauldronBlock@@AEBAXAEAVPlayer@@AEAVItemStack@@1H@Z
@@ -176,7 +179,7 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?BASE_WATER_PIXEL@CauldronBlock@@0HB
     MCAPI static int const BASE_WATER_PIXEL;
@@ -186,17 +189,6 @@ private:
 
     // symbol: ?PIXEL_PER_LEVEL@CauldronBlock@@0HB
     MCAPI static int const PIXEL_PER_LEVEL;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $BASE_WATER_PIXEL() { return BASE_WATER_PIXEL; }
-
-    static auto& $CAULDRON_DOESNT_BREAK_FALLING_BLOCK_VERSION() { return CAULDRON_DOESNT_BREAK_FALLING_BLOCK_VERSION; }
-
-    static auto& $PIXEL_PER_LEVEL() { return PIXEL_PER_LEVEL; }
 
     // NOLINTEND
 };

@@ -43,38 +43,28 @@ public:
     // vIndex: 16, symbol: ?randomlyModifyPosition@CoralFan@@UEBA?AVVec3@@AEBVBlockPos@@@Z
     virtual class Vec3 randomlyModifyPosition(class BlockPos const& pos) const;
 
-    // vIndex: 32, symbol: ?isWaterBlocking@CoralFan@@UEBA_NXZ
+    // vIndex: 33, symbol: ?isWaterBlocking@CoralFan@@UEBA_NXZ
     virtual bool isWaterBlocking() const;
 
-    // vIndex: 49, symbol: ?isValidAuxValue@CoralFan@@UEBA_NH@Z
+    // vIndex: 50, symbol: ?isValidAuxValue@CoralFan@@UEBA_NH@Z
     virtual bool isValidAuxValue(int auxValue) const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@CoralFan@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@CoralFan@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 61, symbol: ?checkIsPathable@CoralFan@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
+    // vIndex: 62, symbol: ?checkIsPathable@CoralFan@@UEBA_NAEAVActor@@AEBVBlockPos@@1@Z
     virtual bool
     checkIsPathable(class Actor& entity, class BlockPos const& lastPathPos, class BlockPos const& pathPos) const;
 
-    // vIndex: 80, symbol: ?mayConsumeFertilizer@CoralFan@@UEBA_NAEAVBlockSource@@@Z
+    // vIndex: 81, symbol: ?mayConsumeFertilizer@CoralFan@@UEBA_NAEAVBlockSource@@@Z
     virtual bool mayConsumeFertilizer(class BlockSource& region) const;
 
-    // vIndex: 86, symbol: ?mayPlaceOn@CoralFan@@MEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 87, symbol: ?mayPlaceOn@CoralFan@@MEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool mayPlaceOn(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@CoralFan@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@CoralFan@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
-
-    // vIndex: 96, symbol: ?asItemInstance@CoralFan@@UEBA?AVItemInstance@@AEBVBlock@@PEBVBlockActor@@@Z
-    virtual class ItemInstance asItemInstance(class Block const& block, class BlockActor const*) const;
-
-    // vIndex: 119, symbol:
-    // ?buildDescriptionId@CoralFan@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVBlock@@@Z
-    virtual std::string buildDescriptionId(class Block const&) const;
-
-    // vIndex: 120, symbol: ?isAuxValueRelevantForPicking@CoralFan@@UEBA_NXZ
-    virtual bool isAuxValueRelevantForPicking() const;
 
     // vIndex: 121, symbol: ?getColor@CoralFan@@UEBAHAEBVBlock@@@Z
     virtual int getColor(class Block const& block) const;
@@ -82,27 +72,21 @@ public:
     // vIndex: 122, symbol: ?getColor@CoralFan@@UEBAHAEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual int getColor(class BlockSource& region, class BlockPos const& pos, class Block const& block) const;
 
-    // vIndex: 129, symbol: ?getVariant@CoralFan@@UEBAHAEBVBlock@@@Z
-    virtual int getVariant(class Block const& block) const;
-
-    // vIndex: 147, symbol: ?onPlace@CoralFan@@MEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@CoralFan@@MEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 162, symbol: ?getMapColor@CoralFan@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
+    // vIndex: 160, symbol: ?getMapColor@CoralFan@@UEBA?AVColor@mce@@AEAVBlockSource@@AEBVBlockPos@@AEBVBlock@@@Z
     virtual class mce::Color
     getMapColor(class BlockSource& region, class BlockPos const& pos, class Block const& block) const;
 
-    // vIndex: 168, symbol: ?checkAlive@CoralFan@@MEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 163, symbol: ?checkAlive@CoralFan@@MEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void checkAlive(class BlockSource& region, class BlockPos const& pos) const;
 
-    // symbol: ??0CoralFan@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z
-    MCAPI CoralFan(std::string const& nameId, int id);
+    // symbol: ??0CoralFan@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVHashedString@@@Z
+    MCAPI CoralFan(std::string const&, int, class HashedString const&);
 
-    // symbol: ?CORAL_FAN_NAMES@CoralFan@@2QBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@B
-    MCAPI static std::string const CORAL_FAN_NAMES[];
-
-    // symbol: ?CORAL_FAN_NAMES_COUNT@CoralFan@@2HB
-    MCAPI static int const CORAL_FAN_NAMES_COUNT;
+    // symbol: ?getDeadVersion@CoralFan@@QEBAAEBVHashedString@@XZ
+    MCAPI class HashedString const& getDeadVersion() const;
 
     // NOLINTEND
 };

@@ -40,19 +40,19 @@ public:
     // vIndex: 25, symbol: ?canConnect@BellBlock@@UEBA_NAEBVBlock@@E0@Z
     virtual bool canConnect(class Block const& otherBlock, uchar toOther, class Block const& thisBlock) const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@BellBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@BellBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 58, symbol: ?shouldConnectToRedstone@BellBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@W4Type@Direction@@@Z
+    // vIndex: 59, symbol: ?shouldConnectToRedstone@BellBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@W4Type@Direction@@@Z
     virtual bool shouldConnectToRedstone(class BlockSource&, class BlockPos const&, ::Direction::Type) const;
 
-    // vIndex: 68, symbol: ?movedByPiston@BellBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 69, symbol: ?movedByPiston@BellBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void movedByPiston(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 71, symbol: ?setupRedstoneComponent@BellBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 72, symbol: ?setupRedstoneComponent@BellBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void setupRedstoneComponent(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 92, symbol: ?neighborChanged@BellBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
+    // vIndex: 93, symbol: ?neighborChanged@BellBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@1@Z
     virtual void
     neighborChanged(class BlockSource& region, class BlockPos const& pos, class BlockPos const& neighborPos) const;
 
@@ -65,28 +65,25 @@ public:
         int                   itemValue
     ) const;
 
-    // vIndex: 147, symbol: ?onPlace@BellBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 146, symbol: ?onPlace@BellBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual void onPlace(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 150, symbol: ?tick@BellBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
+    // vIndex: 148, symbol: ?tick@BellBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void tick(class BlockSource& region, class BlockPos const& pos, class Random& random) const;
 
-    // vIndex: 152, symbol: ?isInteractiveBlock@BellBlock@@UEBA_NXZ
+    // vIndex: 150, symbol: ?isInteractiveBlock@BellBlock@@UEBA_NXZ
     virtual bool isInteractiveBlock() const;
 
-    // vIndex: 154, symbol: ?use@BellBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
+    // vIndex: 152, symbol: ?use@BellBlock@@UEBA_NAEAVPlayer@@AEBVBlockPos@@E@Z
     virtual bool use(class Player& player, class BlockPos const& pos, uchar face) const;
 
-    // vIndex: 156, symbol: ?canSurvive@BellBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
+    // vIndex: 154, symbol: ?canSurvive@BellBlock@@UEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
     virtual bool canSurvive(class BlockSource& region, class BlockPos const& pos) const;
 
-    // vIndex: 165, symbol: ?getSilkTouchItemInstance@BellBlock@@UEBA?AVItemInstance@@AEBVBlock@@@Z
-    virtual class ItemInstance getSilkTouchItemInstance(class Block const&) const;
+    // vIndex: 161, symbol: ?_onHitByActivatingAttack@BellBlock@@EEBAXAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@@Z
+    virtual void _onHitByActivatingAttack(class BlockSource&, class BlockPos const&, class Actor*) const;
 
-    // vIndex: 166, symbol: ?_onHitByActivatingAttack@BellBlock@@EEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
-    virtual void _onHitByActivatingAttack(class BlockSource&, class BlockPos const&) const;
-
-    // vIndex: 167, symbol: ?entityInside@BellBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
+    // vIndex: 162, symbol: ?entityInside@BellBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
     virtual void entityInside(class BlockSource& region, class BlockPos const& pos, class Actor& actor) const;
 
     // symbol: ??0BellBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

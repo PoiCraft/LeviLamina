@@ -6,6 +6,8 @@ void registerCommands();
 
 void registerVersionCommand();
 void registerTpdimCommand();
-void registerMemstatusCommand();
+void registerMemstatsCommand();
+void registerCrashCommand();
+void registerPluginManageCommand();
 
 } // namespace ll::command

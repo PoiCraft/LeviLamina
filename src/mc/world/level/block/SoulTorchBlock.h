@@ -33,7 +33,7 @@ public:
     // vIndex: 134, symbol: ?animateTickBedrockLegacy@SoulTorchBlock@@UEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVRandom@@@Z
     virtual void animateTickBedrockLegacy(class BlockSource&, class BlockPos const&, class Random&) const;
 
-    // vIndex: 143, symbol: ?_addHardCodedBlockComponents@SoulTorchBlock@@UEAAXAEBVExperiments@@@Z
+    // vIndex: 142, symbol: ?_addHardCodedBlockComponents@SoulTorchBlock@@UEAAXAEBVExperiments@@@Z
     virtual void _addHardCodedBlockComponents(class Experiments const&);
 
     // symbol: ??0SoulTorchBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@H@Z

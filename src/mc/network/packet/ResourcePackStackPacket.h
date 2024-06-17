@@ -17,6 +17,7 @@ public:
     BaseGameVersion             mBaseGameVersion;
     bool                        mTexturePackRequired;
     ExperimentStorage           mExperiments;
+    bool                        mHasEditorPacks;
 
     // prevent constructor by default
     ResourcePackStackPacket& operator=(ResourcePackStackPacket const&);
@@ -34,10 +35,10 @@ public:
     // ?getName@ResourcePackStackPacket@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
     virtual std::string getName() const;
 
-    // vIndex: 3, symbol: ?write@ResourcePackStackPacket@@UEBAXAEAVBinaryStream@@@Z
+    // vIndex: 4, symbol: ?write@ResourcePackStackPacket@@UEBAXAEAVBinaryStream@@@Z
     virtual void write(class BinaryStream& stream) const;
 
-    // vIndex: 7, symbol:
+    // vIndex: 8, symbol:
     // ?_read@ResourcePackStackPacket@@MEAA?AV?$Result@XVerror_code@std@@@Bedrock@@AEAVReadOnlyBinaryStream@@@Z
     virtual class Bedrock::Result<void> _read(class ReadOnlyBinaryStream& stream);
 
@@ -45,9 +46,15 @@ public:
     MCAPI ResourcePackStackPacket();
 
     // symbol:
-    // ??0ResourcePackStackPacket@@QEAA@V?$vector@UPackInstanceId@@V?$allocator@UPackInstanceId@@@std@@@std@@0AEBVBaseGameVersion@@_NAEBVExperiments@@@Z
-    MCAPI
-    ResourcePackStackPacket(std::vector<struct PackInstanceId> addOnIdsAndVersions, std::vector<struct PackInstanceId> texturePackIdsAndVersions, class BaseGameVersion const& baseGameVersion, bool texturePackRequired, class Experiments const&);
+    // ??0ResourcePackStackPacket@@QEAA@V?$vector@UPackInstanceId@@V?$allocator@UPackInstanceId@@@std@@@std@@0AEBVBaseGameVersion@@_NAEBVExperiments@@2@Z
+    MCAPI ResourcePackStackPacket(
+        std::vector<struct PackInstanceId>,
+        std::vector<struct PackInstanceId>,
+        class BaseGameVersion const&,
+        bool,
+        class Experiments const&,
+        bool
+    );
 
     // NOLINTEND
 };

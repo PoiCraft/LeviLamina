@@ -94,21 +94,18 @@ MCAPI std::string getTelemetryErrorList(class CommandOutput const&);
 MCAPI bool isActiveTickingChunk(class LevelChunk const& chunk);
 
 // symbol: ?isActiveTickingChunk@CommandUtils@@YA_NUTick@@0@Z
-MCAPI bool isActiveTickingChunk(struct Tick, struct Tick);
+MCAPI bool isActiveTickingChunk(struct Tick currentLevelTick, struct Tick);
 
 // symbol:
 // ?isFunctionValid@CommandUtils@@YA_NAEAVCommandOutput@@AEAVFunctionEntry@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
-MCAPI bool isFunctionValid(class CommandOutput& output, class FunctionEntry&, std::string const&);
+MCAPI bool
+isFunctionValid(class CommandOutput& output, class FunctionEntry& functionEntry, std::string const& resolvedPath);
 
 // symbol: ?isPlayerSpawnedMob@CommandUtils@@YA_NAEBVActor@@0@Z
 MCAPI bool isPlayerSpawnedMob(class Actor const& entity, class Actor const& summoner);
 
-// symbol:
-// ?isValidCommandEntity@CommandUtils@@YA_NAEBV?$vector@W4ActorType@@V?$allocator@W4ActorType@@@std@@@std@@W4ActorType@@@Z
-MCAPI bool isValidCommandEntity(std::vector<::ActorType> const& invalidEntities, ::ActorType type);
-
 // symbol: ?nameEntity@CommandUtils@@YAXAEAVActor@@_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
-MCAPI void nameEntity(class Actor& actor, bool, std::string const&);
+MCAPI void nameEntity(class Actor& actor, bool nameSet, std::string const& actorName);
 
 // symbol:
 // ?setInitEvent@CommandUtils@@YAXAEAUActorDefinitionIdentifier@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z

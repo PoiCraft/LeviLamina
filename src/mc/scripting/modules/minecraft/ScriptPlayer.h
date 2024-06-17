@@ -3,6 +3,7 @@
 #include "mc/_HeaderOutputPredefine.h"
 
 // auto generated inclusion list
+#include "mc/enums/GameType.h"
 #include "mc/external/scripting/ClassBindingBuilder.h"
 #include "mc/external/scripting/Result.h"
 #include "mc/external/scripting/StrongTypedObjectHandle.h"
@@ -14,6 +15,7 @@ class Actor;
 class Player;
 class Scoreboard;
 class Vec3;
+class WeakEntityRef;
 namespace ScriptModuleMinecraft { class ScriptActor; }
 namespace ScriptModuleMinecraft { class ScriptItemStack; }
 namespace ScriptModuleMinecraft { class ScriptMolangVariableMap; }
@@ -29,6 +31,7 @@ namespace ScriptModuleMinecraft { struct ScriptSoundOptions; }
 namespace Scripting { class WeakLifetimeScope; }
 namespace Scripting { struct ContextConfig; }
 namespace Scripting { struct Error; }
+namespace Scripting { struct PropertyOutOfBoundsError; }
 struct ScoreboardId;
 // clang-format on
 
@@ -43,8 +46,8 @@ public:
 
 public:
     // NOLINTBEGIN
-    // vIndex: 0, symbol: __gen_??1ScriptPlayer@ScriptModuleMinecraft@@UEAA@XZ
-    virtual ~ScriptPlayer() = default;
+    // vIndex: 0, symbol: ??1ScriptPlayer@ScriptModuleMinecraft@@UEAA@XZ
+    virtual ~ScriptPlayer();
 
     // vIndex: 1, symbol: ?setUnloaded@ScriptPlayer@ScriptModuleMinecraft@@UEAAXAEAVActor@@@Z
     virtual void setUnloaded(class Actor&);
@@ -89,6 +92,9 @@ public:
     // ?getCamera@ScriptPlayer@ScriptModuleMinecraft@@QEAA?AV?$Result@V?$StrongTypedObjectHandle@UScriptCamera@ScriptModuleMinecraft@@@Scripting@@$$V@Scripting@@XZ
     MCAPI class Scripting::Result<class Scripting::StrongTypedObjectHandle<struct ScriptModuleMinecraft::ScriptCamera>>
     getCamera();
+
+    // symbol: ?getGameMode@ScriptPlayer@ScriptModuleMinecraft@@QEBA?AV?$Result@W4GameType@@$$V@Scripting@@XZ
+    MCAPI class Scripting::Result<::GameType> getGameMode() const;
 
     // symbol:
     // ?getItemCooldownLeft@ScriptPlayer@ScriptModuleMinecraft@@QEBA?AV?$Result@H$$V@Scripting@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
@@ -176,11 +182,17 @@ public:
             std::vector<std::variant<std::string, struct ScriptModuleMinecraft::ScriptRawMessageInterface>>> const& var
     ) const;
 
+    // symbol:
+    // ?setGameMode@ScriptPlayer@ScriptModuleMinecraft@@QEAA?AV?$Result@X$$V@Scripting@@V?$optional@W4GameType@@@std@@@Z
+    MCAPI class Scripting::Result<void> setGameMode(std::optional<::GameType>);
+
     // symbol: ?setOp@ScriptPlayer@ScriptModuleMinecraft@@QEBA?AV?$Result@X$$V@Scripting@@_N@Z
     MCAPI class Scripting::Result<void> setOp(bool) const;
 
-    // symbol: ?setSelectedSlot@ScriptPlayer@ScriptModuleMinecraft@@QEBA?AV?$Result@X$$V@Scripting@@H@Z
-    MCAPI class Scripting::Result<void> setSelectedSlot(int slot) const;
+    // symbol:
+    // ?setSelectedSlot@ScriptPlayer@ScriptModuleMinecraft@@QEBA?AV?$Result@XUError@Scripting@@UPropertyOutOfBoundsError@2@@Scripting@@H@Z
+    MCAPI class Scripting::Result<void, struct Scripting::Error, struct Scripting::PropertyOutOfBoundsError>
+    setSelectedSlot(int slot) const;
 
     // symbol:
     // ?setSpawnPoint@ScriptPlayer@ScriptModuleMinecraft@@QEBA?AV?$Result@XUScriptLocationOutOfWorldBoundsError@ScriptModuleMinecraft@@UError@Scripting@@@Scripting@@AEBV?$optional@UScriptDimensionLocation@ScriptModuleMinecraft@@@std@@@Z
@@ -215,6 +227,11 @@ public:
     // ?getHandle@ScriptPlayer@ScriptModuleMinecraft@@SA?AV?$StrongTypedObjectHandle@VScriptPlayer@ScriptModuleMinecraft@@@Scripting@@AEBVPlayer@@AEBVWeakLifetimeScope@4@@Z
     MCAPI static class Scripting::StrongTypedObjectHandle<class ScriptModuleMinecraft::ScriptPlayer>
     getHandle(class Player const& player, class Scripting::WeakLifetimeScope const& scope);
+
+    // symbol:
+    // ?getHandle@ScriptPlayer@ScriptModuleMinecraft@@SA?AV?$optional@V?$StrongTypedObjectHandle@VScriptPlayer@ScriptModuleMinecraft@@@Scripting@@@std@@VWeakEntityRef@@AEBVWeakLifetimeScope@Scripting@@@Z
+    MCAPI static std::optional<class Scripting::StrongTypedObjectHandle<class ScriptModuleMinecraft::ScriptPlayer>>
+    getHandle(class WeakEntityRef, class Scripting::WeakLifetimeScope const&);
 
     // NOLINTEND
 

@@ -71,9 +71,6 @@ public:
     // symbol: ?getOperation@AttributeModifier@@QEBAHXZ
     MCAPI int getOperation() const;
 
-    // symbol: ?isSerializable@AttributeModifier@@QEBA_NXZ
-    MCAPI bool isSerializable() const;
-
     // symbol: ??4AttributeModifier@@QEAAAEAV0@AEBV0@@Z
     MCAPI class AttributeModifier& operator=(class AttributeModifier const& rhs);
 
@@ -82,17 +79,10 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?mInvalidUUID@AttributeModifier@@0VUUID@mce@@B
     MCAPI static class mce::UUID const mInvalidUUID;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $mInvalidUUID() { return mInvalidUUID; }
 
     // NOLINTEND
 };

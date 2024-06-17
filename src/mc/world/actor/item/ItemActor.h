@@ -11,7 +11,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -73,38 +72,35 @@ public:
     // vIndex: 10, symbol: __gen_??1ItemActor@@UEAA@XZ
     virtual ~ItemActor() = default;
 
-    // vIndex: 14, symbol: ?isRuntimePredictedMovementEnabled@ItemActor@@UEBA_NXZ
-    virtual bool isRuntimePredictedMovementEnabled() const;
-
-    // vIndex: 22, symbol: ?isFireImmune@ItemActor@@UEBA_NXZ
+    // vIndex: 20, symbol: ?isFireImmune@ItemActor@@UEBA_NXZ
     virtual bool isFireImmune() const;
 
-    // vIndex: 28, symbol:
+    // vIndex: 25, symbol:
     // ?tryCreateAddActorPacket@ItemActor@@UEAA?AV?$unique_ptr@VAddActorBasePacket@@U?$default_delete@VAddActorBasePacket@@@std@@@std@@XZ
     virtual std::unique_ptr<class AddActorBasePacket> tryCreateAddActorPacket();
 
-    // vIndex: 45, symbol: ?playerTouch@ItemActor@@UEAAXAEAVPlayer@@@Z
+    // vIndex: 42, symbol: ?playerTouch@ItemActor@@UEAAXAEAVPlayer@@@Z
     virtual void playerTouch(class Player& player);
 
-    // vIndex: 75, symbol: ?isInvulnerableTo@ItemActor@@UEBA_NAEBVActorDamageSource@@@Z
+    // vIndex: 69, symbol: ?isInvulnerableTo@ItemActor@@UEBA_NAEBVActorDamageSource@@@Z
     virtual bool isInvulnerableTo(class ActorDamageSource const& source) const;
 
-    // vIndex: 80, symbol: ?handleEntityEvent@ItemActor@@UEAAXW4ActorEvent@@H@Z
+    // vIndex: 74, symbol: ?handleEntityEvent@ItemActor@@UEAAXW4ActorEvent@@H@Z
     virtual void handleEntityEvent(::ActorEvent eventId, int data);
 
-    // vIndex: 97, symbol: ?getSourceUniqueID@ItemActor@@UEBA?AUActorUniqueID@@XZ
+    // vIndex: 90, symbol: ?getSourceUniqueID@ItemActor@@UEBA?AUActorUniqueID@@XZ
     virtual struct ActorUniqueID getSourceUniqueID() const;
 
-    // vIndex: 115, symbol: ?canSynchronizeNewEntity@ItemActor@@UEBA_NXZ
+    // vIndex: 105, symbol: ?canSynchronizeNewEntity@ItemActor@@UEBA_NXZ
     virtual bool canSynchronizeNewEntity() const;
 
-    // vIndex: 158, symbol: ?_hurt@ItemActor@@MEAA_NAEBVActorDamageSource@@M_N1@Z
+    // vIndex: 146, symbol: ?_hurt@ItemActor@@MEAA_NAEBVActorDamageSource@@M_N1@Z
     virtual bool _hurt(class ActorDamageSource const& source, float damage, bool knock, bool ignite);
 
-    // vIndex: 159, symbol: ?readAdditionalSaveData@ItemActor@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
+    // vIndex: 147, symbol: ?readAdditionalSaveData@ItemActor@@MEAAXAEBVCompoundTag@@AEAVDataLoadHelper@@@Z
     virtual void readAdditionalSaveData(class CompoundTag const& tag, class DataLoadHelper& dataLoadHelper);
 
-    // vIndex: 160, symbol: ?addAdditionalSaveData@ItemActor@@MEBAXAEAVCompoundTag@@@Z
+    // vIndex: 148, symbol: ?addAdditionalSaveData@ItemActor@@MEBAXAEAVCompoundTag@@@Z
     virtual void addAdditionalSaveData(class CompoundTag& entityTag) const;
 
     // symbol: ??0ItemActor@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
@@ -144,17 +140,10 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?LIFETIME@ItemActor@@0HB
     MCAPI static int const LIFETIME;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $LIFETIME() { return LIFETIME; }
 
     // NOLINTEND
 };

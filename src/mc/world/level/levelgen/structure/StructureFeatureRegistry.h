@@ -1,6 +1,8 @@
 #pragma once
 
 #include "mc/_HeaderOutputPredefine.h"
+#include "mc/world/level/chunk/ChunkGeneratorStructureState.h"
+#include "mc/world/level/levelgen/structure/StructureCache.h"
 
 // auto generated inclusion list
 #include "mc/world/level/levelgen/structure/StructureFeatureType.h"
@@ -14,12 +16,16 @@ class StructureFeature;
 
 class StructureFeatureRegistry {
 public:
-    std::vector<std::unique_ptr<StructureFeature>> mStructureFeatures;
+    br::worldgen::ChunkGeneratorStructureState     mChunkGeneratorStructureState; // this+0x0
+    std::vector<std::unique_ptr<StructureFeature>> mStructureFeatures;            // this+0x30
+    br::worldgen::StructureCache                   mStructureCache;               // this+0x48
 
+public:
     // prevent constructor by default
     StructureFeatureRegistry& operator=(StructureFeatureRegistry const&);
     StructureFeatureRegistry(StructureFeatureRegistry const&);
 
+public:
     template <std::derived_from<StructureFeature> T, class... Args>
     T& registerFeature(Args&&... args) {
         auto ptr = std::make_unique<T>(std::forward<Args>(args)...);
@@ -46,6 +52,9 @@ public:
 
     // symbol: ?structureCache@StructureFeatureRegistry@@QEAAAEAVStructureCache@worldgen@br@@XZ
     MCAPI class br::worldgen::StructureCache& structureCache();
+
+    // symbol: ?tick@StructureFeatureRegistry@@QEAAXXZ
+    MCAPI void tick();
 
     // symbol: ?waitForBlueprints@StructureFeatureRegistry@@QEBAXXZ
     MCAPI void waitForBlueprints() const;

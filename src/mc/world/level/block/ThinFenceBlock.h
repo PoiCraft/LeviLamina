@@ -83,44 +83,25 @@ public:
     // vIndex: 25, symbol: ?canConnect@ThinFenceBlock@@UEBA_NAEBVBlock@@E0@Z
     virtual bool canConnect(class Block const& otherBlock, uchar toOther, class Block const& thisBlock) const;
 
-    // vIndex: 35, symbol: ?isThinFenceBlock@ThinFenceBlock@@UEBA_NXZ
+    // vIndex: 36, symbol: ?isThinFenceBlock@ThinFenceBlock@@UEBA_NXZ
     virtual bool isThinFenceBlock() const;
 
-    // vIndex: 56, symbol: ?canContainLiquid@ThinFenceBlock@@UEBA_NXZ
+    // vIndex: 57, symbol: ?canContainLiquid@ThinFenceBlock@@UEBA_NXZ
     virtual bool canContainLiquid() const;
 
-    // vIndex: 89, symbol: ?breaksFallingBlocks@ThinFenceBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
+    // vIndex: 90, symbol: ?breaksFallingBlocks@ThinFenceBlock@@UEBA_NAEBVBlock@@VBaseGameVersion@@@Z
     virtual bool breaksFallingBlocks(class Block const& block, class BaseGameVersion version) const;
 
-    // vIndex: 164, symbol: ?getResourceCount@ThinFenceBlock@@UEBAHAEAVRandomize@@AEBVBlock@@H@Z
-    virtual int getResourceCount(class Randomize&, class Block const&, int) const;
-
     // symbol:
-    // ??0ThinFenceBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVMaterial@@_N22@Z
-    MCAPI ThinFenceBlock(
-        std::string const&    nameId,
-        int                   id,
-        class Material const& material,
-        bool                  dropsResources,
-        bool                  singleSide,
-        bool                  useableInCommands
-    );
+    // ??0ThinFenceBlock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HAEBVMaterial@@_N2@Z
+    MCAPI ThinFenceBlock(std::string const&, int, class Material const&, bool, bool);
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?THIN_FENCE_DOESNT_BREAK_FALLING_BLOCK_VERSION@ThinFenceBlock@@0VBaseGameVersion@@B
     MCAPI static class BaseGameVersion const THIN_FENCE_DOESNT_BREAK_FALLING_BLOCK_VERSION;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $THIN_FENCE_DOESNT_BREAK_FALLING_BLOCK_VERSION() {
-        return THIN_FENCE_DOESNT_BREAK_FALLING_BLOCK_VERSION;
-    }
 
     // NOLINTEND
 };

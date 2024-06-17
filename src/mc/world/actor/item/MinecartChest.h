@@ -10,7 +10,6 @@
 #include "mc/entity/utilities/ActorType.h"
 #include "mc/enums/ArmorMaterialType.h"
 #include "mc/enums/ArmorSlot.h"
-#include "mc/enums/ArmorTextureType.h"
 #include "mc/enums/HandSlot.h"
 #include "mc/enums/InputMode.h"
 #include "mc/enums/MaterialType.h"
@@ -40,16 +39,16 @@ public:
     // vIndex: 10, symbol: __gen_??1MinecartChest@@UEAA@XZ
     virtual ~MinecartChest() = default;
 
-    // vIndex: 163, symbol: ?destroy@MinecartChest@@UEAAXAEBVActorDamageSource@@_N@Z
+    // vIndex: 151, symbol: ?destroy@MinecartChest@@UEAAXAEBVActorDamageSource@@_N@Z
     virtual void destroy(class ActorDamageSource const& source, bool dropMinecartComponents);
 
-    // vIndex: 164, symbol: ?getType@MinecartChest@@UEAA?AW4MinecartType@@XZ
+    // vIndex: 152, symbol: ?getType@MinecartChest@@UEAA?AW4MinecartType@@XZ
     virtual ::MinecartType getType();
 
-    // vIndex: 165, symbol: ?getDefaultDisplayBlock@MinecartChest@@UEBAPEBVBlock@@XZ
+    // vIndex: 153, symbol: ?getDefaultDisplayBlock@MinecartChest@@UEBAPEBVBlock@@XZ
     virtual class Block const* getDefaultDisplayBlock() const;
 
-    // vIndex: 167, symbol: ?applyNaturalSlowdown@MinecartChest@@UEAAXAEAVBlockSource@@@Z
+    // vIndex: 155, symbol: ?applyNaturalSlowdown@MinecartChest@@UEAAXAEAVBlockSource@@@Z
     virtual void applyNaturalSlowdown(class BlockSource& region);
 
     // symbol: ??0MinecartChest@@QEAA@PEAVActorDefinitionGroup@@AEBUActorDefinitionIdentifier@@AEAVEntityContext@@@Z
@@ -61,17 +60,10 @@ public:
 
     // NOLINTEND
 
-private:
+    // private:
     // NOLINTBEGIN
     // symbol: ?ITEMS_SIZE@MinecartChest@@0HB
     MCAPI static int const ITEMS_SIZE;
-
-    // NOLINTEND
-
-    // member accessor
-public:
-    // NOLINTBEGIN
-    static auto& $ITEMS_SIZE() { return ITEMS_SIZE; }
 
     // NOLINTEND
 };
